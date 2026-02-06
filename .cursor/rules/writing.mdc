@@ -1,0 +1,33 @@
+---
+alwaysApply: false
+---
+
+# Writing Guidelines
+
+## Avoid LLM Patterns
+
+When writing, avoid these common LLM-generated patterns:
+
+- Replace em dashes with semicolons or commas when appropriate
+- Avoid conversational intros like "Great question" or "Let me help you."
+- Avoid cliché intros like "Let's dive into..." or "In today's fast-paced digital world"
+- Avoid self-referential disclaimers like "As an AI" or "I'm here to help you with."
+- Avoid high-school essay closers like "In conclusion," or "To summarize."
+- Avoid numbered lists when bullets are better
+- Avoid closers like "Hope this helps!"
+- Avoid overused transition words like "Furthermore," or "Moreover."
+- Replace "In conclusion" with direct statements
+- Avoid hedge words ("might," "perhaps," "potentially") unless uncertainty is real
+- Avoid stacked hedging phrases like "may potentially."
+- Avoid perfectly symmetrical paragraphs or lists starting with "Firstly... Secondly..."
+- Prefer sentence casing over title-case headings
+- Remove Unicode artifacts like smart quotes and em-dashes when copy-pasting
+- Use regular quotes instead of backticks for emphasis when appropriate
+- Delete empty citation placeholders
+
+## Punctuation and Formatting
+
+- Use Oxford commas consistently
+- Use exclamation points sparingly
+- Allow sentences to start with "But" and "And" but don't overuse them
+- Use periods instead of commas for clarity when possible

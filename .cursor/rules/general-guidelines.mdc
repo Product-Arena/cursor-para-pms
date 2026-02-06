@@ -1,0 +1,153 @@
+---
+alwaysApply: true
+---
+
+# General Development Guidelines
+
+## Code guidelines
+
+### Core Principles
+
+### 1. Clean and Readable Code
+
+- Prioritize clarity over cleverness
+- Use descriptive names for variables, functions, and classes
+- Keep functions small with single responsibility
+
+### 2. DRY (Don't Repeat Yourself)
+
+- Avoid code duplication
+- Extract common logic into reusable functions/classes
+- Use libraries and frameworks when appropriate
+
+### 3. YAGNI (You Aren't Gonna Need It)
+
+- Don't add features until they're really needed
+- Avoid over-engineering
+- Keep solutions simple
+
+### 4. Testing
+
+- Write tests for critical functionality
+- Tests should be fast and independent
+- Use TDD when appropriate
+
+### 5. Security
+
+- Never commit credentials or API keys
+- Validate and sanitize user inputs
+- Use HTTPS in production
+- Keep dependencies updated
+
+### Code Language
+
+**CRITICAL: All code must be written in English**, including:
+
+- Variable names
+- Function names
+- Class names
+- Comments
+- Documentation strings
+- Error messages
+- Log messages
+- **File names** (use English names)
+- **Documentation files** (README, guides, etc.)
+- **All project documentation**
+
+**This rule is MANDATORY and applies even if:**
+
+- The application interface is in Portuguese or other languages
+- The user speaks in Portuguese during conversation
+- The project is for a Portuguese-speaking audience
+
+**Before creating any file or writing any code:**
+
+1. Check this rule
+2. Use English for ALL technical content
+3. Only user-facing content (UI text, user guides) can be in other languages
+
+**Violation of this rule will require immediate correction.**
+
+### Version Control (Git)
+
+### Commit Messages
+
+**Format**: `type(scope): clear summary of what was implemented`
+
+**Guidelines**:
+
+- Use simple, clear English that non-developers can understand
+- Focus on **what** was implemented, not how
+- Keep the summary concise but descriptive
+- Examples:
+  - `feat(auth): add user login with email and password`
+  - `fix(payment): resolve issue with credit card processing`
+  - `docs(api): update API documentation with new endpoints`
+  - `style(ui): improve button spacing on mobile devices`
+
+**Common Types**:
+
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes (formatting, etc.)
+- `refactor`: Code restructuring without changing functionality
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks (dependencies, config, etc.)
+
+**Good Commit Messages**:
+
+- ✅ `feat(email): add automatic forwarding to Gmail`
+- ✅ `fix(login): correct password validation error`
+- ✅ `docs(api): explain how to authenticate requests`
+
+**Bad Commit Messages**:
+
+- ❌ `fixed bug`
+- ❌ `updated stuff`
+- ❌ `refactored code`
+
+### Branch Naming
+
+- `main/master`: Production code
+- `develop`: Active development
+- `feature/*`: New features (e.g., `feature/user-authentication`)
+- `fix/*`: Bug fixes (e.g., `fix/payment-processing`)
+- `hotfix/*`: Urgent fixes (e.g., `hotfix/security-patch`)
+
+### Performance
+
+- Measure before optimizing
+- Consider caching when appropriate
+- Optimize database queries
+- Monitor performance in production
+
+### Communication
+
+- Be clear and direct in code reviews
+- Provide constructive feedback
+- Ask questions when in doubt
+- Share knowledge with the team
+
+## Cursor guidelines
+
+Keep the workspace organized and avoid unnecessary files.
+
+### Prefer the chat
+
+Respond in the chat (do not create files) for:
+
+- Checklists and validation lists
+- Step-by-step setup instructions (APIs, OAuth, etc.)
+- Short summaries and reference notes
+- One-off instructions that are not official project documentation
+
+### Create files only when
+
+- The user explicitly asks to save or create a file
+- It is a project artifact (README, PRD, design system, etc.) per project structure
+- The content is too large for the chat or needs to be versioned/reused
+
+### Temporary files
+
+When writing to disk is necessary (e.g. very long content), use `.cursor/temp/` or `/tmp/` and state in the response that the file is temporary and can be deleted.

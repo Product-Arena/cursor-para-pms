@@ -1,0 +1,123 @@
+---
+alwaysApply: true
+---
+
+# Code Style Standards
+
+## Formatting
+
+### Indentation
+
+- Use 2 spaces for JavaScript/TypeScript/JSON
+- Use 4 spaces for Python
+- Use tabs according to language standards
+
+### Line Length
+
+- Maximum 100-120 characters per line
+- Break long lines in a readable way
+
+### Spacing
+
+- Use space after commas
+- Use space around operators
+- Remove trailing whitespace
+
+## Naming Conventions
+
+### Variables and Functions
+
+- Use camelCase: `userName`, `calculateTotal()`
+- Use descriptive names: `userCount` is better than `uc`
+- For booleans, use prefixes like `is`, `has`, `can`: `isActive`, `hasPermission`
+
+### Constants
+
+- Use UPPER_SNAKE_CASE: `MAX_RETRY_COUNT`, `API_BASE_URL`
+
+### Classes
+
+- Use PascalCase: `UserService`, `PaymentProcessor`
+
+### Files
+
+- Use kebab-case for files: `user-service.ts`, `api-client.js`
+- Use PascalCase for React components: `UserProfile.tsx`
+
+## Imports
+
+- Order imports: external → internal
+- Use absolute imports when possible
+- Group related imports
+
+## Code Comments
+
+- Write comments that explain "why" not "what"
+- Use simple language in comments
+- Comment complex logic for non-developers to understand
+- Comment only when necessary (code should be self-explanatory)
+
+## JavaScript/TypeScript
+
+### Types
+
+- Use TypeScript when possible
+- Define explicit types for public functions
+- Avoid `any`, use `unknown` when necessary
+
+### Functions
+
+- Use arrow functions for callbacks
+- Prefer `const` over `let`, avoid `var`
+- Use destructuring when appropriate
+
+### Async/Await
+
+- Prefer async/await over chained Promises
+- Handle errors properly with try/catch
+
+## Python
+
+### PEP 8
+
+- Follow PEP 8 style guide
+- Use snake_case for variables and functions
+- Use PascalCase for classes
+
+### Docstrings
+
+- Document functions and classes with docstrings
+- Use Google or NumPy style
+
+## SQL
+
+### Naming
+
+- Use snake_case for tables and columns
+- Descriptive names: `user_profiles` is better than `usr_prf`
+- Use plural for tables: `users`, `orders`
+
+### Formatting
+
+- Capitalize SQL keywords: `SELECT`, `FROM`, `WHERE`
+- One column per line in SELECT
+- Indent subqueries
+
+## CSS
+
+### Methodology
+
+- Use BEM or similar for naming
+- Organize by components
+- Avoid inline styles when possible
+
+### Naming
+
+```css
+.block {
+}
+.block__element {
+}
+.block--modifier {
+}
+```

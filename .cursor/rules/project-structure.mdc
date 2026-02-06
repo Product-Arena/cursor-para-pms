@@ -1,0 +1,159 @@
+---
+alwaysApply: true
+---
+
+# Standard Project Structure
+
+## Organization Principles
+
+### By Feature (Feature-based)
+Organize code by functionality/domain, not by file type.
+
+```
+src/
+├── auth/
+│   ├── auth.service.ts
+│   ├── auth.controller.ts
+│   ├── auth.types.ts
+│   └── auth.test.ts
+├── users/
+│   ├── user.service.ts
+│   ├── user.controller.ts
+│   └── user.types.ts
+└── shared/
+    ├── utils/
+    ├── types/
+    └── constants/
+```
+
+### By Layer (Layer-based)
+Alternative for larger projects or when architecture requires clear separation.
+
+```
+src/
+├── domain/
+│   ├── entities/
+│   ├── repositories/
+│   └── services/
+├── infrastructure/
+│   ├── database/
+│   ├── api/
+│   └── external/
+├── application/
+│   ├── use-cases/
+│   └── dto/
+└── presentation/
+    ├── controllers/
+    ├── views/
+    └── components/
+```
+
+## Standard Structure for Web Projects
+
+```
+project-root/
+├── src/
+│   ├── app/              # Main application (Next.js, etc)
+│   ├── components/       # Reusable components
+│   ├── lib/              # Libraries and utilities
+│   ├── hooks/            # Custom hooks (React)
+│   ├── types/            # Type definitions
+│   ├── config/           # Configuration
+│   └── styles/           # Global styles
+├── public/               # Static files
+├── tests/                # Integration/E2E tests
+├── docs/                 # Documentation
+├── scripts/              # Build/deploy scripts
+├── .env.example          # Environment variables template
+├── .gitignore
+├── README.md
+└── package.json
+```
+
+## Standard Structure for APIs
+
+```
+api/
+├── src/
+│   ├── routes/           # API routes
+│   ├── controllers/      # Control logic
+│   ├── services/         # Business logic
+│   ├── models/           # Data models
+│   ├── middleware/       # Middlewares
+│   ├── utils/            # Utilities
+│   └── config/           # Configuration
+├── tests/
+├── migrations/           # Database migrations
+└── README.md
+```
+
+## Standard Structure for Venture Builder Projects
+
+Every project created through the venture builder workflow must follow this structure:
+
+```
+projects/[project-name]/
+├── documents/                              # Strategic documents (ALWAYS present)
+│   ├── product-strategy-[project-name].md # Business strategy and vision
+│   ├── prd-[project-name].md              # Product requirements document
+│   ├── analytics-events-[project-name].csv # Analytics event catalog (recommended)
+│   ├── marketing-guide-[project-name].md  # Marketing and communication guide
+│   ├── design-system-[project-name].md   # Visual design system
+│   ├── user-research.md                   # Optional: user research
+│   └── README.md                          # Documents index and structure
+├── src/                          # Application code (created when needed)
+│   ├── components/              # Reusable components
+│   ├── pages/                   # Page components
+│   ├── lib/                     # Libraries and utilities
+│   ├── hooks/                   # Custom hooks (React)
+│   ├── types/                   # Type definitions
+│   ├── config/                  # Configuration
+│   └── styles/                  # Global styles
+├── public/                       # Static assets
+├── README.md                     # Project overview
+└── [config files]                # package.json, tailwind.config.ts, etc.
+```
+
+**Critical Requirements:**
+- Every project MUST have a `documents/` folder
+- Minimum required documents: `product-strategy-[project-name].md`, `prd-[project-name].md`, `design-system-[project-name].md`
+- Recommended documents: `analytics-events-[project-name].csv` (for analytics tracking)
+- **Naming Convention:** All standard documents follow the pattern `[document-type]-[project-name].md` (or `.csv` for analytics events) to avoid conflicts when working with multiple projects
+- Documents folder structure is standardized across all projects
+- Design system document drives visual consistency through workspace-level rules
+- Analytics Event Catalog enables KPI tracking and follows Analytics Tracking Standard
+- Project folder name should be in kebab-case (e.g., `my-awesome-business`)
+
+**Workflow:**
+1. `/start-a-business` creates project structure and `documents/` folder
+2. Product Strategy is created first in `documents/product-strategy-[project-name].md`
+3. PRD is created based on Product Strategy in `documents/prd-[project-name].md`
+4. Analytics Event Catalog is created based on PRD KPIs in `documents/analytics-events-[project-name].csv` (recommended)
+5. Marketing Guide is created based on Product Strategy in `documents/marketing-guide-[project-name].md`
+6. Design System is created based on Product Strategy + PRD in `documents/design-system-[project-name].md`
+7. Design System automatically generates `src/index.css` and `tailwind.config.ts`
+
+## Naming Conventions
+
+### Directories
+- Use kebab-case: `user-profile`, `api-client`
+- Use camelCase for React component directories: `UserProfile`
+
+**Note:** For file naming conventions, see `code-style.mdc`.
+
+## Configuration Files
+
+Keep at project root:
+- `.env.example` - Environment variables template
+- `.gitignore` - Files ignored by Git
+- `.editorconfig` - Editor configuration
+- `README.md` - Main documentation
+- `LICENSE` - Project license
+
+## Separation of Concerns
+
+- **Services**: Pure business logic
+- **Controllers**: Coordination between requests and services
+- **Models/Entities**: Data structure
+- **Utils/Helpers**: Helper functions without business dependencies
+- **Types**: Type and interface definitions

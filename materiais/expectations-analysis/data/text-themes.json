@@ -1,0 +1,202 @@
+{
+  "expectations": [
+    {
+      "theme_id": "theme_0",
+      "label_pt": "Autonomia e uso prático",
+      "keywords": [
+        "autonomia",
+        "prático",
+        "dia a dia",
+        "operacionalizar",
+        "utilizar",
+        "sair da estaca zero"
+      ],
+      "quotes": [
+        "Enxergar um passo além e ter mais autonomia.",
+        "Sair da estaca zero em Cursor para, pelo menos, 1 uso prático no dia a dia.",
+        "Conhecer mais sobre o Cursor, entender a entrega de valor delas para um PM e pensar em aplicações no meu dia a dia",
+        "Minha expectativa é transitar do uso de IAs generativas de texto para ferramentas que me deem autonomia técnica. Quero entender como o Cursor pode me ajudar a prototipar ideias e facilitar a comunicação com o time de engenharia.",
+        "Conhecer e saber operacionalizar de forma prática.",
+        "Aprender a utilizar a IA para facilitar o dia a dia em produto, automatizando processos operacionais e repetitivos.",
+        "Utilizar cursor no meu dia a dia profissional"
+      ],
+      "count": 7
+    },
+    {
+      "theme_id": "theme_1",
+      "label_pt": "Prototipar e comunicar com engenharia",
+      "keywords": [
+        "prototipar",
+        "protótipos",
+        "comunicação",
+        "engenharia",
+        "ideias",
+        "fluxos",
+        "onboarding"
+      ],
+      "quotes": [
+        "Avançar na apresentação de protótipos, e automação de tarefas"
+      ],
+      "count": 1
+    },
+    {
+      "theme_id": "theme_2",
+      "label_pt": "Evolução e novas ferramentas",
+      "keywords": [
+        "evoluir",
+        "aprender",
+        "novas ferramentas",
+        "habilidades",
+        "cursor",
+        "vibe coding"
+      ],
+      "quotes": [
+        "Evoluir as habilidades com IA",
+        "Aprender a escrever melhores historias com as ferramentas de detalhamento de codigo",
+        "Entender e aprender uma nova funcionalidade",
+        "Explorar casos de uso com vibe coding",
+        "Aprender novas ferramentas",
+        "Aprender uma nova ferramenta que possa me provocar a ampliar meus horizontes"
+      ],
+      "count": 6
+    },
+    {
+      "theme_id": "theme_3",
+      "label_pt": "Liderança e performance",
+      "keywords": [
+        "performance",
+        "líder",
+        "estratégia",
+        "dados",
+        "produtos complexos",
+        "desenvolvimento"
+      ],
+      "quotes": [
+        "Quero um curso que eleve minha performance como líder de produto, conectando estratégia, IA e dados com aplicação real em produtos complexos, para acelerar meu desenvolvimento."
+      ],
+      "count": 1
+    },
+    {
+      "theme_id": "theme_other",
+      "label_pt": "Outros",
+      "keywords": [],
+      "quotes": [
+        "Sair da zona de entendo as possibilisades para te fato começar estar presente na rotina",
+        "Entender um pouco mais e praticar IA aplicada a produtos."
+      ],
+      "count": 2
+    }
+  ],
+  "flow_to_improve": [
+    {
+      "theme_id": "theme_0",
+      "label_pt": "Dashboards e relatórios",
+      "keywords": [
+        "dashboard",
+        "report",
+        "relatório",
+        "executivo",
+        "csat",
+        "classificação"
+      ],
+      "quotes": [
+        "CSAT - Classificação e criação de dashboards",
+        "Sim. Um fluxo que eu buscaria evoluir ainda mais com IA é a consolidação de informações estratégicas que hoje ficam espalhadas entre reuniões, materiais de clientes, análises regulatórias e construção de planos de ação. Tenho bastante interação com múltiplos projetos simultaneamente, então automatizar a captura de insights, geração de resumos executivos e conexão desses aprendizados com backlog, p",
+        "Report de entrevistas ou discovery para clientes internos",
+        "Criação de report executivo"
+      ],
+      "count": 4
+    },
+    {
+      "theme_id": "theme_1",
+      "label_pt": "Protótipos e APIs",
+      "keywords": [
+        "api",
+        "tela",
+        "autosserviço",
+        "protótipo",
+        "conectar"
+      ],
+      "quotes": [
+        "Minha expectativa é aprender a utilizar o Cursor para criar protótipos de fluxos de onboarding. Quero ganhar autonomia para validar hipóteses de experiência do usuário (UX) e regras de negócio.",
+        "Gostaria de conectar API a uma tela básica, afim de fornecer autosserviço para clientes."
+      ],
+      "count": 2
+    },
+    {
+      "theme_id": "theme_2",
+      "label_pt": "Documentação e descoberta",
+      "keywords": [
+        "documentação",
+        "documentações",
+        "testes",
+        "entrevistas",
+        "discovery",
+        "prd"
+      ],
+      "quotes": [
+        "Documentações e testes.",
+        "Escrever PRD"
+      ],
+      "count": 2
+    },
+    {
+      "theme_id": "theme_3",
+      "label_pt": "Priorização e backlog",
+      "keywords": [
+        "priorização",
+        "backlog",
+        "demandas",
+        "insights",
+        "resumos",
+        "planos de ação"
+      ],
+      "quotes": [
+        "Priorização quando surgem demandas atravessadas"
+      ],
+      "count": 1
+    },
+    {
+      "theme_id": "theme_4",
+      "label_pt": "Reuniões e 1:1",
+      "keywords": [
+        "1:1",
+        "reuniões",
+        "follow",
+        "time",
+        "tarefas operacionais"
+      ],
+      "quotes": [
+        "1:1s e follow update com time",
+        "Tarefas operacionais do dia a dia."
+      ],
+      "count": 2
+    },
+    {
+      "theme_id": "theme_5",
+      "label_pt": "Pesquisa e agentes",
+      "keywords": [
+        "agentes",
+        "pesquisa",
+        "mercado",
+        "consumo",
+        "oportunidades"
+      ],
+      "quotes": [
+        "Criar agentes de pesquisa para dados de mercado e consumo para mapear oportunidades de novos produtos e soluções para nichos diversos."
+      ],
+      "count": 1
+    },
+    {
+      "theme_id": "theme_other",
+      "label_pt": "Outros",
+      "keywords": [],
+      "quotes": [
+        "Integrações entre sistemas, identificação de tipos de documentos via previa de leitura, Agente que responde chamados de bugs no teams.",
+        "Sim, resumo de noticias e lembretes de to do já acordados",
+        "Aprender a fazer jornadas e benchmarking mais robustos"
+      ],
+      "count": 3
+    }
+  ]
+}

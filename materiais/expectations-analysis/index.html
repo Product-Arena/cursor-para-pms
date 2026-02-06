@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análise de expectativas | Cursor para PMs</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Análise de <span class="accent">expectativas</span> — Cursor para PMs</h1>
+    <p>Respostas do questionário pré-curso: distribuições e temas para ajuste do material.</p>
+  </header>
+  <main>
+    <section id="filters-section" class="filters-section" aria-label="Filtros">
+      <h2>Filtros</h2>
+      <div class="filters">
+        <label for="filter-ai">Uso com IA:</label>
+        <select id="filter-ai" aria-label="Filtrar por nível de uso com IA">
+          <option value="">Todos</option>
+        </select>
+        <label for="filter-api">APIs/WebHooks:</label>
+        <select id="filter-api" aria-label="Filtrar por conhecimento em APIs">
+          <option value="">Todos</option>
+        </select>
+        <label for="filter-tshirt">Camiseta:</label>
+        <select id="filter-tshirt" aria-label="Filtrar por tamanho de camiseta">
+          <option value="">Todos</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="charts-section" aria-label="Gráficos">
+      <h2>Distribuições</h2>
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>Uso atual com ferramentas de IA</h3>
+          <div id="chart-ai-usage" class="chart-container" role="img" aria-label="Gráfico de barras: nível de uso com IA"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Conhecimento sobre APIs e WebHooks</h3>
+          <div id="chart-api" class="chart-container" role="img" aria-label="Gráfico de barras: conhecimento em APIs"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Tamanho da camiseta</h3>
+          <div id="chart-tshirt" class="chart-container" role="img" aria-label="Gráfico de barras: tamanho de camiseta"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Stack de ferramentas de IA (top)</h3>
+          <div id="chart-tools" class="chart-container" role="img" aria-label="Gráfico de barras: ferramentas mais usadas"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="themes-section" aria-label="Temas das respostas abertas">
+      <h2>Expectativas com o curso (temas)</h2>
+      <div id="themes-expectations" class="themes-grid"></div>
+      <h2 style="margin-top: 2rem;">Fluxos que gostariam de facilitar com IA (temas)</h2>
+      <div id="themes-flow" class="themes-grid"></div>
+    </section>
+
+    <section id="adjustments-section" class="adjustments-section" aria-label="Recomendações de conteúdo">
+      <h2>Recomendações de conteúdo</h2>
+      <ul id="adjustments-list"></ul>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

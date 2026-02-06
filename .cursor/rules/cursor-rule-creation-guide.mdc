@@ -1,0 +1,73 @@
+---
+alwaysApply: false
+---
+# Cursor Rule Creation Guide
+
+**All new cursor rule files MUST follow the patterns described in this guide.**
+
+## File Placement
+
+This workspace uses a multi-root structure:
+
+- **Root rules** (`WORKSPACE_ROOT/.cursor/rules/`): General rules for all projects (code style, documentation, development guidelines)
+- **Project rules** (`PROJECT_ROOT/.cursor/rules/`): Project-specific conventions, framework patterns
+
+Never place rule files outside `.cursor/rules/` directories.
+
+## Naming Convention
+
+- **MUST** use kebab-case with `.mdc` extension
+- **MUST** use lowercase letters only
+- Examples: ✅ `cursor-rule-creation-guide.mdc`, `code-style.mdc`
+- Avoid: ❌ `CursorRuleCreationGuide.mdc`, `cursor_rule_creation_guide.mdc`
+
+## File Structure
+
+### Frontmatter (Required)
+
+```yaml
+---
+alwaysApply: true
+---
+```
+
+Options:
+- `alwaysApply: true` - Always considered (most common)
+- `alwaysApply: false` - Only when explicitly referenced
+- Optional: `description: "Brief description"`
+- Optional: `globs: "**/*.ts,**/*.js"` - Limit to specific file types
+
+### Content Format
+
+```markdown
+# Rule Title
+
+## Section Name
+
+- Use bullet points for clear instructions
+- Include code examples when helpful
+- Keep rules focused and actionable
+
+\`\`\`javascript
+// Preferred approach
+const result = calculateValue(input);
+\`\`\`
+```
+
+## Best Practices
+
+- Use clear section headers
+- Include concrete code examples
+- Focus on actionable guidelines
+- Keep rules focused on a single concern
+- Use `alwaysApply: true` for fundamental rules
+
+## Quick Checklist
+
+Before creating a new rule:
+
+- ✅ kebab-case name with `.mdc` extension
+- ✅ Placed in correct `.cursor/rules/` directory
+- ✅ Proper frontmatter format
+- ✅ Clear markdown structure
+- ✅ Follows patterns in this guide

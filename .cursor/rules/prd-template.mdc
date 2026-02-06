@@ -1,0 +1,93 @@
+---
+alwaysApply: false
+---
+# PRD Template Usage
+
+## Template Location
+
+The PRD template is located at `.cursor/templates/PRD Template.md` and is accessible from all projects in the workspace.
+
+## When to Use
+
+Use this template when:
+- Transforming existing project documentation into a structured PRD format
+- Creating a new PRD from scratch
+- User requests to format documents as a PRD
+- User asks to "transform docs into PRD format" or similar requests
+
+## Template Structure
+
+The PRD template follows this structure:
+
+1. **Background** (H2)
+   - Problem Statement (H3)
+   - Market Opportunity (H3)
+   - User Personas (H3)
+   - Vision Statement (H3)
+   - Product Origin (H3)
+
+2. **Objectives** (H2)
+   - SMART Goals (H3)
+   - Key Performance Indicators (KPIs) (H3)
+   - Qualitative Objectives (H3)
+   - Strategic Alignment (H3)
+   - Risk Mitigation (H3)
+
+3. **Features** (H2)
+   - Core Features (H3)
+   - User Benefits (H3)
+   - Technical Specifications (H3)
+   - Feature Prioritization (H3)
+   - Future Enhancements (H3)
+
+4. **User Experience** (H2)
+   - User Interface (UI) Design (H3)
+   - User Journey (H3)
+   - Usability Testing (H3)
+   - Accessibility (H3)
+   - Feedback Loops (H3)
+
+5. **Milestones** (H2)
+   - Development Phases (H3)
+   - Critical Path (H3)
+   - Review Points (H3)
+   - Launch Plan (H3)
+   - Post-Launch Evaluation (H3)
+
+6. **Technical Requirements** (H2)
+   - Tech Stack (H3)
+   - System Architecture (H3)
+   - Security Measures (H3)
+   - Performance Metrics (H3)
+   - Integration Requirements (H3)
+
+## Transformation Process
+
+When transforming existing documents into PRD format:
+
+1. **Read the template**: Reference `.cursor/templates/PRD Template.md` to understand the structure
+2. **Analyze source documents**: Review all relevant project documentation, meeting notes, user research, etc.
+3. **Map content**: Match existing information to the appropriate PRD sections
+4. **Fill structure**: Create a new PRD document following the template's heading hierarchy (H1, H2, H3)
+5. **Preserve details**: Include all relevant information from source documents
+6. **Complete sections**: Fill in all sections even if some require "TBD" or placeholder text
+7. **Maintain format**: Follow the exact heading structure and formatting from the template
+
+## Key Principles
+
+- Always use the template structure as the foundation
+- Preserve all relevant information from source documents
+- Fill in sections even if information is incomplete (use placeholders when needed)
+- Maintain the exact heading hierarchy (H1 for title, H2 for main sections, H3 for subsections)
+- Include the Author field at the top
+- Use bullet points and descriptive text as shown in the template
+
+## Example Usage
+
+When user says: "Transform the project docs into PRD format"
+
+1. Read `.cursor/templates/PRD Template.md`
+2. Read all relevant project documentation
+3. Create a new PRD file following the template structure
+4. Map existing content to appropriate sections
+5. Complete all sections with available information

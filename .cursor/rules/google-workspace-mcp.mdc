@@ -1,0 +1,55 @@
+---
+alwaysApply: false
+description: "Google Workspace MCP – default user, calendar and email safeguards. Apply only when the user is using or asking about Google Calendar, Gmail, Drive, Docs, Sheets, or related Google Workspace tools."
+---
+
+# Google Workspace MCP
+
+## When this rule applies
+
+Apply this rule only when the context involves **Google Workspace** tools or services, for example:
+
+- User asks about or uses **Google Calendar** (events, agenda, schedule)
+- User asks about or uses **Gmail** (send, read, search emails)
+- User asks about or uses **Google Drive**, **Docs**, **Sheets**, **Slides**, **Forms**
+- User refers to "my calendar", "my email", "my drive", or similar in a Google context
+
+Do not apply when the conversation is about other topics (e.g. code, other tools, general chat) unless the user explicitly mentions Google/Calendar/Gmail/Drive.
+
+---
+
+## Default user
+
+When using **Google Workspace MCP** tools, always use this user email unless the user explicitly asks for another account:
+
+- **user_google_email**: `luccmattos@gmail.com`
+
+Do not ask for the user's Google email when the task clearly refers to "my calendar", "my email", "my drive", or similar — use the default above.
+
+---
+
+## Calendar – Creating events
+
+**Never create an event without first confirming the details with the user.**
+
+Before calling any create-event tool:
+
+1. Propose the event with: title, date, start/end time (in the user's timezone, e.g. America/Sao_Paulo), location (if any), attendees (if any).
+2. If the user did not specify time or date, ask for their preference instead of choosing arbitrarily.
+3. Only call the create-event tool **after** the user confirms or explicitly approves the proposed details.
+
+When in doubt about a contact (e.g. attendee email), try to infer from past events (e.g. search events by name) and suggest: "Encontrei o e-mail X em outro evento com essa pessoa. Confirma que é esse?" — do not add attendees without confirmation.
+
+---
+
+## Gmail – Sending emails
+
+**Never send an email without the user validating content and confirming the send.**
+
+Before calling any send-email tool:
+
+1. Show the user: **recipients** (To, Cc, Bcc if any), **subject**, and **body** (full text).
+2. Ask the user to validate and to **explicitly confirm** that the email can be sent (e.g. "Posso enviar?" / "Confirmar envio?").
+3. Only call the send-email tool **after** the user confirms the send.
+
+Do not send drafts or queued messages as "send" without the same validation and explicit confirmation.

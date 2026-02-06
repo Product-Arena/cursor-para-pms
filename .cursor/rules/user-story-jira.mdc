@@ -1,0 +1,26 @@
+---
+alwaysApply: false
+---
+# User Story — Template para Jira
+
+## When to Use
+
+- Creating Jira issues or tasks that are user stories
+- User asks to create a user story in Jira
+- Exercise 08 (Criando Task no Jira via Cursor) — use this format
+
+## Template Format
+
+Write user stories in the format:
+
+**Como** [persona/usuário], **quero** [ação/funcionalidade] **para** [benefício/objetivo].
+
+### Example
+
+- **Título (summary):** Como usuário, quero fazer login com Google para acessar minha conta rapidamente.
+- **Descrição:** Detalhe opcional: critérios de aceite, notas técnicas.
+
+## Tips
+
+- Keep the title concise; add details in the description.
+- One story = one valuable outcome for the user.

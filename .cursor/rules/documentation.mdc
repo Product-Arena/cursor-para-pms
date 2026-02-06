@@ -1,0 +1,50 @@
+---
+alwaysApply: false
+---
+
+# Documentation Guidelines
+
+## Language and Tone
+
+- Write in simple, clear English
+- Target non-developers; avoid technical jargon
+- Use plain language over technical terms when possible
+- Explain concepts as if teaching someone new to development
+- Be concise but thorough
+
+## Documentation Structure
+
+### README.md Structure
+
+Every project README should include:
+
+1. **Project Overview**: What it does, why it exists
+2. **Getting Started**: Step-by-step setup instructions
+3. **Usage**: How to use the project
+4. **Configuration**: How to configure settings
+5. **Troubleshooting**: Common issues and solutions
+6. **Glossary**: Technical terms and commands explained for non-developers
+
+### Glossary Requirements
+
+Every README must end with a glossary section that includes:
+
+- **Technical terms** used in the documentation
+- **Commands** with brief explanations of what they do
+- **Functions/methods** with simple descriptions
+- **Tools and technologies** mentioned
+
+Format:
+```markdown
+## Glossary
+
+- **Term/Command**: Simple explanation in plain English
+```
+
+## Writing Tips
+
+- Use active voice ("Click the button" not "The button should be clicked")
+- Break complex processes into numbered steps
+- Use examples and code snippets with comments
+- Include visual cues when helpful (screenshots, diagrams)
+- Link to external resources for deeper understanding

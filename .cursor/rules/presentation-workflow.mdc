@@ -1,0 +1,49 @@
+---
+alwaysApply: false
+description: "Presentation workflow – combine Marp, PPTX, and Google Slides. Apply when the user asks to create or edit presentations, slides, or Google Slides."
+---
+
+# Presentation Workflow
+
+When the user asks to **create or edit presentations/slides**, choose the right tool(s) based on the desired output and combine skills + MCP when useful.
+
+## Available Tools
+
+| Output | Skill / MCP | Use when |
+|--------|-------------|----------|
+| **Marp (.md)** | `/marp-slide` | Markdown slides, themes, export to HTML/PDF via Marp CLI |
+| **PowerPoint (.pptx)** | `/pptx` | Native .pptx, templates, html2pptx, OOXML editing |
+| **Google Slides** | Google Workspace MCP | Create/edit presentations in Google Drive (create_presentation, batch_update_presentation, get_presentation, get_page) |
+
+## Combining Skills
+
+### 1. Content first, then format
+
+- Use **marp-slide** to draft structure and content (titles, bullets, theme) in Markdown.
+- Then either:
+  - **Google Slides**: Create presentation via MCP (`create_presentation`), then use `batch_update_presentation` to add slides and text (Slides API requests).
+  - **PowerPoint**: Use **pptx** (html2pptx or template workflow) to produce a .pptx; user can upload to Drive and open in Google Slides if needed.
+
+### 2. Direct Google Slides
+
+- When the user explicitly wants **Google Slides**:
+  1. Use **create_presentation** (MCP) with title.
+  2. Use **batch_update_presentation** to add slides, text boxes, and content (Google Slides API request format).
+  3. Use **get_presentation** / **get_page** to inspect structure before updating if editing an existing deck.
+
+### 3. PowerPoint → Google Slides (indirect)
+
+- Create .pptx with **pptx** skill.
+- User uploads the file to Google Drive and opens with Google Slides (Google converts .pptx to Slides).
+- Optional: use MCP **list_drive_items** / **get_drive_shareable_link** to work with the uploaded file.
+
+## Default user for Google MCP
+
+When using Google Workspace MCP for presentations, use **user_google_email**: `luccmattos@gmail.com` unless the user specifies another account.
+
+## When to apply this rule
+
+- User says: "criar apresentação", "slides", "Google Slides", "apresentação no Google", "deck", "palestra".
+- User asks to combine Marp + PPTX + Google or to "put this in Google Slides".
+
+Do not apply when the conversation is only about code, other tools, or unrelated topics.

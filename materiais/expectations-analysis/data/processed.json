@@ -1,0 +1,414 @@
+{
+  "meta": {
+    "total_responses": 17
+  },
+  "distributions": {
+    "tshirt_size": {
+      "P": 2,
+      "M": 8,
+      "EXTRA G": 2,
+      "GG": 5
+    },
+    "ai_usage_level": {
+      "Intermediary": 4,
+      "Routine": 2,
+      "Basic": 10,
+      "Advanced": 1
+    },
+    "api_knowledge": {
+      "dayToDay": 8,
+      "knowButNotConcrete": 7,
+      "pandorasBox": 2
+    },
+    "food_restriction": {
+      "none": 13,
+      "hasRestriction": 4
+    },
+    "food_allergens": {
+      "frutos do mar": 2,
+      "camarão": 1,
+      "amendoim": 1,
+      "dieta restrita": 1,
+      "lactose": 1
+    },
+    "top_tools": [
+      {
+        "name": "ChatGPT",
+        "count": 12
+      },
+      {
+        "name": "Gemini",
+        "count": 12
+      },
+      {
+        "name": "Lovable",
+        "count": 6
+      },
+      {
+        "name": "n8n",
+        "count": 5
+      },
+      {
+        "name": "Perplexity",
+        "count": 3
+      },
+      {
+        "name": "Claude",
+        "count": 2
+      },
+      {
+        "name": "Comet",
+        "count": 1
+      },
+      {
+        "name": "Zapier",
+        "count": 1
+      },
+      {
+        "name": "Power Automate",
+        "count": 1
+      },
+      {
+        "name": "pesquisa",
+        "count": 1
+      },
+      {
+        "name": "coisas do dia a dia",
+        "count": 1
+      },
+      {
+        "name": "Manus",
+        "count": 1
+      },
+      {
+        "name": "Copilot",
+        "count": 1
+      },
+      {
+        "name": "não sei :(",
+        "count": 1
+      }
+    ]
+  },
+  "cross_tabs": {
+    "ai_usage_x_api_knowledge": {
+      "Intermediary": {
+        "dayToDay": 2,
+        "knowButNotConcrete": 2
+      },
+      "Routine": {
+        "knowButNotConcrete": 1,
+        "dayToDay": 1
+      },
+      "Basic": {
+        "knowButNotConcrete": 4,
+        "dayToDay": 4,
+        "pandorasBox": 2
+      },
+      "Advanced": {
+        "dayToDay": 1
+      }
+    }
+  },
+  "inconsistent_rows": [
+    0
+  ],
+  "rows": [
+    {
+      "index": 0,
+      "tshirt_size": "P",
+      "ai_usage_level": "Intermediary",
+      "api_knowledge": "dayToDay",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "ChatGPT",
+        "Gemini",
+        "n8n"
+      ],
+      "expectations": "Enxergar um passo além e ter mais autonomia.",
+      "flow_to_improve": "Já está no meu dia a dia, consigo explicar bem e entendo quando e como usar",
+      "expectations_raw": "Enxergar um passo além e ter mais autonomia.",
+      "flow_raw": "Já está no meu dia a dia, consigo explicar bem e entendo quando e como usar"
+    },
+    {
+      "index": 1,
+      "tshirt_size": "M",
+      "ai_usage_level": "Routine",
+      "api_knowledge": "knowButNotConcrete",
+      "food_restriction": "hasRestriction",
+      "food_allergens": [
+        "frutos do mar",
+        "camarão"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Perplexity",
+        "Lovable",
+        "Gemini",
+        "Comet"
+      ],
+      "expectations": "Evoluir as habilidades com IA",
+      "flow_to_improve": "Priorização quando surgem demandas atravessadas",
+      "expectations_raw": "Evoluir as habilidades com IA",
+      "flow_raw": "Priorização quando surgem demandas atravessadas"
+    },
+    {
+      "index": 2,
+      "tshirt_size": "M",
+      "ai_usage_level": "Intermediary",
+      "api_knowledge": "dayToDay",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "Zapier",
+        "ChatGPT",
+        "n8n",
+        "Power Automate"
+      ],
+      "expectations": "Aprender a escrever melhores historias com as ferramentas de detalhamento de codigo",
+      "flow_to_improve": "Integrações entre sistemas, identificação de tipos de documentos via previa de leitura, Agente que responde chamados de bugs no teams.",
+      "expectations_raw": "Aprender a escrever melhores historias com as ferramentas de detalhamento de codigo",
+      "flow_raw": "Integrações entre sistemas, identificação de tipos de documentos via previa de leitura, Agente que responde chamados de bugs no teams."
+    },
+    {
+      "index": 3,
+      "tshirt_size": "P",
+      "ai_usage_level": "Basic",
+      "api_knowledge": "knowButNotConcrete",
+      "food_restriction": "hasRestriction",
+      "food_allergens": [
+        "amendoim"
+      ],
+      "tools": [
+        "ChatGPT",
+        "pesquisa",
+        "Perplexity",
+        "coisas do dia a dia"
+      ],
+      "expectations": "Entender e aprender uma nova funcionalidade",
+      "flow_to_improve": "Sim, resumo de noticias e lembretes de to do já acordados",
+      "expectations_raw": "Entender e aprender uma nova funcionalidade",
+      "flow_raw": "Sim, resumo de noticias e lembretes de to do já acordados"
+    },
+    {
+      "index": 4,
+      "tshirt_size": "EXTRA G",
+      "ai_usage_level": "Advanced",
+      "api_knowledge": "dayToDay",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "Claude",
+        "Gemini",
+        "ChatGPT"
+      ],
+      "expectations": "Explorar casos de uso com vibe coding",
+      "flow_to_improve": "Nao",
+      "expectations_raw": "Explorar casos de uso com vibe coding",
+      "flow_raw": "Nao"
+    },
+    {
+      "index": 5,
+      "tshirt_size": "M",
+      "ai_usage_level": "Basic",
+      "api_knowledge": "knowButNotConcrete",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "ChatGPT",
+        "Gemini"
+      ],
+      "expectations": "Sair da estaca zero em Cursor para, pelo menos, 1 uso prático no dia a dia.",
+      "flow_to_improve": "1:1s e follow update com time",
+      "expectations_raw": "Sair da estaca zero em Cursor para, pelo menos, 1 uso prático no dia a dia.",
+      "flow_raw": "1:1s e follow update com time"
+    },
+    {
+      "index": 6,
+      "tshirt_size": "M",
+      "ai_usage_level": "Intermediary",
+      "api_knowledge": "knowButNotConcrete",
+      "food_restriction": "hasRestriction",
+      "food_allergens": [
+        "dieta restrita"
+      ],
+      "tools": [
+        "ChatGPT",
+        "n8n",
+        "Lovable"
+      ],
+      "expectations": "Quero um curso que eleve minha performance como líder de produto, conectando estratégia, IA e dados com aplicação real em produtos complexos, para acelerar meu desenvolvimento.",
+      "flow_to_improve": "CSAT - Classificação e criação de dashboards",
+      "expectations_raw": "Quero um curso que eleve minha performance como líder de produto, conectando estratégia, IA e dados com aplicação real em produtos complexos, para acelerar meu desenvolvimento.",
+      "flow_raw": "CSAT - Classificação e criação de dashboards"
+    },
+    {
+      "index": 7,
+      "tshirt_size": "M",
+      "ai_usage_level": "Routine",
+      "api_knowledge": "dayToDay",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "ChatGPT",
+        "Gemini",
+        "Lovable",
+        "Manus"
+      ],
+      "expectations": "Conhecer mais sobre o Cursor, entender a entrega de valor delas para um PM e pensar em aplicações no meu dia a dia",
+      "flow_to_improve": "Tarefas operacionais do dia a dia.",
+      "expectations_raw": "Conhecer mais sobre o Cursor, entender a entrega de valor delas para um PM e pensar em aplicações no meu dia a dia",
+      "flow_raw": "Tarefas operacionais do dia a dia."
+    },
+    {
+      "index": 8,
+      "tshirt_size": "M",
+      "ai_usage_level": "Basic",
+      "api_knowledge": "dayToDay",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "Gemini",
+        "Lovable"
+      ],
+      "expectations": "Minha expectativa é transitar do uso de IAs generativas de texto para ferramentas que me deem autonomia técnica. Quero entender como o Cursor pode me ajudar a prototipar ideias e facilitar a comunicação com o time de engenharia.",
+      "flow_to_improve": "Minha expectativa é aprender a utilizar o Cursor para criar protótipos de fluxos de onboarding. Quero ganhar autonomia para validar hipóteses de experiência do usuário (UX) e regras de negócio.",
+      "expectations_raw": "Minha expectativa é transitar do uso de IAs generativas de texto para ferramentas que me deem autonomia técnica. Quero entender como o Cursor pode me ajudar a prototipar ideias e facilitar a comunicação com o time de engenharia.",
+      "flow_raw": "Minha expectativa é aprender a utilizar o Cursor para criar protótipos de fluxos de onboarding. Quero ganhar autonomia para validar hipóteses de experiência do usuário (UX) e regras de negócio."
+    },
+    {
+      "index": 9,
+      "tshirt_size": "GG",
+      "ai_usage_level": "Basic",
+      "api_knowledge": "dayToDay",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "ChatGPT",
+        "Gemini",
+        "n8n",
+        "Lovable"
+      ],
+      "expectations": "Conhecer e saber operacionalizar de forma prática.",
+      "flow_to_improve": "Sim. Um fluxo que eu buscaria evoluir ainda mais com IA é a consolidação de informações estratégicas que hoje ficam espalhadas entre reuniões, materiais de clientes, análises regulatórias e construção de planos de ação. Tenho bastante interação com múltiplos projetos simultaneamente, então automatizar a captura de insights, geração de resumos executivos e conexão desses aprendizados com backlog, priorização e indicadores ajudaria muito a acelerar decisões e reduzir esforço operacional.",
+      "expectations_raw": "Conhecer e saber operacionalizar de forma prática.",
+      "flow_raw": "Sim. Um fluxo que eu buscaria evoluir ainda mais com IA é a consolidação de informações estratégicas que hoje ficam espalhadas entre reuniões, materiais de clientes, análises regulatórias e construção de planos de ação. Tenho bastante interação com múltiplos projetos simultaneamente, então automatizar a captura de insights, geração de resumos executivos e conexão desses aprendizados com backlog, priorização e indicadores ajudaria muito a acelerar decisões e reduzir esforço operacional."
+    },
+    {
+      "index": 10,
+      "tshirt_size": "GG",
+      "ai_usage_level": "Basic",
+      "api_knowledge": "dayToDay",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "Gemini"
+      ],
+      "expectations": "Aprender novas ferramentas",
+      "flow_to_improve": "Gostaria de conectar API a uma tela básica, afim de fornecer autosserviço para clientes.",
+      "expectations_raw": "Aprender novas ferramentas",
+      "flow_raw": "Gostaria de conectar API a uma tela básica, afim de fornecer autosserviço para clientes."
+    },
+    {
+      "index": 11,
+      "tshirt_size": "GG",
+      "ai_usage_level": "Intermediary",
+      "api_knowledge": "knowButNotConcrete",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "Claude",
+        "n8n",
+        "Lovable"
+      ],
+      "expectations": "Sair da zona de entendo as possibilisades para te fato começar estar presente na rotina",
+      "flow_to_improve": "Report de entrevistas ou discovery para clientes internos",
+      "expectations_raw": "Sair da zona de entendo as possibilisades para te fato começar estar presente na rotina",
+      "flow_raw": "Report de entrevistas ou discovery para clientes internos"
+    },
+    {
+      "index": 12,
+      "tshirt_size": "EXTRA G",
+      "ai_usage_level": "Basic",
+      "api_knowledge": "dayToDay",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "Gemini",
+        "ChatGPT",
+        "Copilot"
+      ],
+      "expectations": "Aprender uma nova ferramenta que possa me provocar a ampliar meus horizontes",
+      "flow_to_improve": "Aprender a fazer jornadas e benchmarking mais robustos",
+      "expectations_raw": "Aprender uma nova ferramenta que possa me provocar a ampliar meus horizontes",
+      "flow_raw": "Aprender a fazer jornadas e benchmarking mais robustos"
+    },
+    {
+      "index": 13,
+      "tshirt_size": "GG",
+      "ai_usage_level": "Basic",
+      "api_knowledge": "knowButNotConcrete",
+      "food_restriction": "hasRestriction",
+      "food_allergens": [
+        "frutos do mar",
+        "lactose"
+      ],
+      "tools": [
+        "Gemini",
+        "ChatGPT"
+      ],
+      "expectations": "Aprender a utilizar a IA para facilitar o dia a dia em produto, automatizando processos operacionais e repetitivos.",
+      "flow_to_improve": "Documentações e testes.",
+      "expectations_raw": "Aprender a utilizar a IA para facilitar o dia a dia em produto, automatizando processos operacionais e repetitivos.",
+      "flow_raw": "Documentações e testes."
+    },
+    {
+      "index": 14,
+      "tshirt_size": "GG",
+      "ai_usage_level": "Basic",
+      "api_knowledge": "pandorasBox",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "não sei :("
+      ],
+      "expectations": "Entender um pouco mais e praticar IA aplicada a produtos.",
+      "flow_to_improve": "Criar agentes de pesquisa para dados de mercado e consumo para mapear oportunidades de novos produtos e soluções para nichos diversos.",
+      "expectations_raw": "Entender um pouco mais e praticar IA aplicada a produtos.",
+      "flow_raw": "Criar agentes de pesquisa para dados de mercado e consumo para mapear oportunidades de novos produtos e soluções para nichos diversos."
+    },
+    {
+      "index": 15,
+      "tshirt_size": "M",
+      "ai_usage_level": "Basic",
+      "api_knowledge": "pandorasBox",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "ChatGPT",
+        "Gemini",
+        "Perplexity"
+      ],
+      "expectations": "Avançar na apresentação de protótipos, e automação de tarefas",
+      "flow_to_improve": "Criação de report executivo",
+      "expectations_raw": "Avançar na apresentação de protótipos, e automação de tarefas",
+      "flow_raw": "Criação de report executivo"
+    },
+    {
+      "index": 16,
+      "tshirt_size": "M",
+      "ai_usage_level": "Basic",
+      "api_knowledge": "knowButNotConcrete",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "Gemini"
+      ],
+      "expectations": "Utilizar cursor no meu dia a dia profissional",
+      "flow_to_improve": "Escrever PRD",
+      "expectations_raw": "Utilizar cursor no meu dia a dia profissional",
+      "flow_raw": "Escrever PRD"
+    }
+  ]
+}

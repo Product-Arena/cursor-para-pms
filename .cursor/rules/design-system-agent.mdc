@@ -1,0 +1,115 @@
+---
+alwaysApply: false
+---
+# Design System Agent
+
+## Auto-Detection
+
+When working in any project, automatically check for design system documentation:
+
+1. **Check for design system document:**
+   - Look for `documents/design-system-[project-name].md` in the current project (where [project-name] is the folder name)
+   - Also check for `documents/design-system-*.md` pattern
+   - Alternative: `documents/design-system/README.md`
+   - **Note:** All standard documents follow the pattern `[document-type]-[project-name].md` to avoid conflicts when working with multiple projects
+   - If found, read and apply design system rules
+
+2. **Context-aware application:**
+   - Each project has its own unique design system
+   - When in Plofti project → apply Plofti design system rules
+   - When in minhaprimeiracnh project → apply minhaprimeiracnh design system rules
+   - Rules adapt to the specific project's design system
+
+## Rules Applied
+
+When a design system is detected, always:
+
+### 1. Use Design Tokens (Never Hardcode)
+
+- **Always use CSS variables** for colors: `hsl(var(--primary))`, `bg-primary`, `text-foreground`
+- **Always use Tailwind classes** that reference design tokens: `bg-primary`, `text-primary-foreground`
+- **Never hardcode** colors: ❌ `bg-[#FBBF24]`, ❌ `color: #1F2933`
+- **Never hardcode** fonts: ❌ `font-family: 'Inter'` (use `font-sans` if configured)
+- **Never hardcode** spacing: ❌ `padding: 12px` (use Tailwind spacing scale)
+
+### 2. Guide Component Creation
+
+When creating or modifying components:
+
+- **Check design system** for component patterns (buttons, inputs, cards, etc.)
+- **Follow design system specifications** for component styling
+- **Reference design system colors** from the palette
+- **Use design system typography** hierarchy
+- **Apply design system spacing** principles
+
+### 3. Suggest Component Reuse
+
+Before creating a new component:
+
+- **Check existing components** in `src/components/` for similar functionality
+- **Suggest reusing** existing components when appropriate
+- **Suggest extending** existing components with variants rather than creating new ones
+- **Look for shared components** that follow the design system
+
+### 4. Verify Design System Compliance
+
+When reviewing code:
+
+- **Flag hardcoded values** that should use design tokens
+- **Suggest design system alternatives** for non-compliant styling
+- **Verify colors** match the design system palette
+- **Verify typography** matches the design system hierarchy
+- **Verify spacing** follows the design system scale
+
+## Design System Structure Reference
+
+When reading a design system document, extract:
+
+- **Color palette:** Primary, secondary, background, foreground, supporting colors
+- **Typography:** Font family, weights, hierarchy, line heights
+- **Spacing:** Base unit, scale, layout principles
+- **Components:** Button styles, input styles, card styles, icon styles
+- **Visual principles:** Brand sensation, what to avoid, core visual rule
+
+## Examples
+
+### ✅ Correct Usage
+
+```tsx
+// Using design tokens
+<Button className="bg-primary text-primary-foreground">
+  Click me
+</Button>
+
+// Using Tailwind classes that reference design tokens
+<div className="bg-background text-foreground p-4 rounded-lg">
+  Content
+</div>
+```
+
+### ❌ Incorrect Usage
+
+```tsx
+// Hardcoded colors
+<Button className="bg-[#FBBF24] text-[#1F2933]">
+  Click me
+</Button>
+
+// Hardcoded spacing
+<div style={{ padding: '12px', color: '#1F2933' }}>
+  Content
+</div>
+```
+
+## Integration with Commands
+
+- When `/create-design-system` is run, this rule will automatically apply the newly created design system
+- When components are created, this rule guides them to follow the design system
+- When code is reviewed, this rule flags non-compliance
+
+## Important Notes
+
+- Each project maintains its own unique design system
+- Design system is the single source of truth for visual decisions
+- All components must reference design tokens, never hardcoded values
+- Design system ensures visual consistency across the entire product
