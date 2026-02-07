@@ -1,0 +1,3050 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor para PMs | Product Arena</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #f5f5f5;
+            --bg-secondary: #ebebeb;
+            --bg-tertiary: #e0e0e0;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #777777;
+            --accent: #FF5757;
+            --accent-glow: rgba(255, 87, 87, 0.25);
+            --accent-subtle: rgba(255, 87, 87, 0.12);
+            --border-light: rgba(0, 0, 0, 0.08);
+            --border-medium: rgba(0, 0, 0, 0.12);
+            /* Shadows for depth */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.25s ease;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #1a1a1a;
+            color: var(--text-primary);
+            overflow: hidden;
+            min-height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 16:9 viewport — letterbox */
+        .slide-viewport {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            max-width: 100vw;
+            max-height: 100vh;
+            background: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-counter {
+            position: absolute;
+            bottom: 32px;
+            left: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            z-index: 100;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .slide-counter .current {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .keyboard-hint {
+            position: absolute;
+            bottom: 32px;
+            right: 40px;
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+        }
+        .key {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid var(--border-medium);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .slides-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Ensures title is always below eyebrow; center would push content up on overflow */
+            align-items: center;
+            padding: 80px 100px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(20px);
+            /* Subtle gradient background for depth */
+            background: linear-gradient(175deg, var(--bg-primary) 0%, #ececec 100%);
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* Subtle grain overlay for texture - optional visual depth */
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.015;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .slide > *:not(.slide-eyebrow) {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-eyebrow {
+            position: absolute;
+            z-index: 2;
+            top: 60px;
+            left: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent);
+            margin-bottom: 0;
+        }
+
+        /* Slide de capa: conteúdo centralizado verticalmente (exceção ao flex-start padrão) */
+        .slide-type-capa {
+            justify-content: center;
+        }
+
+        /* Slide de apresentação dos instrutores: mais espaço entre eyebrow e conteúdo */
+        .slide-type-apresentacao .speaker-grid {
+            margin-top: 56px;
+        }
+
+        /* Override for exercise badges to respect position but keep style */
+        .slide-type-exercicio .slide-eyebrow {
+            position: absolute;
+            top: 60px;
+            left: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 87, 87, 0.2);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 6px;
+            margin-bottom: 0;
+            border: 1px solid rgba(255, 87, 87, 0.3);
+        }
+
+        .slide-title {
+            font-size: 2.75rem;
+            font-weight: 700;
+            line-height: 1.15;
+            text-align: center;
+            max-width: 900px;
+            margin-bottom: 24px;
+            margin-top: 28px; /* Vertical rhythm: creates space below absolutely-positioned eyebrow */
+        }
+
+        .slide-title .accent {
+            color: var(--accent);
+        }
+
+        /* Bloco overview: evita conflito entre eyebrow e título */
+        .slide-block-overview .slide-title {
+            margin-top: 44px;
+        }
+
+        /* Slides de conteúdo e parênteses: ajuste de ritmo vertical */
+        .slide-type-parenteses .slide-title {
+            margin-top: 32px; /* Slightly more space on parenteses slides for visual breathing room */
+        }
+
+        .slide-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 720px;
+            line-height: 1.5;
+        }
+
+        .reason-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 28px 32px;
+            width: 280px;
+            text-align: left;
+        }
+
+        .reason-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .reason-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .reason-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .reasons-container {
+            display: flex;
+            gap: 32px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .prompt-container {
+            background: #ffffff;
+            border: 1px solid var(--border-medium);
+            border-radius: 16px;
+            padding: 28px 32px;
+            max-width: 820px;
+            max-height: 50vh;
+            overflow-y: auto;
+            text-align: left;
+            margin-top: 24px;
+        }
+
+        .prompt-label {
+            display: inline-block;
+            background: var(--bg-tertiary);
+            padding: 6px 14px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+
+        .prompt-container pre {
+            font-size: 12px;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            font-family: 'SF Mono', Consolas, monospace;
+            white-space: pre-wrap;
+        }
+
+        .flow-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .ecosystem-scale {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin-top: 24px;
+            flex-wrap: nowrap;
+            justify-content: center;
+            max-width: 1100px;
+        }
+        .ecosystem-unit {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 0 0 auto;
+        }
+        .ecosystem-unit:last-child .flow-arrow { display: none; }
+        .ecosystem-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            min-width: 120px;
+            max-width: 130px;
+        }
+        .ecosystem-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.3;
+            max-width: 130px;
+        }
+        .flow-box {
+            background: #ffffff;
+            border: 1px solid var(--border-medium);
+            border-radius: 12px;
+            padding: 14px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 64px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .flow-box-logo {
+            height: 28px;
+            width: auto;
+            max-width: 72px;
+            object-fit: contain;
+            display: block;
+        }
+        .ecosystem-scale--logos-only .flow-box-logo {
+            height: 48px;
+            max-width: 100px;
+        }
+        .ecosystem-scale--logos-only .flow-box {
+            min-height: 88px;
+            padding: 20px 28px;
+        }
+        .ecosystem-scale--logos-only {
+            gap: 20px;
+        }
+        .flow-box-fallback {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .flow-box.highlighted {
+            background: var(--accent-subtle);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .flow-box.highlighted .flow-box-logo { filter: none; }
+        .flow-box--dark {
+            background: #1a1a1a;
+            border-color: #333;
+            color: #fff;
+        }
+        .flow-box--dark.highlighted {
+            background: #000000;
+            border-color: var(--accent);
+            color: #fff;
+        }
+        .flow-arrow {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            flex-shrink: 0;
+            align-self: center;
+        }
+
+        .agenda-blocks {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 1000px;
+        }
+        .agenda-block {
+            background: #ffffff;
+            border: 1px solid var(--border-medium);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 14px 28px 14px 24px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 20px;
+            align-items: center;
+            box-shadow: var(--shadow-card);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-left-color var(--transition-fast);
+        }
+        .agenda-block:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+            border-left-color: #e04848;
+        }
+        .agenda-block-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            min-width: 120px;
+        }
+        .agenda-block-time {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+            white-space: nowrap;
+            background: var(--accent-subtle);
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+        .agenda-block-content {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .agenda-block--expanded {
+            grid-template-columns: 1fr;
+            padding: 20px 28px 24px 24px;
+        }
+        .agenda-block--expanded .agenda-block-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .agenda-block--expanded .agenda-block-content {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
+        }
+        .agenda-block-expanded-section {
+            margin-top: 16px;
+            font-size: 0.9rem;
+        }
+        .agenda-block-expanded-section:first-child {
+            margin-top: 0;
+        }
+        .agenda-block-expanded-section-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+        .agenda-block-expanded-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .agenda-block-expanded-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 6px 0;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        .agenda-block-expanded-list li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .github-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 28px;
+            max-width: 520px;
+        }
+        .github-step {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 16px 22px;
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+        .github-step-num {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-subtle);
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+        .github-step-text { font-size: 0.95rem; }
+        .github-step-text code {
+            background: var(--bg-tertiary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', Consolas, monospace;
+            font-size: 12px;
+            color: var(--accent);
+        }
+
+        .company-logo-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            background: #ffffff;
+            border: 1px solid var(--border-medium);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .company-logo-badge:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .company-logo-badge--no-bg img {
+            mix-blend-mode: screen;
+        }
+        .company-logo-badge img {
+            height: 26px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* MCP integration logos: fundo transparente ou da cor do slide */
+        .mcp-integration-logos {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            padding: 12px 16px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+        .mcp-integration-logos .mcp-integration-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        .mcp-integration-logos .mcp-integration-icons {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .mcp-integration-logos .mcp-integration-icons img {
+            height: 24px;
+            max-width: 80px;
+            width: auto;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+        .mcp-integration-logos .mcp-integration-icons .mcp-icon-badge {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+            width: 100%;
+        }
+        .step-card {
+            background: #ffffff;
+            border: 1px solid var(--border-medium);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .step-text {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .slide-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 32px;
+            text-align: left;
+        }
+        .slide-split-left .bullet-list {
+            list-style: none;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+        }
+        .slide-split-left .bullet-list li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .image-placeholder {
+            background: #ffffff;
+            border: 2px dashed var(--border-medium);
+            min-height: 220px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        .check-list-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 32px;
+            width: 100%;
+            max-width: 900px;
+        }
+        .check-card {
+            background: #ffffff;
+            border: 1px solid var(--border-medium);
+            border-radius: 12px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: var(--shadow-card);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        .check-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        /* Recap slide: strong contrast so blocks are clearly visible (presentation-design: contrast + hierarchy) */
+        .slide-recap {
+            background: var(--bg-secondary);
+        }
+        .slide-recap .check-card {
+            background: #ffffff;
+            border: 2px solid rgba(0, 0, 0, 0.14);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+        .slide-recap .check-text {
+            color: var(--text-primary);
+        }
+        .check-icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        .check-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .slide-presente {
+            justify-content: flex-start;
+        }
+        .presente-card {
+            background: linear-gradient(135deg, var(--accent-subtle) 0%, #ffffff 100%);
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 40px;
+            align-items: center;
+            text-align: left;
+            max-width: 1000px;
+            width: 100%;
+            padding: 40px 48px;
+        }
+        .presente-card .presente-text {
+            min-width: 0;
+        }
+        .presente-card .presente-image-wrap {
+            min-width: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            max-height: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--bg-tertiary);
+        }
+        .presente-card .presente-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: top center;
+            display: block;
+        }
+
+        .principle-card {
+            background: #ffffff;
+            border-left: 4px solid var(--accent);
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-card);
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        .principle-card:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+        .principle-title { font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+        .principle-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; }
+
+        /* Callout Notion-style */
+        .callout {
+            background: rgba(255, 87, 87, 0.08);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            margin-top: 20px;
+            max-width: 560px;
+            text-align: left;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+        .callout strong { color: var(--accent); }
+
+        /* Callout contrast tweaks when slide has gray background (parênteses / disclaimer) */
+        .slide-type-parenteses .callout {
+            background: #ffffff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
+            border-left-color: var(--accent);
+        }
+
+        /* Callout Pro-Tip (design-system: formato distinto, emoji obrigatório, funciona em qualquer background) */
+        .callout-protip {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border-left: 4px solid #FF5757;
+            background: rgba(255, 87, 87, 0.12);
+            border-radius: 0 8px 8px 0;
+            padding: 12px 16px;
+            margin-top: 20px;
+            max-width: 100%;
+            text-align: left;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+        .callout-protip-icon { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .callout-protip-content { min-width: 0; line-height: 1.5; }
+        .callout-protip-content strong { color: var(--text-primary); }
+        .callout-protip-content a { color: var(--accent); text-decoration: none; }
+        .slide-type-parenteses .callout-protip {
+            background: rgba(255, 87, 87, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+        .slide-type-exercicio .callout-protip,
+        .slide-wow .callout-protip {
+            background: rgba(255, 87, 87, 0.2);
+            color: #f5f5f5;
+        }
+        .slide-type-exercicio .callout-protip-content strong,
+        .slide-wow .callout-protip-content strong { color: #f5f5f5; }
+
+        /* Slide compacto — respeita área segura */
+        .slide--safe-area .slide-split {
+            margin-top: 16px;
+            gap: 28px;
+            max-width: 960px;
+        }
+        .slide--safe-area .principle-card {
+            padding: 14px 20px;
+            margin-bottom: 12px;
+        }
+        .slide--safe-area .principle-title { margin-bottom: 6px; font-size: 0.9rem; }
+        .slide--safe-area .principle-desc { font-size: 0.88rem; line-height: 1.4; }
+        .slide--safe-area .slide-subtitle { font-size: 0.9rem; }
+        .slide--safe-area .prompt-container {
+            padding: 18px 22px;
+            max-height: 320px;
+        }
+        .slide--safe-area .prompt-container pre { font-size: 11px; }
+        .slide--safe-area .callout-protip { margin-top: 12px; padding: 12px 18px; }
+
+        /* Transition slide: Abrindo parênteses */
+        .slide-transition-parenteses {
+            background: linear-gradient(180deg, rgba(0,0,0,0.03) 0%, transparent 50%);
+            border: 2px dashed var(--border-medium);
+        }
+        .slide-transition-parenteses .slide-title { font-size: 2.25rem; }
+        .slide-transition-parenteses .transition-icon {
+            font-size: 4rem;
+            margin-bottom: 24px;
+            opacity: 0.7;
+        }
+
+        /* Transition slide: Exercício / Mão na massa */
+        .slide-transition-exercicio {
+            background: linear-gradient(135deg, var(--accent-subtle) 0%, rgba(255,255,255,0.5) 100%);
+            border: 2px solid var(--accent);
+        }
+        .slide-transition-exercicio .slide-title { font-size: 2.5rem; color: var(--accent); }
+        .slide-transition-exercicio .transition-icon {
+            font-size: 5rem;
+            margin-bottom: 24px;
+            line-height: 1;
+        }
+
+        /* Content slides: Exercício (padrão — design-system: label canto esquerdo, título centralizado, descrição à esquerda, imagem à direita) */
+        .slide-type-exercicio {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+        .slide-type-exercicio .slide-title {
+            color: #ffffff;
+            text-align: center;
+        }
+        .slide-type-exercicio .slide-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .slide-type-exercicio .slide-eyebrow {
+            position: absolute;
+            top: 60px;
+            left: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 87, 87, 0.2);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 6px;
+            margin-bottom: 0;
+            border: 1px solid rgba(255, 87, 87, 0.3);
+        }
+        .slide-type-exercicio .step-badge {
+             background: rgba(255, 255, 255, 0.1);
+             border-color: rgba(255, 255, 255, 0.2);
+        }
+        .slide-type-exercicio .step-badge-label {
+            color: #ffffff;
+        }
+        .slide-type-exercicio .slide-eyebrow::before {
+            content: "✋";
+            font-size: 1rem;
+        }
+
+        /* Wow Moment — full impact */
+        .slide-wow {
+            background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+            color: #fff;
+        }
+        .slide-wow .slide-eyebrow {
+            color: var(--accent);
+            font-size: 11px;
+        }
+        .slide-wow .slide-title {
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        .slide-wow .slide-subtitle {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+        .slide-wow .wow-image-wrap {
+            max-width: 580px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+        }
+        .slide-wow .wow-image-wrap img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .slide-wow .wow-caption {
+            margin-top: 24px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+
+        /* Content slides: Parênteses (after transition) */
+        .slide-type-parenteses {
+            background: linear-gradient(165deg, #d4d8dc 0%, #c0c6cc 100%); /* Subtle gradient for depth */
+        }
+        .slide-type-parenteses .slide-eyebrow {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-style: italic;
+            border-left: 3px solid var(--accent);
+            padding-left: 14px;
+        }
+        .slide-type-parenteses .slide-subtitle {
+            margin-top: 8px; /* Tight coupling with title */
+        }
+
+        .screenshot-container {
+            margin-top: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            max-width: 800px;
+        }
+        .screenshot-image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .speaker-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+            width: 100%;
+            max-width: 1100px;
+            align-items: center;
+            text-align: left;
+        }
+
+        .speaker-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .speaker-avatar {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #e0e0e0 url('assets/avatar-lucas.png') center/cover no-repeat;
+            border-radius: 20px;
+            border: 1px solid var(--border-medium);
+        }
+        .speaker-avatar-arthur {
+            background-image: url('assets/avatar-arthur.png');
+        }
+
+        .speaker-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .speaker-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+        .speaker-link:hover {
+            color: var(--accent);
+        }
+        .speaker-link__icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .speaker-link__icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .speaker-link__icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .speaker-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .speaker-name {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--accent);
+        }
+
+        .speaker-role {
+            font-size: 24px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+
+        .speaker-bio-list {
+            list-style: none;
+            border-left: 3px solid var(--accent);
+            padding-left: 24px;
+            margin: 10px 0;
+        }
+
+        .speaker-bio-item {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .speaker-companies-title {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-top: 20px;
+        }
+
+        .bullet-list {
+            list-style: none;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+        }
+        .bullet-list li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+/* Syntax Highlighting for Code Blocks */
+        .syntax-key { color: #0077aa; font-weight: 600; } /* Blue for keys */
+        .syntax-string { color: #22863a; } /* Green for strings */
+        .syntax-comment { color: #6a737d; font-style: italic; } /* Grey for comments/separators */
+        .syntax-heading { color: #005cc5; font-weight: 700; } /* Darker blue for MD headers */
+        .syntax-list { color: #d73a49; } /* Red for bullets */
+
+        .slide-split-code {
+            display: grid;
+            grid-template-columns: 35% 60%;
+            gap: 5%;
+            width: 100%;
+            max-width: 1200px;
+            align-items: center;
+            text-align: left;
+            margin-top: 32px;
+        }
+        .slide-split-code .slide-left-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .slide-split-code .slide-left-content .slide-title {
+            hyphens: none;
+            overflow-wrap: break-word;
+            word-break: normal;
+        }
+
+        .slide-split-code .prompt-container,
+        .slide-type-parenteses .prompt-container,
+        .slide-type-exercicio .prompt-container {
+            max-width: none;
+            max-height: 65vh;
+            margin-top: 0;
+            font-size: 13px;
+            /* Dark "Cursor-style" code block — high contrast on gray/dark slide */
+            background: #0f0f0f;
+            border: 2px solid #404040;
+            color: #e0e0e0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        .slide-split-code .prompt-container .prompt-label,
+        .slide-type-parenteses .prompt-container .prompt-label,
+        .slide-type-exercicio .prompt-container .prompt-label {
+            background: rgba(255, 255, 255, 0.08);
+            color: #9cdcfe;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .slide-split-code .prompt-container pre,
+        .slide-type-parenteses .prompt-container pre,
+        .slide-type-exercicio .prompt-container pre {
+            color: #e0e0e0;
+        }
+        /* Syntax highlighting on dark background (Cursor/VS Code–like) */
+        .slide-split-code .prompt-container .syntax-key,
+        .slide-type-parenteses .prompt-container .syntax-key,
+        .slide-type-exercicio .prompt-container .syntax-key { color: #9cdcfe; font-weight: 600; }
+        .slide-split-code .prompt-container .syntax-string,
+        .slide-type-parenteses .prompt-container .syntax-string,
+        .slide-type-exercicio .prompt-container .syntax-string { color: #ce9178; }
+        .slide-split-code .prompt-container .syntax-comment,
+        .slide-type-parenteses .prompt-container .syntax-comment,
+        .slide-type-exercicio .prompt-container .syntax-comment { color: #6a9955; font-style: italic; }
+        .slide-split-code .prompt-container .syntax-heading,
+        .slide-type-parenteses .prompt-container .syntax-heading,
+        .slide-type-exercicio .prompt-container .syntax-heading { color: #4ec9b0; font-weight: 700; }
+        .slide-split-code .prompt-container .syntax-list,
+        .slide-type-parenteses .prompt-container .syntax-list,
+        .slide-type-exercicio .prompt-container .syntax-list { color: #c586c0; }
+
+        /* ═══════════════════════════════════════════════════════════════
+           SLIDE TYPE: CONTENT + CODE
+           Fundo branco com blocos à esquerda e código dark à direita.
+           Uso: explicações conceituais com exemplo de código/prompt.
+        ═══════════════════════════════════════════════════════════════ */
+        .slide-type-content-code {
+            background: linear-gradient(175deg, var(--bg-primary) 0%, #ececec 100%);
+        }
+        .slide-type-content-code .slide-split {
+            gap: 48px;
+        }
+        .slide-type-content-code .slide-split-left {
+            flex: 0 0 42%;
+        }
+        .slide-type-content-code .prompt-container {
+            flex: 1;
+            max-width: none;
+            max-height: 420px;
+            margin-top: 0;
+            background: #0f0f0f;
+            border: 2px solid #333;
+            border-radius: 12px;
+            color: #e0e0e0;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            padding: 24px 28px;
+        }
+        .slide-type-content-code .prompt-container .prompt-label {
+            background: rgba(255, 255, 255, 0.08);
+            color: #9cdcfe;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .slide-type-content-code .prompt-container pre {
+            color: #e0e0e0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        /* Syntax highlighting */
+        .slide-type-content-code .prompt-container .syntax-key { color: #9cdcfe; font-weight: 600; }
+        .slide-type-content-code .prompt-container .syntax-string { color: #ce9178; }
+        .slide-type-content-code .prompt-container .syntax-comment { color: #6a9955; font-style: italic; }
+        .slide-type-content-code .prompt-container .syntax-heading { color: #4ec9b0; font-weight: 700; }
+        .slide-type-content-code .prompt-container .syntax-list { color: #c586c0; }
+
+        /* Slide Apresentações — conteúdo denso: ajustes para área segura */
+        .slide-type-content-code.slide--apresentacoes .slide-title {
+            font-size: 2.25rem;
+            margin-bottom: 16px;
+        }
+        .slide-type-content-code.slide--apresentacoes .slide-split {
+            margin-top: 20px;
+            gap: 28px;
+            max-width: 1080px;
+            align-items: stretch;
+        }
+        .slide-type-content-code.slide--apresentacoes .slide-split-left {
+            flex: 0 0 40%;
+            min-width: 0;
+        }
+        .slide-type-content-code.slide--apresentacoes .slide-subtitle {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        .slide-type-content-code.slide--apresentacoes .principle-card {
+            padding: 14px 18px;
+            margin-bottom: 10px;
+        }
+        .slide-type-content-code.slide--apresentacoes .principle-title {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+        .slide-type-content-code.slide--apresentacoes .principle-desc {
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        .slide-type-content-code.slide--apresentacoes .prompt-container {
+            max-height: 340px;
+            padding: 18px 22px;
+            flex: 1;
+            min-height: 0;
+        }
+        .slide-type-content-code.slide--apresentacoes .prompt-container pre {
+            font-size: 11px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-viewport">
+        <div class="slide-counter">
+            <span class="current" id="currentSlide">1</span>/<span id="totalSlides">1</span>
+        </div>
+        <div class="keyboard-hint">
+            <span class="key">←</span>
+            <span class="key">→</span>
+        </div>
+
+        <div class="slides-container">
+
+            <!-- 1: Título (capa) -->
+            <div class="slide slide-type-capa active">
+                <div class="slide-eyebrow">Product Arena</div>
+                <div class="slide-title">Cursor para <span class="accent">PMs</span></div>
+                <div class="slide-subtitle">Arthur Castro · Lucas Mattos</div>
+            </div>
+
+            <!-- 2: Lucas Mattos -->
+            <div class="slide slide-type-apresentacao">
+                <div class="slide-eyebrow">Seus Instrutores</div>
+                <div class="speaker-grid">
+                    <div class="speaker-left">
+                        <div class="speaker-avatar"></div>
+                        <div class="speaker-links">
+                            <a href="https://linkedin.com/in/luccmattos/" class="speaker-link" target="_blank" rel="noopener">
+                                <span class="speaker-link__icon"><img src="assets/linkedin-icon.png" alt=""></span>
+                                <span>in/luccmattos</span>
+                            </a>
+                            <a href="mailto:luccmattos@gmail.com" class="speaker-link">
+                                <span class="speaker-link__icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                                </span>
+                                <span>luccmattos@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="speaker-content">
+                        <div class="speaker-header">
+                            <div class="speaker-name">Lucas Mattos</div>
+                            <div class="speaker-role">GPM GenAI @Disrupt iFood</div>
+                        </div>
+                        <ul class="speaker-bio-list">
+                            <li class="speaker-bio-item">☕️ Mineiro uai</li>
+                            <li class="speaker-bio-item">🤖 Apaixonado por gambiarra desde 2012
+                            <li class="speaker-bio-item">⛵️ Mergulhador com uma quase travessia do Atlântico em um barco à vela</li>
+                        </ul>
+                        <div class="speaker-companies-title">Lugares onde ajudei a construir produtos:</div>
+                        <div class="speaker-logos" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <span class="company-logo-badge"><img src="assets/logo-serena.png" alt="Serena"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-lemon.png" alt="Lemon"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-loft.png" alt="Loft"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-tembici.png" alt="Tembici"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-stone.png" alt="Stone"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-quinstreet.png" alt="QuinStreet"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-neoleads.png" alt="NeoLeads"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-mercadolead.png" alt="MercadoLead"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2b: Arthur -->
+            <div class="slide slide-type-apresentacao">
+                <div class="slide-eyebrow">Seus Instrutores</div>
+                <div class="speaker-grid">
+                    <div class="speaker-left">
+                        <div class="speaker-avatar speaker-avatar-arthur"></div>
+                        <div class="speaker-links">
+                            <a href="https://linkedin.com/in/arthurcastroaraujo/" class="speaker-link" target="_blank" rel="noopener">
+                                <span class="speaker-link__icon"><img src="assets/linkedin-icon.png" alt=""></span>
+                                <span>in/arthurcastroaraujo</span>
+                            </a>
+                            <a href="mailto:arthur@productarena.io" class="speaker-link">
+                                <span class="speaker-link__icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                                </span>
+                                <span>arthur@productarena.io</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="speaker-content">
+                        <div class="speaker-header">
+                            <div class="speaker-name">Arthur Castro</div>
+                            <div class="speaker-role"> CEO & Founder @ Product Arena</div>
+                        </div>
+                        <ul class="speaker-bio-list">
+                            <li class="speaker-bio-item">🍼 Full time Ivy's Dad </li>
+                            <li class="speaker-bio-item">🪂 Paraquedista com uma tentativa de atropelar o avião</li>
+                            <li class="speaker-bio-item">🗣️ Comentador de previsões apocalípticas no Podcast do Papo na Arena</li>
+                        </ul>
+                        <div class="speaker-companies-title">Lugares onde ajudei a construir produtos:</div>
+                        <div class="speaker-logos" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <span class="company-logo-badge"><img src="assets/logo-docket.png" alt="Docket"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-loft.png" alt="Loft"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-tembici.png" alt="Tembici"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-yellow.png" alt="Yellow"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-instacarro.png" alt="InstaCarro"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-youse.png" alt="Youse"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-meitu.png" alt="Meitu"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-esporte-interativo.png" alt="Esporte Interativo"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-dafiti.png" alt="Dafiti"></span>
+                            <span class="company-logo-badge"><img src="assets/logo-movile.png" alt="Movile"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3: Copiloto -->
+            <div class="slide">
+                <div class="slide-eyebrow">Filosofia do curso</div>
+                <div class="slide-title">Cursor como <span class="accent">copiloto</span></div>
+                <div class="slide-subtitle" style="margin-bottom: 32px;">Não como piloto automático — você decide, a IA amplia</div>
+                <div class="reasons-container">
+                    <div class="reason-card">
+                        <div class="reason-number">01</div>
+                        <div class="reason-title">Mão na massa</div>
+                        <div class="reason-desc">Pra quem gosta de construir e entender o que está sendo feito em cada passo.</div>
+                    </div>
+                    <div class="reason-card">
+                        <div class="reason-number">02</div>
+                        <div class="reason-title">Ampliar decisões</div>
+                        <div class="reason-desc">Use a IA para enxergar mais opções, não para decidir no seu lugar.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4: O que vamos aprender -->
+            <div class="slide">
+                <div class="slide-eyebrow">O que vamos fazer</div>
+                <div class="slide-title">O que vamos <span class="accent">aprender</span></div>
+                <div class="check-list-grid" style="margin-top: 40px; max-width: 900px; gap: 24px;">
+                    <div class="check-card">
+                        <div class="check-icon">⚙️</div>
+                        <div class="check-text"><strong>Configurar seu Workspace</strong> — Setup, Rules, Commands.</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">🚀</div>
+                        <div class="check-text"><strong>Otimizar o uso do Cursor</strong> — Ask, Plan, Agent e contexto.</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">📋</div>
+                        <div class="check-text"><strong>Adaptar ao ciclo de produto</strong> — Notas, PRD, dados, Jira, apresentações.</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">🎯</div>
+                        <div class="check-text"><strong>Construir seu protótipo</strong> — Arena Voting System, do planejamento à construção.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5: Diferenças — Cursor além da conversa -->
+            <div class="slide">
+                <div class="slide-eyebrow">Diferenças</div>
+                <div class="slide-title">A <span class="accent">diferença</span> do Cursor</div>
+                <div class="slide-subtitle" style="margin-bottom: 28px;">Ir além da conversa: é ter seu par técnico ao lado, <strong>executando</strong> de verdade no seu ambiente</div>
+                <div class="ecosystem-scale ecosystem-scale--logos-only">
+                    <div class="ecosystem-unit">
+                        <div class="ecosystem-item">
+                            <div class="flow-box">
+                                <img src="assets/chatgpt-logo.png" alt="ChatGPT" class="flow-box-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="flow-box-fallback" style="display:none">ChatGPT</span>
+                            </div>
+                            <div class="ecosystem-desc">Só conversa. Respostas genéricas, sem seu código.</div>
+                        </div>
+                    </div>
+                    <div class="ecosystem-unit">
+                        <div class="ecosystem-item">
+                            <div class="flow-box">
+                                <img src="assets/lovable-logo.png" alt="Lovable" class="flow-box-logo">
+                            </div>
+                            <div class="ecosystem-desc">Apps visuais. Gera UI sem tocar no código.</div>
+                        </div>
+                    </div>
+                    <div class="ecosystem-unit">
+                        <div class="ecosystem-item">
+                            <div class="flow-box">
+                                <img src="assets/n8n-logo.png" alt="n8n" class="flow-box-logo">
+                            </div>
+                            <div class="ecosystem-desc">Automação. Conecta serviços e fluxos.</div>
+                        </div>
+                    </div>
+                    <div class="ecosystem-unit">
+                        <div class="ecosystem-item">
+                            <div class="flow-box flow-box--dark highlighted">
+                                <img src="assets/cursor-logo.png" alt="Cursor" class="flow-box-logo">
+                            </div>
+                            <div class="ecosystem-desc">Seu par técnico de fato. Não só conversa — <strong>executa</strong> no seu workspace.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6: Tudo pronto? (Pré-requisitos) -->
+            <div class="slide">
+                <div class="slide-eyebrow">Antes de começar</div>
+                <div class="slide-title">Tudo <span class="accent">pronto?</span></div>
+                <div class="slide-subtitle">Checklist para o curso</div>
+                <div class="check-list-grid">
+                    <div class="check-card">
+                        <div class="check-icon">✔</div>
+                        <div class="check-text">Cursor instalado + Plano Pro</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">✔</div>
+                        <div class="check-text">Conta GitHub ativa</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">✔</div>
+                        <div class="check-text">Obsidian (opcional)</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">✔</div>
+                        <div class="check-text">Conexão no LinkedIn (Lucas & Arthur)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6b: Agenda do dia -->
+            <div class="slide">
+                <div class="slide-eyebrow">Mapa do bloco 1</div>
+                <div class="slide-title">Agenda do <span class="accent">dia</span></div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">A ideia é ir do "olá, Cursor" até usar a IA como par técnico no seu fluxo de produto.</div>
+                <div class="agenda-blocks">
+                    <div class="agenda-block">
+                        <div class="agenda-block-header">☕ Manhã</div>
+                        <div class="agenda-block-content">Setup, modos do Cursor (Ask, Plan, Agent) e primeiros exercícios.</div>
+                        <div class="agenda-block-time">10:00 – 12:30</div>
+                    </div>
+                    <div class="agenda-block">
+                        <div class="agenda-block-header">🍽️ Pausa almoço</div>
+                        <div class="agenda-block-content">Intervalo para descanso e refeição.</div>
+                        <div class="agenda-block-time">12:30 – 14:00</div>
+                    </div>
+                    <div class="agenda-block">
+                        <div class="agenda-block-header">🧠 Meio do dia</div>
+                        <div class="agenda-block-content">Rules, Commands, MCP Jira e ciclo de produto (notas, PRD, dados, apresentações).</div>
+                        <div class="agenda-block-time">14:00 – 15:30</div>
+                    </div>
+                    <div class="agenda-block">
+                        <div class="agenda-block-header">☕ Café da tarde</div>
+                        <div class="agenda-block-content">Intervalo para café e retomada.</div>
+                        <div class="agenda-block-time">15:30 – 15:45</div>
+                    </div>
+                    <div class="agenda-block">
+                        <div class="agenda-block-header">🚀 Tarde</div>
+                        <div class="agenda-block-content">Construindo seu protótipo — Arena Voting System (PRD, design, histórias, code-review, editor visual).</div>
+                        <div class="agenda-block-time">15:45 – 18:45</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7: Wow Moment -->
+            <div class="slide slide-wow">
+                <div class="slide-eyebrow">Demo</div>
+                <div class="slide-title">Seu dia pode começar com um <span class="accent">comando</span></div>
+                <div class="slide-subtitle">Case “Start my day” — o Cursor na sua rotina</div>
+                <div class="wow-image-wrap">
+                    <img src="assets/jarvis-style.png" alt="Estilo Jarvis — IA que executa no seu ambiente">
+                </div>
+                <div class="wow-caption">Você comanda. Ela executa.</div>
+            </div>
+
+            <!-- 8: Setup workspace -->
+            <div class="slide">
+                <div class="slide-eyebrow">Workspace</div>
+                <div class="slide-title">Setup — Criar seu <span class="accent">workspace</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">1. Crie uma pasta dedicada</div>
+                            <div class="principle-desc">Separe uma pasta só para o curso no seu computador. Ela será o “palco” de tudo que vamos construir.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Abra a pasta no Cursor</div>
+                            <div class="principle-desc">No Cursor, vá em <strong>File → Open Folder</strong> e selecione essa pasta. É assim que o Cursor “enxerga” seus arquivos.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Use sempre o mesmo workspace</div>
+                            <div class="principle-desc">A partir de agora, todos os exercícios e projetos vão viver aqui, no mesmo workspace.</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; max-width: 620px;">
+                        <div class="screenshot-container" style="margin-top: 0; max-width: 100%; max-height: 340px;">
+                            <img src="assets/cursor-setup.png" class="screenshot-image" style="object-position: center top;" alt="Tela do Cursor com workspace aberto">
+                        </div>
+                        <div class="callout-protip" style="margin-top: 20px; max-width: 100%;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Pro tip</strong> — Ativar <strong>File-Deletion Protection</strong> nas configurações do Cursor.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9: Cursor e acesso à máquina -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">Cursor e acesso à <span class="accent">máquina</span></div>
+                <div class="slide-subtitle" style="margin-top: 24px;">Como um IDE: o Cursor navega nos arquivos do seu computador — assim como o terminal. Ele “vê” o que você abre.</div>
+            </div>
+
+            <!-- 10: Exercício Ask -->
+            <div class="slide slide-type-exercicio">
+                <div class="slide-eyebrow">Exercício · Ask</div>
+                <div class="slide-title">Modo <span class="accent">Ask</span></div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 10 minutos</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="slide-subtitle" style="margin-top: 0;">Pergunte: <strong>“O que você é capaz de fazer?”</strong></div>
+                    </div>
+                    <div class="screenshot-container" style="margin-top: 0; max-width: 520px; max-height: 340px;">
+                        <img src="assets/ask-mode.png" class="screenshot-image" alt="Interface do modo Ask no Cursor">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11: GitHub -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">O que é o <span class="accent">GitHub</span>?</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card" style="margin-top: 8px;">
+                            <div class="principle-title">Controle de versão e colaboração</div>
+                            <div class="principle-desc">Plataforma onde repositórios = projetos versionados na nuvem.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title"><code>git clone</code></div>
+                            <div class="principle-desc">Baixar uma cópia do projeto no seu PC.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 24px;">
+                            <span class="callout-protip-icon">📖</span>
+                            <div class="callout-protip-content"><strong>Dicionário</strong> — <span class="accent">Clone</span> = copiar do GitHub · <strong>repo</strong> = repositório = diretório/pasta</div>
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;"><img src="assets/github-repo.png" alt="Repositório no GitHub com arquivos e README" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);"></div>
+                </div>
+            </div>
+
+            <!-- 13: Exercício Plan (mapear deps) -->
+            <div class="slide slide-type-exercicio">
+                <div class="slide-eyebrow">Exercício · Plan</div>
+                <div class="slide-title">Plan — <span class="accent">Mapear dependências</span></div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 10 minutos</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="slide-subtitle" style="margin-top: 0;">Pergunte no Cursor: <strong>“Eu já tenho conta no GitHub. O que preciso para clonar um repositório aqui?”</strong> — deixe o plano te guiar.</div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/plan-mapear-deps.png" alt="Cursor Plan: requisitos para clonar repositório GitHub" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13a: GitHub SSH — Visão geral -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">GitHub — <span class="accent">onde configurar SSH</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">1. Entrar no GitHub</div>
+                            <div class="principle-desc">Acesse github.com e faça login na sua conta.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Abrir o menu do perfil</div>
+                            <div class="principle-desc">No canto superior direito, clique no avatar e depois em <strong>Settings</strong>.</div>
+                        </div>
+                    </div>
+                    <div style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/github-dashboard.png" alt="Dashboard do GitHub com menu de perfil aberto" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13b: GitHub SSH — Acessar seção -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">GitHub — <span class="accent">SSH and GPG keys</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">3. Seção de chaves</div>
+                            <div class="principle-desc">No menu lateral esquerdo, vá em <strong>SSH and GPG keys</strong>. É aqui que vamos adicionar a chave gerada pelo Cursor.</div>
+                        </div>
+                    </div>
+                    <div style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/github-settings.png" alt="Tela de configurações do GitHub" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13c: GitHub SSH — Adicionar chave -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">GitHub — <span class="accent">Adicionar chave SSH</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">4. Criar nova chave</div>
+                            <div class="principle-desc">Clique em <strong>New SSH key</strong>, escolha um título (ex.: <code>cursor</code>) e cole a chave pública que o Cursor gerou.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">5. Confirmar</div>
+                            <div class="principle-desc">Clique em <strong>Add SSH key</strong> para salvar. A partir daí, o GitHub reconhece seu computador quando você usar <code>git clone</code>.</div>
+                        </div>
+                    </div>
+                    <div style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/github-ssh-key.png" alt="Tela de adicionar nova SSH key no GitHub" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 14: Allowlist -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">Allowlist — O que o agent <span class="accent">pode executar</span></div>
+                
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">Segurança e Controle</div>
+                            <div class="principle-desc">Você define exatamente quais comandos o Cursor pode rodar. Nada acontece sem sua permissão explícita.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Configuração Preventiva</div>
+                            <div class="principle-desc">Antes de clonar repositórios desconhecidos, revise o que está permitido na sua allowlist.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 24px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Pro tip</strong> — Crie um agent em modo Ask, fixe-o (Pin) e pergunte: “O que o comando <code>cp</code> faz?” — E evite liberar <code>rm</code> e <code>git commit</code> sem revisão.</div>
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/allowlist-settings.png" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Tela de configurações do Cursor mostrando a Command Allowlist">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 15: Exercício Plan (clone) -->
+            <div class="slide slide-type-exercicio">
+                <div class="slide-eyebrow">Exercício · Plan</div>
+                <div class="slide-title"><span class="accent">Plan</span> — Clonando nosso primeiro repo</div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 20 minutos</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 520px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            <span style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 12px; display: block;">O prompt</span>
+                            <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 16px; padding: 32px 40px; margin-bottom: 24px; font-family: 'SF Mono', monospace; font-size: 1.1rem; line-height: 1.6; color: #fff; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+                                “Monte um plano para eu clonar<br>
+                                <span style="color: var(--accent); font-weight: 600; border-bottom: 1px solid rgba(255, 87, 87, 0.4); padding-bottom: 2px;">https://github.com/anthropics/skills.git</span>”
+                            </div>
+                            <span style="font-size: 1.05rem; opacity: 0.9;">Depois, clique no botão <strong>Build</strong> gerado pelo plano.</span>
+                        </div>
+                    </div>
+                    <div class="screenshot-container" style="margin-top: 0; max-width: 520px; max-height: 340px;">
+                        <img src="assets/plan-clone-repo.png" class="screenshot-image" style="object-position: center top;" alt="Plano do Cursor para clonar o repositório no modo Plan">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 16: Exercício Ask contexto -->
+            <div class="slide slide-type-exercicio">
+                <div class="slide-eyebrow">Exercício · Ask</div>
+                <div class="slide-title">Ask com <span class="accent">contexto</span></div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 5 minutos</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 520px;">
+                        <div class="slide-subtitle" style="margin-top: 0; margin-bottom: 0;">
+                            <strong>Arraste a pasta</strong> que você acabou de clonar para o chat. Depois pergunte: <strong>“O que essa pasta faz?”</strong> — o Cursor lê o que você coloca no contexto.
+                        </div>
+                    </div>
+                    <div class="screenshot-container" style="margin-top: 0; max-width: 520px; max-height: 340px;">
+                        <img src="assets/ask-context.gif" class="screenshot-image" style="object-position: center top;" alt="GIF mostrando Ask com contexto no Cursor">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 17: Modo Agent -->
+            <div class="slide">
+                <div class="slide-eyebrow">Modo Agent</div>
+                <div class="slide-title">Modo <span class="accent">Agent</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">A IA propõe e aplica</div>
+                            <div class="principle-desc">Alterações nos seus arquivos; você revisa e aprova cada mudança.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Mão na massa</div>
+                            <div class="principle-desc">É o modo que mais esperamos do Cursor: execução no seu ambiente.</div>
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/agent-mode-ui.png" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Interface do Modo Agent no Cursor">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 18: Modelos e contexto -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">Modelos e <span class="accent">contexto</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">Escolha de modelos</div>
+                            <div class="principle-desc">Claude, GPT e outros nas configurações do Cursor — você define qual modelo responde em cada modo.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Janela de contexto</div>
+                            <div class="principle-desc">Quantos tokens o modelo “enxerga” de uma vez. Arquivos, pastas e histórico no contexto expandem ou limitam o que a IA considera.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 24px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Pro tip</strong> — Composer-1 para MCPs e tool calls; Gemini 3 Pro para frontend.</div>
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/llm-modelo-contexto.png" alt="Large Language Model — modelo e contexto" style="width: 100%; max-width: 480px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 19: Exercício Agent -->
+            <div class="slide slide-type-exercicio">
+                <div class="slide-eyebrow">Exercício · Agent</div>
+                <div class="slide-title"><span class="accent">Agent</span> — Instalar skills</div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 15 minutos</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="slide-subtitle" style="margin-top: 0;">Envie: <strong>“Quero que você instale esses skills no meu workspace.”</strong> Aprove as etapas que o Agent sugerir.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 20: Skills -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">O que são <span class="accent">Skills</span>?</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">Extensões de comportamento</div>
+                            <div class="principle-desc">Tarefas, fluxos e templates. Instalados via marketplaces (skills.sh, skillsmp.com).</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Onde ver o que está instalado</div>
+                            <div class="principle-desc">Cursor → Settings para conferir os skills ativos.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 24px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Pro tip</strong> — Encontre skills gratuitos no diretório <a href="http://skills.sh" target="_blank">skills.sh</a>.</div>
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/skills-settings.png" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Tela de configurações de Skills no Cursor">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 21: Presente da Arena -->
+            <div class="slide">
+                <div class="slide-eyebrow">Product Arena</div>
+                <div class="slide-title">Presente da <span class="accent">Arena</span></div>
+                
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">O stack dos instrutores</div>
+                            <div class="principle-desc">Leve para casa a mesma configuração de Rules, Commands e estrutura de arquivos que Lucas e Arthur usam no dia a dia.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Workspace pronto para copiar</div>
+                            <div class="principle-desc">Use este repo como base para novos projetos: adapte, duplique e crie seu próprio sistema em cima dele.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 24px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Pro tip</strong> — Trate esse stack como seu “ponto de partida padrão” — sempre que for criar algo novo, comece daqui em vez de reconfigurar tudo do zero.</div>
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/arthur-gift-square.png" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Arthur entregando um presente">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 22: Commands -->
+            <div class="slide">
+                <div class="slide-eyebrow">Product Arena</div>
+                <div class="slide-split-code">
+                    <div class="slide-left-content">
+                        <div class="slide-title" style="text-align: left; font-size: 2.5rem; margin-bottom: 16px;">Commands —<br>Macros em <span class="accent">linguagem natural</span></div>
+                        <div class="slide-subtitle" style="text-align: left; font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
+                            <strong style="color: var(--text-primary);">Por que importa:</strong><br>
+                            Um comando como <code style="background: rgba(255,87,87,0.1); color: var(--accent); padding: 2px 6px; border-radius: 4px;">/start-a-business</code> dispara um fluxo completo e padronizado sem você precisar repetir o prompt inteiro a cada vez.
+                        </div>
+                    </div>
+                    
+                    <div class="prompt-container">
+                        <div class="prompt-label">.cursor/commands/start-a-business.md</div>
+                        <pre><span class="syntax-comment">---</span>
+<span class="syntax-key">description:</span> <span class="syntax-string">"Start a new business venture: create project structure..."</span>
+<span class="syntax-comment">---</span>
+
+<span class="syntax-heading">**When user runs `/start-a-business`:**</span>
+
+<span class="syntax-heading">## Step 1: Capture Initial Information</span>
+Ask the user these questions in sequence:
+
+1. <span class="syntax-string">**"What's the name of your business/idea?"**</span>
+   <span class="syntax-list">-</span> Capture: business name
+   <span class="syntax-list">-</span> Use this to create the project folder name (kebab-case)
+
+2. <span class="syntax-string">**"Give me a brief description (1-2 sentences)"**</span>
+   <span class="syntax-list">-</span> Capture: brief description
+   <span class="syntax-list">-</span> This will be used in initial Product Strategy
+
+<span class="syntax-heading">## Step 2: Create Project Structure Automatically</span>
+Create the following structure:
+
+<span class="syntax-comment">projects/[business-name]/
+├── documents/
+│   └── README.md
+└── README.md</span></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 22b: Sugestão — Greg Isenberg / Cursor -->
+            <div class="slide">
+                <div class="slide-eyebrow">Sugestão de conteúdo</div>
+                <div class="slide-title">Cursor em <span class="accent">ação</span></div>
+                <div class="slide-subtitle" style="margin-bottom: 12px; font-weight: 600;">Cursor Replaces Your Entire Business Stack (Full Demo)</div>
+                <div class="slide-subtitle" style="margin-bottom: 24px; font-size: 1rem; opacity: 0.9;">Greg Isenberg — visão de quem usa Cursor no dia a dia</div>
+                <a href="https://www.youtube.com/watch?v=ZvZ4aUXBtzU&t=63s" target="_blank" rel="noopener" style="display: inline-block; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.2); text-decoration: none; max-width: 560px;">
+                    <img src="assets/greg-cursor-video-thumb.png" alt="Thumb: Cursor Replaces Your Entire Business Stack — Greg Isenberg" style="display: block; width: 100%; height: auto;">
+                </a>
+                <div class="slide-subtitle" style="margin-top: 20px; font-size: 0.95rem;">
+                    <a href="https://www.youtube.com/watch?v=ZvZ4aUXBtzU&t=63s" target="_blank" rel="noopener" style="color: var(--accent); font-weight: 600;">youtube.com/watch?v=ZvZ4aUXBtzU</a>
+                </div>
+            </div>
+
+            <!-- 23: Rules -->
+            <div class="slide">
+                <div class="slide-eyebrow">Product Arena</div>
+                <div class="slide-split-code">
+                    <div class="slide-left-content">
+                        <div class="slide-title" style="text-align: left; font-size: 2.5rem; margin-bottom: 16px;">Rules —<br>Seu <span class="accent">manual de estilo</span></div>
+                        <div class="slide-subtitle" style="text-align: left; font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
+                            <strong style="color: var(--text-primary);">Por que importa:</strong><br>
+                            O Cursor segue convenções do seu projeto (PRD, código, design) automaticamente, sem você precisar reexplicar o contexto a cada nova interação.
+                        </div>
+                        <div class="callout" style="margin-top: 20px; font-size: 0.9rem;">
+                            <strong style="color: var(--text-primary);">Diferenças de apply:</strong><br>
+                            <strong>alwaysApply: true</strong> — rule sempre ativa.<br>
+                            <strong>alwaysApply: false</strong> — ativa só quando os arquivos correspondem ao padrão (ex.: prd-*.md). Evite excesso: ocupa contexto.
+                        </div>
+                    </div>
+
+                    <div class="prompt-container">
+                        <div class="prompt-label">.cursor/rules/prd-template.mdc</div>
+                        <pre><span class="syntax-comment">---</span>
+<span class="syntax-key">description:</span> <span class="syntax-string">"PRD Template and Guidelines"</span>
+<span class="syntax-key">globs:</span> <span class="syntax-string">"documents/prd-*.md"</span>
+<span class="syntax-key">alwaysApply:</span> <span class="syntax-key">false</span>
+<span class="syntax-comment">---</span>
+<span class="syntax-heading"># PRD Template Usage</span>
+
+<span class="syntax-heading">## When to Use</span>
+<span class="syntax-list">-</span> Transforming docs into PRD format
+<span class="syntax-list">-</span> Creating new product requirements
+
+<span class="syntax-heading">## Template Structure</span>
+1. <span class="syntax-heading">**Background**</span> (H2)
+   <span class="syntax-comment">Context regarding the problem...</span>
+
+2. <span class="syntax-heading">**Objectives**</span> (H2)
+   <span class="syntax-comment">Key measurable goals...</span>
+
+3. <span class="syntax-heading">**Features**</span> (H2)
+   <span class="syntax-comment">Detailed functional requirements...</span></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 23b: Abrindo parênteses — Espaço limpo (general-guidelines) -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">Manter o espaço <span class="accent">limpo e organizado</span></div>
+                <div class="slide-subtitle" style="margin-bottom: 20px;">Riscos do Cursor criar muitas coisas — use a regra como guardião.</div>
+                <div class="callout-protip" style="margin-bottom: 24px; max-width: 900px;">
+                    <span class="callout-protip-icon">💡</span>
+                    <div class="callout-protip-content"><strong>Pro tip</strong> — A rule <code>.cursor/rules/general-guidelines.mdc</code> evita poluição do workspace. Trechos abaixo.</div>
+                </div>
+                <div class="prompt-container" style="max-width: 900px; text-align: left;">
+                    <div class="prompt-label">.cursor/rules/general-guidelines.mdc (Cursor guidelines)</div>
+                    <pre>## Cursor guidelines
+
+Keep the workspace organized and avoid unnecessary files.
+
+### Prefer the chat
+
+Respond in the chat (do not create files) for:
+
+- Checklists and validation lists
+- Step-by-step setup instructions (APIs, OAuth, etc.)
+- Short summaries and reference notes
+- One-off instructions that are not official project documentation
+
+### Create files only when
+
+- The user explicitly asks to save or create a file
+- It is a project artifact (README, PRD, design system, etc.) per project structure
+- The content is too large for the chat or needs to be versioned/reused</pre>
+                </div>
+            </div>
+
+            <!-- 24: Recap + perguntas -->
+            <div class="slide slide-recap">
+                <div class="slide-eyebrow">Retorno do almoço</div>
+                <div class="slide-title">Recap e <span class="accent">perguntas</span></div>
+                
+                <div class="check-list-grid" style="margin-top: 40px; max-width: 1000px; gap: 24px;">
+                    <div class="check-card">
+                        <div class="check-icon">💬</div>
+                        <div class="check-text"><strong>Ask & Contexto:</strong> Conversar com arquivos e pastas</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">🧠</div>
+                        <div class="check-text"><strong>Plan Mode:</strong> Raciocínio antes da execução (Git)</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">⚡</div>
+                        <div class="check-text"><strong>Agent Mode:</strong> A IA agindo no seu ambiente</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">🛡️</div>
+                        <div class="check-text"><strong>Segurança:</strong> Allowlist e controle do que roda</div>
+                    </div>
+                </div>
+
+                <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Espaço para dúvidas antes de seguirmos para o ciclo de produto</div>
+            </div>
+
+            <!-- 25: Bloco 2 -->
+            <div class="slide slide-block-overview">
+                <div class="slide-eyebrow">Meio do dia — 14:00–15:30</div>
+                <div class="slide-title">Bloco 2 — Cursor no <span class="accent">ciclo de produto</span></div>
+                <div class="agenda-blocks" style="margin-top: 24px; max-width: 720px;">
+                    <div class="agenda-block agenda-block--expanded">
+                        <div class="agenda-block-header-row">
+                            <div class="agenda-block-header">🧠 Meio do dia</div>
+                            <div class="agenda-block-time">14:00 – 15:30</div>
+                        </div>
+                        <div class="agenda-block-content">
+                            Rules, Commands, MCP Jira e ciclo de produto (notas, PRD, dados, apresentações).
+                            <div class="agenda-block-expanded-section">
+                                <div class="agenda-block-expanded-section-title">Conteúdo</div>
+                                <ul class="agenda-block-expanded-list">
+                                    <li>Notas de reunião (case Arthur — mentorias)</li>
+                                    <li>Entendimento do problema / PRD</li>
+                                    <li>Analisando dados (Forms → Sheets → Cursor + MCP → dashboard)</li>
+                                    <li>User Stories no Jira com MCP</li>
+                                    <li>Criando apresentações (HTML, fontes, gráficos)</li>
+                                </ul>
+                            </div>
+                            <div class="agenda-block-expanded-section">
+                                <div class="agenda-block-expanded-section-title">Exercícios</div>
+                                <ul class="agenda-block-expanded-list">
+                                    <li>Modo Agent — instalar skills ou arquivos do curso</li>
+                                    <li>Plan — arquivos do curso na raiz do workspace</li>
+                                    <li>MCP Jira — instalar e criar tasks</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 25b: Notas de reunião — Arthur -->
+            <div class="slide">
+                <div class="slide-eyebrow">Notas de reunião e organização de agenda</div>
+                <div class="slide-title">Como o Arthur <span class="accent">organiza as notas</span> (mentorias)</div>
+                <div style="max-width: 800px; margin-top: 40px; display: grid; gap: 20px;">
+                    <div class="principle-card">
+                        <div class="principle-title">Notas que viram ação</div>
+                        <div class="principle-desc">Cada sessão de mentoria gera um conjunto de notas que já nasce organizado para virar próximos passos e follow-ups.</div>
+                    </div>
+                    <div class="principle-card">
+                        <div class="principle-title">Uma estrutura por pessoa</div>
+                        <div class="principle-desc">Templates fixos por mentorado: mesma hierarquia de pastas, seções e tags, o que facilita comparar sessões ao longo do tempo.</div>
+                    </div>
+                    <div class="principle-card">
+                        <div class="principle-title">Cursor como hub</div>
+                        <div class="principle-desc">As notas convivem com PRDs, tasks e dashboards — tudo acessível via Cursor, sem depender de múltiplas ferramentas soltas.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 25c: PRD com Cursor (spoiler) -->
+            <div class="slide">
+                <div class="slide-eyebrow">Do insight ao documento</div>
+                <div class="slide-title">Usando o Cursor para criar um <span class="accent">PRD</span></div>
+                <div style="max-width: 720px; margin-top: 40px;">
+                    <div class="principle-card" style="margin-bottom: 20px;">
+                        <div class="principle-title">Do bloco de notas ao PRD</div>
+                        <div class="principle-desc">Partindo das notas (como as do Arthur), o Cursor ajuda a estruturar Background, Problema, Objetivos, Escopo e Métricas em um PRD coerente.</div>
+                    </div>
+                    <div class="principle-card" style="margin-bottom: 24px;">
+                        <div class="principle-title">Templates + Rules</div>
+                        <div class="principle-desc">Com um template de PRD e uma Rule específica, você garante que todo novo documento siga o mesmo formato — mesmo com vários autores.</div>
+                    </div>
+                    <div class="callout-protip" style="margin-bottom: 24px;">
+                        <span class="callout-protip-icon">🎬</span>
+                        <div class="callout-protip-content"><strong>Spoiler</strong> — daqui a pouco vamos usar exatamente esse fluxo para criar o PRD do nosso <strong>Arena Voting System</strong>.</div>
+                    </div>
+                    <div class="mcp-integration-logos">
+                        <span class="mcp-integration-label">MCP também conecta:</span>
+                        <div class="mcp-integration-icons">
+                            <img src="assets/confluence-logo.png" alt="Confluence" title="Traga páginas do Confluence para o contexto do Cursor">
+                            <img src="assets/notion-logo.png" alt="Notion" title="Traga docs e bases do Notion para o contexto do Cursor">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 26: Analisando dados like pro (3 itens + imagem) -->
+            <div class="slide">
+                <div class="slide-eyebrow">Analisando dados</div>
+                <div class="slide-title">Analisando dados <span class="accent">like pro</span></div>
+                <div style="max-width: 800px; margin-top: 40px; display: grid; gap: 20px;">
+                    <div class="principle-card">
+                        <div class="principle-title">1. Para conectar aos dados</div>
+                        <div class="principle-desc">MCPs e arquivos locais: traga dados de onde já estão para o contexto do Cursor.</div>
+                        <div class="mcp-integration-logos" style="margin-top: 12px; margin-bottom: 0;">
+                            <div class="mcp-integration-icons">
+                                <img src="assets/databricks-logo.png" alt="Databricks" title="Databricks MCP">
+                                <img src="assets/supabase-logo.png" alt="Supabase" title="Supabase MCP">
+                                <img src="assets/snowflake-logo.png" alt="Snowflake" title="Snowflake">
+                                <span class="mcp-icon-badge">📁 CSV local</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="principle-card">
+                        <div class="principle-title">2. Para gerar as análises</div>
+                        <div class="principle-desc">Skills especialistas em SQL e Pandas no Cursor: otimização de queries, transformações e agregações. Ex.: <a href="https://skills.sh/wshobson/agents/sql-optimization-patterns" target="_blank" rel="noopener" style="color: var(--accent);">sql-optimization-patterns</a>, <a href="https://skills.sh/jeffallan/claude-skills/pandas-pro" target="_blank" rel="noopener" style="color: var(--accent);">pandas-pro</a> (ver referências).</div>
+                    </div>
+                    <div class="principle-card">
+                        <div class="principle-title">3. Criar as visualizações</div>
+                        <div class="principle-desc">Dashboards, gráficos e páginas HTML a partir do plano do Cursor — com os dados e análises já no contexto.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 26b: Case — expectations-analysis (o que fizemos) -->
+            <div class="slide">
+                <div class="slide-eyebrow">Case</div>
+                <div class="slide-title">expectations-<span class="accent">analysis</span> — o que fizemos</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">Origem dos dados</div>
+                            <div class="principle-desc">Formulário pré-curso (Google Forms) → respostas no Google Sheets. Dados exportados ou lidos via MCP Google para o contexto do Cursor.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Processo</div>
+                            <div class="principle-desc">Cursor em modo Plan + prompt em Markdown: plano de pré-processamento (Python), agregações, temas de texto e JSON. Script gera <code>processed.json</code> e <code>text-themes.json</code> a partir do CSV.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Entrega</div>
+                            <div class="principle-desc">Dashboard HTML responsivo (ECharts): filtros por uso de IA, APIs e camiseta; gráficos de distribuição; temas das expectativas e recomendações de conteúdo para o curso.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">📖</span>
+                            <div class="callout-protip-content"><strong>Em seguida</strong> — o prompt em Markdown que usamos. O dashboard você pode mostrar em outra tela.</div>
+                        </div>
+                    </div>
+                    <div class="screenshot-container" style="margin-top: 0; max-width: 520px; max-height: 340px;">
+                        <img src="assets/expectations-dashboard.png" class="screenshot-image" style="object-position: center top;" alt="Dashboard de análise de expectativas (expectations-analysis)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 27: O que é MCP -->
+            <div class="slide">
+                <div class="slide-eyebrow">Product Arena</div>
+                <div class="slide-title">O que é <span class="accent">MCP</span>?</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <ul class="bullet-list" style="max-width: 520px; margin: 0; text-align: left;">
+                            <li>Criado pela Anthropic para comunicação entre agentes e ferramentas.</li>
+                            <li>Outros protocolos surgindo (ex.: A2A — agent to agent).</li>
+                        </ul>
+                        <p style="margin-top: 24px; font-size: 1rem; line-height: 1.6; color: var(--text-primary);">Pense no MCP como a “ponte” entre o Cursor e o mundo externo — dados, APIs e ferramentas especializadas.</p>
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">🌐</span>
+                            <div class="callout-protip-content"><strong>Pro tip (comunidade)</strong> — Explore servidores MCP construídos pela comunidade em <a href="https://mcpservers.org" target="_blank" rel="noopener">mcpservers.org</a> e <a href="https://www.mcpdirectory.ai" target="_blank" rel="noopener">mcpdirectory.ai</a>. Muitas vezes versões da comunidade são mais completas do que os servidores oficiais.</div>
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/mcp-directory.png" alt="Diretório MCP no Cursor mostrando lista de servidores disponíveis" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- 31: Instalar MCP Jira -->
+            <div class="slide slide-type-exercicio">
+                <div class="slide-eyebrow">Exercício · MCP</div>
+                <div class="slide-title">Instalar MCP <span class="accent">Jira</span></div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 15 minutos</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="slide-subtitle" style="margin-top: 0;">Atlassian Rovo MCP — use o modo Plan para seguir o passo a passo.</div>
+                        <p style="margin-top: 12px; font-size: 0.9rem; opacity: 0.9; line-height: 1.5;">
+                            <a href="https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; font-weight: 600;">
+                                Guia oficial (Atlassian Rovo MCP Server)
+                            </a>
+                            <span style="opacity: 0.85;"> · productarena.atlassian.net</span>
+                        </p>
+                        <div class="callout-protip" style="margin-top: 20px;">
+                            <span class="callout-protip-icon">📎</span>
+                            <div class="callout-protip-content">
+                                <strong>Referência oficial</strong> — Atlassian Rovo MCP Server (OAuth 2.1): 
+                                <a href="https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/" target="_blank" rel="noopener" style="color: #ff8a8a;">guia de setup</a>.
+                                Use API token só se o seu servidor MCP pedir.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenshot-container" style="margin-top: 0; max-width: 520px; max-height: 340px;">
+                        <img src="assets/mcp-jira-install.png" class="screenshot-image" style="object-position: center top;" alt="Configuração do MCP do Jira no Cursor">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 31a: Atlassian API token — abrir configurações -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">Atlassian — <span class="accent">onde achar o API token</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">1. Configurações da conta</div>
+                            <div class="principle-desc">No Jira, clique no seu avatar (canto superior direito) e selecione <strong>Configurações da conta</strong> para abrir o painel da Atlassian.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">🔒</span>
+                            <div class="callout-protip-content"><strong>Dica</strong> — Token é segredo. Não cole em slides, docs ou chat.</div>
+                        </div>
+                    </div>
+                    <div style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/jira-profile-menu.png" alt="Jira com menu de perfil aberto mostrando Configurações da conta" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 31b: Atlassian API token — segurança -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">Atlassian — <span class="accent">Segurança</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">2. Ir em Segurança</div>
+                            <div class="principle-desc">No topo do painel, clique em <strong>Segurança</strong>.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Tokens de API</div>
+                            <div class="principle-desc">Role até <strong>Tokens de API</strong> e abra a área de criação/gerenciamento.</div>
+                        </div>
+                    </div>
+                    <div style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/atlassian-security.png" alt="Painel da Atlassian na aba Segurança" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 31c: Atlassian API token — criar token -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">Atlassian — <span class="accent">criar token</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">4. Criar um token</div>
+                            <div class="principle-desc">Clique em <strong>Criar um token de API</strong> (ou equivalente) e dê um nome (ex.: <code>cursor</code>).</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">5. Copiar e guardar</div>
+                            <div class="principle-desc">Copie o token e salve num local seguro. Você geralmente <strong>não consegue ver de novo</strong> depois.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">✅</span>
+                            <div class="callout-protip-content"><strong>Regra</strong> — Se você suspeitar de vazamento, <strong>revogue</strong> e crie outro token.</div>
+                        </div>
+                    </div>
+                    <div style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/atlassian-api-tokens.png" alt="Tela de Tokens de API com botão para criar token" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 31d: Atlassian API token — copiar token -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">Atlassian — <span class="accent">salve o token</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">7. Copiar</div>
+                            <div class="principle-desc">Use o botão <strong>Copiar</strong> e salve imediatamente no seu cofre/gerenciador de senhas.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">8. Nunca compartilhe</div>
+                            <div class="principle-desc">Não cole em docs, slides, issues ou chat. Configure só localmente no Cursor (MCP env).</div>
+                        </div>
+                    </div>
+                    <div style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/atlassian-token-copy.png" alt="Modal de copiar token de API da Atlassian" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 31e: Exercício MCP — Criar User Story/Task -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · MCP</div>
+                <div class="slide-title">Jira — Criar uma <span class="accent">User Story</span></div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 15 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 480px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            Objetivo: usar o MCP do Jira para <strong>criar uma issue</strong> (Story/Task) com título, descrição e critérios de aceite — direto do Cursor.
+                        </div>
+
+                        <div class="principle-card" style="margin-top: 12px;">
+                            <div class="principle-title">1. Escolha um alvo</div>
+                            <div class="principle-desc">Defina <strong>projeto</strong> (ex.: <code>AVS</code>) e tipo (<strong>Story</strong> ou <strong>Task</strong>).</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Peça para criar via MCP</div>
+                            <div class="principle-desc">No Cursor, use <strong>Agent</strong> e deixe ele chamar o MCP do Jira para criar a issue.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Verifique no Jira</div>
+                            <div class="principle-desc">Abra o link retornado e confirme campos (labels, prioridade, assignee, sprint).</div>
+                        </div>
+
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">🔒</span>
+                            <div class="callout-protip-content"><strong>Dica</strong> — Não inclua tokens, senhas ou dados sensíveis no corpo da issue.</div>
+                        </div>
+                    </div>
+
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Prompt (exemplo)</div>
+                        <pre># Jira (MCP) — Criar User Story
+
+## Contexto
+- Já configurei o MCP do Jira no Cursor
+- Meu workspace Jira: https://productarena.atlassian.net
+
+## Tarefa
+Crie uma issue no Jira com:
+- projectKey: AVS
+- issueType: Story (ou Task)
+- summary: "Como usuário, quero votar em ideias para priorizar melhorias"
+- description: inclua contexto, fluxo e critérios de aceite
+- labels: ["cursor", "mcp", "aula"]
+- priority: Medium
+
+Depois, me devolva:
+1) O link da issue criada
+2) O ID/chave (ex.: AVS-123)
+3) Um resumo do que foi criado</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 32: Criação de apresentações (Eat your own dog food) -->
+            <div class="slide slide-type-content-code slide--apresentacoes">
+                <div class="slide-eyebrow">Criação de apresentações</div>
+                <div class="slide-title">Apresentações no dia a dia — <span class="accent">feitas com Cursor</span></div>
+                <div class="slide-split">
+                    <div class="slide-split-left">
+                        <div class="slide-subtitle">
+                            Este material foi feito com amor ❤️ e Cursor 🤖 — slides, gráficos em HTML e código guiados pela IA.
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">1. Criar as estruturas base</div>
+                            <div class="principle-desc">Design system (cores, tipografia, tipos de slide), layout e componentes. O <code>design-system.md</code> define o padrão; o Cursor mantém consistência.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Conteúdo</div>
+                            <div class="principle-desc">Narrativa, títulos, bullets e exemplos. Rules e contexto no workspace para o Cursor seguir o tom e a estrutura do curso.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Usar skills</div>
+                            <div class="principle-desc">Skills de apresentação (pptx, tema, Marp) para exportar, aplicar temas e iterar. Código HTML dos slides versionado e evoluído com a IA.</div>
+                        </div>
+                    </div>
+                    <div class="prompt-container">
+                        <div class="prompt-label">design-system.md (trecho)</div>
+                        <pre><span class="syntax-heading"># Design System - Apresentação Cursor para PMs</span>
+
+<span class="syntax-heading">## Visão Geral</span>
+Estilo limpo, "Notion-like". Baseado na Product Arena.
+
+<span class="syntax-heading">## Cores</span>
+<span class="syntax-key">Accent:</span> <span class="syntax-string">#FF5757</span>
+<span class="syntax-key">Texto:</span> <span class="syntax-string">#1a1a1a</span> / <span class="syntax-string">#555555</span>
+<span class="syntax-key">BG Primary:</span> <span class="syntax-string">#f5f5f5</span>
+
+<span class="syntax-heading">## Tipografia</span>
+<span class="syntax-key">Principal:</span> Inter
+<span class="syntax-key">Slide Title:</span> 64px, Weight 700
+<span class="syntax-key">Body:</span> 16px-18px
+
+<span class="syntax-heading">## Tipos de slide</span>
+<span class="syntax-list">-</span> <span class="syntax-string">slide</span> — conteúdo (bg primary)
+<span class="syntax-list">-</span> <span class="syntax-string">slide-type-parenteses</span> — cinza
+<span class="syntax-list">-</span> <span class="syntax-string">slide-type-exercicio</span> — escuro</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 33: Bloco 3 — Recap (padrão recap) -->
+            <div class="slide slide-recap">
+                <div class="slide-eyebrow">Retomando</div>
+                <div class="slide-title">Recap — rules, commands, <span class="accent">MCPs</span></div>
+                <div class="check-list-grid" style="margin-top: 40px; max-width: 1000px; gap: 24px;">
+                    <div class="check-card">
+                        <div class="check-icon">📋</div>
+                        <div class="check-text"><strong>Rules:</strong> Manual de estilo do projeto — o Cursor segue convenções sem você reexplicar.</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">⌨️</div>
+                        <div class="check-text"><strong>Commands:</strong> Macros em linguagem natural (ex.: /create-prd) para fluxos repetíveis.</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">🔌</div>
+                        <div class="check-text"><strong>MCPs:</strong> Jira, Google, Confluence — conectar dados e tarefas ao contexto do Cursor.</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">🎯</div>
+                        <div class="check-text"><strong>Arena Voting System:</strong> Tudo isso junto no próximo bloco prático.</div>
+                    </div>
+                </div>
+                <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Tudo que vamos usar no Arena Voting System</div>
+            </div>
+
+            <!-- 33a: Transição — Pausa para café -->
+            <div class="slide slide-type-capa">
+                <div class="slide-eyebrow">Pausa</div>
+                <div class="slide-title">☕ Pausa para o <span class="accent">cafezinho</span></div>
+                <div class="slide-subtitle">10–20 minutos</div>
+            </div>
+
+            <!-- 34: Bloco 3 — Construindo seu protótipo (exercício: Arena Voting System) -->
+            <div class="slide slide-block-overview">
+                <div class="slide-eyebrow">Tarde — 15:45–18:45</div>
+                <div class="slide-title">Bloco 3 — Construindo seu <span class="accent">protótipo</span></div>
+                <div class="agenda-blocks" style="margin-top: 24px; max-width: 720px;">
+                    <div class="agenda-block agenda-block--expanded">
+                        <div class="agenda-block-header-row">
+                            <div class="agenda-block-header">🚀 Tarde</div>
+                            <div class="agenda-block-time">15:45 – 18:45</div>
+                        </div>
+                        <div class="agenda-block-content">
+                            Construindo seu protótipo — Arena Voting System (PRD, design, histórias, code-review, editor visual).
+                            <div class="agenda-block-expanded-section">
+                                <div class="agenda-block-expanded-section-title">Conteúdo</div>
+                                <ul class="agenda-block-expanded-list">
+                                    <li>Repo pessoal (GitHub público) para exercícios</li>
+                                    <li>/start-a-business — Arena Voting System</li>
+                                    <li>PRD com /create-prd — doc de requisitos</li>
+                                    <li>Design System — extrair cores, tipografia e logo de productarena.io</li>
+                                    <li>Protótipo funcional — Plan + localhost</li>
+                                    <li>Quebrar histórias — modo Plan</li>
+                                    <li>Code-review + Editor visual</li>
+                                    <li>Subir projeto no GitHub pessoal</li>
+                                </ul>
+                            </div>
+                            <div class="agenda-block-expanded-section">
+                                <div class="agenda-block-expanded-section-title">Exercícios</div>
+                                <ul class="agenda-block-expanded-list">
+                                    <li>Repo pessoal — criar GitHub público (⏱ 20 min)</li>
+                                    <li>/start-a-business — Arena Voting System (⏱ 30 min)</li>
+                                    <li>/create-prd — PRD (⏱ 10 min)</li>
+                                    <li>Design System — extrair de productarena.io (⏱ 20 min)</li>
+                                    <li>Protótipo funcional — Plan + localhost (⏱ 25 min)</li>
+                                    <li>Quebrar histórias — modo Plan (⏱ 25 min)</li>
+                                    <li>Code-review + Editor visual (⏱ 45 min)</li>
+                                    <li>Subir projeto no GitHub (⏱ 15 min)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 34a: Exercício Plan — Copiar arquivos do curso para o workspace -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · Plan</div>
+                <div class="slide-title">Arquivos do curso na raiz do <span class="accent">Workspace</span></div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 15 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 480px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">Use o modo <strong>Plan</strong> e envie um prompt pedindo para garantir acesso aos Rules, Commands e templates do repo do curso em todo o workspace.</div>
+                        <p style="margin-top: 16px; font-size: 0.95rem; opacity: 0.85;">Exemplo de prompt à direita — adapte o URL do repositório se necessário.</p>
+                    </div>
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Exemplo de prompt (Markdown)</div>
+                        <pre><span class="syntax-heading"># Setup — Acesso aos recursos do curso</span>
+
+<span class="syntax-heading">## Contexto</span>
+<span class="syntax-list">-</span> Clonei o repositório do curso Cursor para PMs: <span class="syntax-string">https://github.com/...</span>
+<span class="syntax-list">-</span> O repo já possui Rules, Commands e templates prontos para usar
+<span class="syntax-list">-</span> Quero garantir que terei acesso a esses documentos em todo o meu workspace
+
+<span class="syntax-heading">## Objetivo</span>
+<span class="syntax-list">-</span> Copiar ou vincular os arquivos do curso para a raiz do workspace
+<span class="syntax-list">-</span> Conseguir usar os Commands (ex.: /create-prd) e Rules em diferentes projetos
+<span class="syntax-list">-</span> Não perder os templates ao trocar de pasta/projeto
+
+<span class="syntax-heading">## Ação</span>
+Monte um plano para eu configurar isso. Quais pastas e arquivos devo mover ou referenciar?</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 34a2: Prompt em Markdown (conteúdo + código) -->
+            <div class="slide slide-type-content-code">
+                <div class="slide-eyebrow">Fluxo de trabalho</div>
+                <div class="slide-title">Prompt em <span class="accent">Markdown</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">Texto é a interface universal</div>
+                            <div class="principle-desc">Na era da IA, Markdown entrega estrutura que as LLMs entendem bem — títulos, listas e contexto claro.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Um exemplo do curso</div>
+                            <div class="principle-desc">O case expectations-analysis: prompt em Markdown a partir das respostas do formulário pré-curso.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 24px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Pro tip</strong> — Quando você usa Markdown, está em essência codificando seu conhecimento.</div>
+                        </div>
+                    </div>
+                    <div class="prompt-container">
+                        <div class="prompt-label">Exemplo: expectativas dos alunos</div>
+                        <pre><span class="syntax-heading"># Análise do curso — expectativas dos alunos</span>
+
+<span class="syntax-heading">## Contexto</span>
+<span class="syntax-list">-</span> Planilha com respostas dos participantes...
+<span class="syntax-list">-</span> Construir visão gráfica, analisar padrões
+
+<span class="syntax-heading">## Ação</span>
+<span class="syntax-list">-</span> Análise completa da planilha
+<span class="syntax-list">-</span> Plano de execução
+<span class="syntax-list">-</span> Página HTML responsiva</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 34a3: Exercício — /start-a-business (Arena Voting System) -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · Command</div>
+                <div class="slide-title"><code>/start-a-business</code> — Arena Voting System</div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 30 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 480px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            Use o command <strong>/start-a-business</strong> para iniciar o case do curso: estrutura de pastas, documentos e Product Strategy do <strong>Arena Voting System</strong>.
+                        </div>
+
+                        <div class="principle-card" style="margin-top: 12px;">
+                            <div class="principle-title">1. Abra o Command</div>
+                            <div class="principle-desc">No Cursor, digite <code>/start-a-business</code> (Cmd/Ctrl + I) e envie.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Informe o case Arena Voting System</div>
+                            <div class="principle-desc">Quando o agente perguntar: nome, descrição e audiência do produto de votação de ideias da Arena.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Siga o fluxo guiado</div>
+                            <div class="principle-desc">O Business Consultant Agent vai conduzir a criação da Product Strategy com perguntas socráticas.</div>
+                        </div>
+
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Contexto</strong> — O resultado é a pasta <code>projects/arena-voting-system/</code> com <code>documents/</code> e Product Strategy prontos para o próximo passo (/create-prd).</div>
+                        </div>
+                    </div>
+
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Exemplo — o que informar ao /start-a-business</div>
+                        <pre><span class="syntax-heading"># Arena Voting System</span>
+
+<span class="syntax-heading">## Nome</span>
+arena-voting-system
+
+<span class="syntax-heading">## Descrição</span>
+Sistema de votação de ideias para priorizar melhorias. Usuários votam em propostas e o time acompanha o ranking.
+
+<span class="syntax-heading">## Audiência</span>
+Produtores, PMs e stakeholders que participam de sessões de priorização e precisam decidir o que construir em seguida.</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 34a3b: Exercício — /create-prd (PRD a partir da Product Strategy) -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · Command</div>
+                <div class="slide-title"><code>/create-prd</code> — PRD a partir da Product Strategy</div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 10 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 480px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            Use o command <strong>/create-prd</strong> para gerar o PRD do Arena Voting System. O contexto é o arquivo <code>product-strategy-arena-voting-system.md</code> criado no exercício anterior.
+                        </div>
+
+                        <div class="principle-card" style="margin-top: 12px;">
+                            <div class="principle-title">1. Garanta o contexto</div>
+                            <div class="principle-desc">O <code>product-strategy-arena-voting-system.md</code> deve estar no workspace — em <code>projects/arena-voting-system/documents/</code>.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Abra o Command</div>
+                            <div class="principle-desc">No Cursor, digite <code>/create-prd</code> e envie. O agente vai ler a Product Strategy e gerar o PRD.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Resultado</div>
+                            <div class="principle-desc">Será criado <code>documents/prd-arena-voting-system.md</code> com requisitos, OKRs e roadmap baseados na Product Strategy.</div>
+                        </div>
+
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Dica</strong> — Se o comando pedir Product Strategy, arraste o arquivo <code>product-strategy-arena-voting-system.md</code> para o chat como contexto.</div>
+                        </div>
+                    </div>
+
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Fluxo</div>
+                        <pre><span class="syntax-comment"># Exercício anterior gerou:</span>
+projects/arena-voting-system/
+└── documents/
+    └── product-strategy-arena-voting-system.md
+
+<span class="syntax-comment"># /create-prd lê esse arquivo e cria:</span>
+documents/prd-arena-voting-system.md
+<span class="syntax-comment">  → requisitos, OKRs, roadmap</span></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 34a3c: Exercício — Design System (extração do site Product Arena) -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · Bloco 3</div>
+                <div class="slide-title">Design System — extrair de <span class="accent">productarena.io</span></div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 20 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 480px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            Extrair o padrão de design da Product Arena (cores, tipografia, logo) diretamente do site. Usar <strong>web-artifacts-builder</strong> e <strong>webapp-testing</strong> para capturar.
+                        </div>
+
+                        <div class="principle-card" style="margin-top: 12px;">
+                            <div class="principle-title">O que capturar</div>
+                            <div class="principle-desc">Cores, fontes, logo e componentes visuais do productarena.io.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Fluxo do curso</div>
+                            <div class="principle-desc">Pulamos catálogo analítico e guia de marketing — você pode exercitar depois. Vamos direto ao design system.</div>
+                        </div>
+
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">📖</span>
+                            <div class="callout-protip-content"><strong>Passo a passo</strong> — Consulte o exercício <strong>10-projeto-final-design-system.md</strong> na pasta de exercícios.</div>
+                        </div>
+                    </div>
+
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Exemplo de prompt</div>
+                        <pre><span class="syntax-comment"># No modo Agent</span>
+
+Vamos pular o catálogo de eventos e o guia de marketing — vamos direto para o design system. Ajuda-me a elaborar um plano para capturar o design da Product Arena (cores, tipografia, logo) diretamente do site productarena.io. Para isso, utilize as habilidades /web-artifacts-builder e /webapp-testing.</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 34a3d: Exercício — Protótipo funcional (Plan + localhost) -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · Plan</div>
+                <div class="slide-title">Protótipo funcional em <span class="accent">localhost</span></div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 25 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 480px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            Com PRD e design prontos em <code>projects/arena-voting-system/</code>, use o modo <strong>Plan</strong> para criar um protótipo funcional rodando em localhost.
+                        </div>
+
+                        <div class="principle-card" style="margin-top: 12px;">
+                            <div class="principle-title">1. Ative o Plan</div>
+                            <div class="principle-desc">No Chat (Cmd + L), selecione o modo <strong>Plan</strong>.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Envie o prompt</div>
+                            <div class="principle-desc">Peça para criar um protótipo funcional em localhost a partir do PRD e design existentes.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Objetivo</div>
+                            <div class="principle-desc">Ter um visual para testar local — a interface rodando no navegador em <code>localhost</code>.</div>
+                        </div>
+
+                        <div class="callout-protip" style="margin-top: 12px;">
+                            <span class="callout-protip-icon">📖</span>
+                            <div class="callout-protip-content"><strong>Passo a passo</strong> — Consulte o exercício <strong>10a-prototipo-plan-localhost.md</strong> na pasta de exercícios.</div>
+                        </div>
+                    </div>
+
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Exemplo de prompt</div>
+                        <pre><span class="syntax-comment"># No modo Plan</span>
+
+Agora que já temos o PRD e design do projects/arena-voting-system, quero criar um protótipo funcional aqui em localhost para visualizar a ferramenta. O nosso objetivo é ter um visual para testar local.</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 34a4: Exercício — Subir projeto no GitHub pessoal -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · Bloco 3</div>
+                <div class="slide-title">Subir o projeto no <span class="accent">GitHub</span> pessoal</div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 15 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 480px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            Última etapa: publicar o Arena Voting System no seu repositório pessoal do GitHub — versionar documentos e código.
+                        </div>
+
+                        <div class="principle-card" style="margin-top: 12px;">
+                            <div class="principle-title">1. Criar repo vazio no GitHub</div>
+                            <div class="principle-desc">New repository → nome <code>arena-voting-system</code> → sem README inicial.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Inicializar Git e fazer push</div>
+                            <div class="principle-desc">Na pasta <code>projects/arena-voting-system/</code>: <code>git init</code>, <code>git add .</code>, <code>git commit</code>, <code>git remote add origin</code>, <code>git push</code>.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Conferir no navegador</div>
+                            <div class="principle-desc">Abra o link do repositório e confira se documentos e código foram enviados.</div>
+                        </div>
+
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">📖</span>
+                            <div class="callout-protip-content"><strong>Passo a passo</strong> — Consulte o exercício <strong>15-github-subir-projeto.md</strong> na pasta de exercícios.</div>
+                        </div>
+                    </div>
+
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Comandos resumidos</div>
+                        <pre><span class="syntax-comment"># Na pasta projects/arena-voting-system</span>
+git init
+git add .
+git commit -m <span class="syntax-string">"chore: initial commit"</span>
+git remote add origin https://github.com/SEU-USUARIO/arena-voting-system.git
+git branch -M main
+git push -u origin main</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 34b: Protótipo em localhost — Disclaimer -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Disclaimer</div>
+                <div class="slide-title">Protótipo em <span class="accent">localhost</span></div>
+                <div class="slide-subtitle" style="margin-bottom: 24px;">Para um link que qualquer um acesse: servidor, deploy, domínio.</div>
+                <ul class="bullet-list" style="max-width: 640px; margin: 0 auto 24px; text-align: left;">
+                    <li>Alternativa mais simples: começar no <strong>Lovable</strong> → sync com <strong>GitHub</strong> → continuar no <strong>Cursor</strong></li>
+                    <li>Vantagens: não depender dos créditos do Lovable, modelos mais potentes, Skills, mais pessoas no mesmo repo</li>
+                </ul>
+            </div>
+
+            <!-- 34c: Plofti — Exemplo de protótipo -->
+            <div class="slide">
+                <div class="slide-eyebrow">Exemplo</div>
+                <div class="slide-title">Plofti — estimativa de <span class="accent">reparo de carro</span></div>
+                
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: center;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">De ideia a protótipo</div>
+                            <div class="principle-desc">Aplicativo para estimar custo de reparo de carro, criado em poucas horas usando Lovable + Cursor.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Stack do exemplo</div>
+                            <div class="principle-desc">UI inicial no <strong>Lovable</strong>, código versionado no GitHub e iteração fina no Cursor.</div>
+                        </div>
+                        <div style="margin-top: 16px;">
+                            <span class="company-logo-badge company-logo-badge--no-bg">Lovable</span>
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none; max-width: 360px;">
+                        <img src="assets/plofti-iphone-mockup.png" alt="Plofti no iPhone" style="width: 100%; height: auto; border-radius: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- 36: Obrigado -->
+            <div class="slide slide-type-capa">
+                <img src="assets/logo-product-arena.png" alt="Product Arena" style="max-width: 320px; margin-bottom: 40px; height: auto;">
+                <div class="slide-title"><span class="accent">Obrigado</span></div>
+                <div class="slide-subtitle" style="margin-top: 24px;">linkedin.com/in/luccmattos</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let currentSlide = 0;
+
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        const DEBUG_ENDPOINT = 'http://127.0.0.1:7243/ingest/70ff2152-ef7a-4191-8cc0-7a3de40e073a';
+
+        function getSlideTitleText(slideEl) {
+            if (!slideEl) return null;
+            const titleEl = slideEl.querySelector('.slide-title');
+            if (!titleEl) return null;
+            const text = (titleEl.textContent || '').replace(/\s+/g, ' ').trim();
+            return text.length ? text : null;
+        }
+
+        function getImageMetrics(img) {
+            const rect = img.getBoundingClientRect();
+            const computed = window.getComputedStyle(img);
+
+            return {
+                src: img.getAttribute('src'),
+                alt: img.getAttribute('alt'),
+                complete: img.complete,
+                naturalWidth: img.naturalWidth || 0,
+                naturalHeight: img.naturalHeight || 0,
+                clientWidth: img.clientWidth || 0,
+                clientHeight: img.clientHeight || 0,
+                rectWidth: Math.round(rect.width),
+                rectHeight: Math.round(rect.height),
+                computedHeight: computed.height,
+                computedMaxWidth: computed.maxWidth,
+                computedObjectFit: computed.objectFit,
+                computedFilter: computed.filter
+            };
+        }
+
+        function isWatchedLogoSrc(src) {
+            if (!src) return false;
+            return [
+                'lovable-logo.png',
+                'cursor-logo.png',
+                'n8n-logo.png',
+                'chatgpt-logo.png',
+                'databricks-logo.png',
+                'supabase-logo.png',
+                'snowflake-logo.png'
+            ].some((needle) => src.includes(needle));
+        }
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            document.getElementById('currentSlide').textContent = currentSlide + 1;
+
+            // #region agent log
+            try {
+                const activeSlide = slides[currentSlide];
+                const title = getSlideTitleText(activeSlide);
+                const flowLogos = Array.from(activeSlide?.querySelectorAll('img.flow-box-logo') || []);
+                const mcpLogos = Array.from(activeSlide?.querySelectorAll('.mcp-integration-icons img') || []);
+
+                const watchedFlowLogos = flowLogos
+                    .filter((img) => isWatchedLogoSrc(img.getAttribute('src') || ''))
+                    .slice(0, 10)
+                    .map(getImageMetrics);
+
+                const watchedMcpLogos = mcpLogos
+                    .filter((img) => isWatchedLogoSrc(img.getAttribute('src') || ''))
+                    .slice(0, 10)
+                    .map(getImageMetrics);
+
+                const ecosystemScale = activeSlide?.querySelector('.ecosystem-scale');
+                const ecosystemUnits = Array.from(activeSlide?.querySelectorAll('.ecosystem-scale .ecosystem-unit') || []);
+                const ecosystemFlowBoxes = Array.from(activeSlide?.querySelectorAll('.ecosystem-scale .flow-box') || []);
+                const ecosystemBoxMetrics = ecosystemFlowBoxes.slice(0, 10).map((box, index) => {
+                    const rect = box.getBoundingClientRect();
+                    const computed = window.getComputedStyle(box);
+                    const img = box.querySelector('img');
+                    const fallback = box.querySelector('.flow-box-fallback');
+
+                    return {
+                        index,
+                        className: box.className,
+                        backgroundColor: computed.backgroundColor,
+                        borderColor: computed.borderColor,
+                        color: computed.color,
+                        paddingTop: computed.paddingTop,
+                        paddingBottom: computed.paddingBottom,
+                        minHeight: computed.minHeight,
+                        width: computed.width,
+                        height: computed.height,
+                        rectTop: Math.round(rect.top),
+                        rectLeft: Math.round(rect.left),
+                        rectWidth: Math.round(rect.width),
+                        rectHeight: Math.round(rect.height),
+                        hasImg: Boolean(img),
+                        imgSrc: img?.getAttribute('src') || null,
+                        imgComplete: img ? img.complete : null,
+                        hasFallback: Boolean(fallback),
+                        fallbackVisible: fallback ? window.getComputedStyle(fallback).display !== 'none' : null
+                    };
+                });
+
+                const ecosystemUnitMetrics = ecosystemUnits.slice(0, 10).map((unit, index) => {
+                    const unitRect = unit.getBoundingClientRect();
+                    const unitComputed = window.getComputedStyle(unit);
+                    const item = unit.querySelector('.ecosystem-item');
+                    const itemRect = item?.getBoundingClientRect();
+                    const desc = unit.querySelector('.ecosystem-desc');
+                    const descRect = desc?.getBoundingClientRect();
+
+                    return {
+                        index,
+                        unitAlignItems: unitComputed.alignItems,
+                        unitRectTop: Math.round(unitRect.top),
+                        unitRectHeight: Math.round(unitRect.height),
+                        itemRectTop: itemRect ? Math.round(itemRect.top) : null,
+                        itemRectHeight: itemRect ? Math.round(itemRect.height) : null,
+                        descRectHeight: descRect ? Math.round(descRect.height) : null,
+                        descTextLen: desc ? (desc.textContent || '').trim().length : null
+                    };
+                });
+
+                fetch(DEBUG_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        sessionId: 'debug-session',
+                        runId: 'pre-fix',
+                        hypothesisId: 'B',
+                        location: 'index-slides.html:updateSlide',
+                        message: 'Active slide logo metrics',
+                        data: {
+                            currentSlide,
+                            title,
+                            totalFlowLogos: flowLogos.length,
+                            totalMcpLogos: mcpLogos.length,
+                            watchedFlowLogos,
+                            watchedMcpLogos,
+                            hasEcosystemScale: Boolean(ecosystemScale),
+                            ecosystemBoxMetrics,
+                            ecosystemUnitMetrics
+                        },
+                        timestamp: Date.now()
+                    })
+                }).catch(() => {});
+            } catch (err) {
+                fetch(DEBUG_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        sessionId: 'debug-session',
+                        runId: 'pre-fix',
+                        hypothesisId: 'B',
+                        location: 'index-slides.html:updateSlide',
+                        message: 'Active slide logo metrics (error)',
+                        data: { currentSlide, error: String(err) },
+                        timestamp: Date.now()
+                    })
+                }).catch(() => {});
+            }
+            // #endregion
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // #region agent log
+        try {
+            const flowLogos = Array.from(document.querySelectorAll('img.flow-box-logo'));
+            const mcpLogos = Array.from(document.querySelectorAll('.mcp-integration-icons img'));
+            const watched = [...flowLogos, ...mcpLogos]
+                .filter((img) => isWatchedLogoSrc(img.getAttribute('src') || ''))
+                .slice(0, 20);
+
+            fetch(DEBUG_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    sessionId: 'debug-session',
+                    runId: 'pre-fix',
+                    hypothesisId: 'A',
+                    location: 'index-slides.html:init',
+                    message: 'Logo debug init',
+                    data: {
+                        totalSlides,
+                        totalFlowLogos: flowLogos.length,
+                        totalMcpLogos: mcpLogos.length,
+                        watchedCount: watched.length,
+                        watchedSrcs: watched.map((img) => img.getAttribute('src'))
+                    },
+                    timestamp: Date.now()
+                })
+            }).catch(() => {});
+
+            watched.forEach((img) => {
+                const src = img.getAttribute('src') || '';
+                const handlerBaseData = { src, alt: img.getAttribute('alt') };
+
+                img.addEventListener(
+                    'load',
+                    () => {
+                        fetch(DEBUG_ENDPOINT, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                sessionId: 'debug-session',
+                                runId: 'pre-fix',
+                                hypothesisId: 'C',
+                                location: 'index-slides.html:img:load',
+                                message: 'Image loaded',
+                                data: { ...handlerBaseData, ...getImageMetrics(img) },
+                                timestamp: Date.now()
+                            })
+                        }).catch(() => {});
+                    },
+                    { once: true }
+                );
+
+                img.addEventListener(
+                    'error',
+                    () => {
+                        fetch(DEBUG_ENDPOINT, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                sessionId: 'debug-session',
+                                runId: 'pre-fix',
+                                hypothesisId: 'C',
+                                location: 'index-slides.html:img:error',
+                                message: 'Image failed to load',
+                                data: handlerBaseData,
+                                timestamp: Date.now()
+                            })
+                        }).catch(() => {});
+                    },
+                    { once: true }
+                );
+            });
+        } catch (err) {
+            fetch(DEBUG_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    sessionId: 'debug-session',
+                    runId: 'pre-fix',
+                    hypothesisId: 'A',
+                    location: 'index-slides.html:init',
+                    message: 'Logo debug init (error)',
+                    data: { error: String(err) },
+                    timestamp: Date.now()
+                })
+            }).catch(() => {});
+        }
+        // #endregion
+
+        updateSlide();
+    </script>
+</body>
+</html>

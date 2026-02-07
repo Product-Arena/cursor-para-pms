@@ -1,27 +1,28 @@
 {
   "meta": {
-    "total_responses": 17
+    "total_responses": 18
   },
   "distributions": {
     "tshirt_size": {
       "P": 2,
       "M": 8,
       "EXTRA G": 2,
-      "GG": 5
+      "GG": 5,
+      "G": 1
     },
     "ai_usage_level": {
       "Intermediary": 4,
-      "Routine": 2,
+      "Routine": 3,
       "Basic": 10,
       "Advanced": 1
     },
     "api_knowledge": {
-      "dayToDay": 8,
+      "dayToDay": 9,
       "knowButNotConcrete": 7,
       "pandorasBox": 2
     },
     "food_restriction": {
-      "none": 13,
+      "none": 14,
       "hasRestriction": 4
     },
     "food_allergens": {
@@ -33,11 +34,11 @@
     },
     "top_tools": [
       {
-        "name": "ChatGPT",
-        "count": 12
+        "name": "Gemini",
+        "count": 13
       },
       {
-        "name": "Gemini",
+        "name": "ChatGPT",
         "count": 12
       },
       {
@@ -54,7 +55,7 @@
       },
       {
         "name": "Claude",
-        "count": 2
+        "count": 3
       },
       {
         "name": "Comet",
@@ -87,6 +88,10 @@
       {
         "name": "não sei :(",
         "count": 1
+      },
+      {
+        "name": "suíte da openai",
+        "count": 1
       }
     ]
   },
@@ -98,7 +103,7 @@
       },
       "Routine": {
         "knowButNotConcrete": 1,
-        "dayToDay": 1
+        "dayToDay": 2
       },
       "Basic": {
         "knowButNotConcrete": 4,
@@ -409,6 +414,23 @@
       "flow_to_improve": "Escrever PRD",
       "expectations_raw": "Utilizar cursor no meu dia a dia profissional",
       "flow_raw": "Escrever PRD"
+    },
+    {
+      "index": 17,
+      "tshirt_size": "G",
+      "ai_usage_level": "Routine",
+      "api_knowledge": "dayToDay",
+      "food_restriction": "none",
+      "food_allergens": [],
+      "tools": [
+        "suíte da openai",
+        "Gemini",
+        "Claude"
+      ],
+      "expectations": "Criar familiaridade com o Cursor a ponto de pode desenvolver POCs para as features que pretendo testar.",
+      "flow_to_improve": "Criação de POCs e pequenas automações para organização de tarefas.",
+      "expectations_raw": "Criar familiaridade com o Cursor a ponto de pode desenvolver POCs para as features que pretendo testar.",
+      "flow_raw": "Criação de POCs e pequenas automações para organização de tarefas."
     }
   ]
 }

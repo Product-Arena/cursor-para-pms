@@ -1,26 +1,93 @@
 # Cronograma — Cursor para PMs
 
-Curso presencial de **8 horas** com pausa para almoço e café.
-**Início:** 10h 
+Curso presencial de **8h** com pausa para almoço e café.
+**Início:** 10:00
 
-Detalhamento de cada bloco em [syllabus.md](syllabus.md).
+---
 
-## Bloco 1 — Manhã (plano de aula)
+## Resumo dos blocos
 
-| Horário | Seção | Conteúdo |
-|---------|-------|----------|
-| **10:00–10:45** | 1. Introduções | Alunos + Instrutores |
-| **10:45–11:05** | 2. Como funciona o curso | Para quem é, o que vamos aprender |
-| **11:05–11:15** | 3. Demo | "Start my day" |
-| **11:15–11:35** | 4. Setup | Criar workspace, dicas de localização no PC |
-| **11:35–12:30** | 5. Conhecendo o Cursor | Exercícios Ask, Plan, Agent, GitHub, Allowlist, Modo Agent, Skills, Modelos, Rules e Commands |
-| **12:30** | | *Almoço* |
+| Bloco | Horário | Duração | Conteúdo principal |
+|-------|---------|---------|--------------------|
+| **1** | 10:00–12:30 | 2h30 | Setup, modos Ask/Plan/Agent, primeiros exercícios |
+| **2** | 14:00–15:30 | 1h30 | Rules, Commands, MCP Jira, ciclo de produto (notas, PRD, dados, apresentações) |
+| **3** | 15:45–18:45 | 3h | Construindo seu protótipo — Arena Voting System |
 
-## Bloco 2 — Tarde
+*Cada exercício: mínimo 15 min. Bloco 3 considera pausas para perguntas.*
 
-| Horário | Bloco | Conteúdo |
-|---------|-------|----------|
-| **14:00–15:30** | 2 — Cursor no ciclo de produto | Recap + perguntas; notas de reunião (Arthur), PRD, Analisando dados (expectations-analysis), User Stories + Jira + MCP, apresentações |
-| 15:30–15:50 | | Café (10–20 min) |
-| **15:45–17:30** | 3 — Arena Voting System | Recap rules/commands/MCPs; repo pessoal; PRD, design, quebrar histórias, code-review, editor visual |
-| **17:30–18:00** | 4 — Síntese | Casos de uso, próximos passos, feedback |
+---
+
+## Bloco 1 — Manhã (10:00–12:30)
+
+| Horário | Duração | Seção | Conteúdo |
+|---------|---------|-------|----------|
+| 10:00 | 25 min | Introduções | Alunos (1 min/pessoa) + Instrutores |
+| 10:25 | 15 min | O que vamos aprender | 4 blocos, diferença Cursor vs outras ferramentas |
+| 10:40 | 10 min | Wow Moment | Demo "Start my day" |
+| 10:50 | 15 min | Setup | Workspace, allowlist, File-Deletion Protection |
+| 11:05 | 15 min | **Exercício Ask** | "O que você é capaz de fazer?" |
+| 11:20 | 10 min | Abrindo parênteses — GitHub | O que é, clone, repo |
+| 11:30 | 15 min | **Exercício Plan** | Mapear dependências para clonar |
+| 11:45 | 15 min | **Exercício Plan** | Clonar skills.git (modo Build) |
+| 12:00 | 10 min | Abrindo parênteses — Allowlist | Comandos permitidos |
+| 12:10 | 15 min | **Exercício Ask** | Contexto: arrastar pasta + "O que essa pasta faz?" |
+| 12:25 | 5 min | Buffer / Modo Agent (spoiler) | |
+| 12:30 | | *Almoço* | |
+
+*Nota: Modo Agent, Skills, Commands, Rules e clonar repo do curso → Bloco 2. Ajustar conforme ritmo.*
+
+---
+
+## Bloco 2 — Meio do dia (14:00–15:30)
+
+| Horário | Duração | Seção | Conteúdo |
+|---------|---------|-------|----------|
+| 14:00 | 10 min | Recap + perguntas | Retorno do almoço |
+| 14:10 | 10 min | Modo Agent, Skills + Repo curso | Parênteses + clonar |
+| 14:20 | 15 min | **Exercício Agent** (ou Plan workspace) | Instalar skills OU arquivos curso |
+| 14:35 | 10 min | **Exercício Plan** | Arquivos do curso na raiz do workspace |
+| 14:45 | 10 min | Prompt Markdown + Commands + Rules | Parênteses + /create-prd |
+| 14:55 | 10 min | Notas, PRD, Analisando dados | Casos (Arthur, expectations-analysis) |
+| 15:05 | 15 min | O que é MCP + **Exercício MCP Jira** | Instalar Atlassian Rovo MCP |
+| 15:20 | 5 min | Apresentações | Eat your own dog food |
+| 15:25 | 5 min | Buffer | |
+| 15:30 | | *Café* | 10–15 min |
+
+---
+
+## Bloco 3 — Tarde (15:45–18:45)
+
+*Mínimo 3h considerando pausas para perguntas.*
+
+| Horário | Duração | Seção | Conteúdo |
+|---------|---------|-------|----------|
+| 15:45 | 10 min | Recap | Rules, Commands, MCPs |
+| 15:55 | 5 min | Bloco 3 — Overview | Construindo seu protótipo, Arena Voting System |
+| 16:00 | 20 min | Repo pessoal | Criar repo GitHub público |
+| 16:20 | 25 min | **PRD** | /create-prd — nota Arthur Castro |
+| 16:45 | 20 min | **Design** | Skill frontend, browser, screenshots Arena |
+| 17:05 | 25 min | **Quebrar histórias** | Modo Plan |
+| 17:30 | 20 min | **Code-review** | Iterar no código |
+| 17:50 | 25 min | **Editor visual** | Layout e mudanças visuais |
+| 18:15 | 15 min | Disclaimer + Plofti | Protótipo localhost vs deploy, exemplo |
+| 18:30 | 15 min | Síntese + feedback | Próximos passos |
+| 18:45 | | Fim | |
+
+---
+
+## Exercícios (referência)
+
+| # | Exercício | Bloco | Tempo estimado |
+|---|-----------|-------|----------------|
+| 1 | Ask — O que você é capaz | 1 | 15 min |
+| 2 | Plan — Mapear dependências | 1 | 15 min |
+| 3 | Plan — Clonar skills | 1 | 15 min |
+| 4 | Ask — Contexto (arrastar pasta) | 1 | 15 min |
+| 5 | Agent — Instalar skills | 1 | 15 min |
+| 6 | Plan — Arquivos do curso no workspace | 2 | 15 min |
+| 7 | MCP Jira — Instalar | 2 | 15 min |
+| 8 | Arena Voting System (PRD → editor visual) | 3 | 3h total |
+
+---
+
+Detalhamento pedagógico em [plano de aula.md](plano%20de%20aula.md) e [syllabus.md](syllabus.md).

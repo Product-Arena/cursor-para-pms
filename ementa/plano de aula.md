@@ -59,7 +59,7 @@ Descrição: Este arquivo nunca deverá ser commitado. Ele é de uso restrito do
 
 ## Bloco 2 — Tarde: Utilizando o Cursor no ciclo de produto (60–90 min)
 
-**Objetivo:** Aprofundar em rules, commands, workflows e usar o ferramental para construir produtos juntos. Primeiro produto: OS pessoal — plano para o dia a dia de uma pessoa de produto. Casos práticos: análises, Jira cards, notas de reunião, PRD.
+**Objetivo:** Aprofundar em rules, commands e workflows usando o ferramental para construir produtos juntos. Primeiro produto: OS pessoal — plano para o dia a dia de uma pessoa de produto. Casos práticos: notas de reunião, PRD, análises de dados, Jira cards e apresentações. **Slide de abertura do bloco:** subtítulo reforça o fluxo do PM (notas → PRD → dados → Jira → entregas).
 
 **Nota:** Reforçar que vou mostrar exemplos na minha stack, mas incentivá-los a explorar como adaptar à realidade de onde trabalham.
 

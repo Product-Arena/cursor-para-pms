@@ -16,9 +16,9 @@ Durante o Bloco 3 (Arena Voting System) você vai criar um produto do planejamen
 ## Passo a Passo
 
 1. **Siga o fluxo do Bloco 3:** PRD → design → histórias → código (code-review, editor visual).
-2. **Rode o protótipo em localhost** na sua máquina (o instrutor mostrará como, ex.: `npm run dev` ou servidor HTTP simples).
+2. **Rode o protótipo em localhost** na sua máquina (ex.: `npm run dev` ou servidor HTTP simples — o material do curso traz exemplos).
 3. **Teste no navegador** em `http://localhost:3000` (ou a porta indicada).
-4. **Opcional:** Se quiser um link que qualquer um acesse, o instrutor comentará alternativas (deploy, Lovable + GitHub + Cursor — veja o slide de disclaimer).
+4. **Opcional:** Se quiser um link que qualquer um acesse, consulte o material do curso sobre alternativas (deploy, Lovable + GitHub + Cursor — veja o slide de disclaimer).
 
 ---
 

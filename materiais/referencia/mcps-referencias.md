@@ -13,6 +13,13 @@ Model Context Protocol (MCP) conecta o Cursor a sistemas e dados externos.
 
 ---
 
+## Skills para análise de dados (skills.sh)
+
+- **[sql-optimization-patterns](https://skills.sh/wshobson/agents/sql-optimization-patterns)** (wshobson/agents) — Otimização de queries SQL, índices, análise de planos de execução (EXPLAIN), padrões para PostgreSQL/MySQL.
+- **[pandas-pro](https://skills.sh/jeffallan/claude-skills/pandas-pro)** (jeffallan/claude-skills) — Análise e transformação de dados com pandas: limpeza, agregações, merge, performance e boas práticas para dados tabulares.
+
+---
+
 ## MCPs relevantes para PMs
 
 ### Google Workspace MCP

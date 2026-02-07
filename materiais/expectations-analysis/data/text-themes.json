@@ -56,9 +56,10 @@
         "Entender e aprender uma nova funcionalidade",
         "Explorar casos de uso com vibe coding",
         "Aprender novas ferramentas",
-        "Aprender uma nova ferramenta que possa me provocar a ampliar meus horizontes"
+        "Aprender uma nova ferramenta que possa me provocar a ampliar meus horizontes",
+        "Criar familiaridade com o Cursor a ponto de pode desenvolver POCs para as features que pretendo testar."
       ],
-      "count": 6
+      "count": 7
     },
     {
       "theme_id": "theme_3",
@@ -194,9 +195,10 @@
       "quotes": [
         "Integrações entre sistemas, identificação de tipos de documentos via previa de leitura, Agente que responde chamados de bugs no teams.",
         "Sim, resumo de noticias e lembretes de to do já acordados",
-        "Aprender a fazer jornadas e benchmarking mais robustos"
+        "Aprender a fazer jornadas e benchmarking mais robustos",
+        "Criação de POCs e pequenas automações para organização de tarefas."
       ],
-      "count": 3
+      "count": 4
     }
   ]
 }

@@ -1,15 +1,31 @@
-Vamos lá, como vai funcionar o Voting System?
+# Arena Voting System — Requisitos do produto
 
-A ideia é, no encontro de liderança que a gente faz, as pessoas mandam, quando elas fazem a pré-inscrição, os tópicos que elas querem debater.
+Documento de requisitos baseado na demanda do Arena para o sistema de votação de ideias.
 
-E aí, antes do evento, eu faço um resumo deles e coloco sobre quais foram os mais votados e coisas do tipo.
+---
 
-E aí chega no papo mesmo, os participantes (que normalmente são trinta ou trinta e cinco pessoas), voltam daquela lista lá quais eles querem de fato debater, a gente seleciona os 3 topicos mais votados e fica de 20-30 debatendo cada um, e eu fico mediando.
+## Contexto
 
-Isso aqui hoje é tudo manual: desde a gente passar cada um dos tópicos e a galera votar.
-Então o que eu quero é simplificar isso para:
-1.⁠ ⁠pegar os topicos antes
-2.⁠ ⁠e no caminho mesmo, no dia do evento, eles já poderem votar e a gente já começa lá com os itens mais votados, e isso ser dinâmico/interativo: a galera votar e já mudar a tela e tudo mais.
-Então no final das contas, vai ter duas interações:
-1.⁠ ⁠a galera mandando os tópicos
-2.⁠ ⁠e a galera vendo o ranking/resultados dos tópicos em que eles estão votando
+O Arena realiza encontros de liderança onde os participantes enviam, na pré-inscrição, os tópicos que desejam debater. Antes do evento, é feito um resumo e identificação dos mais votados. No dia, os participantes (cerca de 30–35 pessoas) escolhem da lista quais tópicos debater de fato; os 3 mais votados são selecionados e cada um recebe 20–30 minutos de debate, com mediação.
+
+---
+
+## Problema atual
+
+Hoje todo o processo é manual: passar cada tópico e coletar votos um a um.
+
+---
+
+## Objetivo
+
+Simplificar o fluxo em duas etapas:
+
+1. **Antes do evento:** coletar os tópicos com antecedência.
+2. **No dia do evento:** permitir votação em tempo real, no caminho para o evento. Os participantes votam, a tela atualiza dinamicamente e o debate começa já com os itens mais votados.
+
+---
+
+## Duas interações principais
+
+1. **Envio de tópicos:** participantes enviam os tópicos que desejam debater.
+2. **Votação e ranking:** participantes votam e acompanham o ranking/resultados em tempo real.

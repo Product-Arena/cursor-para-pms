@@ -60,10 +60,10 @@ Não é preciso copiar de outro lugar; ao clonar o repo do curso e abrir a pasta
 
 Para os exercícios de Jira (criar tarefas, user stories):
 
-- Configurar o **MCP Jira** (Atlassian/Rovo) conforme o passo a passo do **[07-mcp-jira-setup.md](07-mcp-jira-setup.md)**.
+- Configurar o **MCP Jira** (Atlassian/Rovo) conforme o passo a passo do **[06-mcp-jira-setup.md](06-mcp-jira-setup.md)**.
 - O curso usa o ambiente **productarena.atlassian.net** e uma conta compartilhada (credenciais fornecidas no material / no dia).
 
-Depois de configurado: **[08-mcp-jira-create.md](08-mcp-jira-create.md)** para criar a primeira task com o template de user story.
+Depois de configurado: **[07-mcp-jira-create.md](07-mcp-jira-create.md)** para criar a primeira task com o template de user story.
 
 ---
 
@@ -76,4 +76,4 @@ Depois de configurado: **[08-mcp-jira-create.md](08-mcp-jira-create.md)** para c
 | 3     | Allowlist         | [referencia/command-allowlist.md](../referencia/command-allowlist.md) |
 | 4     | Clone skills + repo do curso | Plano de aula / [git-guia-pms.md](../git-guia-pms.md)   |
 | 5     | Rules/Commands    | Já em `.cursor/` no repo clonado                         |
-| 6     | MCP Jira          | [07-mcp-jira-setup.md](07-mcp-jira-setup.md)            |
+| 6     | MCP Jira          | [06-mcp-jira-setup.md](06-mcp-jira-setup.md)            |
