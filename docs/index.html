@@ -105,8 +105,6 @@
 
         .slide {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             display: flex;
@@ -1102,7 +1100,7 @@
             gap: 5%;
             width: 100%;
             max-width: 1200px;
-            align-items: center;
+            align-items: start;
             text-align: left;
             margin-top: 32px;
         }
@@ -1129,6 +1127,9 @@
             border: 2px solid #404040;
             color: #e0e0e0;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        .slide-type-exercicio .prompt-container {
+            height: 400px;
         }
         .slide-split-code .prompt-container .prompt-label,
         .slide-type-parenteses .prompt-container .prompt-label,
@@ -1696,7 +1697,7 @@
                             <span style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 12px; display: block;">O prompt</span>
                             <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 16px; padding: 32px 40px; margin-bottom: 24px; font-family: 'SF Mono', monospace; font-size: 1.1rem; line-height: 1.6; color: #fff; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
                                 “Monte um plano para eu clonar<br>
-                                <span style="color: var(--accent); font-weight: 600; border-bottom: 1px solid rgba(255, 87, 87, 0.4); padding-bottom: 2px;">https://github.com/anthropics/skills.git</span>”
+                                <span style="color: var(--accent); font-weight: 600; border-bottom: 1px solid rgba(255, 87, 87, 0.4); padding-bottom: 2px;">https://github.com/Product-Arena/cursor-para-pms.git</span>”
                             </div>
                             <span style="font-size: 1.05rem; opacity: 0.9;">Depois, clique no botão <strong>Build</strong> gerado pelo plano.</span>
                         </div>
@@ -1827,8 +1828,8 @@
                             <div class="callout-protip-content"><strong>Pro tip</strong> — Trate esse stack como seu “ponto de partida padrão” — sempre que for criar algo novo, comece daqui em vez de reconfigurar tudo do zero.</div>
                         </div>
                     </div>
-                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
-                        <img src="assets/arthur-gift-square.png" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Arthur entregando um presente">
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none; width: 380px; max-width: 380px; height: 400px;">
+                        <img src="assets/arthur-gift-square.png" style="width: 100%; height: 100%; max-height: 400px; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Arthur entregando um presente">
                     </div>
                 </div>
             </div>
@@ -2627,7 +2628,7 @@ documents/prd-arena-voting-system.md
                         </div>
                     </div>
 
-                    <div class="prompt-container" style="flex: 1;">
+                    <div class="prompt-container" style="flex: 1; height: 400px;">
                         <div class="prompt-label">Exemplo de prompt</div>
                         <pre><span class="syntax-comment"># No modo Agent</span>
 

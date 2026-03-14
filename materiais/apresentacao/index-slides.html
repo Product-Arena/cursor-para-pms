@@ -105,8 +105,6 @@
 
         .slide {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             display: flex;
@@ -354,10 +352,19 @@
         }
         .ecosystem-scale--logos-only .flow-box {
             min-height: 88px;
+            height: 88px;
             padding: 20px 28px;
+            flex-shrink: 0;
         }
         .ecosystem-scale--logos-only {
             gap: 20px;
+            align-items: flex-start;
+        }
+        .ecosystem-scale--logos-only .ecosystem-unit {
+            align-items: flex-start;
+        }
+        .ecosystem-scale--logos-only .ecosystem-item {
+            align-items: center;
         }
         .flow-box-fallback {
             font-size: 0.9rem;
@@ -1102,7 +1109,7 @@
             gap: 5%;
             width: 100%;
             max-width: 1200px;
-            align-items: center;
+            align-items: start;
             text-align: left;
             margin-top: 32px;
         }
@@ -1129,6 +1136,9 @@
             border: 2px solid #404040;
             color: #e0e0e0;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        .slide-type-exercicio .prompt-container {
+            height: 400px;
         }
         .slide-split-code .prompt-container .prompt-label,
         .slide-type-parenteses .prompt-container .prompt-label,
@@ -1430,6 +1440,14 @@
                     </div>
                     <div class="ecosystem-unit">
                         <div class="ecosystem-item">
+                            <div class="flow-box">
+                                <span class="flow-box-fallback">Claude</span>
+                            </div>
+                            <div class="ecosystem-desc">Assistente conversacional (Anthropic). No Cursor vira par técnico que executa.</div>
+                        </div>
+                    </div>
+                    <div class="ecosystem-unit">
+                        <div class="ecosystem-item">
                             <div class="flow-box flow-box--dark highlighted">
                                 <img src="assets/cursor-logo.png" alt="Cursor" class="flow-box-logo">
                             </div>
@@ -1472,7 +1490,7 @@
                 <div class="agenda-blocks">
                     <div class="agenda-block">
                         <div class="agenda-block-header">☕ Manhã</div>
-                        <div class="agenda-block-content">Setup, modos do Cursor (Ask, Plan, Agent) e primeiros exercícios.</div>
+                        <div class="agenda-block-content">Setup, modos do Cursor (Ask, Plan, Agent), Rules, Commands e primeiros exercícios.</div>
                         <div class="agenda-block-time">10:00 – 12:30</div>
                     </div>
                     <div class="agenda-block">
@@ -1482,7 +1500,7 @@
                     </div>
                     <div class="agenda-block">
                         <div class="agenda-block-header">🧠 Meio do dia</div>
-                        <div class="agenda-block-content">Rules, Commands, MCP Jira e ciclo de produto (notas, PRD, dados, apresentações).</div>
+                        <div class="agenda-block-content">Ciclo de produto.</div>
                         <div class="agenda-block-time">14:00 – 15:30</div>
                     </div>
                     <div class="agenda-block">
@@ -1492,8 +1510,8 @@
                     </div>
                     <div class="agenda-block">
                         <div class="agenda-block-header">🚀 Tarde</div>
-                        <div class="agenda-block-content">Construindo seu protótipo — Arena Voting System (PRD, design, histórias, code-review, editor visual).</div>
-                        <div class="agenda-block-time">15:45 – 18:45</div>
+                        <div class="agenda-block-content">Construindo seu protótipo.</div>
+                        <div class="agenda-block-time">15:45 – 18:00</div>
                     </div>
                 </div>
             </div>
@@ -1540,11 +1558,36 @@
                 </div>
             </div>
 
+            <!-- Presente da Arena (antecipado: antes do clone do repo do curso) -->
+            <div class="slide">
+                <div class="slide-eyebrow">Product Arena</div>
+                <div class="slide-title">Presente da <span class="accent">Arena</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">O stack dos instrutores</div>
+                            <div class="principle-desc">Leve para casa a mesma configuração de Rules, Commands e estrutura de arquivos que Lucas e Arthur usam no dia a dia.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Workspace pronto para copiar</div>
+                            <div class="principle-desc">Vocês vão clonar o <strong>repositório do curso</strong> (Cursor para PMs — Product Arena), que já traz isso. Use como base para novos projetos.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 24px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Pro tip</strong> — Trate esse stack como seu ponto de partida padrão — sempre que for criar algo novo, comece daqui.</div>
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none; width: 380px; max-width: 380px; height: 400px; justify-content: flex-start;">
+                        <img src="assets/arthur-gift-square.png" style="width: 100%; height: 100%; max-height: 400px; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Arthur entregando um presente">
+                    </div>
+                </div>
+            </div>
+
             <!-- 9: Cursor e acesso à máquina -->
             <div class="slide slide-type-parenteses">
                 <div class="slide-eyebrow">Abrindo parênteses</div>
                 <div class="slide-title">Cursor e acesso à <span class="accent">máquina</span></div>
-                <div class="slide-subtitle" style="margin-top: 24px;">Como um IDE: o Cursor navega nos arquivos do seu computador — assim como o terminal. Ele “vê” o que você abre.</div>
+                <div class="slide-subtitle" style="margin-top: 24px;">Como um IDE: o Cursor navega nos arquivos do seu computador — assim como o terminal. Cada máquina tem seu jeito: caminhos, permissões e atalhos podem variar. Ele “vê” o que você abre.</div>
             </div>
 
             <!-- 10: Exercício Ask -->
@@ -1688,15 +1731,15 @@
             <!-- 15: Exercício Plan (clone) -->
             <div class="slide slide-type-exercicio">
                 <div class="slide-eyebrow">Exercício · Plan</div>
-                <div class="slide-title"><span class="accent">Plan</span> — Clonando nosso primeiro repo</div>
-                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 20 minutos</div>
+                <div class="slide-title"><span class="accent">Plan</span> — Clonando o repositório do curso</div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 20 minutos · Cursor para PMs — Product Arena</div>
                 <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 520px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
                             <span style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 12px; display: block;">O prompt</span>
                             <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 16px; padding: 32px 40px; margin-bottom: 24px; font-family: 'SF Mono', monospace; font-size: 1.1rem; line-height: 1.6; color: #fff; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
                                 “Monte um plano para eu clonar<br>
-                                <span style="color: var(--accent); font-weight: 600; border-bottom: 1px solid rgba(255, 87, 87, 0.4); padding-bottom: 2px;">https://github.com/anthropics/skills.git</span>”
+                                <span style="color: var(--accent); font-weight: 600; border-bottom: 1px solid rgba(255, 87, 87, 0.4); padding-bottom: 2px;">https://github.com/Product-Arena/cursor-para-pms.git</span>”
                             </div>
                             <span style="font-size: 1.05rem; opacity: 0.9;">Depois, clique no botão <strong>Build</strong> gerado pelo plano.</span>
                         </div>
@@ -1770,71 +1813,8 @@
                 </div>
             </div>
 
-            <!-- 19: Exercício Agent -->
-            <div class="slide slide-type-exercicio">
-                <div class="slide-eyebrow">Exercício · Agent</div>
-                <div class="slide-title"><span class="accent">Agent</span> — Instalar skills</div>
-                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 15 minutos</div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="slide-subtitle" style="margin-top: 0;">Envie: <strong>“Quero que você instale esses skills no meu workspace.”</strong> Aprove as etapas que o Agent sugerir.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 20: Skills -->
-            <div class="slide slide-type-parenteses">
-                <div class="slide-eyebrow">Abrindo parênteses</div>
-                <div class="slide-title">O que são <span class="accent">Skills</span>?</div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">Extensões de comportamento</div>
-                            <div class="principle-desc">Tarefas, fluxos e templates. Instalados via marketplaces (skills.sh, skillsmp.com).</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">Onde ver o que está instalado</div>
-                            <div class="principle-desc">Cursor → Settings para conferir os skills ativos.</div>
-                        </div>
-                        <div class="callout-protip" style="margin-top: 24px;">
-                            <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Pro tip</strong> — Encontre skills gratuitos no diretório <a href="http://skills.sh" target="_blank">skills.sh</a>.</div>
-                        </div>
-                    </div>
-                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
-                        <img src="assets/skills-settings.png" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Tela de configurações de Skills no Cursor">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 21: Presente da Arena -->
-            <div class="slide">
-                <div class="slide-eyebrow">Product Arena</div>
-                <div class="slide-title">Presente da <span class="accent">Arena</span></div>
-                
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">O stack dos instrutores</div>
-                            <div class="principle-desc">Leve para casa a mesma configuração de Rules, Commands e estrutura de arquivos que Lucas e Arthur usam no dia a dia.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">Workspace pronto para copiar</div>
-                            <div class="principle-desc">Use este repo como base para novos projetos: adapte, duplique e crie seu próprio sistema em cima dele.</div>
-                        </div>
-                        <div class="callout-protip" style="margin-top: 24px;">
-                            <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Pro tip</strong> — Trate esse stack como seu “ponto de partida padrão” — sempre que for criar algo novo, comece daqui em vez de reconfigurar tudo do zero.</div>
-                        </div>
-                    </div>
-                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
-                        <img src="assets/arthur-gift-square.png" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Arthur entregando um presente">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 22: Commands -->
-            <div class="slide">
+            <!-- Commands -->
+<div class="slide">
                 <div class="slide-eyebrow">Product Arena</div>
                 <div class="slide-split-code">
                     <div class="slide-left-content">
@@ -1875,21 +1855,7 @@ Create the following structure:
                 </div>
             </div>
 
-            <!-- 22b: Sugestão — Greg Isenberg / Cursor -->
-            <div class="slide">
-                <div class="slide-eyebrow">Sugestão de conteúdo</div>
-                <div class="slide-title">Cursor em <span class="accent">ação</span></div>
-                <div class="slide-subtitle" style="margin-bottom: 12px; font-weight: 600;">Cursor Replaces Your Entire Business Stack (Full Demo)</div>
-                <div class="slide-subtitle" style="margin-bottom: 24px; font-size: 1rem; opacity: 0.9;">Greg Isenberg — visão de quem usa Cursor no dia a dia</div>
-                <a href="https://www.youtube.com/watch?v=ZvZ4aUXBtzU&t=63s" target="_blank" rel="noopener" style="display: inline-block; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.2); text-decoration: none; max-width: 560px;">
-                    <img src="assets/greg-cursor-video-thumb.png" alt="Thumb: Cursor Replaces Your Entire Business Stack — Greg Isenberg" style="display: block; width: 100%; height: auto;">
-                </a>
-                <div class="slide-subtitle" style="margin-top: 20px; font-size: 0.95rem;">
-                    <a href="https://www.youtube.com/watch?v=ZvZ4aUXBtzU&t=63s" target="_blank" rel="noopener" style="color: var(--accent); font-weight: 600;">youtube.com/watch?v=ZvZ4aUXBtzU</a>
-                </div>
-            </div>
-
-            <!-- 23: Rules -->
+            <!-- Rules -->
             <div class="slide">
                 <div class="slide-eyebrow">Product Arena</div>
                 <div class="slide-split-code">
@@ -1929,6 +1895,61 @@ Create the following structure:
 3. <span class="syntax-heading">**Features**</span> (H2)
    <span class="syntax-comment">Detailed functional requirements...</span></pre>
                     </div>
+                </div>
+            </div>
+
+            <!-- Skills (conteúdo) -->
+            <div class="slide">
+                <div class="slide-eyebrow">Product Arena</div>
+                <div class="slide-title">O que são <span class="accent">Skills</span>?</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">Extensões de comportamento</div>
+                            <div class="principle-desc">Tarefas, fluxos e templates. Instalados via marketplaces (skills.sh, skillsmp.com).</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Onde ver o que está instalado</div>
+                            <div class="principle-desc">Cursor → Settings para conferir os skills ativos.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 24px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Pro tip</strong> — Encontre skills gratuitos no diretório <a href="http://skills.sh" target="_blank">skills.sh</a>.</div>
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/skills-settings.png" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Tela de configurações de Skills no Cursor">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Exercício Agent — Instalar skills -->
+            <div class="slide slide-type-exercicio">
+                <div class="slide-eyebrow">Exercício · Agent</div>
+                <div class="slide-title"><span class="accent">Agent</span> — Instalar skills</div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 15 minutos</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="slide-subtitle" style="margin-top: 0;">Envie: <strong>“Quero que você instale esses skills no meu workspace.”</strong> Aprove as etapas que o Agent sugerir.</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Sugestão de conteúdo — Greg Isenberg -->
+            <div class="slide">
+                <div class="slide-eyebrow">Sugestão de conteúdo</div>
+                <div class="slide-title">Cursor em <span class="accent">ação</span></div>
+                <div class="slide-subtitle" style="margin-bottom: 12px; font-weight: 600;">Cursor Replaces Your Entire Business Stack (Full Demo)</div>
+                <div class="slide-subtitle" style="margin-bottom: 24px; font-size: 1rem; opacity: 0.9;">Greg Isenberg — visão de quem usa Cursor no dia a dia</div>
+                <a href="https://www.youtube.com/watch?v=ZvZ4aUXBtzU&t=63s" target="_blank" rel="noopener" style="display: inline-block; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.2); text-decoration: none; max-width: 560px;">
+                    <img src="assets/greg-cursor-video-thumb.png" alt="Thumb: Cursor Replaces Your Entire Business Stack — Greg Isenberg" style="display: block; width: 100%; height: auto;">
+                </a>
+                <div class="slide-subtitle" style="margin-top: 20px; font-size: 0.95rem;">
+                    <a href="https://www.youtube.com/watch?v=ZvZ4aUXBtzU&t=63s" target="_blank" rel="noopener" style="color: var(--accent); font-weight: 600;">youtube.com/watch?v=ZvZ4aUXBtzU</a>
                 </div>
             </div>
 
@@ -1986,6 +2007,14 @@ Respond in the chat (do not create files) for:
                         <div class="check-icon">🛡️</div>
                         <div class="check-text"><strong>Segurança:</strong> Allowlist e controle do que roda</div>
                     </div>
+                    <div class="check-card">
+                        <div class="check-icon">📋</div>
+                        <div class="check-text"><strong>Rules:</strong> Manual de estilo — o Cursor segue convenções sem reexplicar</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">⌨️</div>
+                        <div class="check-text"><strong>Commands:</strong> Macros em linguagem natural (ex.: /create-prd)</div>
+                    </div>
                 </div>
 
                 <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Espaço para dúvidas antes de seguirmos para o ciclo de produto</div>
@@ -2002,7 +2031,6 @@ Respond in the chat (do not create files) for:
                             <div class="agenda-block-time">14:00 – 15:30</div>
                         </div>
                         <div class="agenda-block-content">
-                            Rules, Commands, MCP Jira e ciclo de produto (notas, PRD, dados, apresentações).
                             <div class="agenda-block-expanded-section">
                                 <div class="agenda-block-expanded-section-title">Conteúdo</div>
                                 <ul class="agenda-block-expanded-list">
@@ -2016,8 +2044,6 @@ Respond in the chat (do not create files) for:
                             <div class="agenda-block-expanded-section">
                                 <div class="agenda-block-expanded-section-title">Exercícios</div>
                                 <ul class="agenda-block-expanded-list">
-                                    <li>Modo Agent — instalar skills ou arquivos do curso</li>
-                                    <li>Plan — arquivos do curso na raiz do workspace</li>
                                     <li>MCP Jira — instalar e criar tasks</li>
                                 </ul>
                             </div>
@@ -2030,7 +2056,7 @@ Respond in the chat (do not create files) for:
             <div class="slide">
                 <div class="slide-eyebrow">Notas de reunião e organização de agenda</div>
                 <div class="slide-title">Como o Arthur <span class="accent">organiza as notas</span> (mentorias)</div>
-                <div style="max-width: 800px; margin-top: 40px; display: grid; gap: 20px;">
+                <div style="max-width: 800px; margin-top: 28px; display: grid; gap: 12px;">
                     <div class="principle-card">
                         <div class="principle-title">Notas que viram ação</div>
                         <div class="principle-desc">Cada sessão de mentoria gera um conjunto de notas que já nasce organizado para virar próximos passos e follow-ups.</div>
@@ -2077,7 +2103,7 @@ Respond in the chat (do not create files) for:
             <div class="slide">
                 <div class="slide-eyebrow">Analisando dados</div>
                 <div class="slide-title">Analisando dados <span class="accent">like pro</span></div>
-                <div style="max-width: 800px; margin-top: 40px; display: grid; gap: 20px;">
+                <div style="max-width: 800px; margin-top: 28px; display: grid; gap: 12px;">
                     <div class="principle-card">
                         <div class="principle-title">1. Para conectar aos dados</div>
                         <div class="principle-desc">MCPs e arquivos locais: traga dados de onde já estão para o contexto do Cursor.</div>
@@ -2119,13 +2145,15 @@ Respond in the chat (do not create files) for:
                             <div class="principle-title">Entrega</div>
                             <div class="principle-desc">Dashboard HTML responsivo (ECharts): filtros por uso de IA, APIs e camiseta; gráficos de distribuição; temas das expectativas e recomendações de conteúdo para o curso.</div>
                         </div>
-                        <div class="callout-protip" style="margin-top: 16px;">
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start;">
+                        <div class="screenshot-container" style="margin-top: 0; max-width: 520px; max-height: 340px;">
+                            <img src="assets/expectations-dashboard.png" class="screenshot-image" style="object-position: center top;" alt="Dashboard de análise de expectativas (expectations-analysis)">
+                        </div>
+                        <div class="callout-protip" style="margin-top: 0;">
                             <span class="callout-protip-icon">📖</span>
                             <div class="callout-protip-content"><strong>Em seguida</strong> — o prompt em Markdown que usamos. O dashboard você pode mostrar em outra tela.</div>
                         </div>
-                    </div>
-                    <div class="screenshot-container" style="margin-top: 0; max-width: 520px; max-height: 340px;">
-                        <img src="assets/expectations-dashboard.png" class="screenshot-image" style="object-position: center top;" alt="Dashboard de análise de expectativas (expectations-analysis)">
                     </div>
                 </div>
             </div>
@@ -2198,73 +2226,6 @@ Respond in the chat (do not create files) for:
                     </div>
                     <div style="background: transparent; border: none; box-shadow: none;">
                         <img src="assets/jira-profile-menu.png" alt="Jira com menu de perfil aberto mostrando Configurações da conta" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 31b: Atlassian API token — segurança -->
-            <div class="slide slide-type-parenteses">
-                <div class="slide-eyebrow">Abrindo parênteses</div>
-                <div class="slide-title">Atlassian — <span class="accent">Segurança</span></div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">2. Ir em Segurança</div>
-                            <div class="principle-desc">No topo do painel, clique em <strong>Segurança</strong>.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">3. Tokens de API</div>
-                            <div class="principle-desc">Role até <strong>Tokens de API</strong> e abra a área de criação/gerenciamento.</div>
-                        </div>
-                    </div>
-                    <div style="background: transparent; border: none; box-shadow: none;">
-                        <img src="assets/atlassian-security.png" alt="Painel da Atlassian na aba Segurança" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 31c: Atlassian API token — criar token -->
-            <div class="slide slide-type-parenteses">
-                <div class="slide-eyebrow">Abrindo parênteses</div>
-                <div class="slide-title">Atlassian — <span class="accent">criar token</span></div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">4. Criar um token</div>
-                            <div class="principle-desc">Clique em <strong>Criar um token de API</strong> (ou equivalente) e dê um nome (ex.: <code>cursor</code>).</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">5. Copiar e guardar</div>
-                            <div class="principle-desc">Copie o token e salve num local seguro. Você geralmente <strong>não consegue ver de novo</strong> depois.</div>
-                        </div>
-                        <div class="callout-protip" style="margin-top: 16px;">
-                            <span class="callout-protip-icon">✅</span>
-                            <div class="callout-protip-content"><strong>Regra</strong> — Se você suspeitar de vazamento, <strong>revogue</strong> e crie outro token.</div>
-                        </div>
-                    </div>
-                    <div style="background: transparent; border: none; box-shadow: none;">
-                        <img src="assets/atlassian-api-tokens.png" alt="Tela de Tokens de API com botão para criar token" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 31d: Atlassian API token — copiar token -->
-            <div class="slide slide-type-parenteses">
-                <div class="slide-eyebrow">Abrindo parênteses</div>
-                <div class="slide-title">Atlassian — <span class="accent">salve o token</span></div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">7. Copiar</div>
-                            <div class="principle-desc">Use o botão <strong>Copiar</strong> e salve imediatamente no seu cofre/gerenciador de senhas.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">8. Nunca compartilhe</div>
-                            <div class="principle-desc">Não cole em docs, slides, issues ou chat. Configure só localmente no Cursor (MCP env).</div>
-                        </div>
-                    </div>
-                    <div style="background: transparent; border: none; box-shadow: none;">
-                        <img src="assets/atlassian-token-copy.png" alt="Modal de copiar token de API da Atlassian" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
                     </div>
                 </div>
             </div>
@@ -2371,26 +2332,30 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
                 </div>
             </div>
 
-            <!-- 33: Bloco 3 — Recap (padrão recap) -->
+            <!-- 33: Bloco 3 — Recap (casos de uso) -->
             <div class="slide slide-recap">
                 <div class="slide-eyebrow">Retomando</div>
-                <div class="slide-title">Recap — rules, commands, <span class="accent">MCPs</span></div>
+                <div class="slide-title">Recap — casos de <span class="accent">uso</span></div>
                 <div class="check-list-grid" style="margin-top: 40px; max-width: 1000px; gap: 24px;">
                     <div class="check-card">
-                        <div class="check-icon">📋</div>
-                        <div class="check-text"><strong>Rules:</strong> Manual de estilo do projeto — o Cursor segue convenções sem você reexplicar.</div>
+                        <div class="check-icon">📝</div>
+                        <div class="check-text"><strong>Notas de reunião:</strong> Organização por pessoa, templates e follow-ups — case mentorias.</div>
                     </div>
                     <div class="check-card">
-                        <div class="check-icon">⌨️</div>
-                        <div class="check-text"><strong>Commands:</strong> Macros em linguagem natural (ex.: /create-prd) para fluxos repetíveis.</div>
+                        <div class="check-icon">📊</div>
+                        <div class="check-text"><strong>Analisando dados:</strong> MCPs + arquivos locais, Skills (SQL/Pandas), dashboards no contexto.</div>
                     </div>
                     <div class="check-card">
                         <div class="check-icon">🔌</div>
                         <div class="check-text"><strong>MCPs:</strong> Jira, Google, Confluence — conectar dados e tarefas ao contexto do Cursor.</div>
                     </div>
                     <div class="check-card">
-                        <div class="check-icon">🎯</div>
-                        <div class="check-text"><strong>Arena Voting System:</strong> Tudo isso junto no próximo bloco prático.</div>
+                        <div class="check-icon">📋</div>
+                        <div class="check-text"><strong>User Stories no Jira:</strong> Criar issues (Story/Task) direto do Cursor via MCP.</div>
+                    </div>
+                    <div class="check-card">
+                        <div class="check-icon">🖼️</div>
+                        <div class="check-text"><strong>Apresentações:</strong> HTML, fontes, gráficos — Cursor + Skills (pptx, tema) para exportar e iterar.</div>
                     </div>
                 </div>
                 <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Tudo que vamos usar no Arena Voting System</div>
@@ -2405,16 +2370,15 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
 
             <!-- 34: Bloco 3 — Construindo seu protótipo (exercício: Arena Voting System) -->
             <div class="slide slide-block-overview">
-                <div class="slide-eyebrow">Tarde — 15:45–18:45</div>
+                <div class="slide-eyebrow">Tarde — 15:45–18:00</div>
                 <div class="slide-title">Bloco 3 — Construindo seu <span class="accent">protótipo</span></div>
                 <div class="agenda-blocks" style="margin-top: 24px; max-width: 720px;">
                     <div class="agenda-block agenda-block--expanded">
                         <div class="agenda-block-header-row">
                             <div class="agenda-block-header">🚀 Tarde</div>
-                            <div class="agenda-block-time">15:45 – 18:45</div>
+                            <div class="agenda-block-time">15:45 – 18:00</div>
                         </div>
                         <div class="agenda-block-content">
-                            Construindo seu protótipo — Arena Voting System (PRD, design, histórias, code-review, editor visual).
                             <div class="agenda-block-expanded-section">
                                 <div class="agenda-block-expanded-section-title">Conteúdo</div>
                                 <ul class="agenda-block-expanded-list">
@@ -2424,7 +2388,6 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
                                     <li>Design System — extrair cores, tipografia e logo de productarena.io</li>
                                     <li>Protótipo funcional — Plan + localhost</li>
                                     <li>Quebrar histórias — modo Plan</li>
-                                    <li>Code-review + Editor visual</li>
                                     <li>Subir projeto no GitHub pessoal</li>
                                 </ul>
                             </div>
@@ -2437,7 +2400,6 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
                                     <li>Design System — extrair de productarena.io (⏱ 20 min)</li>
                                     <li>Protótipo funcional — Plan + localhost (⏱ 25 min)</li>
                                     <li>Quebrar histórias — modo Plan (⏱ 25 min)</li>
-                                    <li>Code-review + Editor visual (⏱ 45 min)</li>
                                     <li>Subir projeto no GitHub (⏱ 15 min)</li>
                                 </ul>
                             </div>
@@ -2461,7 +2423,7 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
                         <pre><span class="syntax-heading"># Setup — Acesso aos recursos do curso</span>
 
 <span class="syntax-heading">## Contexto</span>
-<span class="syntax-list">-</span> Clonei o repositório do curso Cursor para PMs: <span class="syntax-string">https://github.com/...</span>
+<span class="syntax-list">-</span> Clonei o repositório do curso Cursor para PMs: <span class="syntax-string">https://github.com/Product-Arena/cursor-para-pms</span>
 <span class="syntax-list">-</span> O repo já possui Rules, Commands e templates prontos para usar
 <span class="syntax-list">-</span> Quero garantir que terei acesso a esses documentos em todo o meu workspace
 
@@ -2534,25 +2496,23 @@ Monte um plano para eu configurar isso. Quais pastas e arquivos devo mover ou re
                             <div class="principle-title">3. Siga o fluxo guiado</div>
                             <div class="principle-desc">O Business Consultant Agent vai conduzir a criação da Product Strategy com perguntas socráticas.</div>
                         </div>
+                    </div>
 
-                        <div class="callout-protip" style="margin-top: 16px;">
+                    <div style="display: flex; flex-direction: column; gap: 16px; flex: 1; min-width: 0;">
+                        <div class="prompt-container" style="flex: 0 0 auto; max-height: 280px; overflow: auto;">
+                            <div class="prompt-label">Exemplo — o que informar ao /start-a-business</div>
+                            <pre><span class="syntax-heading"># Arena Voting System</span>
+
+<span class="syntax-heading">## Nome</span> arena-voting-system
+
+<span class="syntax-heading">## Descrição</span> Sistema de votação de ideias para priorizar melhorias.
+
+<span class="syntax-heading">## Audiência</span> PMs e stakeholders em sessões de priorização.</pre>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 0;">
                             <span class="callout-protip-icon">💡</span>
                             <div class="callout-protip-content"><strong>Contexto</strong> — O resultado é a pasta <code>projects/arena-voting-system/</code> com <code>documents/</code> e Product Strategy prontos para o próximo passo (/create-prd).</div>
                         </div>
-                    </div>
-
-                    <div class="prompt-container" style="flex: 1;">
-                        <div class="prompt-label">Exemplo — o que informar ao /start-a-business</div>
-                        <pre><span class="syntax-heading"># Arena Voting System</span>
-
-<span class="syntax-heading">## Nome</span>
-arena-voting-system
-
-<span class="syntax-heading">## Descrição</span>
-Sistema de votação de ideias para priorizar melhorias. Usuários votam em propostas e o time acompanha o ranking.
-
-<span class="syntax-heading">## Audiência</span>
-Produtores, PMs e stakeholders que participam de sessões de priorização e precisam decidir o que construir em seguida.</pre>
                     </div>
                 </div>
             </div>
@@ -2580,16 +2540,12 @@ Produtores, PMs e stakeholders que participam de sessões de priorização e pre
                             <div class="principle-title">3. Resultado</div>
                             <div class="principle-desc">Será criado <code>documents/prd-arena-voting-system.md</code> com requisitos, OKRs e roadmap baseados na Product Strategy.</div>
                         </div>
-
-                        <div class="callout-protip" style="margin-top: 16px;">
-                            <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Dica</strong> — Se o comando pedir Product Strategy, arraste o arquivo <code>product-strategy-arena-voting-system.md</code> para o chat como contexto.</div>
-                        </div>
                     </div>
 
-                    <div class="prompt-container" style="flex: 1;">
-                        <div class="prompt-label">Fluxo</div>
-                        <pre><span class="syntax-comment"># Exercício anterior gerou:</span>
+                    <div style="display: flex; flex-direction: column; gap: 16px; flex: 1; min-width: 0;">
+                        <div class="prompt-container" style="flex: 0 0 auto;">
+                            <div class="prompt-label">Fluxo</div>
+                            <pre><span class="syntax-comment"># Exercício anterior gerou:</span>
 projects/arena-voting-system/
 └── documents/
     └── product-strategy-arena-voting-system.md
@@ -2597,6 +2553,11 @@ projects/arena-voting-system/
 <span class="syntax-comment"># /create-prd lê esse arquivo e cria:</span>
 documents/prd-arena-voting-system.md
 <span class="syntax-comment">  → requisitos, OKRs, roadmap</span></pre>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 0;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Dica</strong> — Se o comando pedir Product Strategy, arraste o arquivo <code>product-strategy-arena-voting-system.md</code> para o chat como contexto.</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2627,7 +2588,7 @@ documents/prd-arena-voting-system.md
                         </div>
                     </div>
 
-                    <div class="prompt-container" style="flex: 1;">
+                    <div class="prompt-container" style="flex: 1; height: 400px;">
                         <div class="prompt-label">Exemplo de prompt</div>
                         <pre><span class="syntax-comment"># No modo Agent</span>
 
@@ -2698,22 +2659,23 @@ Agora que já temos o PRD e design do projects/arena-voting-system, quero criar 
                             <div class="principle-title">3. Conferir no navegador</div>
                             <div class="principle-desc">Abra o link do repositório e confira se documentos e código foram enviados.</div>
                         </div>
-
-                        <div class="callout-protip" style="margin-top: 16px;">
-                            <span class="callout-protip-icon">📖</span>
-                            <div class="callout-protip-content"><strong>Passo a passo</strong> — Consulte o exercício <strong>15-github-subir-projeto.md</strong> na pasta de exercícios.</div>
-                        </div>
                     </div>
 
-                    <div class="prompt-container" style="flex: 1;">
-                        <div class="prompt-label">Comandos resumidos</div>
-                        <pre><span class="syntax-comment"># Na pasta projects/arena-voting-system</span>
+                    <div style="display: flex; flex-direction: column; gap: 16px; flex: 1; min-width: 0;">
+                        <div class="prompt-container" style="flex: 0 0 auto;">
+                            <div class="prompt-label">Comandos resumidos</div>
+                            <pre><span class="syntax-comment"># Na pasta projects/arena-voting-system</span>
 git init
 git add .
 git commit -m <span class="syntax-string">"chore: initial commit"</span>
 git remote add origin https://github.com/SEU-USUARIO/arena-voting-system.git
 git branch -M main
 git push -u origin main</pre>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 0;">
+                            <span class="callout-protip-icon">📖</span>
+                            <div class="callout-protip-content"><strong>Passo a passo</strong> — Consulte o exercício <strong>15-github-subir-projeto.md</strong> na pasta de exercícios.</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2756,9 +2718,23 @@ git push -u origin main</pre>
 
             <!-- 36: Obrigado -->
             <div class="slide slide-type-capa">
-                <img src="assets/logo-product-arena.png" alt="Product Arena" style="max-width: 320px; margin-bottom: 40px; height: auto;">
-                <div class="slide-title"><span class="accent">Obrigado</span></div>
-                <div class="slide-subtitle" style="margin-top: 24px;">linkedin.com/in/luccmattos</div>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 64px; flex-wrap: wrap; max-width: 900px; margin: 0 auto;">
+                    <div style="text-align: center;">
+                        <img src="assets/logo-product-arena.png" alt="Product Arena" style="max-width: 280px; margin-bottom: 32px; height: auto;">
+                        <div class="slide-title"><span class="accent">Obrigado</span></div>
+                        <div class="slide-subtitle" style="margin-top: 24px;">
+                            <a href="https://linkedin.com/in/luccmattos/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">linkedin.com/in/luccmattos</a>
+                        </div>
+                        <div class="slide-subtitle" style="margin-top: 8px;">
+                            <a href="https://linkedin.com/in/arthurcastroaraujo/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">linkedin.com/in/arthurcastroaraujo</a>
+                        </div>
+                    </div>
+                    <div style="text-align: center; padding: 24px; background: rgba(255,255,255,0.6); border-radius: 16px; border: 1px solid var(--border-medium);">
+                        <p style="font-size: 1rem; font-weight: 600; margin-bottom: 16px; color: var(--text-primary);">Avaliação do curso</p>
+                        <img src="assets/qr-avaliacao-curso.png" alt="QR Code — Avaliação do curso" style="max-width: 140px; height: auto; border-radius: 8px; display: block; margin: 0 auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="display: none; font-size: 0.85rem; color: var(--text-muted); padding: 24px; border: 1px dashed var(--border-medium); border-radius: 8px;">(QR code: assets/qr-avaliacao-curso.png)</span>
+                    </div>
+                </div>
             </div>
 
         </div>
