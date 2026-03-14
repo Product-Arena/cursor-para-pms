@@ -1,2 +1,8 @@
-.idea
-vendor/
+.cursor/plans
+
+ementa/
+
+# Environment and secrets (do not commit)
+.env
+.env.local
+.env.*.local

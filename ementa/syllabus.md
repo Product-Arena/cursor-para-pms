@@ -51,17 +51,15 @@ O Cursor é uma IDE com IA integrada que amplia o que PMs conseguem fazer sem de
 | 5.3 | Callout | Clone = copiar do GitHub; repo = diretório ou pasta (em português) |
 | 5.4 | Exercício Plan | "Eu já tenho conta no GitHub, o que preciso para clonar um repo aqui?" — mapear dependências |
 | 5.5 | Abrindo parênteses | **Allowlist** — antes de clonar; dica: novo agent, fixar, perguntar "o que cp faz?" |
-| 5.6 | Exercício Plan | "Monte um plano para clonar https://github.com/anthropics/skills.git" — usar modo Build |
-| 5.7 | Exercício Ask | Arrastar pasta skills e perguntar o que ela faz (**arrasta e solta**) |
-| 5.8 | Abrindo parênteses | **Modo Agent** — slide: bullets esquerda, imagem direita |
-| 5.9 | Exercício Agent | "Instale esses skills no meu workspace" |
-| 5.10 | Abrindo parênteses | Modelos e janelas de contexto |
-| 5.11 | Verificar + gancho | Configurações, consultar se skills instalados → gancho para Skills |
+| 5.6 | Slide especial | **Presente da Arena** — slide destaque (antes do clone) |
+| 5.7 | Exercício Plan | "Monte um plano para clonar o repositório do curso" — https://github.com/Product-Arena/cursor-para-pms — usar modo Build |
+| 5.8 | Exercício Ask | Arrastar pasta do repo do curso e perguntar o que ela faz (**arrasta e solta**) |
+| 5.9 | Abrindo parênteses | **Modo Agent** — slide: bullets esquerda, imagem direita |
+| 5.10 | Exercício Agent | Garantir acesso a Rules/Commands do curso (ou instalar skills) |
+| 5.11 | Abrindo parênteses | Modelos e janelas de contexto |
 | 5.12 | Abrindo parênteses | **O que são Skills** — slide: bullets esquerda, imagem direita |
-| 5.13 | Clonar repo do curso | Material disponível, otimizado por Lucas e Arthur |
-| 5.14 | Slide especial | **Presente da Arena** — slide destaque, talvez GIF |
-| 5.15 | Configuração | Ajudar a configurar rules e commands do curso |
-| 5.16 | Slides | **Commands** e **Rules** (um slide cada) |
+| 5.13 | Configuração | Ajudar a configurar rules e commands do curso (.cursor mínimo + stack/Lucas e stack/Arthur) |
+| 5.14 | Slides | **Commands** e **Rules** (um slide cada) |
 
 **Fim da manhã:** Setup completo + principais funcionalidades.
 
@@ -113,8 +111,7 @@ O Cursor é uma IDE com IA integrada que amplia o que PMs conseguem fazer sem de
 - **Design** — skill frontend, browser para screenshots, cores, tipografia, logos do site Arena
 - **Parênteses:** design system no trabalho; case Isabel (antes/depois)
 - **Quebrar histórias** — modo Plan
-- **Code-review mode** — melhorar e iterar no código
-- **Editor visual** — otimizar layout e mudar o que foi construído
+- **Subir projeto no GitHub pessoal**
 
 ---
 
@@ -128,8 +125,7 @@ O Cursor é uma IDE com IA integrada que amplia o que PMs conseguem fazer sem de
 
 ## Repositórios usados no curso
 
-- **Skills Anthropic:** https://github.com/anthropics/skills.git — clonado primeiro
-- **Repo do curso:** clonado depois (material Arena, rules, commands)
+- **Repo do curso (único clone):** https://github.com/Product-Arena/cursor-para-pms — material, .cursor mínimo, stacks dos instrutores em stack/Lucas e stack/Arthur
 - **Repo pessoal:** cada participante cria um para exercícios (Bloco 3)
 
 ---

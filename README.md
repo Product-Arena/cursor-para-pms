@@ -15,7 +15,7 @@ Curso presencial de 8 horas para Product Managers na Product Arena.
 2. Leia a [ementa](ementa/syllabus.md)
 3. Revise o [cronograma](ementa/cronograma.md)
 4. Se for ministrar: [notas de instrutor](ementa/notas-instrutor.md)
-5. Rules e commands do curso estão em [.cursor/rules](.cursor/rules) e [.cursor/commands](.cursor/commands)
+5. Ao clonar, você recebe um **`.cursor` mínimo** na raiz (exemplos de rules e commands). As stacks completas dos instrutores ficam em [stack/Lucas](stack/Lucas) e [stack/Arthur](stack/Arthur) — copie para sua `.cursor` o que quiser usar.
 
 ## Licença
 

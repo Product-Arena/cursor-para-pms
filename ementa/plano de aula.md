@@ -42,15 +42,15 @@ Descrição: Este arquivo nunca deverá ser commitado. Ele é de uso restrito do
 - **Abrindo parênteses — GitHub:** Explicar o que é o GitHub. Slide: bullets à esquerda, imagem de repositório à direita.
 - **Adicionar callout para:** Clone (aka: copiar do GitHub) | repo (aka: diretório ou pasta) — em português.
 - **Exercício Plan:** "Eu já tenho uma conta no GitHub, o que preciso para clonar um repositório aqui?" — mapear dependências de cada aluno e deixá-los prontos para o git clone.
-- **Exercício Plan:** "Monte um plano para eu clonar este repositório https://github.com/anthropics/skills.git" — instruir a clonar o repo de skills da Anthropic usando o modo "Build" gerado pelo plano.
+- **Slide especial — Presente da Arena** (antes do clone): explicar que todo material estará disponível no repo do curso, com recursos otimizados por nós. Depois eles vão clonar esse repo.
+- **Exercício Plan:** "Monte um plano para eu clonar o repositório do curso: https://github.com/Product-Arena/cursor-para-pms" — usar o modo "Build" gerado pelo plano.
 - **Abrindo parênteses — Allowlist (antes de clonar):** Explicar como funciona allowlist e como definir o que usar e não usar. Dica: criar novo agent em modo Ask, usar o recurso de fixar agente e perguntar cada comando. Ex: "O que o comando cp faz?" **Pro-tip:** Evitar liberar `rm` e `git commit` sem revisão.
-- **Exercício Ask:** Mostrar como usar o contexto do workspace. Voltar ao modo Ask. Eles arrastam a pasta recém-criada e perguntam "o que ela faz" (**arrasta e solta**).
+- **Exercício Ask:** Mostrar como usar o contexto do workspace. Voltar ao modo Ask. Eles arrastam a pasta do repo do curso recém-clonada e perguntam "o que ela faz" (**arrasta e solta**).
 - **Abrindo parênteses — Modo Agent:** Explicar o modo Agent. Slide: bullets à esquerda, imagem à direita.
-- **Exercício Agent:** Pedir aos alunos para enviar: "Quero que você instale esses skills no meu workspace".
+- **Exercício Agent:** Garantir acesso aos Rules e Commands do curso (ou instalar skills conforme necessário).
 - **Abrindo parênteses:** Escolhas de modelos, janelas de contexto. **Pro-tip:** Composer-1 para MCPs e tool calls; Gemini 3 Pro para frontend.
-- Pedir para abrirem as configurações e mostrar como consultar se os skills foram instalados. Gancho para explicar o que são Skills. Slide: mesmo formato (bullets + imagem).
-- Pedir para clonarem o repo do nosso curso. Explicar que todo material estará disponível para sempre, com recursos otimizados por mim e pelo Arthur. Slide especial: "Presente da Arena" (talvez GIF).
-- Clonar nosso git e ajudar a configurar as rules e commands disponíveis.
+- Gancho para explicar o que são Skills. Slide: mesmo formato (bullets + imagem).
+- Ajudar a configurar as rules e commands do curso (.cursor mínimo na raiz; stacks completas em stack/Lucas e stack/Arthur para copiar o que quiserem).
 - Explicar o que são Commands e Rules (slide para cada).
 
 **Fim da manhã:** Setup completo e principais funcionalidades cobertas.
@@ -133,9 +133,6 @@ Voltando, um recap do que aprendemos até o momento, principalmente a parte de r
 - **Design:** Usar a skill do frontend, pedir para usar o browser para tirar print screen e capturar cor, tipografia e logos do site da Arena.
   - Abrindo parênteses: mostrar que poderiam usar o repo do design system no contexto de trabalho. Case da Isabel — antes e depois dos protótipos.
 - Quebrar as histórias utilizando o modo Plan (o que precisamos executar).
-- Ensinar a usar o modo code-review para melhorar e iterar em cima do código.
-- Mostrar como otimizar o layout e mudar o que foi construído usando o modo editor visual.
-
 - Cada um vai criar seu repo pessoal para subir os exercícios e compartilhar com a turma no seu GitHub, um repo público.
 
 ### Protótipo funcional em localhost

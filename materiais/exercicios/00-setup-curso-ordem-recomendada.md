@@ -29,17 +29,13 @@ Para o modo Agent poder executar comandos no terminal com segurança:
 
 ---
 
-## 4. Clonar repositórios
+## 4. Clonar repositório do curso
 
-Ordem sugerida:
-
-1. **Skills da Anthropic** (exercício do plano de aula):
+1. Clonar o repositório do curso no seu computador:
    ```bash
-   git clone https://github.com/anthropics/skills.git
+   git clone https://github.com/Product-Arena/cursor-para-pms.git
    ```
-2. **Repo do curso** (material, rules, commands):
-   - Clonar o repositório do curso no seu workspace (URL será informada no curso).
-   - Abrir a pasta clonada como workspace no Cursor.
+2. Abrir a pasta clonada (`cursor-para-pms`) como workspace no Cursor.
 
 Referência de comandos Git: **[git-guia-pms.md](../git-guia-pms.md)**.
 
@@ -52,7 +48,7 @@ O repositório do curso já traz uma pasta **`.cursor/`** na raiz com:
 - **`.cursor/rules/`** — regras de estilo (PRD, user story para Jira, slides, etc.).
 - **`.cursor/commands/`** — commands como `/create-prd`, `/start-a-business`, etc.
 
-Não é preciso copiar de outro lugar; ao clonar o repo do curso e abrir a pasta como workspace, essas rules e commands passam a estar disponíveis nesse projeto.
+Ao clonar o repo do curso e abrir a pasta como workspace, você tem um **`.cursor` mínimo** (exemplos de rules e commands). As stacks completas dos instrutores estão em **`stack/Lucas`** e **`stack/Arthur`** — copie para sua `.cursor` o que quiser usar.
 
 ---
 
@@ -74,6 +70,6 @@ Depois de configurado: **[07-mcp-jira-create.md](07-mcp-jira-create.md)** para c
 | 1     | Cursor + Pro      | cursor.com                                               |
 | 2     | Conta GitHub      | github.com                                               |
 | 3     | Allowlist         | [referencia/command-allowlist.md](../referencia/command-allowlist.md) |
-| 4     | Clone skills + repo do curso | Plano de aula / [git-guia-pms.md](../git-guia-pms.md)   |
+| 4     | Clone repo do curso          | [git-guia-pms.md](../git-guia-pms.md)                  |
 | 5     | Rules/Commands    | Já em `.cursor/` no repo clonado                         |
 | 6     | MCP Jira          | [06-mcp-jira-setup.md](06-mcp-jira-setup.md)            |

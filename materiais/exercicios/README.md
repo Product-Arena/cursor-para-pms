@@ -13,7 +13,7 @@ O documento de requisitos do Arena Voting System está em **[arthur-request.md](
 | 00 | [00-setup-curso-ordem-recomendada.md](00-setup-curso-ordem-recomendada.md) | — | Etapa 0: setup do ambiente (Cursor, GitHub, allowlist, clone, rules/commands, MCP Jira) |
 | 01 | [01-hello-cursor-ask.md](01-hello-cursor-ask.md) | 1 | Primeiro contato com o Cursor (Ask) |
 | 02 | [02-setup-git-plan.md](02-setup-git-plan.md) | 1 | Planejando clone de repo |
-| 03 | [03-clonando-skills.md](03-clonando-skills.md) | 1 | Clonar skills Anthropic |
+| 03 | [03-clonando-skills.md](03-clonando-skills.md) | 1 | Clonar repositório do curso |
 | 04 | [04-contexto-drag-drop.md](04-contexto-drag-drop.md) | 1 | Arrastar e soltar contexto |
 | 05 | [05-agent-mode-setup.md](05-agent-mode-setup.md) | 1 | Instalar skills com Agent |
 | 06 | [06-mcp-jira-setup.md](06-mcp-jira-setup.md) | 2 | Configurar MCP Jira |

@@ -360,13 +360,14 @@ Callout dedicado para dicas e “pro tips”, **distinto visualmente do principl
 
 ### 3. Título + texto de suporte + bullets à esquerda, código à direita
 
-- **Layout:** `slide-split-code` (padrão Commands/Rules).  
+- **Layout:** `slide-split-code` (padrão Commands/Rules/Skills como conteúdo).  
 - **Esquerda (35%)**  
   - Título alinhado à esquerda.  
   - Subtítulo com "Por que importa" + texto de apoio.  
+  - **Regra obrigatória:** a coluna esquerda (`slide-left-content`) deve **sempre começar no topo** — nunca centralizada verticalmente. Usar `align-items: start` no `.slide-split-code`.  
 - **Direita (60%)**  
   - `prompt-container` escuro ocupando quase toda a coluna, com label opcional e código/prompt com syntax highlighting.  
-- **Referência de proporção/espacamento:** **slide de Commands** e **slide de Rules**.
+- **Referência de proporção/espacamento:** **slide de Rules** (posicionamento no topo). Aplicar ao slide de **Skills** quando for de conteúdo (não "Abrindo parênteses").
 
 ### 4. Sugestão de conteúdo (vídeos / links)
 

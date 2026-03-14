@@ -1,6 +1,6 @@
-# Exercício 03: Clonando nosso primeiro repo (Modo Plan -> Build)
+# Exercício 03: Clonando o repositório do curso (Modo Plan -> Build)
 
-**Objetivo:** Executar uma tarefa técnica complexa guiada pela IA.
+**Objetivo:** Executar uma tarefa técnica complexa guiada pela IA — clonar o repo do curso.
 
 ---
 
@@ -9,12 +9,12 @@
 1.  Certifique-se de que o modo do chat está em **Plan** (se tiver voltado para Ask, troque para Plan).
 2.  Ainda no Chat, digite o seguinte comando:
     ```text
-    "Monte um plano para eu clonar este repositório https://github.com/anthropics/skills.git"
+    "Monte um plano para eu clonar este repositório https://github.com/Product-Arena/cursor-para-pms.git"
     ```
-2.  O Cursor irá analisar e propor os passos.
-3.  O Cursor dará o comando `git clone ...` (ou um plano com passos).
-4.  Passe o mouse sobre o bloco de código do comando e clique no botão **"Run in Terminal"** (ícone de play ▶️).
-5.  Confira no seu explorador de arquivos (barra lateral esquerda) se a pasta `skills` apareceu.
+3.  O Cursor irá analisar e propor os passos.
+4.  O Cursor dará o comando `git clone ...` (ou um plano com passos).
+5.  Passe o mouse sobre o bloco de código do comando e clique no botão **"Run in Terminal"** (ícone de play ▶️).
+6.  Confira no seu explorador de arquivos (barra lateral esquerda) se a pasta `cursor-para-pms` apareceu.
 
 ---
 

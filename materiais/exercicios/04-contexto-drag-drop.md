@@ -6,8 +6,8 @@
 
 ## 📝 Passo a Passo
 
-1.  Localize a pasta `skills` que você acabou de clonar na barra lateral esquerda (File Explorer).
-2.  **Clique e segure** na pasta `skills`.
+1.  Localize a pasta do repositório do curso (`cursor-para-pms`) que você acabou de clonar na barra lateral esquerda (File Explorer).
+2.  **Clique e segure** na pasta `cursor-para-pms`.
 3.  **Arraste** a pasta para dentro da janela de chat.
 4.  Solte quando ver o indicador visual de que ela será anexada.
 5.  Digite o prompt:
@@ -29,7 +29,7 @@
 Certifique-se de que a barra lateral de arquivos está aberta (`Cmd + B`).
 
 **A resposta foi genérica**
-Verifique se o "chip" (etiqueta) com o nome `skills/` apareceu na caixa de texto antes de você enviar. Se não aparecer, o Cursor não leu os arquivos.
+Verifique se o "chip" (etiqueta) com o nome `cursor-para-pms/` apareceu na caixa de texto antes de você enviar. Se não aparecer, o Cursor não leu os arquivos.
 
 **Posso arrastar arquivos individuais?**
 Sim! Você pode arrastar pastas inteiras, arquivos específicos ou selecionar vários arquivos segurando `Cmd` (Mac) ou `Ctrl` (Windows).
