@@ -9,7 +9,7 @@ Slides, exercícios, referências e assets utilizados nas sessões presenciais.
 
 ## Apresentação
 
-- **[apresentacao/index-slides.html](apresentacao/index-slides.html)** — Apresentação oficial em HTML (Product Arena, navegação por teclado). Use este arquivo para projeção.
+- **Slides** — Apresentação oficial em HTML (Product Arena, navegação por teclado). Fica em **[docs/index.html](../docs/index.html)** no repo; publicado em **https://product-arena.github.io/cursor-para-pms/**.
 
 
 ## Guias de referência
