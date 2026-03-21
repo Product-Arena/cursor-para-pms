@@ -383,7 +383,7 @@
         }
         .flow-box--dark.highlighted {
             background: #000000;
-            border-color: var(--accent);
+            border-color: #333;
             color: #fff;
         }
         .flow-arrow {
@@ -490,6 +490,30 @@
             content: "•";
             color: var(--accent);
             font-weight: 700;
+        }
+
+        /* Bloco overview: duas colunas (Conteúdo | Exercícios) para caber no slide */
+        .agenda-block--two-column .agenda-block-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 28px;
+            margin-top: 14px;
+            padding-top: 14px;
+        }
+        .agenda-block--two-column .agenda-block-expanded-section {
+            margin-top: 0;
+        }
+        .agenda-block--two-column .agenda-block-expanded-section-title {
+            margin-bottom: 6px;
+            font-size: 0.8rem;
+        }
+        .agenda-block--two-column .agenda-block-expanded-list li {
+            padding: 3px 0;
+            font-size: 0.78rem;
+            line-height: 1.35;
+        }
+        .agenda-block--two-column.agenda-block--expanded {
+            padding: 14px 20px 16px 18px;
         }
 
         .github-steps {
@@ -1441,7 +1465,7 @@
                     <div class="ecosystem-unit">
                         <div class="ecosystem-item">
                             <div class="flow-box">
-                                <span class="flow-box-fallback">Claude</span>
+                                <img src="assets/claude-logo.png" alt="Claude (Anthropic)" class="flow-box-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="flow-box-fallback" style="display:none">Claude</span>
                             </div>
                             <div class="ecosystem-desc">Assistente conversacional (Anthropic). No Cursor vira par técnico que executa.</div>
                         </div>
@@ -1554,31 +1578,6 @@
                             <span class="callout-protip-icon">💡</span>
                             <div class="callout-protip-content"><strong>Pro tip</strong> — Ativar <strong>File-Deletion Protection</strong> nas configurações do Cursor.</div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Presente da Arena (antecipado: antes do clone do repo do curso) -->
-            <div class="slide">
-                <div class="slide-eyebrow">Product Arena</div>
-                <div class="slide-title">Presente da <span class="accent">Arena</span></div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">O stack dos instrutores</div>
-                            <div class="principle-desc">Leve para casa a mesma configuração de Rules, Commands e estrutura de arquivos que Lucas e Arthur usam no dia a dia.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">Workspace pronto para copiar</div>
-                            <div class="principle-desc">Vocês vão clonar o <strong>repositório do curso</strong> (Cursor para PMs — Product Arena), que já traz isso. Use como base para novos projetos.</div>
-                        </div>
-                        <div class="callout-protip" style="margin-top: 24px;">
-                            <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Pro tip</strong> — Trate esse stack como seu ponto de partida padrão — sempre que for criar algo novo, comece daqui.</div>
-                        </div>
-                    </div>
-                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none; width: 380px; max-width: 380px; height: 400px; justify-content: flex-start;">
-                        <img src="assets/arthur-gift-square.png" style="width: 100%; height: 100%; max-height: 400px; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Arthur entregando um presente">
                     </div>
                 </div>
             </div>
@@ -1724,6 +1723,31 @@
                     </div>
                     <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
                         <img src="assets/allowlist-settings.png" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Tela de configurações do Cursor mostrando a Command Allowlist">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presente da Arena — imediatamente antes do clone do repo do curso -->
+            <div class="slide">
+                <div class="slide-eyebrow">Product Arena</div>
+                <div class="slide-title">Presente da <span class="accent">Arena</span></div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">O stack dos instrutores</div>
+                            <div class="principle-desc">Leve para casa a mesma configuração de Rules, Commands e estrutura de arquivos que Lucas e Arthur usam no dia a dia.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Workspace pronto para copiar</div>
+                            <div class="principle-desc">Vocês vão clonar o <strong>repositório do curso</strong> (Cursor para PMs — Product Arena), que já traz isso. Use como base para novos projetos.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 24px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Pro tip</strong> — Trate esse stack como seu ponto de partida padrão — sempre que for criar algo novo, comece daqui.</div>
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none; width: 380px; max-width: 380px; height: 400px; justify-content: flex-start;">
+                        <img src="assets/arthur-gift-square.png" style="width: 100%; height: 100%; max-height: 400px; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Arthur entregando um presente">
                     </div>
                 </div>
             </div>
@@ -2171,7 +2195,7 @@ Respond in the chat (do not create files) for:
                         <p style="margin-top: 24px; font-size: 1rem; line-height: 1.6; color: var(--text-primary);">Pense no MCP como a “ponte” entre o Cursor e o mundo externo — dados, APIs e ferramentas especializadas.</p>
                         <div class="callout-protip" style="margin-top: 16px;">
                             <span class="callout-protip-icon">🌐</span>
-                            <div class="callout-protip-content"><strong>Pro tip (comunidade)</strong> — Explore servidores MCP construídos pela comunidade em <a href="https://mcpservers.org" target="_blank" rel="noopener">mcpservers.org</a> e <a href="https://www.mcpdirectory.ai" target="_blank" rel="noopener">mcpdirectory.ai</a>. Muitas vezes versões da comunidade são mais completas do que os servidores oficiais.</div>
+                            <div class="callout-protip-content"><strong>Pro tip (comunidade)</strong> — Explore servidores MCP em <a href="https://cursor.directory" target="_blank" rel="noopener">cursor.directory</a> e <a href="https://mcpservers.org" target="_blank" rel="noopener">mcpservers.org</a>. Muitas vezes versões da comunidade são mais completas do que os servidores oficiais.</div>
                         </div>
                     </div>
                     <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
@@ -2358,7 +2382,7 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
                         <div class="check-text"><strong>Apresentações:</strong> HTML, fontes, gráficos — Cursor + Skills (pptx, tema) para exportar e iterar.</div>
                     </div>
                 </div>
-                <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Tudo que vamos usar no Arena Voting System</div>
+                <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Tudo que vamos usar no projeto prático da tarde</div>
             </div>
 
             <!-- 33a: Transição — Pausa para café -->
@@ -2372,8 +2396,8 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
             <div class="slide slide-block-overview">
                 <div class="slide-eyebrow">Tarde — 15:45–18:00</div>
                 <div class="slide-title">Bloco 3 — Construindo seu <span class="accent">protótipo</span></div>
-                <div class="agenda-blocks" style="margin-top: 24px; max-width: 720px;">
-                    <div class="agenda-block agenda-block--expanded">
+                <div class="agenda-blocks" style="margin-top: 16px; max-width: 1000px;">
+                    <div class="agenda-block agenda-block--expanded agenda-block--two-column">
                         <div class="agenda-block-header-row">
                             <div class="agenda-block-header">🚀 Tarde</div>
                             <div class="agenda-block-time">15:45 – 18:00</div>
@@ -2385,7 +2409,6 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
                                     <li>Repo pessoal (GitHub público) para exercícios</li>
                                     <li>/start-a-business — Arena Voting System</li>
                                     <li>PRD com /create-prd — doc de requisitos</li>
-                                    <li>Design System — extrair cores, tipografia e logo de productarena.io</li>
                                     <li>Protótipo funcional — Plan + localhost</li>
                                     <li>Quebrar histórias — modo Plan</li>
                                     <li>Subir projeto no GitHub pessoal</li>
@@ -2397,7 +2420,6 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
                                     <li>Repo pessoal — criar GitHub público (⏱ 20 min)</li>
                                     <li>/start-a-business — Arena Voting System (⏱ 30 min)</li>
                                     <li>/create-prd — PRD (⏱ 10 min)</li>
-                                    <li>Design System — extrair de productarena.io (⏱ 20 min)</li>
                                     <li>Protótipo funcional — Plan + localhost (⏱ 25 min)</li>
                                     <li>Quebrar histórias — modo Plan (⏱ 25 min)</li>
                                     <li>Subir projeto no GitHub (⏱ 15 min)</li>
@@ -2476,7 +2498,7 @@ Monte um plano para eu configurar isso. Quais pastas e arquivos devo mover ou re
             <!-- 34a3: Exercício — /start-a-business (Arena Voting System) -->
             <div class="slide slide-type-exercicio slide--safe-area">
                 <div class="slide-eyebrow">Exercício · Command</div>
-                <div class="slide-title"><code>/start-a-business</code> — Arena Voting System</div>
+                <div class="slide-title"><code>/start-a-business</code></div>
                 <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 30 minutos</div>
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 480px;">
@@ -2558,41 +2580,6 @@ documents/prd-arena-voting-system.md
                             <span class="callout-protip-icon">💡</span>
                             <div class="callout-protip-content"><strong>Dica</strong> — Se o comando pedir Product Strategy, arraste o arquivo <code>product-strategy-arena-voting-system.md</code> para o chat como contexto.</div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 34a3c: Exercício — Design System (extração do site Product Arena) -->
-            <div class="slide slide-type-exercicio slide--safe-area">
-                <div class="slide-eyebrow">Exercício · Bloco 3</div>
-                <div class="slide-title">Design System — extrair de <span class="accent">productarena.io</span></div>
-                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 20 minutos</div>
-                <div class="slide-split" style="align-items: flex-start;">
-                    <div class="slide-split-left" style="max-width: 480px;">
-                        <div class="slide-subtitle" style="margin-top: 0;">
-                            Extrair o padrão de design da Product Arena (cores, tipografia, logo) diretamente do site. Usar <strong>web-artifacts-builder</strong> e <strong>webapp-testing</strong> para capturar.
-                        </div>
-
-                        <div class="principle-card" style="margin-top: 12px;">
-                            <div class="principle-title">O que capturar</div>
-                            <div class="principle-desc">Cores, fontes, logo e componentes visuais do productarena.io.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">Fluxo do curso</div>
-                            <div class="principle-desc">Pulamos catálogo analítico e guia de marketing — você pode exercitar depois. Vamos direto ao design system.</div>
-                        </div>
-
-                        <div class="callout-protip" style="margin-top: 16px;">
-                            <span class="callout-protip-icon">📖</span>
-                            <div class="callout-protip-content"><strong>Passo a passo</strong> — Consulte o exercício <strong>10-projeto-final-design-system.md</strong> na pasta de exercícios.</div>
-                        </div>
-                    </div>
-
-                    <div class="prompt-container" style="flex: 1; height: 400px;">
-                        <div class="prompt-label">Exemplo de prompt</div>
-                        <pre><span class="syntax-comment"># No modo Agent</span>
-
-Vamos pular o catálogo de eventos e o guia de marketing — vamos direto para o design system. Ajuda-me a elaborar um plano para capturar o design da Product Arena (cores, tipografia, logo) diretamente do site productarena.io. Para isso, utilize as habilidades /web-artifacts-builder e /webapp-testing.</pre>
                     </div>
                 </div>
             </div>
@@ -2785,6 +2772,7 @@ git push -u origin main</pre>
                 'cursor-logo.png',
                 'n8n-logo.png',
                 'chatgpt-logo.png',
+                'claude-logo.png',
                 'databricks-logo.png',
                 'supabase-logo.png',
                 'snowflake-logo.png'

@@ -10,7 +10,8 @@ O documento de requisitos do Arena Voting System está em **[arthur-request.md](
 
 | # | Arquivo | Bloco | Descrição |
 |---|---------|-------|-----------|
-| 00 | [00-setup-curso-ordem-recomendada.md](00-setup-curso-ordem-recomendada.md) | — | Etapa 0: setup do ambiente (Cursor, GitHub, allowlist, clone, rules/commands, MCP Jira) |
+| 00 | [00-pre-setup-curso.md](00-pre-setup-curso.md) | — | Pré-setup: faça antes do dia (Cursor, GitHub, clone, workspace, rules/commands, MCP Jira) |
+| 00 | [00-setup-curso-ordem-recomendada.md](00-setup-curso-ordem-recomendada.md) | — | Aprimorando as configurações (allowlist, File-Deletion Protection, avoid file deletion) — referência do que fazemos no curso |
 | 01 | [01-hello-cursor-ask.md](01-hello-cursor-ask.md) | 1 | Primeiro contato com o Cursor (Ask) |
 | 02 | [02-setup-git-plan.md](02-setup-git-plan.md) | 1 | Planejando clone de repo |
 | 03 | [03-clonando-skills.md](03-clonando-skills.md) | 1 | Clonar repositório do curso |
@@ -20,7 +21,6 @@ O documento de requisitos do Arena Voting System está em **[arthur-request.md](
 | 07 | [07-mcp-jira-create.md](07-mcp-jira-create.md) | 2 | Criar user story no Jira |
 | 08 | [08-projeto-final-parte1-setup.md](08-projeto-final-parte1-setup.md) | 3 | Arena Voting — Setup /start-a-business |
 | 09 | [09-projeto-final-parte2-prd.md](09-projeto-final-parte2-prd.md) | 3 | Arena Voting — PRD |
-| 10 | [10-projeto-final-design-system.md](10-projeto-final-design-system.md) | 3 | Arena Voting — Design System (extrair de productarena.io) |
 | 10a | [10a-prototipo-plan-localhost.md](10a-prototipo-plan-localhost.md) | 3 | Arena Voting — Protótipo funcional (Plan + localhost) |
 | 11 | [11-projeto-final-parte3-design.md](11-projeto-final-parte3-design.md) | 3 | Arena Voting — Design Frontend |
 | 12 | [12-projeto-final-parte4-historias.md](12-projeto-final-parte4-historias.md) | 3 | Arena Voting — Histórias |
@@ -31,3 +31,7 @@ O documento de requisitos do Arena Voting System está em **[arthur-request.md](
 ## backup/
 
 Roteiros antigos ou alternativos (ex.: [06-analise-dados](backup/06-analise-dados.md) — roteiro de análise de dados para referência).
+
+## Histórico local (não versionado)
+
+O exercício **Design System — extrair de productarena.io** (`10-projeto-final-design-system.md` + slide na apresentação) foi removido do curso. Cópia de referência: pasta **`ementa/v1-archived/`** (listada em `.gitignore` — não sobe no Git).

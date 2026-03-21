@@ -86,7 +86,7 @@ O Cursor é uma IDE com IA integrada que amplia o que PMs conseguem fazer sem de
   - Slide com expectations-analysis embarcado
   - Slide sobre alternativas: CSV local, Databricks, Snowflake, Supabase (MCPs) — logos ou categorias (APIs, MCPs, local)
 - **Criando User Stories conectadas ao Jira:**
-  - Abrindo parênteses **MCP:** o que é, como funciona (Anthropic, A2A), onde encontrar (Cursor, Atlassian, mcpdirectory.ai, mcpservers.org)
+  - Abrindo parênteses **MCP:** o que é, como funciona (Anthropic, A2A), onde encontrar (Cursor, Atlassian, cursor.directory, mcpservers.org)
   - Instalação do MCP Jira (Atlassian Rovo) — modo Plan
   - Ambiente productarena.atlassian.net
   - Exercício: criar tarefa com template/rule
@@ -118,7 +118,7 @@ O Cursor é uma IDE com IA integrada que amplia o que PMs conseguem fazer sem de
 ## Bloco 4 — Síntese (30 min)
 
 - Casos de uso consolidados
-- Próximos passos e recursos (cursor.com/for/product-managers, mcpservers.org, mcpdirectory.ai, skills.sh)
+- Próximos passos e recursos (cursor.com/for/product-managers, mcpservers.org, cursor.directory, skills.sh)
 - Feedback
 
 ---

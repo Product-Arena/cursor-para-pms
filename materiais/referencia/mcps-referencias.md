@@ -7,8 +7,8 @@ Model Context Protocol (MCP) conecta o Cursor a sistemas e dados externos.
 ## Diretórios de MCPs
 
 - [cursor.com/docs/context/mcp/directory](https://cursor.com/docs/context/mcp/directory)
+- [Cursor Directory](https://cursor.directory) — diretório de MCPs para Cursor
 - [mcpservers.org](https://mcpservers.org/)
-- [mcpdirectory.ai](https://www.mcpdirectory.ai/)
 - [skills.sh](https://skills.sh/)
 
 ---

@@ -2,9 +2,10 @@
 
 Slides, exercícios, referências e assets utilizados nas sessões presenciais.
 
-## Setup do curso (ordem recomendada)
+## Setup do curso
 
-- **[exercicios/00-setup-curso-ordem-recomendada.md](exercicios/00-setup-curso-ordem-recomendada.md)** — Etapa 0: Cursor, GitHub, allowlist, clone do repo, rules/commands, MCP Jira. Siga esta ordem para deixar o ambiente pronto.
+- **[exercicios/00-pre-setup-curso.md](exercicios/00-pre-setup-curso.md)** — **Pré-setup:** faça antes do dia. Cursor, GitHub, clone do repo, workspace, Rules/Commands, MCP Jira.
+- **[exercicios/00-setup-curso-ordem-recomendada.md](exercicios/00-setup-curso-ordem-recomendada.md)** — **Aprimorando as configurações:** conteúdo do curso (allowlist, File-Deletion Protection, avoid file deletion). Referência para depois.
 
 
 ## Apresentação

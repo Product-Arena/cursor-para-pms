@@ -1,26 +1,14 @@
-# Etapa 0: Setup do curso — Ordem recomendada
+# Aprimorando as configurações do Cursor
 
-Guia único para deixar o ambiente pronto antes e durante o Bloco 1. Siga a ordem abaixo; cada item aponta para o material detalhado quando existir.
+Conteúdo que a gente configura **durante o curso**. Use este material como referência depois, para revisar allowlist, proteção contra exclusão de arquivos e o que o agent pode ou não fazer.
 
----
-
-## 1. Cursor e conta
-
-- Instalar o [Cursor](https://cursor.com) no seu computador.
-- Criar conta e ativar o **plano Pro** (necessário para Agent e MCPs).
+**Antes do curso:** siga o **[Pré-setup do curso (00-pre-setup-curso.md)](00-pre-setup-curso.md)** — Cursor, GitHub, clone do repo, workspace, Rules/Commands, MCP Jira.
 
 ---
 
-## 2. GitHub
+## 1. Allowlist de comandos (Command Allowlist)
 
-- Ter uma **conta GitHub** (criar em [github.com](https://github.com) se ainda não tiver).
-- O curso usa `git clone` para baixar repositórios; conhecimento básico de terminal ajuda.
-
----
-
-## 3. Allowlist de comandos (antes de clonar)
-
-Para o modo Agent poder executar comandos no terminal com segurança:
+Para o modo Agent poder executar comandos no terminal com segurança, definimos **quais comandos** o Cursor pode rodar.
 
 - Ir em **Settings > General > Command Allowlist** no Cursor.
 - Consultar a lista recomendada em **[referencia/command-allowlist.md](../referencia/command-allowlist.md)** e liberar os comandos que forem usar (Git, navegação, etc.).
@@ -29,47 +17,32 @@ Para o modo Agent poder executar comandos no terminal com segurança:
 
 ---
 
-## 4. Clonar repositório do curso
+## 2. File-Deletion Protection (proteção contra exclusão de arquivos)
 
-1. Clonar o repositório do curso no seu computador:
-   ```bash
-   git clone https://github.com/Product-Arena/cursor-para-pms.git
-   ```
-2. Abrir a pasta clonada (`cursor-para-pms`) como workspace no Cursor.
+Para evitar que o Agent apague arquivos por engano:
 
-Referência de comandos Git: **[git-guia-pms.md](../git-guia-pms.md)**.
+- Nas **configurações do Cursor**, ativar **File-Deletion Protection** (proteção contra exclusão de arquivos).
+- Assim o Cursor não executa exclusões de arquivos sem você estar ciente ou sem permissão explícita.
 
----
-
-## 5. Rules e Commands (já no repo)
-
-O repositório do curso já traz uma pasta **`.cursor/`** na raiz com:
-
-- **`.cursor/rules/`** — regras de estilo (PRD, user story para Jira, slides, etc.).
-- **`.cursor/commands/`** — commands como `/create-prd`, `/start-a-business`, etc.
-
-Ao clonar o repo do curso e abrir a pasta como workspace, você tem um **`.cursor` mínimo** (exemplos de rules e commands). As stacks completas dos instrutores estão em **`stack/Lucas`** e **`stack/Arthur`** — copie para sua `.cursor` o que quiser usar.
+*Pro tip:* ativar antes de clonar repositórios desconhecidos ou deixar o Agent atuar em pastas sensíveis.
 
 ---
 
-## 6. MCP Jira (Bloco 2)
+## 3. Avoid file deletion (evitar exclusão)
 
-Para os exercícios de Jira (criar tarefas, user stories):
+Além da proteção geral (item 2), você pode configurar **quais arquivos ou pastas** o agent **não deve deletar** (por exemplo pastas críticas do projeto, `.cursor`, configs).
 
-- Configurar o **MCP Jira** (Atlassian/Rovo) conforme o passo a passo do **[06-mcp-jira-setup.md](06-mcp-jira-setup.md)**.
-- O curso usa o ambiente **productarena.atlassian.net** e uma conta compartilhada (credenciais fornecidas no material / no dia).
+- Nas configurações do Cursor, verificar se existe opção para **listar arquivos/pastas protegidos** ou **avoid file deletion** (nome pode variar por versão).
+- Incluir ali o que for importante não remover (ex.: `.cursor/`, `.env`, pastas de documentação).
 
-Depois de configurado: **[07-mcp-jira-create.md](07-mcp-jira-create.md)** para criar a primeira task com o template de user story.
+Se a sua versão do Cursor tiver uma lista explícita de “arquivos a não deletar”, use-a para reforçar a proteção em cima do File-Deletion Protection.
 
 ---
 
 ## Resumo rápido
 
-| Ordem | Item              | Onde ver detalhes                                        |
-|-------|-------------------|----------------------------------------------------------|
-| 1     | Cursor + Pro      | cursor.com                                               |
-| 2     | Conta GitHub      | github.com                                               |
-| 3     | Allowlist         | [referencia/command-allowlist.md](../referencia/command-allowlist.md) |
-| 4     | Clone repo do curso          | [git-guia-pms.md](../git-guia-pms.md)                  |
-| 5     | Rules/Commands    | Já em `.cursor/` no repo clonado                         |
-| 6     | MCP Jira          | [06-mcp-jira-setup.md](06-mcp-jira-setup.md)            |
+| Item                    | Onde no Cursor                    | Referência |
+|-------------------------|-----------------------------------|------------|
+| Allowlist de comandos   | Settings > General > Command Allowlist | [command-allowlist.md](../referencia/command-allowlist.md) |
+| File-Deletion Protection| Settings (proteção contra exclusão)    | Ativar conforme slide / demonstração no curso |
+| Avoid file deletion     | Settings (lista de arquivos protegidos) | Configurar pastas/arquivos que não devem ser deletados |

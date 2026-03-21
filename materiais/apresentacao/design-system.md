@@ -122,7 +122,6 @@ O slide usa `justify-content: flex-start` (flexbox), garantindo que o conteúdo 
 - /start-a-business — Arena Voting System
 - /create-prd — PRD a partir da Product Strategy
 - Arquivos do curso na raiz do Workspace
-- Design System — extrair de productarena.io
 - Subir projeto no GitHub pessoal
 
 ---
@@ -383,7 +382,7 @@ Callout dedicado para dicas e “pro tips”, **distinto visualmente do principl
 1. **Emojis:** Usar como ícones principais para manter estilo amigável/Notion.
 2. **Ícones:** Estilo minimalista ou emojis.
 3. **Imagens:** Placeholders devem ter borda tracejada.
-4. **Logos:** Versões monocromáticas ou coloridas originais sobre fundo branco.
+4. **Logos:** Versões monocromáticas ou coloridas originais sobre fundo branco. Slide **A diferença do Cursor** (`ecosystem-scale--logos-only`): `assets/chatgpt-logo.png`, `assets/lovable-logo.png`, `assets/n8n-logo.png`, `assets/claude-logo.png` (Anthropic Claude), `assets/cursor-logo.png`.
 
 ## Referências
 - **Product Arena:** https://productarena.io

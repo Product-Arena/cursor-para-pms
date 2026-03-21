@@ -7,11 +7,11 @@ Curso presencial de 8 horas para Product Managers na Product Arena.
 | Pasta | Conteúdo |
 |-------|----------|
 | **ementa/** | [Syllabus](ementa/syllabus.md), [cronograma](ementa/cronograma.md), [notas de instrutor](ementa/notas-instrutor.md) |
-| **materiais/** | [Etapa 0 — Setup do curso](materiais/exercicios/00-setup-curso-ordem-recomendada.md), [Rules e Commands](materiais/setup-rules-commands.md), [Guia Git](materiais/git-guia-pms.md), [referências MCPs](materiais/mcps-referencias.md) |
+| **materiais/** | [Pré-setup do curso](materiais/exercicios/00-pre-setup-curso.md), [Aprimorando as configurações](materiais/exercicios/00-setup-curso-ordem-recomendada.md), [Guia Git](materiais/referencia/git-guia-pms.md), [referências MCPs](materiais/mcps-referencias.md) |
 
 ## Início rápido
 
-1. **Participante:** Siga a [Etapa 0 — Setup do curso](materiais/exercicios/00-setup-curso-ordem-recomendada.md) (Cursor, GitHub, allowlist, clone, rules/commands, MCP Jira).
+1. **Participante:** Antes do curso, siga o [Pré-setup do curso](materiais/exercicios/00-pre-setup-curso.md). Durante o curso, as configurações (allowlist, File-Deletion Protection, avoid file deletion) estão em [Aprimorando as configurações](materiais/exercicios/00-setup-curso-ordem-recomendada.md).
 2. Leia a [ementa](ementa/syllabus.md)
 3. Revise o [cronograma](ementa/cronograma.md)
 4. Se for ministrar: [notas de instrutor](ementa/notas-instrutor.md)

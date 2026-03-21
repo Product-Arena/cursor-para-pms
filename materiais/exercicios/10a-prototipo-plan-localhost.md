@@ -10,8 +10,9 @@
 
 Você já tem:
 - PRD em `documents/prd-arena-voting-system.md`
-- Design system em `documents/design-system-arena-voting-system.md`
 - Estrutura de pastas em `projects/arena-voting-system/`
+
+Se existir, use também `documents/design-system-arena-voting-system.md` (ex.: gerado com `/create-design-system` a partir da Product Strategy). Se não houver documento de design, o Plan pode usar só o PRD como referência visual.
 
 O objetivo agora é ter um **visual funcional em localhost** para testar a ferramenta — uma interface que rode no navegador e permita interagir com o conceito do produto.
 
