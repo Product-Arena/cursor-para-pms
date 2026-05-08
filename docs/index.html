@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursor para PMs | Product Arena</title>
+    <title>Apresentação — Cursor para PMs (edição 3) | Product Arena</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -1236,47 +1236,170 @@
         .slide-type-content-code .prompt-container .syntax-heading { color: #4ec9b0; font-weight: 700; }
         .slide-type-content-code .prompt-container .syntax-list { color: #c586c0; }
 
-        /* Slide Apresentações — conteúdo denso: ajustes para área segura */
-        .slide-type-content-code.slide--apresentacoes .slide-title {
-            font-size: 2.25rem;
-            margin-bottom: 16px;
+        /* Meetup-style flow + dashboard (slide: dados como PM) — cursor-builders-meetup */
+        .flow-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-top: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-        .slide-type-content-code.slide--apresentacoes .slide-split {
-            margin-top: 20px;
-            gap: 28px;
-            max-width: 1080px;
-            align-items: stretch;
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 180px;
+            text-align: center;
         }
-        .slide-type-content-code.slide--apresentacoes .slide-split-left {
-            flex: 0 0 40%;
-            min-width: 0;
-        }
-        .slide-type-content-code.slide--apresentacoes .slide-subtitle {
+        .flow-step-icon {
+            font-size: 2.5rem;
             margin-bottom: 12px;
-            font-size: 0.95rem;
-            line-height: 1.4;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .slide-type-content-code.slide--apresentacoes .principle-card {
-            padding: 14px 18px;
-            margin-bottom: 10px;
+        .flow-step-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px 18px;
+            width: 100%;
+            min-height: 140px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
-        .slide-type-content-code.slide--apresentacoes .principle-title {
-            font-size: 0.95rem;
-            margin-bottom: 4px;
+        .flow-step-card.highlighted {
+            border: 2px solid var(--accent);
+            background: rgba(255, 87, 87, 0.04);
         }
-        .slide-type-content-code.slide--apresentacoes .principle-desc {
+        .flow-step-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+        .flow-step-desc {
             font-size: 0.85rem;
-            line-height: 1.4;
+            color: var(--text-secondary);
+            line-height: 1.45;
         }
-        .slide-type-content-code.slide--apresentacoes .prompt-container {
-            max-height: 340px;
-            padding: 18px 22px;
+        .flow-step-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+        .flow-arrow {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-top: 70px;
+            flex-shrink: 0;
+        }
+        .premise-bar {
+            background: var(--accent);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-top: 32px;
+            max-width: 900px;
+            text-align: center;
+        }
+        .premise-bar strong {
+            font-weight: 700;
+        }
+        .dashboard-preview {
+            background: #f8f8f8;
+            border-radius: 12px;
+            border: 1px solid var(--border-medium);
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+        }
+        .dashboard-preview-header {
+            background: #e8e8e8;
+            padding: 10px 14px;
+            display: flex;
+            gap: 6px;
+        }
+        .dashboard-preview-header span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+        .dashboard-preview-header span:nth-child(1) { background: #ff5f57; }
+        .dashboard-preview-header span:nth-child(2) { background: #febc2e; }
+        .dashboard-preview-header span:nth-child(3) { background: #28c840; }
+        .dashboard-preview-title {
+            padding: 14px 16px 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .dashboard-preview-tabs {
+            display: flex;
+            gap: 6px;
+            padding: 0 16px 12px;
+            flex-wrap: wrap;
+        }
+        .dashboard-tab {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.68rem;
+            color: var(--text-secondary);
+        }
+        .dashboard-tab.active {
+            background: rgba(255, 87, 87, 0.12);
+            border-color: rgba(255, 87, 87, 0.3);
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .dashboard-preview-chart {
+            background: #fff;
+            margin: 0 16px;
+            padding: 20px 24px;
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-end;
+            gap: 16px;
+            height: 140px;
+            border: 1px solid var(--border-light);
+        }
+        .dashboard-chart-bar {
             flex: 1;
-            min-height: 0;
+            border-radius: 4px 4px 0 0;
+            min-width: 28px;
         }
-        .slide-type-content-code.slide--apresentacoes .prompt-container pre {
-            font-size: 11px;
-            line-height: 1.5;
+        .dashboard-preview-legend {
+            display: flex;
+            gap: 16px;
+            padding: 10px 16px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            justify-content: center;
+        }
+        .dashboard-preview-footer {
+            padding: 10px 16px 14px;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        .dashboard-preview-footer code {
+            background: rgba(0,0,0,0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', Consolas, monospace;
         }
     </style>
 </head>
@@ -1423,11 +1546,11 @@
                     </div>
                     <div class="check-card">
                         <div class="check-icon">📋</div>
-                        <div class="check-text"><strong>Adaptar ao ciclo de produto</strong> — Notas, PRD, dados, Jira, apresentações.</div>
+                        <div class="check-text"><strong>Adaptar ao ciclo de produto</strong> — PRD, dados, design system, MCPs (ex.: Notion), apresentações.</div>
                     </div>
                     <div class="check-card">
                         <div class="check-icon">🎯</div>
-                        <div class="check-text"><strong>Construir seu protótipo</strong> — Arena Voting System, do planejamento à construção.</div>
+                        <div class="check-text"><strong>Construir seu protótipo</strong> — da feature priorizada ao localhost; fechar com <strong>Start My Day</strong> no Cursor.</div>
                     </div>
                 </div>
             </div>
@@ -1436,14 +1559,14 @@
             <div class="slide">
                 <div class="slide-eyebrow">Diferenças</div>
                 <div class="slide-title">A <span class="accent">diferença</span> do Cursor</div>
-                <div class="slide-subtitle" style="margin-bottom: 28px;">Ir além da conversa: é ter seu par técnico ao lado, <strong>executando</strong> de verdade no seu ambiente</div>
+                <div class="slide-subtitle" style="margin-bottom: 28px;">Ir além da conversa: par técnico ao lado, <strong>executando</strong> de verdade</div>
                 <div class="ecosystem-scale ecosystem-scale--logos-only">
                     <div class="ecosystem-unit">
                         <div class="ecosystem-item">
                             <div class="flow-box">
                                 <img src="assets/chatgpt-logo.png" alt="ChatGPT" class="flow-box-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="flow-box-fallback" style="display:none">ChatGPT</span>
                             </div>
-                            <div class="ecosystem-desc">Só conversa. Respostas genéricas, sem seu código.</div>
+                            <div class="ecosystem-desc">💬 Conversa sobre código<br><span style="opacity: 0.7; font-size: 0.85em;">❌ Não vê seus arquivos</span></div>
                         </div>
                     </div>
                     <div class="ecosystem-unit">
@@ -1451,7 +1574,7 @@
                             <div class="flow-box">
                                 <img src="assets/lovable-logo.png" alt="Lovable" class="flow-box-logo">
                             </div>
-                            <div class="ecosystem-desc">Apps visuais. Gera UI sem tocar no código.</div>
+                            <div class="ecosystem-desc">🎨 Gera UI visual<br><span style="opacity: 0.7; font-size: 0.85em;">❌ Sandbox isolado</span></div>
                         </div>
                     </div>
                     <div class="ecosystem-unit">
@@ -1459,7 +1582,7 @@
                             <div class="flow-box">
                                 <img src="assets/n8n-logo.png" alt="n8n" class="flow-box-logo">
                             </div>
-                            <div class="ecosystem-desc">Automação. Conecta serviços e fluxos.</div>
+                            <div class="ecosystem-desc">⚡ Automação visual<br><span style="opacity: 0.7; font-size: 0.85em;">❌ Fluxos predefinidos</span></div>
                         </div>
                     </div>
                     <div class="ecosystem-unit">
@@ -1467,7 +1590,7 @@
                             <div class="flow-box">
                                 <img src="assets/claude-logo.png" alt="Claude (Anthropic)" class="flow-box-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="flow-box-fallback" style="display:none">Claude</span>
                             </div>
-                            <div class="ecosystem-desc">Assistente conversacional (Anthropic). No Cursor vira par técnico que executa.</div>
+                            <div class="ecosystem-desc">🧠 Raciocínio potente<br><span style="opacity: 0.7; font-size: 0.85em;">❌ Só sugere, não executa</span></div>
                         </div>
                     </div>
                     <div class="ecosystem-unit">
@@ -1475,9 +1598,13 @@
                             <div class="flow-box flow-box--dark highlighted">
                                 <img src="assets/cursor-logo.png" alt="Cursor" class="flow-box-logo">
                             </div>
-                            <div class="ecosystem-desc">Seu par técnico de fato. Não só conversa — <strong>executa</strong> no seu workspace.</div>
+                            <div class="ecosystem-desc">🤖 <strong>Par técnico</strong><br><span style="color: var(--accent); font-size: 0.85em;">✅ Lê, escreve, executa</span></div>
                         </div>
                     </div>
+                </div>
+                <div class="callout-protip" style="margin-top: 24px; max-width: 720px;">
+                    <span class="callout-protip-icon">📖</span>
+                    <div class="callout-protip-content"><strong>Material</strong> — Comparação detalhada em <strong>cursor-vs-outras-ferramentas.md</strong> na pasta de referência.</div>
                 </div>
             </div>
 
@@ -1508,13 +1635,13 @@
 
             <!-- 6b: Agenda do dia -->
             <div class="slide">
-                <div class="slide-eyebrow">Mapa do bloco 1</div>
+                <div class="slide-eyebrow">Guia do aluno · edição 3</div>
                 <div class="slide-title">Agenda do <span class="accent">dia</span></div>
-                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">A ideia é ir do "olá, Cursor" até usar a IA como par técnico no seu fluxo de produto.</div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">Do workspace aos MCPs e ao Start My Day — alinhado aos blocos do material escrito.</div>
                 <div class="agenda-blocks">
                     <div class="agenda-block">
                         <div class="agenda-block-header">☕ Manhã</div>
-                        <div class="agenda-block-content">Setup, modos do Cursor (Ask, Plan, Agent), Rules, Commands e primeiros exercícios.</div>
+                        <div class="agenda-block-content">Workspace; conceitos (IDE, GitHub, clone); modos <strong>Ask, Plan, Agent</strong> (+ Debug/Multitask em visão geral); <strong>Rules, Commands, Skills</strong>.</div>
                         <div class="agenda-block-time">10:00 – 12:30</div>
                     </div>
                     <div class="agenda-block">
@@ -1524,7 +1651,7 @@
                     </div>
                     <div class="agenda-block">
                         <div class="agenda-block-header">🧠 Meio do dia</div>
-                        <div class="agenda-block-content">Ciclo de produto.</div>
+                        <div class="agenda-block-content"><strong>Ciclo de produto</strong> (Arena Cash, dados, slides, PRD, Linear) + bloco <strong>MCPs</strong> (Notion, Linear).</div>
                         <div class="agenda-block-time">14:00 – 15:30</div>
                     </div>
                     <div class="agenda-block">
@@ -1534,7 +1661,7 @@
                     </div>
                     <div class="agenda-block">
                         <div class="agenda-block-header">🚀 Tarde</div>
-                        <div class="agenda-block-content">Construindo seu protótipo.</div>
+                        <div class="agenda-block-content"><strong>Protótipo</strong> (localhost, Git, GitHub Pages, Vercel opcional) + construir o seu <strong>Start My Day</strong>.</div>
                         <div class="agenda-block-time">15:45 – 18:00</div>
                     </div>
                 </div>
@@ -1554,16 +1681,16 @@
             <!-- 8: Setup workspace -->
             <div class="slide">
                 <div class="slide-eyebrow">Workspace</div>
-                <div class="slide-title">Setup — Criar seu <span class="accent">workspace</span></div>
+                <div class="slide-title">Setup — Abrir seu <span class="accent">workspace</span></div>
                 <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
                     <div class="slide-split-left">
                         <div class="principle-card">
-                            <div class="principle-title">1. Crie uma pasta dedicada</div>
-                            <div class="principle-desc">Separe uma pasta só para o curso no seu computador. Ela será o “palco” de tudo que vamos construir.</div>
+                            <div class="principle-title">1. Baixe o workspace padrão do curso</div>
+                            <div class="principle-desc">Antes da aula, você recebe um <strong>link</strong> para baixar o pacote do workspace modelo. Salve no seu computador e, se for arquivo compactado (<code>.zip</code>), extraia até ficar com uma <strong>pasta</strong> com o material.</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">2. Abra a pasta no Cursor</div>
-                            <div class="principle-desc">No Cursor, vá em <strong>File → Open Folder</strong> e selecione essa pasta. É assim que o Cursor “enxerga” seus arquivos.</div>
+                            <div class="principle-desc">No Cursor: <strong>File → Open Folder…</strong> (Abrir pasta) e selecione <strong>a pasta que você baixou</strong> (a pasta extraída, não o <code>.zip</code>). É assim que o Cursor “enxerga” seus arquivos.</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">3. Use sempre o mesmo workspace</div>
@@ -1575,8 +1702,8 @@
                             <img src="assets/cursor-setup.png" class="screenshot-image" style="object-position: center top;" alt="Tela do Cursor com workspace aberto">
                         </div>
                         <div class="callout-protip" style="margin-top: 20px; max-width: 100%;">
-                            <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Pro tip</strong> — Ativar <strong>File-Deletion Protection</strong> nas configurações do Cursor.</div>
+                            <span class="callout-protip-icon">📁</span>
+                            <div class="callout-protip-content"><strong>Recomendação</strong> — Guarde ou mova essa pasta para a raiz de <strong>Documentos</strong> (ou outra pasta de trabalho fixa), em vez de deixá-la só em <strong>Downloads</strong>, onde arquivos temporários somem mais facilmente.</div>
                         </div>
                     </div>
                 </div>
@@ -1604,9 +1731,9 @@
                 </div>
             </div>
 
-            <!-- 11: GitHub -->
-            <div class="slide slide-type-parenteses">
-                <div class="slide-eyebrow">Abrindo parênteses</div>
+            <!-- 11: GitHub (conteúdo / fundamentos) -->
+            <div class="slide">
+                <div class="slide-eyebrow">Fundamentos</div>
                 <div class="slide-title">O que é o <span class="accent">GitHub</span>?</div>
                 <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
                     <div class="slide-split-left">
@@ -1627,132 +1754,7 @@
                 </div>
             </div>
 
-            <!-- 13: Exercício Plan (mapear deps) -->
-            <div class="slide slide-type-exercicio">
-                <div class="slide-eyebrow">Exercício · Plan</div>
-                <div class="slide-title">Plan — <span class="accent">Mapear dependências</span></div>
-                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 10 minutos</div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="slide-subtitle" style="margin-top: 0;">Pergunte no Cursor: <strong>“Eu já tenho conta no GitHub. O que preciso para clonar um repositório aqui?”</strong> — deixe o plano te guiar.</div>
-                    </div>
-                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
-                        <img src="assets/plan-mapear-deps.png" alt="Cursor Plan: requisitos para clonar repositório GitHub" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 13a: GitHub SSH — Visão geral -->
-            <div class="slide slide-type-parenteses">
-                <div class="slide-eyebrow">Abrindo parênteses</div>
-                <div class="slide-title">GitHub — <span class="accent">onde configurar SSH</span></div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">1. Entrar no GitHub</div>
-                            <div class="principle-desc">Acesse github.com e faça login na sua conta.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">2. Abrir o menu do perfil</div>
-                            <div class="principle-desc">No canto superior direito, clique no avatar e depois em <strong>Settings</strong>.</div>
-                        </div>
-                    </div>
-                    <div style="background: transparent; border: none; box-shadow: none;">
-                        <img src="assets/github-dashboard.png" alt="Dashboard do GitHub com menu de perfil aberto" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 13b: GitHub SSH — Acessar seção -->
-            <div class="slide slide-type-parenteses">
-                <div class="slide-eyebrow">Abrindo parênteses</div>
-                <div class="slide-title">GitHub — <span class="accent">SSH and GPG keys</span></div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">3. Seção de chaves</div>
-                            <div class="principle-desc">No menu lateral esquerdo, vá em <strong>SSH and GPG keys</strong>. É aqui que vamos adicionar a chave gerada pelo Cursor.</div>
-                        </div>
-                    </div>
-                    <div style="background: transparent; border: none; box-shadow: none;">
-                        <img src="assets/github-settings.png" alt="Tela de configurações do GitHub" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 13c: GitHub SSH — Adicionar chave -->
-            <div class="slide slide-type-parenteses">
-                <div class="slide-eyebrow">Abrindo parênteses</div>
-                <div class="slide-title">GitHub — <span class="accent">Adicionar chave SSH</span></div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">4. Criar nova chave</div>
-                            <div class="principle-desc">Clique em <strong>New SSH key</strong>, escolha um título (ex.: <code>cursor</code>) e cole a chave pública que o Cursor gerou.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">5. Confirmar</div>
-                            <div class="principle-desc">Clique em <strong>Add SSH key</strong> para salvar. A partir daí, o GitHub reconhece seu computador quando você usar <code>git clone</code>.</div>
-                        </div>
-                    </div>
-                    <div style="background: transparent; border: none; box-shadow: none;">
-                        <img src="assets/github-ssh-key.png" alt="Tela de adicionar nova SSH key no GitHub" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 14: Allowlist -->
-            <div class="slide slide-type-parenteses">
-                <div class="slide-eyebrow">Abrindo parênteses</div>
-                <div class="slide-title">Allowlist — O que o agent <span class="accent">pode executar</span></div>
-                
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">Segurança e Controle</div>
-                            <div class="principle-desc">Você define exatamente quais comandos o Cursor pode rodar. Nada acontece sem sua permissão explícita.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">Configuração Preventiva</div>
-                            <div class="principle-desc">Antes de clonar repositórios desconhecidos, revise o que está permitido na sua allowlist.</div>
-                        </div>
-                        <div class="callout-protip" style="margin-top: 24px;">
-                            <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Pro tip</strong> — Crie um agent em modo Ask, fixe-o (Pin) e pergunte: “O que o comando <code>cp</code> faz?” — E evite liberar <code>rm</code> e <code>git commit</code> sem revisão.</div>
-                        </div>
-                    </div>
-                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
-                        <img src="assets/allowlist-settings.png" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Tela de configurações do Cursor mostrando a Command Allowlist">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Presente da Arena — imediatamente antes do clone do repo do curso -->
-            <div class="slide">
-                <div class="slide-eyebrow">Product Arena</div>
-                <div class="slide-title">Presente da <span class="accent">Arena</span></div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">O stack dos instrutores</div>
-                            <div class="principle-desc">Leve para casa a mesma configuração de Rules, Commands e estrutura de arquivos que Lucas e Arthur usam no dia a dia.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">Workspace pronto para copiar</div>
-                            <div class="principle-desc">Vocês vão clonar o <strong>repositório do curso</strong> (Cursor para PMs — Product Arena), que já traz isso. Use como base para novos projetos.</div>
-                        </div>
-                        <div class="callout-protip" style="margin-top: 24px;">
-                            <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Pro tip</strong> — Trate esse stack como seu ponto de partida padrão — sempre que for criar algo novo, comece daqui.</div>
-                        </div>
-                    </div>
-                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none; width: 380px; max-width: 380px; height: 400px; justify-content: flex-start;">
-                        <img src="assets/arthur-gift-square.png" style="width: 100%; height: 100%; max-height: 400px; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Arthur entregando um presente">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 15: Exercício Plan (clone) -->
+            <!-- 14: Exercício Plan (clone) -->
             <div class="slide slide-type-exercicio">
                 <div class="slide-eyebrow">Exercício · Plan</div>
                 <div class="slide-title"><span class="accent">Plan</span> — Clonando o repositório do curso</div>
@@ -1812,6 +1814,32 @@
                 </div>
             </div>
 
+            <!-- Allowlist (após Modo Agent) -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">Allowlist — O que o agent <span class="accent">pode executar</span></div>
+
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">Segurança e Controle</div>
+                            <div class="principle-desc">Você define exatamente quais comandos o Cursor pode rodar. Nada acontece sem sua permissão explícita.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Configuração Preventiva</div>
+                            <div class="principle-desc">Antes de clonar repositórios desconhecidos, revise o que está permitido na sua allowlist.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 24px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Pro tip</strong> — Crie um agent em modo Ask, fixe-o (Pin) e pergunte: “O que o comando <code>cp</code> faz?” — E evite liberar <code>rm</code> e <code>git commit</code> sem revisão.</div>
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
+                        <img src="assets/allowlist-settings.png" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" alt="Tela de configurações do Cursor mostrando a Command Allowlist">
+                    </div>
+                </div>
+            </div>
+
             <!-- 18: Modelos e contexto -->
             <div class="slide slide-type-parenteses">
                 <div class="slide-eyebrow">Abrindo parênteses</div>
@@ -1837,49 +1865,51 @@
                 </div>
             </div>
 
-            <!-- Commands -->
-<div class="slide">
-                <div class="slide-eyebrow">Product Arena</div>
-                <div class="slide-split-code">
-                    <div class="slide-left-content">
-                        <div class="slide-title" style="text-align: left; font-size: 2.5rem; margin-bottom: 16px;">Commands —<br>Macros em <span class="accent">linguagem natural</span></div>
-                        <div class="slide-subtitle" style="text-align: left; font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
-                            <strong style="color: var(--text-primary);">Por que importa:</strong><br>
-                            Um comando como <code style="background: rgba(255,87,87,0.1); color: var(--accent); padding: 2px 6px; border-radius: 4px;">/start-a-business</code> dispara um fluxo completo e padronizado sem você precisar repetir o prompt inteiro a cada vez.
+            <!-- Debug e Multitask (teoria) -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Modos</div>
+                <div class="slide-title">Debug e <span class="accent">Multitask</span></div>
+                <div class="slide-subtitle" style="margin-top: 16px; max-width: 880px;">Além de Ask, Plan e Agent, o Cursor oferece estes modos — uso mais pontual e avançado.</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 28px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">Debug</div>
+                            <div class="principle-desc">Focado em investigar erros, logs e comportamento do código ou do fluxo — ajuda a isolar o que quebrou antes de pedir mudanças grandes.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Multitask</div>
+                            <div class="principle-desc">Orquestra várias frentes em paralelo (por exemplo, mais de uma tarefa ou agente). Útil quando o trabalho se divide em passos simultâneos.</div>
                         </div>
                     </div>
-                    
-                    <div class="prompt-container">
-                        <div class="prompt-label">.cursor/commands/start-a-business.md</div>
-                        <pre><span class="syntax-comment">---</span>
-<span class="syntax-key">description:</span> <span class="syntax-string">"Start a new business venture: create project structure..."</span>
-<span class="syntax-comment">---</span>
-
-<span class="syntax-heading">**When user runs `/start-a-business`:**</span>
-
-<span class="syntax-heading">## Step 1: Capture Initial Information</span>
-Ask the user these questions in sequence:
-
-1. <span class="syntax-string">**"What's the name of your business/idea?"**</span>
-   <span class="syntax-list">-</span> Capture: business name
-   <span class="syntax-list">-</span> Use this to create the project folder name (kebab-case)
-
-2. <span class="syntax-string">**"Give me a brief description (1-2 sentences)"**</span>
-   <span class="syntax-list">-</span> Capture: brief description
-   <span class="syntax-list">-</span> This will be used in initial Product Strategy
-
-<span class="syntax-heading">## Step 2: Create Project Structure Automatically</span>
-Create the following structure:
-
-<span class="syntax-comment">projects/[business-name]/
-├── documents/
-│   └── README.md
-└── README.md</span></pre>
+                    <div class="callout-protip" style="margin-top: 0; max-width: 420px; align-self: flex-start;">
+                        <span class="callout-protip-icon">📌</span>
+                        <div class="callout-protip-content"><strong>Ciclo de produto</strong> — aqui só contextualizamos Debug e Multitask; você pode explorar estes modos quando precisar no dia a dia.</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Rules -->
+            <!-- Visão geral: Rules, Commands, Skills (antes dos deepdives) -->
+            <div class="slide">
+                <div class="slide-eyebrow">Product Arena</div>
+                <div class="slide-title">Três recursos que trabalham com os <span class="accent">agentes</span></div>
+                <div class="slide-subtitle" style="margin-top: 12px; max-width: 820px;">Na sequência: visão geral rápida; depois aprofundamos nesta ordem — <strong>Rules</strong>, <strong>Commands</strong>, <strong>Skills</strong>.</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: stretch;">
+                    <div class="principle-card" style="flex: 1; min-width: 240px;">
+                        <div class="principle-title">Rules</div>
+                        <div class="principle-desc">Instruções persistentes (manual de estilo, convenções). O agente aplica sem você repetir o contexto em todo prompt.</div>
+                    </div>
+                    <div class="principle-card" style="flex: 1; min-width: 240px;">
+                        <div class="principle-title">Commands</div>
+                        <div class="principle-desc">Atalhos que disparam fluxos prontos — um <code>/comando</code> vira um roteiro inteiro no projeto.</div>
+                    </div>
+                    <div class="principle-card" style="flex: 1; min-width: 240px;">
+                        <div class="principle-title">Skills</div>
+                        <div class="principle-desc">Pacotes de comportamento e templates instaláveis (marketplaces). Estendem o que o agente sabe fazer.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rules (deep dive) -->
             <div class="slide">
                 <div class="slide-eyebrow">Product Arena</div>
                 <div class="slide-split-code">
@@ -1922,6 +1952,48 @@ Create the following structure:
                 </div>
             </div>
 
+            <!-- Commands (deep dive) -->
+            <div class="slide">
+                <div class="slide-eyebrow">Product Arena</div>
+                <div class="slide-split-code">
+                    <div class="slide-left-content">
+                        <div class="slide-title" style="text-align: left; font-size: 2.5rem; margin-bottom: 16px;">Commands —<br>Macros em <span class="accent">linguagem natural</span></div>
+                        <div class="slide-subtitle" style="text-align: left; font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
+                            <strong style="color: var(--text-primary);">Por que importa:</strong><br>
+                            Um comando como <code style="background: rgba(255,87,87,0.1); color: var(--accent); padding: 2px 6px; border-radius: 4px;">/start-a-business</code> dispara um fluxo completo e padronizado sem você precisar repetir o prompt inteiro a cada vez.
+                        </div>
+                    </div>
+
+                    <div class="prompt-container">
+                        <div class="prompt-label">.cursor/commands/start-a-business.md</div>
+                        <pre><span class="syntax-comment">---</span>
+<span class="syntax-key">description:</span> <span class="syntax-string">"Start a new business venture: create project structure..."</span>
+<span class="syntax-comment">---</span>
+
+<span class="syntax-heading">**When user runs `/start-a-business`:**</span>
+
+<span class="syntax-heading">## Step 1: Capture Initial Information</span>
+Ask the user these questions in sequence:
+
+1. <span class="syntax-string">**"What's the name of your business/idea?"**</span>
+   <span class="syntax-list">-</span> Capture: business name
+   <span class="syntax-list">-</span> Use this to create the project folder name (kebab-case)
+
+2. <span class="syntax-string">**"Give me a brief description (1-2 sentences)"**</span>
+   <span class="syntax-list">-</span> Capture: brief description
+   <span class="syntax-list">-</span> This will be used in initial Product Strategy
+
+<span class="syntax-heading">## Step 2: Create Project Structure Automatically</span>
+Create the following structure:
+
+<span class="syntax-comment">projects/[business-name]/
+├── documents/
+│   └── README.md
+└── README.md</span></pre>
+                    </div>
+                </div>
+            </div>
+
             <!-- Skills (conteúdo) -->
             <div class="slide">
                 <div class="slide-eyebrow">Product Arena</div>
@@ -1947,22 +2019,6 @@ Create the following structure:
                 </div>
             </div>
 
-
-
-            <!-- Exercício Agent — Instalar skills -->
-            <div class="slide slide-type-exercicio">
-                <div class="slide-eyebrow">Exercício · Agent</div>
-                <div class="slide-title"><span class="accent">Agent</span> — Instalar skills</div>
-                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 15 minutos</div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="slide-subtitle" style="margin-top: 0;">Envie: <strong>“Quero que você instale esses skills no meu workspace.”</strong> Aprove as etapas que o Agent sugerir.</div>
-                    </div>
-                </div>
-            </div>
-
-
-
             <!-- Sugestão de conteúdo — Greg Isenberg -->
             <div class="slide">
                 <div class="slide-eyebrow">Sugestão de conteúdo</div>
@@ -1977,16 +2033,54 @@ Create the following structure:
                 </div>
             </div>
 
-            <!-- 23b: Abrindo parênteses — Espaço limpo (general-guidelines) -->
+            <!-- Workspace organizado + espaço limpo (antes do recap) -->
             <div class="slide slide-type-parenteses">
-                <div class="slide-eyebrow">Abrindo parênteses</div>
-                <div class="slide-title">Manter o espaço <span class="accent">limpo e organizado</span></div>
-                <div class="slide-subtitle" style="margin-bottom: 20px;">Riscos do Cursor criar muitas coisas — use a regra como guardião.</div>
-                <div class="callout-protip" style="margin-bottom: 24px; max-width: 900px;">
+                <div class="slide-eyebrow">Antes do recap</div>
+                <div class="slide-title">Workspace <span class="accent">organizado</span> — espaço limpo</div>
+                <div class="slide-subtitle" style="margin-bottom: 12px;"><strong>⏱ 5 minutos</strong> — reconheça a estrutura de pastas e abra trechos da rule <code style="font-size: 0.95em;">.cursor/rules/general-guidelines.mdc</code>.</div>
+                <div class="slide-subtitle" style="margin-bottom: 16px; font-size: 1rem;">A receita não é mágica — organização vira contexto. Riscos do Cursor criar muitas coisas — use a regra como guardião.</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 16px; align-items: flex-start; gap: 40px;">
+                    <div class="workspace-card" style="background: #1e1e1e; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); padding: 16px 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.18); color: #d4d4d4; font-family: 'SF Mono', Consolas, monospace; font-size: 12px; line-height: 1.6; min-width: 260px; text-align: left;">
+                        <div style="display: flex; gap: 6px; margin-bottom: 12px;">
+                            <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f57;"></span>
+                            <span style="width: 10px; height: 10px; border-radius: 50%; background: #febc2e;"></span>
+                            <span style="width: 10px; height: 10px; border-radius: 50%; background: #28c840;"></span>
+                        </div>
+                        <div style="color: #e8b14b; font-weight: 600;">📁 workspace-cursor/</div>
+                        <div style="padding-left: 14px; color: #ccc;">
+                            <div>├── 📁 <span style="color: #e8b14b;">.cursor/</span></div>
+                            <div style="padding-left: 18px; color: #888; font-size: 11px;">commands, rules, skills, templates</div>
+                            <div>├── 📁 analises/</div>
+                            <div>├── 📁 projetos/</div>
+                            <div>├── 📁 docs/</div>
+                            <div>├── 📁 learning/</div>
+                            <div>└── 📁 repos/</div>
+                        </div>
+                    </div>
+                    <div class="slide-split-left" style="max-width: 520px;">
+                        <div class="principle-card">
+                            <div class="principle-title">📁 .cursor/</div>
+                            <div class="principle-desc">Rules, Skills e MCPs. O agente "já sabe" antes de você pedir.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">📊 analises/</div>
+                            <div class="principle-desc">Cada análise com SQL, charts e docs juntos — vira contexto na hora.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">🚀 projetos/</div>
+                            <div class="principle-desc">PRD, design system e código no mesmo lugar — arrastar pasta = contexto completo.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 12px;">
+                            <span class="callout-protip-icon">📖</span>
+                            <div class="callout-protip-content"><strong>Material</strong> — Consulte <strong>workspace-cursor-modelo.md</strong> na pasta de referência.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="callout-protip" style="margin: 20px auto 16px; max-width: 900px;">
                     <span class="callout-protip-icon">💡</span>
                     <div class="callout-protip-content"><strong>Pro tip</strong> — A rule <code>.cursor/rules/general-guidelines.mdc</code> evita poluição do workspace. Trechos abaixo.</div>
                 </div>
-                <div class="prompt-container" style="max-width: 900px; text-align: left;">
+                <div class="prompt-container" style="max-width: 900px; text-align: left; margin: 0 auto;">
                     <div class="prompt-label">.cursor/rules/general-guidelines.mdc (Cursor guidelines)</div>
                     <pre>## Cursor guidelines
 
@@ -2044,10 +2138,10 @@ Respond in the chat (do not create files) for:
                 <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Espaço para dúvidas antes de seguirmos para o ciclo de produto</div>
             </div>
 
-            <!-- 25: Bloco 2 -->
+            <!-- 25: Ciclo de produto (meio do dia) -->
             <div class="slide slide-block-overview">
                 <div class="slide-eyebrow">Meio do dia — 14:00–15:30</div>
-                <div class="slide-title">Bloco 2 — Cursor no <span class="accent">ciclo de produto</span></div>
+                <div class="slide-title">Cursor no <span class="accent">ciclo de produto</span></div>
                 <div class="agenda-blocks" style="margin-top: 24px; max-width: 720px;">
                     <div class="agenda-block agenda-block--expanded">
                         <div class="agenda-block-header-row">
@@ -2058,17 +2152,19 @@ Respond in the chat (do not create files) for:
                             <div class="agenda-block-expanded-section">
                                 <div class="agenda-block-expanded-section-title">Conteúdo</div>
                                 <ul class="agenda-block-expanded-list">
-                                    <li>Notas de reunião (case Arthur — mentorias)</li>
-                                    <li>Entendimento do problema / PRD</li>
-                                    <li>Analisando dados (Forms → Sheets → Cursor + MCP → dashboard)</li>
-                                    <li>User Stories no Jira com MCP</li>
-                                    <li>Criando apresentações (HTML, fontes, gráficos)</li>
+                                    <li>Workspace organizado (modelo workspace-cursor)</li>
+                                    <li>Entendimento do problema / PRD (Markdown, templates, Rules)</li>
+                                    <li>Analisando dados — exercício funil de cursos (Arena)</li>
+                                    <li>Design system para UI gerada — Arena + <a href="https://getdesign.md" target="_blank" rel="noopener" style="color: var(--accent);">getdesign.md</a></li>
+                                    <li>MCPs — o que são; exemplo prático com <strong>Notion</strong> (one-page para lideranças)</li>
+                                    <li>Criando apresentações (HTML, design system, eat your own dog food)</li>
                                 </ul>
                             </div>
                             <div class="agenda-block-expanded-section">
                                 <div class="agenda-block-expanded-section-title">Exercícios</div>
                                 <ul class="agenda-block-expanded-list">
-                                    <li>MCP Jira — instalar e criar tasks</li>
+                                    <li>Análise de métricas — <code>16-analise-metricas-arena.md</code></li>
+                                    <li>MCP Notion — <code>17-mcp-notion-one-page.md</code></li>
                                 </ul>
                             </div>
                         </div>
@@ -2076,110 +2172,180 @@ Respond in the chat (do not create files) for:
                 </div>
             </div>
 
-            <!-- 25b: Notas de reunião — Arthur -->
+            <!-- 26: Dados como PM (adaptado de cursor-builders-meetup) -->
             <div class="slide">
-                <div class="slide-eyebrow">Notas de reunião e organização de agenda</div>
-                <div class="slide-title">Como o Arthur <span class="accent">organiza as notas</span> (mentorias)</div>
-                <div style="max-width: 800px; margin-top: 28px; display: grid; gap: 12px;">
-                    <div class="principle-card">
-                        <div class="principle-title">Notas que viram ação</div>
-                        <div class="principle-desc">Cada sessão de mentoria gera um conjunto de notas que já nasce organizado para virar próximos passos e follow-ups.</div>
-                    </div>
-                    <div class="principle-card">
-                        <div class="principle-title">Uma estrutura por pessoa</div>
-                        <div class="principle-desc">Templates fixos por mentorado: mesma hierarquia de pastas, seções e tags, o que facilita comparar sessões ao longo do tempo.</div>
-                    </div>
-                    <div class="principle-card">
-                        <div class="principle-title">Cursor como hub</div>
-                        <div class="principle-desc">As notas convivem com PRDs, tasks e dashboards — tudo acessível via Cursor, sem depender de múltiplas ferramentas soltas.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 25c: PRD com Cursor (spoiler) -->
-            <div class="slide">
-                <div class="slide-eyebrow">Do insight ao documento</div>
-                <div class="slide-title">Usando o Cursor para criar um <span class="accent">PRD</span></div>
-                <div style="max-width: 720px; margin-top: 40px;">
-                    <div class="principle-card" style="margin-bottom: 20px;">
-                        <div class="principle-title">Do bloco de notas ao PRD</div>
-                        <div class="principle-desc">Partindo das notas (como as do Arthur), o Cursor ajuda a estruturar Background, Problema, Objetivos, Escopo e Métricas em um PRD coerente.</div>
-                    </div>
-                    <div class="principle-card" style="margin-bottom: 24px;">
-                        <div class="principle-title">Templates + Rules</div>
-                        <div class="principle-desc">Com um template de PRD e uma Rule específica, você garante que todo novo documento siga o mesmo formato — mesmo com vários autores.</div>
-                    </div>
-                    <div class="callout-protip" style="margin-bottom: 24px;">
-                        <span class="callout-protip-icon">🎬</span>
-                        <div class="callout-protip-content"><strong>Spoiler</strong> — daqui a pouco vamos usar exatamente esse fluxo para criar o PRD do nosso <strong>Arena Voting System</strong>.</div>
-                    </div>
-                    <div class="mcp-integration-logos">
-                        <span class="mcp-integration-label">MCP também conecta:</span>
-                        <div class="mcp-integration-icons">
-                            <img src="assets/confluence-logo.png" alt="Confluence" title="Traga páginas do Confluence para o contexto do Cursor">
-                            <img src="assets/notion-logo.png" alt="Notion" title="Traga docs e bases do Notion para o contexto do Cursor">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 26: Analisando dados like pro (3 itens + imagem) -->
-            <div class="slide">
-                <div class="slide-eyebrow">Analisando dados</div>
-                <div class="slide-title">Analisando dados <span class="accent">like pro</span></div>
-                <div style="max-width: 800px; margin-top: 28px; display: grid; gap: 12px;">
-                    <div class="principle-card">
-                        <div class="principle-title">1. Para conectar aos dados</div>
-                        <div class="principle-desc">MCPs e arquivos locais: traga dados de onde já estão para o contexto do Cursor.</div>
-                        <div class="mcp-integration-logos" style="margin-top: 12px; margin-bottom: 0;">
-                            <div class="mcp-integration-icons">
-                                <img src="assets/databricks-logo.png" alt="Databricks" title="Databricks MCP">
-                                <img src="assets/supabase-logo.png" alt="Supabase" title="Supabase MCP">
-                                <img src="assets/snowflake-logo.png" alt="Snowflake" title="Snowflake">
-                                <span class="mcp-icon-badge">📁 CSV local</span>
+                <div class="slide-eyebrow">Como eu uso sendo PM · 02</div>
+                <div class="slide-title">Uma semana de análise em <span class="accent">uma hora</span></div>
+                <div style="display: grid; grid-template-columns: 1fr 420px; gap: 40px; margin-top: 32px; width: 100%; max-width: 1100px; align-items: start;">
+                    <div class="flow-container" style="flex-direction: column; align-items: stretch; gap: 14px; margin-top: 0;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div class="flow-step" style="width: auto; flex: 1;">
+                                <div class="flow-step-card" style="min-height: auto; padding: 14px 16px; flex-direction: row; align-items: center; gap: 12px;">
+                                    <span style="font-size: 1.5rem;">❓</span>
+                                    <div>
+                                        <div class="flow-step-title" style="font-size: 0.9rem;">Pergunta de negócio</div>
+                                        <div class="flow-step-desc" style="font-size: 0.78rem;">"Merchant carousel converte melhor que item?"</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span style="color: var(--text-muted);">→</span>
+                            <div class="flow-step" style="width: auto; flex: 1;">
+                                <div class="flow-step-card highlighted" style="min-height: auto; padding: 14px 16px; flex-direction: row; align-items: center; gap: 12px;">
+                                    <span style="font-size: 1.5rem;">🔌</span>
+                                    <div>
+                                        <div class="flow-step-title" style="font-size: 0.9rem;">MCP Snowflake</div>
+                                        <div class="flow-step-desc" style="font-size: 0.78rem;">Cursor acessa, escreve SQL, executa</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div class="flow-step" style="width: auto; flex: 1;">
+                                <div class="flow-step-card" style="min-height: auto; padding: 14px 16px; flex-direction: row; align-items: center; gap: 12px;">
+                                    <span style="font-size: 1.5rem;">📊</span>
+                                    <div>
+                                        <div class="flow-step-title" style="font-size: 0.9rem;">Gráficos gerados</div>
+                                        <div class="flow-step-desc" style="font-size: 0.78rem;">Funil, timeseries, breakdowns</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span style="color: var(--text-muted);">→</span>
+                            <div class="flow-step" style="width: auto; flex: 1;">
+                                <div class="flow-step-card" style="min-height: auto; padding: 14px 16px; flex-direction: row; align-items: center; gap: 12px;">
+                                    <span style="font-size: 1.5rem;">📄</span>
+                                    <div>
+                                        <div class="flow-step-title" style="font-size: 0.9rem;">Dashboard + docs</div>
+                                        <div class="flow-step-desc" style="font-size: 0.78rem;">Pronto para stakeholder</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="premise-bar" style="margin-top: 12px; font-size: 0.85rem; padding: 12px 20px;">
+                            <strong>Resultado:</strong> Análise AB completa em ~2h, não 2 semanas.
+                        </div>
                     </div>
-                    <div class="principle-card">
-                        <div class="principle-title">2. Para gerar as análises</div>
-                        <div class="principle-desc">Skills especialistas em SQL e Pandas no Cursor: otimização de queries, transformações e agregações. Ex.: <a href="https://skills.sh/wshobson/agents/sql-optimization-patterns" target="_blank" rel="noopener" style="color: var(--accent);">sql-optimization-patterns</a>, <a href="https://skills.sh/jeffallan/claude-skills/pandas-pro" target="_blank" rel="noopener" style="color: var(--accent);">pandas-pro</a> (ver referências).</div>
-                    </div>
-                    <div class="principle-card">
-                        <div class="principle-title">3. Criar as visualizações</div>
-                        <div class="principle-desc">Dashboards, gráficos e páginas HTML a partir do plano do Cursor — com os dados e análises já no contexto.</div>
+                    <div class="dashboard-preview">
+                        <div class="dashboard-preview-header">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="dashboard-preview-title">WPP AB merchant vs item carousel</div>
+                        <div class="dashboard-preview-tabs">
+                            <span class="dashboard-tab active">AB pós</span>
+                            <span class="dashboard-tab">Pré ref</span>
+                            <span class="dashboard-tab">Variante</span>
+                            <span class="dashboard-tab">Funil</span>
+                            <span class="dashboard-tab">Resumo</span>
+                        </div>
+                        <div class="dashboard-preview-chart">
+                            <div class="dashboard-chart-bar" style="height: 65%; background: var(--accent);"></div>
+                            <div class="dashboard-chart-bar" style="height: 80%; background: #888;"></div>
+                            <div class="dashboard-chart-bar" style="height: 45%; background: var(--accent);"></div>
+                            <div class="dashboard-chart-bar" style="height: 58%; background: #888;"></div>
+                        </div>
+                        <div class="dashboard-preview-legend">
+                            <span><span style="display:inline-block;width:10px;height:10px;background:var(--accent);border-radius:2px;margin-right:6px;"></span>Variante</span>
+                            <span><span style="display:inline-block;width:10px;height:10px;background:#888;border-radius:2px;margin-right:6px;"></span>Controle</span>
+                        </div>
+                        <div class="dashboard-preview-footer">
+                            <code>charts/</code> <code>sql/</code> <code>docs/</code>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 26b: Case — expectations-analysis (o que fizemos) -->
-            <div class="slide">
-                <div class="slide-eyebrow">Case</div>
-                <div class="slide-title">expectations-<span class="accent">analysis</span> — o que fizemos</div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
+            <!-- 26c: Design System + getdesign.md -->
+            <div class="slide slide-type-parenteses">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">Design <span class="accent">System</span></div>
+                <div class="slide-subtitle" style="margin-bottom: 16px;">Documento que define a identidade visual para agentes de IA aplicarem consistentemente.</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 24px; align-items: flex-start; gap: 48px;">
                     <div class="slide-split-left">
                         <div class="principle-card">
-                            <div class="principle-title">Origem dos dados</div>
-                            <div class="principle-desc">Formulário pré-curso (Google Forms) → respostas no Google Sheets. Dados exportados ou lidos via MCP Google para o contexto do Cursor.</div>
+                            <div class="principle-title">❌ Sem Design System</div>
+                            <div class="principle-desc">Cada tela com cores diferentes, botões mudam de estilo, "deixa bonitinho" = retrabalho.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">Processo</div>
-                            <div class="principle-desc">Cursor em modo Plan + prompt em Markdown: plano de pré-processamento (Python), agregações, temas de texto e JSON. Script gera <code>processed.json</code> e <code>text-themes.json</code> a partir do CSV.</div>
+                            <div class="principle-title">✅ Com Design System</div>
+                            <div class="principle-desc">Paleta consistente, componentes padronizados, especificação clara para o agente.</div>
                         </div>
-                        <div class="principle-card">
-                            <div class="principle-title">Entrega</div>
-                            <div class="principle-desc">Dashboard HTML responsivo (ECharts): filtros por uso de IA, APIs e camiseta; gráficos de distribuição; temas das expectativas e recomendações de conteúdo para o curso.</div>
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">🔗</span>
+                            <div class="callout-protip-content"><strong>Recurso</strong> — Explore <a href="https://getdesign.md" target="_blank" rel="noopener" style="color: var(--accent); font-weight: 600;">getdesign.md</a> — coleção de DESIGN.md inspirados em Vercel, Stripe, Linear, Notion...</div>
                         </div>
                     </div>
-                    <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start;">
-                        <div class="screenshot-container" style="margin-top: 0; max-width: 520px; max-height: 340px;">
-                            <img src="assets/expectations-dashboard.png" class="screenshot-image" style="object-position: center top;" alt="Dashboard de análise de expectativas (expectations-analysis)">
+                    <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start; max-width: 480px;">
+                        <div style="background: #1e1e1e; border-radius: 12px; padding: 20px 24px; color: #d4d4d4; font-family: 'SF Mono', Consolas, monospace; font-size: 11px; line-height: 1.7; width: 100%;">
+                            <div style="color: #888; margin-bottom: 8px;"># DESIGN.md (Arena)</div>
+                            <div><span style="color: #e8b14b;">accent:</span> <span style="color: #FF5757;">#FF5757</span></div>
+                            <div><span style="color: #e8b14b;">bg-primary:</span> #f5f5f5</div>
+                            <div><span style="color: #e8b14b;">font:</span> Inter, sans-serif</div>
+                            <div><span style="color: #e8b14b;">style:</span> Notion-like, clean</div>
+                            <div><span style="color: #e8b14b;">icons:</span> emojis</div>
                         </div>
-                        <div class="callout-protip" style="margin-top: 0;">
-                            <span class="callout-protip-icon">📖</span>
-                            <div class="callout-protip-content"><strong>Em seguida</strong> — o prompt em Markdown que usamos. O dashboard você pode mostrar em outra tela.</div>
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <span style="background: rgba(255,87,87,0.15); color: var(--accent); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500;">Vercel</span>
+                            <span style="background: rgba(255,87,87,0.15); color: var(--accent); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500;">Stripe</span>
+                            <span style="background: rgba(255,87,87,0.15); color: var(--accent); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500;">Linear</span>
+                            <span style="background: rgba(255,87,87,0.15); color: var(--accent); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500;">Notion</span>
+                            <span style="background: rgba(255,87,87,0.15); color: var(--accent); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500;">+70</span>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- 26d: Arena Cash — pergunte ao agente PM -->
+            <div class="slide">
+                <div class="slide-eyebrow">Ciclo de produto · Contexto</div>
+                <div class="slide-title">Pergunte ao agente <span class="accent">PM</span> sobre a Arena Cash</div>
+                <div class="slide-subtitle" style="margin-top: 16px; max-width: 760px;">Carregue o contexto da Arena Cash no agente PM antes das análises e dos exercícios — memo, organograma e design system vêm no kit.</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 28px; align-items: flex-start;">
+                    <div class="slide-split-left">
+                        <div class="principle-card">
+                            <div class="principle-title">Como fazer</div>
+                            <div class="principle-desc">Abra os arquivos do kit no workspace (memo, organograma, design system). No chat, peça ao agente para atuar como <strong>PM da Arena Cash</strong> e responder com base nesses documentos.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Sugestões de pergunta</div>
+                            <div class="principle-desc">“Resume o negócio da Arena Cash em 3 bullets.” · “Quais squads existem e o que cada um cuida?” · “Quais metas o memo estratégico prioriza neste quarter?”</div>
+                        </div>
+                    </div>
+                    <div class="callout-protip" style="max-width: 400px; align-self: flex-start;">
+                        <span class="callout-protip-icon">📌</span>
+                        <div class="callout-protip-content"><strong>Objetivo</strong> — Contexto da empresa no agente antes de dados, dashboards e entregáveis.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placeholder: exercício análise de dados -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · Dados</div>
+                <div class="slide-title">Análise de dados <span class="accent">(placeholder)</span></div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ A definir</div>
+                <div class="slide-subtitle" style="margin-top: 24px; max-width: 640px;">Prompt, dataset e entregável — alinhar na edição (<code>16-analise-metricas-arena.md</code>).</div>
+            </div>
+
+            <!-- Placeholder: exercício dashboard -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · Visualização</div>
+                <div class="slide-title">Criação do dashboard <span class="accent">(placeholder)</span></div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ A definir</div>
+                <div class="slide-subtitle" style="margin-top: 24px; max-width: 640px;">HTML, gráficos e design system — roteiro a confirmar antes da aula.</div>
+            </div>
+
+            <!-- Placeholder: exercício criar slides -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · Apresentações</div>
+                <div class="slide-title">Criar slides <span class="accent">(placeholder)</span></div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ A definir</div>
+                <div class="slide-subtitle" style="margin-top: 24px; max-width: 640px;">Estrutura base e narrativa — detalhes no material da edição.</div>
+            </div>
+
+            <!-- Placeholder: exercício slides com skill -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · Skills</div>
+                <div class="slide-title">Slides com skill <span class="accent">(placeholder)</span></div>
+                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ A definir</div>
+                <div class="slide-subtitle" style="margin-top: 24px; max-width: 640px;">Exportação / tema (pptx, Marp, etc.) — a definir com o kit de skills.</div>
             </div>
 
             <!-- 27: O que é MCP -->
@@ -2204,159 +2370,55 @@ Respond in the chat (do not create files) for:
                 </div>
             </div>
 
-            <!-- 31: Instalar MCP Jira -->
-            <div class="slide slide-type-exercicio">
-                <div class="slide-eyebrow">Exercício · MCP</div>
-                <div class="slide-title">Instalar MCP <span class="accent">Jira</span></div>
-                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ 15 minutos</div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="slide-subtitle" style="margin-top: 0;">Atlassian Rovo MCP — use o modo Plan para seguir o passo a passo.</div>
-                        <p style="margin-top: 12px; font-size: 0.9rem; opacity: 0.9; line-height: 1.5;">
-                            <a href="https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none; font-weight: 600;">
-                                Guia oficial (Atlassian Rovo MCP Server)
-                            </a>
-                            <span style="opacity: 0.85;"> · productarena.atlassian.net</span>
-                        </p>
-                        <div class="callout-protip" style="margin-top: 20px;">
-                            <span class="callout-protip-icon">📎</span>
-                            <div class="callout-protip-content">
-                                <strong>Referência oficial</strong> — Atlassian Rovo MCP Server (OAuth 2.1): 
-                                <a href="https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/" target="_blank" rel="noopener" style="color: #ff8a8a;">guia de setup</a>.
-                                Use API token só se o seu servidor MCP pedir.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="screenshot-container" style="margin-top: 0; max-width: 520px; max-height: 340px;">
-                        <img src="assets/mcp-jira-install.png" class="screenshot-image" style="object-position: center top;" alt="Configuração do MCP do Jira no Cursor">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 31a: Atlassian API token — abrir configurações -->
-            <div class="slide slide-type-parenteses">
-                <div class="slide-eyebrow">Abrindo parênteses</div>
-                <div class="slide-title">Atlassian — <span class="accent">onde achar o API token</span></div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">1. Configurações da conta</div>
-                            <div class="principle-desc">No Jira, clique no seu avatar (canto superior direito) e selecione <strong>Configurações da conta</strong> para abrir o painel da Atlassian.</div>
-                        </div>
-                        <div class="callout-protip" style="margin-top: 16px;">
-                            <span class="callout-protip-icon">🔒</span>
-                            <div class="callout-protip-content"><strong>Dica</strong> — Token é segredo. Não cole em slides, docs ou chat.</div>
-                        </div>
-                    </div>
-                    <div style="background: transparent; border: none; box-shadow: none;">
-                        <img src="assets/jira-profile-menu.png" alt="Jira com menu de perfil aberto mostrando Configurações da conta" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 31e: Exercício MCP — Criar User Story/Task -->
+            <!-- 31: MCP Notion — one-page (exercício) -->
             <div class="slide slide-type-exercicio slide--safe-area">
                 <div class="slide-eyebrow">Exercício · MCP</div>
-                <div class="slide-title">Jira — Criar uma <span class="accent">User Story</span></div>
+                <div class="slide-title">Notion — <span class="accent">one-page</span> para lideranças</div>
                 <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 15 minutos</div>
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 480px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            Objetivo: usar o MCP do Jira para <strong>criar uma issue</strong> (Story/Task) com título, descrição e critérios de aceite — direto do Cursor.
+                            Objetivo: documentar conclusões de análise em uma página executiva — <strong>TLDR</strong>, contexto, insights, oportunidades e próximos passos — usando o MCP do Notion no Cursor.
                         </div>
-
                         <div class="principle-card" style="margin-top: 12px;">
-                            <div class="principle-title">1. Escolha um alvo</div>
-                            <div class="principle-desc">Defina <strong>projeto</strong> (ex.: <code>AVS</code>) e tipo (<strong>Story</strong> ou <strong>Task</strong>).</div>
+                            <div class="principle-title">1. Integração no Notion</div>
+                            <div class="principle-desc">Em <a href="https://www.notion.so/my-integrations" target="_blank" rel="noopener" style="color: var(--accent);">notion.so/my-integrations</a>, crie uma integração e copie o token.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">2. Peça para criar via MCP</div>
-                            <div class="principle-desc">No Cursor, use <strong>Agent</strong> e deixe ele chamar o MCP do Jira para criar a issue.</div>
+                            <div class="principle-title">2. Conectar no Cursor</div>
+                            <div class="principle-desc">Use o modo <strong>Plan</strong> para adicionar o servidor MCP do Notion em <code>mcp.json</code> e testar a conexão.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">3. Verifique no Jira</div>
-                            <div class="principle-desc">Abra o link retornado e confirme campos (labels, prioridade, assignee, sprint).</div>
+                            <div class="principle-title">3. Página no Notion</div>
+                            <div class="principle-desc">Compartilhe uma página com a integração (<strong>Connections</strong>) e peça ao Agent para criar o conteúdo no formato one-page.</div>
                         </div>
-
                         <div class="callout-protip" style="margin-top: 16px;">
-                            <span class="callout-protip-icon">🔒</span>
-                            <div class="callout-protip-content"><strong>Dica</strong> — Não inclua tokens, senhas ou dados sensíveis no corpo da issue.</div>
+                            <span class="callout-protip-icon">📖</span>
+                            <div class="callout-protip-content"><strong>Passo a passo</strong> — <code>materiais/exercicios/17-mcp-notion-one-page.md</code></div>
                         </div>
                     </div>
-
                     <div class="prompt-container" style="flex: 1;">
                         <div class="prompt-label">Prompt (exemplo)</div>
-                        <pre># Jira (MCP) — Criar User Story
+                        <pre># Notion (MCP) — One-page executivo
 
 ## Contexto
-- Já configurei o MCP do Jira no Cursor
-- Meu workspace Jira: https://productarena.atlassian.net
+- MCP do Notion configurado no Cursor
+- Tenho uma página vinculada à integração
 
 ## Tarefa
-Crie uma issue no Jira com:
-- projectKey: AVS
-- issueType: Story (ou Task)
-- summary: "Como usuário, quero votar em ideias para priorizar melhorias"
-- description: inclua contexto, fluxo e critérios de aceite
-- labels: ["cursor", "mcp", "aula"]
-- priority: Medium
+Crie na página um one-page com:
+- TLDR (1 frase)
+- Contexto da análise
+- 3–5 insights principais (com números quando couber)
+- Oportunidades (tabela impacto × esforço)
+- Próximos passos em checklist
 
-Depois, me devolva:
-1) O link da issue criada
-2) O ID/chave (ex.: AVS-123)
-3) Um resumo do que foi criado</pre>
+Use tom executivo, linguagem clara.</pre>
                     </div>
                 </div>
             </div>
 
-            <!-- 32: Criação de apresentações (Eat your own dog food) -->
-            <div class="slide slide-type-content-code slide--apresentacoes">
-                <div class="slide-eyebrow">Criação de apresentações</div>
-                <div class="slide-title">Apresentações no dia a dia — <span class="accent">feitas com Cursor</span></div>
-                <div class="slide-split">
-                    <div class="slide-split-left">
-                        <div class="slide-subtitle">
-                            Este material foi feito com amor ❤️ e Cursor 🤖 — slides, gráficos em HTML e código guiados pela IA.
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">1. Criar as estruturas base</div>
-                            <div class="principle-desc">Design system (cores, tipografia, tipos de slide), layout e componentes. O <code>design-system.md</code> define o padrão; o Cursor mantém consistência.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">2. Conteúdo</div>
-                            <div class="principle-desc">Narrativa, títulos, bullets e exemplos. Rules e contexto no workspace para o Cursor seguir o tom e a estrutura do curso.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">3. Usar skills</div>
-                            <div class="principle-desc">Skills de apresentação (pptx, tema, Marp) para exportar, aplicar temas e iterar. Código HTML dos slides versionado e evoluído com a IA.</div>
-                        </div>
-                    </div>
-                    <div class="prompt-container">
-                        <div class="prompt-label">design-system.md (trecho)</div>
-                        <pre><span class="syntax-heading"># Design System - Apresentação Cursor para PMs</span>
-
-<span class="syntax-heading">## Visão Geral</span>
-Estilo limpo, "Notion-like". Baseado na Product Arena.
-
-<span class="syntax-heading">## Cores</span>
-<span class="syntax-key">Accent:</span> <span class="syntax-string">#FF5757</span>
-<span class="syntax-key">Texto:</span> <span class="syntax-string">#1a1a1a</span> / <span class="syntax-string">#555555</span>
-<span class="syntax-key">BG Primary:</span> <span class="syntax-string">#f5f5f5</span>
-
-<span class="syntax-heading">## Tipografia</span>
-<span class="syntax-key">Principal:</span> Inter
-<span class="syntax-key">Slide Title:</span> 64px, Weight 700
-<span class="syntax-key">Body:</span> 16px-18px
-
-<span class="syntax-heading">## Tipos de slide</span>
-<span class="syntax-list">-</span> <span class="syntax-string">slide</span> — conteúdo (bg primary)
-<span class="syntax-list">-</span> <span class="syntax-string">slide-type-parenteses</span> — cinza
-<span class="syntax-list">-</span> <span class="syntax-string">slide-type-exercicio</span> — escuro</pre>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 33: Bloco 3 — Recap (casos de uso) -->
+            <!-- 33: Recap — casos de uso -->
             <div class="slide slide-recap">
                 <div class="slide-eyebrow">Retomando</div>
                 <div class="slide-title">Recap — casos de <span class="accent">uso</span></div>
@@ -2371,18 +2433,18 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
                     </div>
                     <div class="check-card">
                         <div class="check-icon">🔌</div>
-                        <div class="check-text"><strong>MCPs:</strong> Jira, Google, Confluence — conectar dados e tarefas ao contexto do Cursor.</div>
+                        <div class="check-text"><strong>MCPs:</strong> Notion, Google Workspace, browser — trazer docs e dados para o contexto do Cursor.</div>
                     </div>
                     <div class="check-card">
                         <div class="check-icon">📋</div>
-                        <div class="check-text"><strong>User Stories no Jira:</strong> Criar issues (Story/Task) direto do Cursor via MCP.</div>
+                        <div class="check-text"><strong>Documentação viva:</strong> One-page e notas no Notion (exercício com MCP) alinhados ao fluxo do PM.</div>
                     </div>
                     <div class="check-card">
                         <div class="check-icon">🖼️</div>
                         <div class="check-text"><strong>Apresentações:</strong> HTML, fontes, gráficos — Cursor + Skills (pptx, tema) para exportar e iterar.</div>
                     </div>
                 </div>
-                <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Tudo que vamos usar no projeto prático da tarde</div>
+                <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Tudo que vamos usar na tarde — protótipo da feature e Start My Day</div>
             </div>
 
             <!-- 33a: Transição — Pausa para café -->
@@ -2392,10 +2454,10 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
                 <div class="slide-subtitle">10–20 minutos</div>
             </div>
 
-            <!-- 34: Bloco 3 — Construindo seu protótipo (exercício: Arena Voting System) -->
+            <!-- 34: Tarde — protótipo, GitHub, Start My Day -->
             <div class="slide slide-block-overview">
                 <div class="slide-eyebrow">Tarde — 15:45–18:00</div>
-                <div class="slide-title">Bloco 3 — Construindo seu <span class="accent">protótipo</span></div>
+                <div class="slide-title"><span class="accent">Protótipos</span> + <span class="accent">Start My Day</span></div>
                 <div class="agenda-blocks" style="margin-top: 16px; max-width: 1000px;">
                     <div class="agenda-block agenda-block--expanded agenda-block--two-column">
                         <div class="agenda-block-header-row">
@@ -2407,22 +2469,22 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
                                 <div class="agenda-block-expanded-section-title">Conteúdo</div>
                                 <ul class="agenda-block-expanded-list">
                                     <li>Repo pessoal (GitHub público) para exercícios</li>
-                                    <li>/start-a-business — Arena Voting System</li>
-                                    <li>PRD com /create-prd — doc de requisitos</li>
-                                    <li>Protótipo funcional — Plan + localhost</li>
+                                    <li>Criar PRD da feature (<code>/create-prd</code>) — output da análise</li>
+                                    <li>Protótipo funcional da feature — Plan + localhost</li>
                                     <li>Quebrar histórias — modo Plan</li>
                                     <li>Subir projeto no GitHub pessoal</li>
+                                    <li>Start My Day — transformar rotina matinal em fluxo no Cursor</li>
                                 </ul>
                             </div>
                             <div class="agenda-block-expanded-section">
                                 <div class="agenda-block-expanded-section-title">Exercícios</div>
                                 <ul class="agenda-block-expanded-list">
                                     <li>Repo pessoal — criar GitHub público (⏱ 20 min)</li>
-                                    <li>/start-a-business — Arena Voting System (⏱ 30 min)</li>
-                                    <li>/create-prd — PRD (⏱ 10 min)</li>
+                                    <li>Criar PRD da feature — <code>/create-prd</code> (⏱ 10 min)</li>
                                     <li>Protótipo funcional — Plan + localhost (⏱ 25 min)</li>
                                     <li>Quebrar histórias — modo Plan (⏱ 25 min)</li>
                                     <li>Subir projeto no GitHub (⏱ 15 min)</li>
+                                    <li>Start My Day — Plan + roteiro repetível (⏱ 20 min)</li>
                                 </ul>
                             </div>
                         </div>
@@ -2430,155 +2492,45 @@ Estilo limpo, "Notion-like". Baseado na Product Arena.
                 </div>
             </div>
 
-            <!-- 34a: Exercício Plan — Copiar arquivos do curso para o workspace -->
+            <!-- 34a3: Exercício — criar PRD (planejamento 3.6.1) -->
             <div class="slide slide-type-exercicio slide--safe-area">
-                <div class="slide-eyebrow">Exercício · Plan</div>
-                <div class="slide-title">Arquivos do curso na raiz do <span class="accent">Workspace</span></div>
-                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 15 minutos</div>
-                <div class="slide-split" style="align-items: flex-start;">
-                    <div class="slide-split-left" style="max-width: 480px;">
-                        <div class="slide-subtitle" style="margin-top: 0;">Use o modo <strong>Plan</strong> e envie um prompt pedindo para garantir acesso aos Rules, Commands e templates do repo do curso em todo o workspace.</div>
-                        <p style="margin-top: 16px; font-size: 0.95rem; opacity: 0.85;">Exemplo de prompt à direita — adapte o URL do repositório se necessário.</p>
-                    </div>
-                    <div class="prompt-container" style="flex: 1;">
-                        <div class="prompt-label">Exemplo de prompt (Markdown)</div>
-                        <pre><span class="syntax-heading"># Setup — Acesso aos recursos do curso</span>
-
-<span class="syntax-heading">## Contexto</span>
-<span class="syntax-list">-</span> Clonei o repositório do curso Cursor para PMs: <span class="syntax-string">https://github.com/Product-Arena/cursor-para-pms</span>
-<span class="syntax-list">-</span> O repo já possui Rules, Commands e templates prontos para usar
-<span class="syntax-list">-</span> Quero garantir que terei acesso a esses documentos em todo o meu workspace
-
-<span class="syntax-heading">## Objetivo</span>
-<span class="syntax-list">-</span> Copiar ou vincular os arquivos do curso para a raiz do workspace
-<span class="syntax-list">-</span> Conseguir usar os Commands (ex.: /create-prd) e Rules em diferentes projetos
-<span class="syntax-list">-</span> Não perder os templates ao trocar de pasta/projeto
-
-<span class="syntax-heading">## Ação</span>
-Monte um plano para eu configurar isso. Quais pastas e arquivos devo mover ou referenciar?</pre>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 34a2: Prompt em Markdown (conteúdo + código) -->
-            <div class="slide slide-type-content-code">
-                <div class="slide-eyebrow">Fluxo de trabalho</div>
-                <div class="slide-title">Prompt em <span class="accent">Markdown</span></div>
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: flex-start;">
-                    <div class="slide-split-left">
-                        <div class="principle-card">
-                            <div class="principle-title">Texto é a interface universal</div>
-                            <div class="principle-desc">Na era da IA, Markdown entrega estrutura que as LLMs entendem bem — títulos, listas e contexto claro.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">Um exemplo do curso</div>
-                            <div class="principle-desc">O case expectations-analysis: prompt em Markdown a partir das respostas do formulário pré-curso.</div>
-                        </div>
-                        <div class="callout-protip" style="margin-top: 24px;">
-                            <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Pro tip</strong> — Quando você usa Markdown, está em essência codificando seu conhecimento.</div>
-                        </div>
-                    </div>
-                    <div class="prompt-container">
-                        <div class="prompt-label">Exemplo: expectativas dos alunos</div>
-                        <pre><span class="syntax-heading"># Análise do curso — expectativas dos alunos</span>
-
-<span class="syntax-heading">## Contexto</span>
-<span class="syntax-list">-</span> Planilha com respostas dos participantes...
-<span class="syntax-list">-</span> Construir visão gráfica, analisar padrões
-
-<span class="syntax-heading">## Ação</span>
-<span class="syntax-list">-</span> Análise completa da planilha
-<span class="syntax-list">-</span> Plano de execução
-<span class="syntax-list">-</span> Página HTML responsiva</pre>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 34a3: Exercício — /start-a-business (Arena Voting System) -->
-            <div class="slide slide-type-exercicio slide--safe-area">
-                <div class="slide-eyebrow">Exercício · Command</div>
-                <div class="slide-title"><code>/start-a-business</code></div>
-                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 30 minutos</div>
-                <div class="slide-split" style="align-items: flex-start;">
-                    <div class="slide-split-left" style="max-width: 480px;">
-                        <div class="slide-subtitle" style="margin-top: 0;">
-                            Use o command <strong>/start-a-business</strong> para iniciar o case do curso: estrutura de pastas, documentos e Product Strategy do <strong>Arena Voting System</strong>.
-                        </div>
-
-                        <div class="principle-card" style="margin-top: 12px;">
-                            <div class="principle-title">1. Abra o Command</div>
-                            <div class="principle-desc">No Cursor, digite <code>/start-a-business</code> (Cmd/Ctrl + I) e envie.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">2. Informe o case Arena Voting System</div>
-                            <div class="principle-desc">Quando o agente perguntar: nome, descrição e audiência do produto de votação de ideias da Arena.</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">3. Siga o fluxo guiado</div>
-                            <div class="principle-desc">O Business Consultant Agent vai conduzir a criação da Product Strategy com perguntas socráticas.</div>
-                        </div>
-                    </div>
-
-                    <div style="display: flex; flex-direction: column; gap: 16px; flex: 1; min-width: 0;">
-                        <div class="prompt-container" style="flex: 0 0 auto; max-height: 280px; overflow: auto;">
-                            <div class="prompt-label">Exemplo — o que informar ao /start-a-business</div>
-                            <pre><span class="syntax-heading"># Arena Voting System</span>
-
-<span class="syntax-heading">## Nome</span> arena-voting-system
-
-<span class="syntax-heading">## Descrição</span> Sistema de votação de ideias para priorizar melhorias.
-
-<span class="syntax-heading">## Audiência</span> PMs e stakeholders em sessões de priorização.</pre>
-                        </div>
-                        <div class="callout-protip" style="margin-top: 0;">
-                            <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Contexto</strong> — O resultado é a pasta <code>projects/arena-voting-system/</code> com <code>documents/</code> e Product Strategy prontos para o próximo passo (/create-prd).</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 34a3b: Exercício — /create-prd (PRD a partir da Product Strategy) -->
-            <div class="slide slide-type-exercicio slide--safe-area">
-                <div class="slide-eyebrow">Exercício · Command</div>
-                <div class="slide-title"><code>/create-prd</code> — PRD a partir da Product Strategy</div>
+                <div class="slide-eyebrow">Exercício · Workflow</div>
+                <div class="slide-title">Criar <span class="accent">PRD</span> da nova feature</div>
                 <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 10 minutos</div>
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 480px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            Use o command <strong>/create-prd</strong> para gerar o PRD do Arena Voting System. O contexto é o arquivo <code>product-strategy-arena-voting-system.md</code> criado no exercício anterior.
+                            <strong>3.6.1 —</strong> A feature é <strong>output da análise anterior</strong>. Exercício: produzir o <strong>PRD</strong> com o command <code>/create-prd</code>, usando o contexto gerado na jornada (dados, narrativa, Notion) e os templates do repositório.
                         </div>
-
                         <div class="principle-card" style="margin-top: 12px;">
-                            <div class="principle-title">1. Garanta o contexto</div>
-                            <div class="principle-desc">O <code>product-strategy-arena-voting-system.md</code> deve estar no workspace — em <code>projects/arena-voting-system/documents/</code>.</div>
+                            <div class="principle-title">1. Reúna o contexto</div>
+                            <div class="principle-desc">Tenha à mão o <strong>resultado da análise</strong> e os artefatos do bloco (slides, página no Notion, etc.). Siga as <strong>rules</strong> e templates de PRD em <code>.cursor/rules</code> e <code>documents/</code>.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">2. Abra o Command</div>
-                            <div class="principle-desc">No Cursor, digite <code>/create-prd</code> e envie. O agente vai ler a Product Strategy e gerar o PRD.</div>
+                            <div class="principle-title">2. Rode <code>/create-prd</code></div>
+                            <div class="principle-desc">No Cursor, execute o command. O agente estrutura problema, objetivos, escopo e requisitos a partir do material no workspace ou anexado ao chat.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">3. Resultado</div>
-                            <div class="principle-desc">Será criado <code>documents/prd-arena-voting-system.md</code> com requisitos, OKRs e roadmap baseados na Product Strategy.</div>
+                            <div class="principle-title">3. Revise o entregável</div>
+                            <div class="principle-desc">Confira o <code>prd-*.md</code> em <code>documents/</code> antes de seguir para épicos, tarefas e Linear.</div>
                         </div>
                     </div>
-
                     <div style="display: flex; flex-direction: column; gap: 16px; flex: 1; min-width: 0;">
                         <div class="prompt-container" style="flex: 0 0 auto;">
-                            <div class="prompt-label">Fluxo</div>
-                            <pre><span class="syntax-comment"># Exercício anterior gerou:</span>
-projects/arena-voting-system/
-└── documents/
-    └── product-strategy-arena-voting-system.md
+                            <div class="prompt-label">Fluxo sugerido</div>
+                            <pre><span class="syntax-comment"># Entrada típica</span>
+Análise + narrativa (slides / Notion)
+  → define a feature a priorizar
 
-<span class="syntax-comment"># /create-prd lê esse arquivo e cria:</span>
-documents/prd-arena-voting-system.md
-<span class="syntax-comment">  → requisitos, OKRs, roadmap</span></pre>
+<span class="syntax-comment"># Command</span>
+/create-prd
+
+<span class="syntax-comment"># Saída esperada</span>
+documents/prd-&lt;feature&gt;.md</pre>
                         </div>
                         <div class="callout-protip" style="margin-top: 0;">
                             <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Dica</strong> — Se o comando pedir Product Strategy, arraste o arquivo <code>product-strategy-arena-voting-system.md</code> para o chat como contexto.</div>
+                            <div class="callout-protip-content"><strong>Dica</strong> — Se o comando pedir mais contexto, arraste para o chat os arquivos da análise ou o briefing da feature, conforme o material da edição.</div>
                         </div>
                     </div>
                 </div>
@@ -2592,7 +2544,7 @@ documents/prd-arena-voting-system.md
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 480px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            Com PRD e design prontos em <code>projects/arena-voting-system/</code>, use o modo <strong>Plan</strong> para criar um protótipo funcional rodando em localhost.
+                            Com PRD e design prontos na pasta do seu projeto (ex.: <code>projects/meu-produto/</code>), use o modo <strong>Plan</strong> para criar um protótipo funcional rodando em localhost.
                         </div>
 
                         <div class="principle-card" style="margin-top: 12px;">
@@ -2618,29 +2570,29 @@ documents/prd-arena-voting-system.md
                         <div class="prompt-label">Exemplo de prompt</div>
                         <pre><span class="syntax-comment"># No modo Plan</span>
 
-Agora que já temos o PRD e design do projects/arena-voting-system, quero criar um protótipo funcional aqui em localhost para visualizar a ferramenta. O nosso objetivo é ter um visual para testar local.</pre>
+Agora que já temos o PRD e design na pasta do projeto, quero criar um protótipo funcional aqui em localhost para visualizar a interface. O objetivo é ter um visual para testar local.</pre>
                     </div>
                 </div>
             </div>
 
             <!-- 34a4: Exercício — Subir projeto no GitHub pessoal -->
             <div class="slide slide-type-exercicio slide--safe-area">
-                <div class="slide-eyebrow">Exercício · Bloco 3</div>
+                <div class="slide-eyebrow">Exercício · Tarde</div>
                 <div class="slide-title">Subir o projeto no <span class="accent">GitHub</span> pessoal</div>
                 <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 15 minutos</div>
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 480px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            Última etapa: publicar o Arena Voting System no seu repositório pessoal do GitHub — versionar documentos e código.
+                            Última etapa: publicar o projeto da sua feature no seu repositório pessoal do GitHub — versionar documentos e código.
                         </div>
 
                         <div class="principle-card" style="margin-top: 12px;">
                             <div class="principle-title">1. Criar repo vazio no GitHub</div>
-                            <div class="principle-desc">New repository → nome <code>arena-voting-system</code> → sem README inicial.</div>
+                            <div class="principle-desc">New repository → nome <code>meu-produto-curso</code> (ou o que preferir) → sem README inicial.</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">2. Inicializar Git e fazer push</div>
-                            <div class="principle-desc">Na pasta <code>projects/arena-voting-system/</code>: <code>git init</code>, <code>git add .</code>, <code>git commit</code>, <code>git remote add origin</code>, <code>git push</code>.</div>
+                            <div class="principle-desc">Na pasta do projeto (ex.: <code>projects/meu-produto/</code>): <code>git init</code>, <code>git add .</code>, <code>git commit</code>, <code>git remote add origin</code>, <code>git push</code>.</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">3. Conferir no navegador</div>
@@ -2651,11 +2603,11 @@ Agora que já temos o PRD e design do projects/arena-voting-system, quero criar 
                     <div style="display: flex; flex-direction: column; gap: 16px; flex: 1; min-width: 0;">
                         <div class="prompt-container" style="flex: 0 0 auto;">
                             <div class="prompt-label">Comandos resumidos</div>
-                            <pre><span class="syntax-comment"># Na pasta projects/arena-voting-system</span>
+                            <pre><span class="syntax-comment"># Na pasta do projeto (ex.: projects/meu-produto)</span>
 git init
 git add .
 git commit -m <span class="syntax-string">"chore: initial commit"</span>
-git remote add origin https://github.com/SEU-USUARIO/arena-voting-system.git
+git remote add origin https://github.com/SEU-USUARIO/meu-produto-curso.git
 git branch -M main
 git push -u origin main</pre>
                         </div>
@@ -2667,38 +2619,93 @@ git push -u origin main</pre>
                 </div>
             </div>
 
-            <!-- 34b: Protótipo em localhost — Disclaimer -->
+            <!-- 34a5: O que é Vercel -->
             <div class="slide slide-type-parenteses">
-                <div class="slide-eyebrow">Disclaimer</div>
-                <div class="slide-title">Protótipo em <span class="accent">localhost</span></div>
-                <div class="slide-subtitle" style="margin-bottom: 24px;">Para um link que qualquer um acesse: servidor, deploy, domínio.</div>
-                <ul class="bullet-list" style="max-width: 640px; margin: 0 auto 24px; text-align: left;">
-                    <li>Alternativa mais simples: começar no <strong>Lovable</strong> → sync com <strong>GitHub</strong> → continuar no <strong>Cursor</strong></li>
-                    <li>Vantagens: não depender dos créditos do Lovable, modelos mais potentes, Skills, mais pessoas no mesmo repo</li>
-                </ul>
-            </div>
-
-            <!-- 34c: Plofti — Exemplo de protótipo -->
-            <div class="slide">
-                <div class="slide-eyebrow">Exemplo</div>
-                <div class="slide-title">Plofti — estimativa de <span class="accent">reparo de carro</span></div>
-                
-                <div class="slide-split" style="max-width: 1100px; margin-top: 32px; align-items: center;">
+                <div class="slide-eyebrow">Abrindo parênteses</div>
+                <div class="slide-title">O que é o <span class="accent">Vercel</span>?</div>
+                <div class="slide-subtitle" style="margin-bottom: 16px;">Plataforma que pega seu código do GitHub e coloca na internet automaticamente.</div>
+                <div class="slide-split" style="max-width: 1100px; margin-top: 24px; align-items: flex-start; gap: 48px;">
                     <div class="slide-split-left">
                         <div class="principle-card">
-                            <div class="principle-title">De ideia a protótipo</div>
-                            <div class="principle-desc">Aplicativo para estimar custo de reparo de carro, criado em poucas horas usando Lovable + Cursor.</div>
+                            <div class="principle-title">🔄 O fluxo</div>
+                            <div class="principle-desc"><code>git push</code> → GitHub avisa Vercel → Deploy em segundos → Link público.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">Stack do exemplo</div>
-                            <div class="principle-desc">UI inicial no <strong>Lovable</strong>, código versionado no GitHub e iteração fina no Cursor.</div>
+                            <div class="principle-title">⚡ Por que usar?</div>
+                            <div class="principle-desc">Zero config, deploy automático, sempre online. Sem FTP manual ou AWS complexo.</div>
                         </div>
-                        <div style="margin-top: 16px;">
-                            <span class="company-logo-badge company-logo-badge--no-bg">Lovable</span>
+                        <div class="principle-card">
+                            <div class="principle-title">🎯 Ideal para</div>
+                            <div class="principle-desc">Protótipos, MVPs, sites, dashboards. O mesmo que usamos em projetos reais.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">📖</span>
+                            <div class="callout-protip-content"><strong>Exercício</strong> — Consulte <strong>18-vercel-deploy-git.md</strong> na pasta de exercícios.</div>
                         </div>
                     </div>
-                    <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none; max-width: 360px;">
-                        <img src="assets/plofti-iphone-mockup.png" alt="Plofti no iPhone" style="width: 100%; height: auto; border-radius: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);" />
+                    <div style="display: flex; flex-direction: column; gap: 16px; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <div style="background: #fff; padding: 16px 20px; border-radius: 12px; border: 1px solid var(--border-medium); text-align: center;">
+                                <div style="font-size: 32px; margin-bottom: 4px;">💻</div>
+                                <div style="font-size: 11px; color: var(--text-secondary);">Seu código</div>
+                            </div>
+                            <div style="font-size: 24px; color: var(--text-muted);">→</div>
+                            <div style="background: #fff; padding: 16px 20px; border-radius: 12px; border: 1px solid var(--border-medium); text-align: center;">
+                                <div style="font-size: 32px; margin-bottom: 4px;">📦</div>
+                                <div style="font-size: 11px; color: var(--text-secondary);">GitHub</div>
+                            </div>
+                            <div style="font-size: 24px; color: var(--text-muted);">→</div>
+                            <div style="background: #fff; padding: 16px 20px; border-radius: 12px; border: 2px solid var(--accent); text-align: center;">
+                                <div style="font-size: 32px; margin-bottom: 4px;">▲</div>
+                                <div style="font-size: 11px; color: var(--accent); font-weight: 600;">Vercel</div>
+                            </div>
+                            <div style="font-size: 24px; color: var(--text-muted);">→</div>
+                            <div style="background: #fff; padding: 16px 20px; border-radius: 12px; border: 1px solid var(--border-medium); text-align: center;">
+                                <div style="font-size: 32px; margin-bottom: 4px;">🌐</div>
+                                <div style="font-size: 11px; color: var(--text-secondary);">app.vercel.app</div>
+                            </div>
+                        </div>
+                        <div style="background: rgba(255,87,87,0.1); border: 1px solid rgba(255,87,87,0.2); border-radius: 8px; padding: 12px 16px; font-size: 12px; color: var(--text-primary); max-width: 400px; text-align: center;">
+                            <strong>Cada push = deploy automático.</strong><br>Preview de PRs incluso.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 34a6: Exercício — Start My Day -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · Tarde</div>
+                <div class="slide-title"><span class="accent">Start My Day</span> — sua rotina matinal</div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 20 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 480px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            Fechamento prático (além do protótipo): definir um fluxo repetível para <strong>começar o dia</strong> — no modo <strong>Plan</strong> (ou Agent), usando o que você já usa no curso (métricas, Linear, Notion, agenda, etc.).
+                        </div>
+                        <div class="principle-card" style="margin-top: 12px;">
+                            <div class="principle-title">1. Modo Plan</div>
+                            <div class="principle-desc">Peça um plano para criar ou atualizar um arquivo de roteiro (ex.: <code>start-my-day.md</code>) que organize sua manhã em passos claros.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. O que incluir</div>
+                            <div class="principle-desc">Escolha o que faz sentido para você: checar métricas, status no Linear, agenda do dia, resumo do que importa — na ordem que você realmente seguiria.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Iterar</div>
+                            <div class="principle-desc">Refine com o agente até ter algo que você consiga rodar de novo amanhã (mesmo roteiro, contexto novo).</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 12px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content"><strong>Ideia</strong> — O demo “Start my day” no início do curso mostra o espírito: um comando que estrutura o dia. Aqui você desenha <em>sua</em> versão no workspace.</div>
+                        </div>
+                    </div>
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Exemplo de pedido (Plan)</div>
+                        <pre><span class="syntax-comment"># Start My Day — personalize ao seu contexto</span>
+
+Quero um plano para criar um roteiro matinal em Markdown no repositório:
+puxar o que preciso do workspace (docs, dados, backlog) e um próximo passo
+acionável para hoje — sem texto genérico, adaptado ao meu cenário.</pre>
                     </div>
                 </div>
             </div>

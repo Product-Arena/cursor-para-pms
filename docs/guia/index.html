@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Página — Cursor para PMs | Product Arena</title>
+  <meta name="description" content="Página do curso Cursor para PMs (formato guia, inspirado em Claude para PMs) — pré-requisitos, agenda e roteiros completos na mesma página." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/guia.css" />
+</head>
+<body>
+  <nav class="site-nav" aria-label="Principal">
+    <div class="site-nav__brand">Página · <span>Cursor para PMs</span></div>
+    <div class="site-nav__links">
+      <a href="#agenda">Agenda</a>
+      <a href="#pre-requisitos">Pré-requisitos</a>
+      <a href="#bloco-1">Bloco 1</a>
+      <a href="#bloco-2">Bloco 2</a>
+      <a href="#bloco-3">Bloco 3</a>
+      <a href="../index.html">Apresentação</a>
+      <a href="https://github.com/Product-Arena/cursor-para-pms" target="_blank" rel="noopener">Repositório</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="hero" id="intro">
+      <p class="hero__kicker">Product Arena · curso presencial</p>
+      <h1>Cursor para PMs — página do curso.</h1>
+      <p class="hero__lead">
+        Esta é a <strong>página</strong> do curso (texto completo dos roteiros aqui). A <strong>apresentação</strong> são os slides HTML na raiz desta pasta — abra pelo link na barra acima.
+        Marque o que já fez — o progresso fica neste navegador. Referência de UX:
+        <a href="https://cauecm.github.io/curso-claude-pms/" target="_blank" rel="noopener">Claude para PMs (Cauê)</a>.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#pre-requisitos">Começar pelos pré-requisitos</a>
+        <a class="btn btn--ghost" href="#agenda">Ver agenda do dia</a>
+      </div>
+    </header>
+
+    <div class="stats" aria-label="Resumo">
+      <div class="stat">
+        <div class="stat__num">3</div>
+        <div class="stat__label">blocos principais</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">8h</div>
+        <div class="stat__label">presencial + pausas</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">15+</div>
+        <div class="stat__label">roteiros na página</div>
+      </div>
+    </div>
+
+    <section class="anchor-section" id="agenda">
+      <div class="section-head">
+        <p class="section-kicker">Como funciona</p>
+        <h2 class="section-title">Visão geral do dia</h2>
+        <p class="section-desc">Use os links da barra superior ou desta agenda para pular direto a cada bloco ou exercício.</p>
+      </div>
+      <div class="agenda">
+        <div class="agenda-row">
+          <div class="agenda-time">10:00 – 12:30</div>
+          <div class="agenda-body">
+            <strong><a href="#bloco-1">Bloco 1 — Setup e primeiros passos</a></strong>
+            <span>Ask, Plan, Agent, contexto, Git, clone do material.</span>
+          </div>
+        </div>
+        <div class="agenda-row">
+          <div class="agenda-time">14:00 – 15:30</div>
+          <div class="agenda-body">
+            <strong><a href="#bloco-2">Bloco 2 — Ciclo de produto</a></strong>
+            <span>Métricas, Notion + MCP, workspace modelo, design system.</span>
+          </div>
+        </div>
+        <div class="agenda-row">
+          <div class="agenda-time">15:45 – 18:00</div>
+          <div class="agenda-body">
+            <strong><a href="#bloco-3">Bloco 3 — Arena Voting System</a></strong>
+            <span>PRD, protótipo, histórias, GitHub, Vercel.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="anchor-section" id="pre-requisitos">
+      <div class="section-head">
+        <p class="section-kicker">Antes do dia</p>
+        <h2 class="section-title">Pré-requisitos</h2>
+        <p class="section-desc">Separe cerca de 30 minutos. O roteiro completo está logo abaixo; use os checks para acompanhar.</p>
+      </div>
+      <div class="prereq-quick" aria-label="Checklist rápido">
+        <ul>
+          <li>
+            <input type="checkbox" id="pq1" data-progress-id="pre-cursor" />
+            <label for="pq1"><strong>Cursor</strong> instalado com plano Pro (Agent e MCPs).</label>
+          </li>
+          <li>
+            <input type="checkbox" id="pq2" data-progress-id="pre-github" />
+            <label for="pq2"><strong>Conta GitHub</strong> ativa e Git instalado na máquina.</label>
+          </li>
+          <li>
+            <input type="checkbox" id="pq3" data-progress-id="pre-clone" />
+            <label for="pq3">Repositório <strong>cursor-para-pms</strong> clonado e aberto como workspace no Cursor.</label>
+          </li>
+          <li>
+            <input type="checkbox" id="pq4" data-progress-id="pre-config" />
+            <label for="pq4"><strong>Opcional:</strong> allowlist e proteções — ver segundo roteiro abaixo.</label>
+          </li>
+        </ul>
+      </div>
+      <h3 class="subblock-title">Roteiro — pré-setup (faça antes da aula)</h3>
+      <div class="md-embed" data-src="content/00-pre-setup-curso.md"></div>
+      <h3 class="subblock-title">Roteiro — aprimorando configurações (durante o curso)</h3>
+      <div class="md-embed" data-src="content/00-setup-curso-ordem-recomendada.md"></div>
+    </section>
+
+    <section class="anchor-section" id="bloco-1">
+      <div class="section-head">
+        <p class="section-kicker">Manhã</p>
+        <h2 class="section-title">Bloco 1 — Setup e primeiros passos</h2>
+        <p class="section-desc">Ask, Plan, Agent, contexto com arrastar e soltar, HTTPS e clone do repositório do curso.</p>
+      </div>
+
+      <div class="exercise" id="ex-01">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 01</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-01" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/01-hello-cursor-ask.md"></div>
+      </div>
+      <div class="exercise" id="ex-02">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 02</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-02" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/02-setup-git-plan.md"></div>
+      </div>
+      <div class="exercise" id="ex-03">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 03</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-03" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/03-clonando-skills.md"></div>
+      </div>
+      <div class="exercise" id="ex-04">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 04</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-04" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/04-contexto-drag-drop.md"></div>
+      </div>
+      <div class="exercise" id="ex-05">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 05</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-05" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/05-agent-mode-setup.md"></div>
+      </div>
+    </section>
+
+    <section class="anchor-section" id="bloco-2">
+      <div class="section-head">
+        <p class="section-kicker">Meio do dia</p>
+        <h2 class="section-title">Bloco 2 — Ciclo de produto</h2>
+        <p class="section-desc">Dados, documentação com Notion, referências de workspace e design system.</p>
+      </div>
+
+      <div class="exercise" id="ex-16">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 16 · Métricas</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-16" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/16-analise-metricas-arena.md"></div>
+      </div>
+      <div class="exercise" id="ex-17">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 17 · Notion</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-17" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/17-mcp-notion-one-page.md"></div>
+      </div>
+      <div class="exercise" id="ref-workspace">
+        <div class="exercise__meta">
+          <span class="pill">Referência · Workspace</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ref-workspace" /> Lido</label>
+        </div>
+        <div class="md-embed" data-src="content/workspace-cursor-modelo.md"></div>
+      </div>
+      <div class="exercise" id="ref-design">
+        <div class="exercise__meta">
+          <span class="pill">Referência · Design system (apresentação)</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ref-design" /> Lido</label>
+        </div>
+        <div class="md-embed" data-src="content/design-system.md"></div>
+      </div>
+    </section>
+
+    <section class="anchor-section" id="bloco-3">
+      <div class="section-head">
+        <p class="section-kicker">Tarde</p>
+        <h2 class="section-title">Bloco 3 — Arena Voting System</h2>
+        <p class="section-desc">Do briefing ao PRD, protótipo, histórias, repositório público e deploy.</p>
+      </div>
+
+      <div class="exercise" id="ex-arthur">
+        <div class="exercise__meta">
+          <span class="pill">Briefing do produto</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-arthur" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/arthur-request.md"></div>
+      </div>
+      <div class="exercise" id="ex-08">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 08 · Parte 1</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-08" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/08-projeto-final-parte1-setup.md"></div>
+      </div>
+      <div class="exercise" id="ex-09">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 09 · PRD</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-09" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/09-projeto-final-parte2-prd.md"></div>
+      </div>
+      <div class="exercise" id="ex-10a">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 10a · Protótipo</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-10a" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/10a-prototipo-plan-localhost.md"></div>
+      </div>
+      <div class="exercise" id="ex-11">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 11 · Design</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-11" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/11-projeto-final-parte3-design.md"></div>
+      </div>
+      <div class="exercise" id="ex-12">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 12 · Histórias</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-12" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/12-projeto-final-parte4-historias.md"></div>
+      </div>
+      <div class="exercise" id="ex-13">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 13 · Refinamento</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-13" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/13-projeto-final-parte5-refinamento.md"></div>
+      </div>
+      <div class="exercise" id="ex-15">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 15 · GitHub</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-15" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/15-github-subir-projeto.md"></div>
+      </div>
+      <div class="exercise" id="ex-18">
+        <div class="exercise__meta">
+          <span class="pill">Exercício 18 · Vercel</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-18" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/18-vercel-deploy-git.md"></div>
+      </div>
+      <div class="exercise" id="ex-14-alt">
+        <div class="exercise__meta">
+          <span class="pill">Alternativo · Protótipo (roteiro estendido)</span>
+          <label class="check-done"><input type="checkbox" data-progress-id="ex-14-alt" /> Concluído</label>
+        </div>
+        <div class="md-embed" data-src="content/14-prototipo-funcional-localhost.md"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>
+        <strong>Apresentação (slides · edição 2):</strong> <a href="../index.html">abrir</a>.
+        <strong>Código-fonte dos roteiros:</strong> pasta <code>materiais/exercicios</code> no
+        <a href="https://github.com/Product-Arena/cursor-para-pms" target="_blank" rel="noopener">repositório</a>
+        (esta <strong>página</strong> espelha os roteiros em <code>docs/guia/content/</code> para leitura aqui mesmo.)
+      </p>
+      <p>
+        Referência de UX: <a href="https://cauecm.github.io/curso-claude-pms/" target="_blank" rel="noopener">Claude para PMs (Cauê)</a>.
+      </p>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/guia-app.js"></script>
+</body>
+</html>
