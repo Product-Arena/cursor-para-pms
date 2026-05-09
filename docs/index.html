@@ -2511,7 +2511,7 @@ e aplique ao arquivo
                         <p style="margin-top: 24px; font-size: 1rem; line-height: 1.6; color: var(--text-primary);">Pense no MCP como a “ponte” entre o Cursor e o mundo externo — dados, APIs e ferramentas especializadas.</p>
                         <div class="callout-protip" style="margin-top: 16px;">
                             <span class="callout-protip-icon">🌐</span>
-                            <div class="callout-protip-content"><strong>Pro tip (comunidade)</strong> — Explore servidores MCP em <a href="https://cursor.directory" target="_blank" rel="noopener">cursor.directory</a> e <a href="https://mcpservers.org" target="_blank" rel="noopener">mcpservers.org</a>. Muitas vezes versões da comunidade são mais completas do que os servidores oficiais.</div>
+                            <div class="callout-protip-content"><strong>Pro tip (onde encontrar MCPs)</strong> — Comece no <a href="https://cursor.com/marketplace" target="_blank" rel="noopener">Cursor Marketplace</a> e explore também o diretório aberto em <a href="https://mcpservers.org" target="_blank" rel="noopener">mcpservers.org</a>.</div>
                         </div>
                     </div>
                     <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
@@ -2528,34 +2528,30 @@ e aplique ao arquivo
                 <div class="slide-split" style="align-items: flex-start; margin-top: 24px;">
                     <div class="slide-split-left" style="max-width: 480px;">
                         <div class="principle-card">
-                            <div class="principle-title">1. Criar integração no Notion</div>
-                            <div class="principle-desc">Acesse <a href="https://www.notion.so/my-integrations" target="_blank" rel="noopener" style="color: var(--accent);">notion.so/my-integrations</a> → <strong>New integration</strong> → dê um nome → copie o <strong>Internal Integration Secret</strong>.</div>
+                            <div class="principle-title">1. Abrir Configurações do Cursor</div>
+                            <div class="principle-desc">No Cursor, abra <strong>Settings</strong>. Atalho: <code>Cmd + Shift + J</code> (Mac) ou <code>Ctrl + Shift + J</code> (Windows).</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">2. Adicionar ao Cursor</div>
-                            <div class="principle-desc">Abra <code>Settings → MCP</code> no Cursor e clique em <strong>+ Add server</strong>. Cole o servidor abaixo e substitua <code>SEU_TOKEN</code> pelo secret copiado.</div>
+                            <div class="principle-title">2. Abrir Marketplace de MCPs</div>
+                            <div class="principle-desc">No final do menu lateral de Settings, clique em <code>@cursor/marketplace</code> e busque por <strong>Notion</strong>.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">3. Testar a conexão</div>
-                            <div class="principle-desc">Compartilhe uma página do Notion com a integração (<strong>Connections → sua integração</strong>). No Agent, peça: <em>"Liste as páginas que tenho acesso via MCP do Notion."</em></div>
+                            <div class="principle-title">3. Ativar e conectar conta</div>
+                            <div class="principle-desc">Clique em <strong>Enable/Install</strong>, autorize o Notion e conecte sua conta. Depois, compartilhe uma página com a integração em <strong>Connections</strong>.</div>
                         </div>
                     </div>
                     <div class="prompt-container" style="flex: 1; align-self: flex-start;">
-                        <div class="prompt-label">mcp.json — servidor Notion</div>
-                        <pre><span class="syntax-comment">{</span>
-  <span class="syntax-string">"mcpServers"</span>: {
-    <span class="syntax-string">"notion"</span>: {
-      <span class="syntax-string">"command"</span>: <span class="syntax-string">"npx"</span>,
-      <span class="syntax-string">"args"</span>: [
-        <span class="syntax-string">"-y"</span>,
-        <span class="syntax-string">"@notionhq/notion-mcp-server"</span>
-      ],
-      <span class="syntax-string">"env"</span>: {
-        <span class="syntax-string">"OPENAPI_MCP_HEADERS"</span>: <span class="syntax-string">"{\"Authorization\": \"Bearer SEU_TOKEN\", \"Notion-Version\": \"2022-06-28\"}"</span>
-      }
-    }
-  }
-<span class="syntax-comment">}</span></pre>
+                        <div class="prompt-label">Checklist rápido</div>
+                        <pre><span class="syntax-comment"># Setup via Marketplace (recomendado)</span>
+1. Abrir Settings (Cmd/Ctrl + Shift + J)
+2. Ir em <span class="syntax-string">@cursor/marketplace</span>
+3. Buscar <span class="syntax-string">Notion</span>
+4. Clicar em <span class="syntax-string">Enable/Install</span>
+5. Conectar conta do Notion
+6. Compartilhar página no Notion (Connections)
+
+<span class="syntax-comment"># Teste de conexão</span>
+"Liste as páginas do Notion que tenho acesso."</pre>
                     </div>
                 </div>
             </div>
@@ -2576,7 +2572,7 @@ e aplique ao arquivo
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">2. Conectar no Cursor</div>
-                            <div class="principle-desc">Use o modo <strong>Plan</strong> para adicionar o servidor MCP do Notion em <code>mcp.json</code> e testar a conexão.</div>
+                            <div class="principle-desc">Faça a instalação via <strong>@cursor/marketplace</strong> (Settings → buscar Notion → Enable/Install → conectar conta).</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">3. Página no Notion</div>

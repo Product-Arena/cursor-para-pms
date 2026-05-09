@@ -21,34 +21,35 @@ Usar o MCP do Notion para criar uma página de conclusões no formato **one-page
 
 ---
 
-## 🛠️ Setup do MCP Notion
+## 🛠️ Setup do MCP Notion (via Marketplace)
 
-### Passo 1 — Criar integração no Notion
+### Passo 1 — Abrir configurações do Cursor
 
-1. Acesse [notion.so/my-integrations](https://www.notion.so/my-integrations)
-2. Clique em **+ New integration**
-3. Dê um nome (ex: "Cursor MCP")
-4. Copie o **Internal Integration Token**
+No Cursor, abra **Settings**:
+- **Mac:** `Cmd + Shift + J`
+- **Windows:** `Ctrl + Shift + J`
 
-### Passo 2 — Configurar no Cursor
+### Passo 2 — Instalar pelo Marketplace de MCPs
 
-Use o modo **Plan** com o prompt:
+1. No final do menu lateral de Settings, clique em **`@cursor/marketplace`**
+2. Busque por **Notion**
+3. Clique em **Enable/Install**
+4. Autorize e **conecte sua conta do Notion**
 
-```markdown
-Preciso configurar o MCP do Notion no meu Cursor.
-Meu token de integração é: [SEU_TOKEN_AQUI]
-
-Me ajude a:
-1. Adicionar a configuração no mcp.json
-2. Testar se a conexão está funcionando
-```
-
-### Passo 3 — Conectar página do Notion
+### Passo 3 — Conectar a página no Notion
 
 No Notion:
 1. Abra a página onde quer criar o documento
 2. Clique em **...** (menu) > **Connections**
-3. Adicione sua integração "Cursor MCP"
+3. Adicione a integração do Notion MCP
+
+### Passo 4 — Testar conexão
+
+No chat do Cursor, teste com:
+
+```text
+Liste as páginas do Notion que tenho acesso via MCP.
+```
 
 ---
 
@@ -159,5 +160,6 @@ Se você usa outras ferramentas, o conceito é o mesmo:
 ## 🔗 Referências
 
 - [Notion MCP](https://github.com/makenotion/notion-mcp-server) — Servidor oficial
+- [Cursor Marketplace](https://cursor.com/marketplace) — Onde instalar MCPs direto no Cursor
 - [mcpservers.org](https://mcpservers.org) — Diretório de MCPs
 - [cursor.directory](https://cursor.directory) — MCPs curados pela comunidade
