@@ -2413,32 +2413,33 @@ Respond in the chat (do not create files) for:
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 460px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            Use o CSV semanal e o memo estratégico Q2 no repo (mesmo texto-base do kit <code>memo-estrategico-q2.md</code>). Responda à pergunta de negócio do roteiro e entregue um insight acionável.
+                            Assuma o papel do PM da Arena Cash e analise o dataset semanal para identificar oportunidades de melhoria no onboarding.
                         </div>
                         <div class="principle-card" style="margin-top: 12px;">
-                            <div class="principle-title">1. Carregar contexto</div>
-                            <div class="principle-desc">Anexe <code>case arenacash/memo-estrategico-q2.md</code>. Peça ao subagent <code>product-manager</code> para resumir o negócio em 3 bullets (ativação, churn, prioridades do Q2) antes da análise.</div>
+                            <div class="principle-title">1. Assumir o papel de PM</div>
+                            <div class="principle-desc">Referencie <code>@.cursor/agents/product-manager.md</code> e o dataset <code>@learning/Cursor para PMs por Product Arena/case arenacash/dados-semanais-arenacash.csv</code>.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">2. Analisar o dataset</div>
-                            <div class="principle-desc">Abra <code>case arenacash/dados-semanais-arenacash.csv</code>. Siga a pergunta de negócio em <code>exercicio/analise-dados.md</code> e documente os achados.</div>
+                            <div class="principle-title">2. Responder 3 perguntas</div>
+                            <div class="principle-desc">Identifique principal oportunidade/problema, métrica mais fora do esperado e recomendação para liderança baseada nos números.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">3. Narrativa para liderança</div>
-                            <div class="principle-desc">Peça ao subagent <code>product-manager</code> para formatar os achados como uma diretoria gosta de receber: decisão pedida, evidência, risco e próximo passo.</div>
+                            <div class="principle-title">3. Salvar no workspace</div>
+                            <div class="principle-desc">Resposta objetiva em markdown e arquivo salvo em <code>@docs</code> para uso nos próximos exercícios.</div>
                         </div>
                         <div class="callout-protip" style="margin-top: 12px;">
                             <span class="callout-protip-icon">📖</span>
-                            <div class="callout-protip-content"><strong>Guia do aluno</strong> — Exercício 16 (<code>16-analise-metricas-arena.md</code>) · roteiro <code>exercicio/analise-dados.md</code>.</div>
+                            <div class="callout-protip-content"><strong>Guia do aluno</strong> — Exercício 06 (análise do dataset semanal + arquivo em <code>docs/</code>).</div>
                         </div>
                     </div>
                     <div class="prompt-container" style="flex: 1;">
                         <div class="prompt-label">Prompt sugerido</div>
-                        <pre><span class="syntax-comment"># Análise de dados — Arena Cash</span>
+                        <pre>assuma o papel do PM @.cursor/agents/product-manager.md e faca uma analise dos @learning/Cursor para PMs por Product Arena/case arenacash/dados-semanais-arenacash.csv para identificar quais as oportunidas para melhorar o fluxo de onboarding.
 
-Atue como o subagent Product Manager da Arena Cash. Com base em
-<span class="syntax-string">case arenacash/dados-semanais-arenacash.csv</span>
-e no memo em <span class="syntax-string">case arenacash/memo-estrategico-q2.md</span>:
+# Análise de dados — Arena Cash
+
+Atue como o subagent Product Manager da Arena Cash. Com base no arquivo
+[dataset do repo] e nos documentos de contexto:
 
 1. Qual é a principal oportunidade ou problema
    que os dados revelam?
@@ -2447,8 +2448,7 @@ e no memo em <span class="syntax-string">case arenacash/memo-estrategico-q2.md</
 3. Qual recomendação você daria à liderança
    com base nesses números?
 
-Responda de forma objetiva. Salve os achados em
-<span class="syntax-string">analises/insights-arena-cash.md</span>.</pre>
+Responda de forma objetiva. Salve os achados em um arquivo em md na pasta docs aqui no workspace.@docs</pre>
                     </div>
                 </div>
             </div>
@@ -2794,15 +2794,15 @@ Publique no Notion como página filha [defina o pai] usando o MCP do Notion.</pr
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 480px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            <strong>3.6.1 —</strong> O fluxo de onboarding é <strong>output da análise anterior</strong>. Exercício: produzir o <strong>PRD</strong> do novo onboarding com o command <code>/create-prd</code>, usando o contexto gerado na jornada (dados, narrativa, Notion) e os templates do repositório.
+                            <strong>3.6.1 —</strong> O fluxo de onboarding é <strong>output da análise anterior</strong>. Exercício: produzir o <strong>PRD</strong> com o command <code>/create-prd</code>, reforçando análise + direcionais da companhia.
                         </div>
                         <div class="principle-card" style="margin-top: 12px;">
                             <div class="principle-title">1. Reúna o contexto</div>
-                            <div class="principle-desc">Tenha à mão o <strong>resultado da análise</strong> e os artefatos do bloco (slides, página no Notion, etc.). Siga as <strong>rules</strong> e templates de PRD em <code>.cursor/rules</code> e <code>documents/</code>.</div>
+                            <div class="principle-desc">Tenha à mão <code>docs/analise-onboarding-arenacash.md</code> e os direcionais da companhia (ex.: memo estratégico e contexto do case).</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">2. Rode <code>/create-prd</code></div>
-                            <div class="principle-desc">No Cursor, execute o command. O agente estrutura problema, objetivos, escopo e requisitos a partir do material no workspace ou anexado ao chat.</div>
+                            <div class="principle-desc">No Cursor, execute o command com o prompt de uma linha abaixo. O agente estrutura problema, objetivos, escopo e requisitos a partir do material no workspace.</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">3. Revise o entregável</div>
@@ -2811,20 +2811,12 @@ Publique no Notion como página filha [defina o pai] usando o MCP do Notion.</pr
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 16px; flex: 1; min-width: 0;">
                         <div class="prompt-container" style="flex: 0 0 auto;">
-                            <div class="prompt-label">Fluxo sugerido</div>
-                            <pre><span class="syntax-comment"># Entrada típica</span>
-Análise + narrativa (slides / Notion)
-  → define o novo fluxo onboarding a priorizar
-
-<span class="syntax-comment"># Command</span>
-/create-prd
-
-<span class="syntax-comment"># Saída esperada</span>
-documents/prd-onboarding-arena-cash.md</pre>
+                            <div class="prompt-label">Prompt sugerido (uma linha)</div>
+                            <pre><code>/create-prd crie um prd com base na analise feita e os direcionais da companhia.</code></pre>
                         </div>
                         <div class="callout-protip" style="margin-top: 0;">
                             <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Dica</strong> — Se o comando pedir mais contexto, arraste para o chat os arquivos da análise ou o briefing do onboarding, conforme o material da edição.</div>
+                            <div class="callout-protip-content"><strong>Dica</strong> — Se o comando pedir mais contexto, aponte explicitamente para <code>docs/analise-onboarding-arenacash.md</code> e para os documentos de direcionais do case.</div>
                         </div>
                     </div>
                 </div>
@@ -2878,8 +2870,8 @@ e salve em <span class="syntax-string">documents/backlog-onboarding.md</span></p
             </div>
 
             <!-- 34a3c-mcp: Setup — MCP Linear -->
-            <div class="slide slide-type-parenteses slide--safe-area">
-                <div class="slide-eyebrow">Setup · MCP</div>
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · MCP</div>
                 <div class="slide-title">Conectar o MCP do <span class="accent">Linear</span></div>
                 <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ ~5 minutos</div>
                 <div class="slide-split" style="align-items: flex-start; margin-top: 24px;">
@@ -2896,6 +2888,10 @@ e salve em <span class="syntax-string">documents/backlog-onboarding.md</span></p
                             <div class="principle-title">3. Ativar e conectar conta</div>
                             <div class="principle-desc">Clique em <strong>Enable/Install</strong> e conecte sua conta do Linear ao Cursor.</div>
                         </div>
+                        <div class="principle-card">
+                            <div class="principle-title">4. Criar projeto no Linear</div>
+                            <div class="principle-desc">Antes de criar épicos/issues/tasks, crie um <strong>projeto</strong> no Linear (ou confirme o projeto da turma) para receber o backlog.</div>
+                        </div>
                         <div class="callout-protip" style="margin-top: 16px;">
                             <span class="callout-protip-icon">📖</span>
                             <div class="callout-protip-content"><strong>Guia do aluno</strong> — Exercício 12, <strong>Parte B</strong> (<code>12-projeto-final-parte4-historias.md</code>).</div>
@@ -2908,6 +2904,7 @@ e salve em <span class="syntax-string">documents/backlog-onboarding.md</span></p
 2. <span class="syntax-string">@cursor/marketplace</span>
 3. Buscar <span class="syntax-string">Linear</span>
 4. <span class="syntax-string">Enable/Install</span> + login Linear
+5. Criar/confirmar <span class="syntax-string">projeto</span> no Linear
 
 <span class="syntax-comment"># Teste de conexão</span>
 "Liste os projetos do Linear que tenho acesso."</pre>
@@ -2926,12 +2923,12 @@ e salve em <span class="syntax-string">documents/backlog-onboarding.md</span></p
                             <strong>3.6.3 —</strong> Com <code>documents/backlog-onboarding.md</code> pronto e o <strong>MCP do Linear</strong> ativo, crie no Linear os <strong>épicos e issues</strong> (cards no board) espelhando o backlog — pelo Cursor.
                         </div>
                         <div class="principle-card" style="margin-top: 12px;">
-                            <div class="principle-title">1. Contexto no chat</div>
-                            <div class="principle-desc">Abra o Chat no modo <strong>Agent</strong> (ou use o subagent <code>product-manager</code>). Confirme que o teste da Parte B listou seus projetos.</div>
+                            <div class="principle-title">1. Projeto primeiro</div>
+                            <div class="principle-desc">Abra o Chat no modo <strong>Agent</strong> (ou use o subagent <code>product-manager</code>). Confirme que o projeto alvo no Linear já existe (ou peça para criar agora).</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">2. Pedido ao agente</div>
-                            <div class="principle-desc">Peça para criar ou alinhar épicos e issues no <strong>projeto/time</strong> da turma, a partir do backlog e do PRD.</div>
+                            <div class="principle-desc">Peça para criar ou alinhar épicos e issues no <strong>projeto/time</strong> escolhido, a partir do backlog e do PRD.</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">3. Conferir no Linear</div>
@@ -2945,6 +2942,9 @@ e salve em <span class="syntax-string">documents/backlog-onboarding.md</span></p
                     <div class="prompt-container" style="flex: 1;">
                         <div class="prompt-label">Prompt (exemplo)</div>
                         <pre><span class="syntax-comment"># Linear (MCP) — Do backlog aos cards</span>
+
+Se o projeto do onboarding ainda não existir,
+crie primeiro o projeto <span class="syntax-string">[nome do projeto]</span> no Linear.
 
 Com base em <span class="syntax-string">documents/backlog-onboarding.md</span>
 e <span class="syntax-string">documents/prd-onboarding-arena-cash.md</span>:
@@ -2965,20 +2965,20 @@ e <span class="syntax-string">documents/prd-onboarding-arena-cash.md</span>:
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 480px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            Com PRD e design do onboarding prontos na pasta do seu projeto (ex.: <code>projects/meu-produto/</code>), use o modo <strong>Plan</strong> para criar um protótipo funcional rodando em localhost.
+                            Com PRD e backlog prontos, siga o fluxo do guia: <strong>ASCII primeiro</strong>, depois MVP simples com design system Arena Cash em uma pasta específica dentro de <code>projects/</code>, e por fim atualização das tasks no Linear.
                         </div>
 
                         <div class="principle-card" style="margin-top: 12px;">
-                            <div class="principle-title">1. Ative o Plan</div>
-                            <div class="principle-desc">No Chat (Cmd + L), selecione o modo <strong>Plan</strong>.</div>
+                            <div class="principle-title">1. Validar em ASCII</div>
+                            <div class="principle-desc">Peça uma primeira versão em ASCII para revisar a ideia do protótipo antes de criar arquivos.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">2. Envie o prompt</div>
-                            <div class="principle-desc">Peça para criar um protótipo funcional do novo onboarding em localhost a partir do PRD e design existentes.</div>
+                            <div class="principle-title">2. MVP simples com design system</div>
+                            <div class="principle-desc">Após validar o ASCII, implemente o MVP em localhost em <code>projects/arena-cash-onboarding-mvp/</code> usando <code>design-system-arenacash.md</code>.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">3. Objetivo</div>
-                            <div class="principle-desc">Ter um visual para testar local — a interface rodando no navegador em <code>localhost</code>.</div>
+                            <div class="principle-title">3. Sincronizar execução no Linear</div>
+                            <div class="principle-desc">Mover para <strong>Done</strong> as tasks concluídas e deixar comentários objetivos sobre o que foi entregue.</div>
                         </div>
 
                         <div class="callout-protip" style="margin-top: 12px;">
@@ -2988,10 +2988,14 @@ e <span class="syntax-string">documents/prd-onboarding-arena-cash.md</span>:
                     </div>
 
                     <div class="prompt-container" style="flex: 1;">
-                        <div class="prompt-label">Exemplo de prompt</div>
-                        <pre><span class="syntax-comment"># No modo Plan</span>
+                        <div class="prompt-label">Exemplo de prompt (mesmo espírito do guia)</div>
+                        <pre>quero agora criar um prototipo simples de mvp para implementar o novo fluxo de onboarding.
 
-Agora que já temos o PRD e design do novo fluxo de onboarding na pasta do projeto, quero criar um protótipo funcional aqui em localhost para visualizar a interface. O objetivo é validar a jornada de ativação ponta a ponta.</pre>
+quero utilizar o design system da arena cash.
+
+qureo que vc me manda um primeira versao em ASCII para validar a ideia do prototipo antes de criarmos.
+
+quero ja atualizar as tasks relacionadas no linear, movendo para done o que for feito e deixando comentarios do que foi feito.</pre>
                     </div>
                 </div>
             </div>
