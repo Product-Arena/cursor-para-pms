@@ -2,6 +2,21 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <!-- GitHub Pages (site de projeto): resolve assets/ mesmo quando a URL não tem barra final -->
+    <script>
+    (function () {
+      var host = window.location.hostname;
+      if (!host.endsWith('github.io')) return;
+      var parts = window.location.pathname.split('/').filter(Boolean);
+      var repo = parts[0];
+      if (!repo) return;
+      var baseEl = document.createElement('base');
+      baseEl.href = '/' + repo + '/';
+      var charsetMeta = document.querySelector('meta[charset]');
+      if (charsetMeta) charsetMeta.after(baseEl);
+      else document.head.prepend(baseEl);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apresentação — Cursor na prática (edição 3) | Product Arena</title>
     <style>
