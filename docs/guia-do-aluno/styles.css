@@ -1,5 +1,5 @@
 /* =========================================================
-   Guia do Aluno — Cursor para PMs · Edição 3
+   Guia do Aluno — Cursor na prática · Edição 3
    Design tokens: Product Arena Design System (Claude para PMs workbook)
    ========================================================= */
 
@@ -296,7 +296,17 @@ em { font-style: italic; color: var(--fg-muted); }
   color: var(--pa-white);
   margin-bottom: var(--s-3);
 }
-.hero h1 .accent { color: var(--pa-red); display: block; }
+.hero h1 .accent { color: var(--pa-red); }
+.hero-audience {
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--pa-gray-200);
+  margin-top: 0;
+  margin-bottom: var(--s-6);
+  max-width: 38rem;
+  line-height: var(--leading-snug);
+}
 .hero-sub {
   font-size: var(--text-md);
   color: var(--pa-gray-300);

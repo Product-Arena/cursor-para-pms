@@ -1,6 +1,6 @@
-# Cursor para PMs — site (GitHub Pages)
+# Cursor na prática — site (GitHub Pages)
 
-Static site for the **Cursor para PMs** course (Product Arena). This folder maps to **`docs/`** in [Product-Arena/cursor-para-pms](https://github.com/Product-Arena/cursor-para-pms) when GitHub Pages uses **Deploy from branch → `main` → `/docs`**.
+Static site for the **Cursor na prática** course (Product Arena). This folder maps to **`docs/`** in [Product-Arena/cursor-para-pms](https://github.com/Product-Arena/cursor-para-pms) when GitHub Pages uses **Deploy from branch → `main` → `/docs`**.
 
 ## URLs (after deploy)
 

@@ -1,6 +1,6 @@
 # cursor-guia-do-aluno
 
-Student guide (Guia do Aluno) — **Cursor para PMs** · Product Arena. Static HTML for local preview and **GitHub Pages**.
+Student guide (Guia do Aluno) — **Cursor na prática** · Product Arena. Static HTML for local preview and **GitHub Pages**.
 
 Static HTML. Always serve over HTTP; opening `index.html` via `file://` breaks assets and some behaviors.
 
