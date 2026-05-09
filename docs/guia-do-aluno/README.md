@@ -1,48 +1,48 @@
 # cursor-guia-do-aluno
 
-Student guide (Guia do Aluno) — **Cursor na prática** · Product Arena. Static HTML for local preview and **GitHub Pages**.
+Guia do aluno — **Cursor na prática** · Product Arena. HTML estático para pré-visualização local e **GitHub Pages**.
 
-Static HTML. Always serve over HTTP; opening `index.html` via `file://` breaks assets and some behaviors.
+Sempre sirva os arquivos por **HTTP**. Abrir `index.html` direto com `file://` pode quebrar assets e alguns comportamentos.
 
-## GitHub Pages (required setup once)
+## GitHub Pages (configuração inicial)
 
-This repository deploys with **GitHub Actions** (not “Deploy from branch”). The workflow copies only the public files (`index.html`, `ementa.html`, `styles.css`, `app.js`, `assets/`) to the site root.
+Este repositório publica com **GitHub Actions** (não “Deploy from branch”). O fluxo copia apenas os arquivos públicos (`index.html`, `ementa.html`, `styles.css`, `app.js`, `assets/`) para a raiz do site.
 
-1. Open **Settings** → **Pages** in this repo.
-2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”).
-3. Push to `main` (or run the workflow manually: **Actions** → **Deploy GitHub Pages** → **Run workflow**).
-4. When the workflow finishes, open the **github-pages** environment URL shown in the run summary.
+1. Abra **Settings** → **Pages** neste repositório.
+2. Em **Build and deployment**, defina **Source** como **GitHub Actions** (não “Deploy from a branch”).
+3. Faça push na branch `main` (ou rode o workflow manualmente: **Actions** → **Deploy GitHub Pages** → **Run workflow**).
+4. Quando o workflow terminar, abra a URL do ambiente **github-pages** indicada no resumo da execução.
 
-Typical public URL:
+URL pública típica:
 
 `https://product-arena.github.io/cursor-guia-do-aluno/`
 
-If Pages still shows “Get started”, you must pick **GitHub Actions** as the source; the workflow file is already in `.github/workflows/deploy-github-pages.yml`.
+Se em Pages aparecer “Get started”, escolha **GitHub Actions** como origem; o arquivo de workflow já está em `.github/workflows/deploy-github-pages.yml`.
 
-### Org permissions
+### Permissões na organização
 
-If workflows fail with permissions errors, an org owner may need to allow **GitHub Actions** and **Pages** for this repository under organization settings.
+Se os workflows falharem por permissão, um administrador da org pode precisar habilitar **GitHub Actions** e **Pages** para este repositório.
 
-## Quick start (local)
+## Início rápido (local)
 
-From this directory:
+Nesta pasta:
 
 ```bash
-chmod +x serve-local.sh   # once, if needed
+chmod +x serve-local.sh   # uma vez, se necessário
 ./serve-local.sh
 ```
 
-**Default URL:** [http://127.0.0.1:8844/](http://127.0.0.1:8844/)
+**URL padrão:** [http://127.0.0.1:8844/](http://127.0.0.1:8844/)
 
-- macOS: `./serve-local.sh --open` starts the server and opens the default browser.
-- Other port: `PORT=9000 ./serve-local.sh`
+- macOS: `./serve-local.sh --open` sobe o servidor e abre o navegador.
+- Outra porta: `PORT=9000 ./serve-local.sh`
 
-## Requirements
+## Requisitos
 
-- Python 3 (uses `python3 -m http.server` bound to `127.0.0.1` only).
+- Python 3 (usa `python3 -m http.server` apenas em `127.0.0.1`).
 
-## Troubleshooting
+## Solução de problemas
 
-- **Nothing loads:** run the script first and keep the terminal open.
-- **Port in use:** set another port, e.g. `PORT=8845 ./serve-local.sh`.
-- **Cursor Simple Browser issues with localhost:** use Safari, Chrome, or Firefox at the URL above.
+- **Nada carrega:** rode o script primeiro e mantenha o terminal aberto.
+- **Porta em uso:** use outra porta, por exemplo `PORT=8845 ./serve-local.sh`.
+- **Cursor Simple Browser com localhost:** use Safari, Chrome ou Firefox na URL acima.
