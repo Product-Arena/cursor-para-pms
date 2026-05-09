@@ -475,7 +475,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <span class="block-pill">B L O C O   0 5</span>
 <h2>Cursor no ciclo de produto</h2>
 <p class="block-quote">Da análise à narrativa e ao planejamento: usar o repositório como "empresa fictícia", gerar entregáveis e preparar o novo fluxo de onboarding para protótipo.</p>
-<p class="block-obj"><strong>Objetivo:</strong> Contexto da <strong>Arena Cash</strong>, análise de dados, comunicação (slides), workflow <strong>PRD do onboarding → épicos/tarefas</strong> no Linear. Integrações via <strong>MCP</strong> (Notion e Linear) são detalhadas no <a href="#bloco-6">bloco MCPs</a>.</p>
+<p class="block-obj"><strong>Objetivo:</strong> Contexto da <strong>Arena Cash</strong>, análise de dados (triangulando produto, suporte e financeiro com cortes <a href="#case-arenacash-dados">mensais e semanais</a>), comunicação (slides), workflow <strong>PRD do onboarding → épicos/tarefas</strong> no Linear. Integrações via <strong>MCP</strong> (Notion e Linear) são detalhadas no <a href="#bloco-6">bloco MCPs</a>.</p>
 </header>
 
 <section class="concept">
@@ -485,10 +485,24 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <p>Você vai usar o <strong>fluxo nativo do Cursor para criar um agente</strong> (menu, Command Palette ou comando com <code>/</code>, conforme a versão instalada — o instrutor mostra ao vivo). O Cursor gera um <strong>arquivo Markdown</strong> com as instruções permanentes desse agente; esse arquivo é o que você passa a reutilizar nas próximas interações.</p>
 </section>
 
-<section class="concept">
+<section class="concept" id="case-arenacash-dados">
 <h3>Análise de dados e visualização</h3>
 <p>Como PMs usam análise no dia a dia: partir de arquivos tabulares (CSVs), sintetizar achados e comunicar com um <strong>pacote navegável</strong> — no mesmo espírito de um projeto com <strong>várias páginas HTML</strong> de gráficos ou tabelas e um <strong>índice</strong> que permite alternar entre elas no navegador (sem depender de login ou servidor além de abrir arquivos localmente).</p>
-<p>No curso, os dados e o guia visual vêm do <strong>case Arena Cash</strong> em <code>repos/cursor-para-pms/case arenacash/</code>. Arquivos centrais: <code>dados-quarter-q1.csv</code>, <code>atendimento-q1.csv</code> e <code>design-system-arenacash.md</code> — este último é obrigatório para cores, tipografia e tom da interface do dashboard.</p>
+<p>No curso, os dados e o guia visual vêm do <strong>case Arena Cash</strong> em <code>repos/cursor-para-pms/case arenacash/</code>. O <strong>design system</strong> (<code>design-system-arenacash.md</code>) é obrigatório para cores, tipografia e tom da interface do dashboard.</p>
+
+<h4>Pacote de dados Arena Cash (recorte temporal)</h4>
+<p>Use os arquivos abaixo em conjunto para contar uma história <strong>única</strong> sobre Q1: métricas de produto, experiência de suporte e resultado financeiro. Pelo menos <strong>três meses</strong> de histórico aparecem nos KPIs agregados; tickets detalhados cobrem <strong>jan–mar do ano do case</strong> (mesmo recorte do “Q1” dos CSVs).</p>
+<table class="matrix">
+<thead><tr><th>Arquivo</th><th>O que contém</th><th>Granularidade / período</th></tr></thead>
+<tbody>
+<tr><td><code>dados-quarter-q1.csv</code></td><td>KPIs de produto e growth por plano (Free / Pro).</td><td><strong>Mensal</strong> — 6 meses (de outubro a março do ano do case).</td></tr>
+<tr><td><code>dados-semanais-arenacash.csv</code></td><td>Mesmas famílias de métricas que o mensal, derivadas para leitura semanal.</td><td><strong>Semanal (ISO)</strong> — alinhada ao mensal; cada semana pertence a um único mês de calendário.</td></tr>
+<tr><td><code>atendimento-q1.csv</code></td><td>Tickets de suporte (canal, categoria, prioridade, tempo de resolução, CSAT).</td><td><strong>Por ticket</strong> — datas de abertura no trimestre Q1.</td></tr>
+<tr><td><code>atendimento-resumo-semanal.csv</code></td><td>Agregação do arquivo de tickets por semana (volume, SLA médio, escalamentos).</td><td><strong>Semanal</strong> — mesmo recorte dos tickets.</td></tr>
+<tr><td><code>financeiro-q1.xlsx</code></td><td>Receitas, custos e EBITDA; receita semanal no Q1.</td><td>Abas <code>monthly_financials</code> (out–mar) e <code>weekly_revenue_q1</code> (semanas de jan–mar). Valores em <strong>mil R$</strong>; ver aba <code>notes</code>.</td></tr>
+</tbody>
+</table>
+<p class="tip"><strong>Contexto de negócio:</strong> memo, organograma e transcrições C-level continuam em <code>case arenacash/</code> para enriquecer hipóteses — não substituem números dos arquivos tabulares.</p>
 </section>
 
 <section class="concept">
@@ -497,7 +511,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </section>
 
 <section class="exercises">
-<p class="ex-zone-intro"><strong>Ordem sugerida:</strong> agente (05) → análise (06) → dashboard (07) → slides (08 e 09) → <strong>one-page no Notion via MCP</strong> (10) → <strong>PRD com <code>/create-prd</code></strong> (11) → protótipo e deploy (12 a 14). Alinha ao roteiro instrutor: narrativa em slides, síntese executiva no Notion (seção 3.5), depois formalização em PRD (seção 3.6).</p>
+<p class="ex-zone-intro"><strong>Ordem sugerida:</strong> agente (05) → análise (06) → dashboard (07) → slides (08 e 09) → <strong>one-page no Notion via MCP</strong> (10) → <strong>PRD com <code>/create-prd</code></strong> (11) → protótipo e deploy (12 a 14). Alinha ao roteiro instrutor: narrativa em slides, síntese executiva no Notion (seção 3.5), depois formalização em PRD (seção 3.6). A análise (06) usa o <a href="#case-arenacash-dados">pacote de dados Arena Cash</a> completo e pede cortes <strong>mensais + semanais</strong>.</p>
 <h3>Exercícios</h3>
 
 <details class="exercise" id="ex-05-agente-arena-cash">
@@ -560,11 +574,20 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </summary>
 <div class="ex-body">
 <div class="ex-context">
-<p>Este passo gera o <strong>conteúdo analítico</strong> que o dashboard do exercício seguinte vai ilustrar. Você não precisa de banco de dados externo: trabalhe com os CSVs e, se quiser, contexto do memo e transcrições em <code>repos/cursor-para-pms/case arenacash/</code>.</p>
+<p>Este passo gera o <strong>conteúdo analítico</strong> que o dashboard do exercício seguinte vai ilustrar. Cenário: o board quer uma leitura <strong>única do Q1</strong> ligando <strong>crescimento</strong>, <strong>saúde do produto e do suporte</strong> e <strong>resultado financeiro</strong>, antes de priorizar roadmap. Você não precisa de banco de dados externo: trabalhe com os arquivos tabulares do <a href="#case-arenacash-dados">pacote de dados</a> e, se quiser, memo e transcrições em <code>repos/cursor-para-pms/case arenacash/</code>.</p>
 </div>
 <div class="ex-deliverable">
 <h4>Entregável</h4>
-<p>Um arquivo Markdown <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> (crie a pasta <code>docs/</code> na raiz do repositório se ainda não existir), com: pergunta de negócio em uma frase; quais arquivos você usou; principais achados em bullets (com números ou proporções quando fizer sentido); limitações dos dados; e <strong>3 a 5 ângulos</strong> que merecem uma “tela” própria no dashboard (ex.: visão geral de métricas, funil ou cohort, distribuição de tickets, correlações simples).</p>
+<p>Um arquivo Markdown <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> (crie a pasta <code>docs/</code> na raiz do repositório se ainda não existir), estruturado como <strong>brief de uma página</strong> (títulos e bullets concisos), contendo <strong>obrigatoriamente</strong>:</p>
+<ul>
+<li><strong>Resumo executivo</strong> — a empresa está melhor ou pior ao fim de março vs. início de janeiro em <strong>retenção</strong>, <strong>satisfação (ex.: NPS / CSAT onde existir)</strong> e <strong>pressão no suporte</strong>? Uma frase + 3 a 5 bullets com números.</li>
+<li><strong>Evidência triangulada</strong> — use <strong>três fontes de tipo diferente</strong>: (1) KPIs em <code>dados-quarter-q1.csv</code> e/ou <code>dados-semanais-arenacash.csv</code>; (2) suporte em <code>atendimento-q1.csv</code> e/ou <code>atendimento-resumo-semanal.csv</code>; (3) financeiro em <code>financeiro-q1.xlsx</code> (todas as abas relevantes). Liste quais arquivos e abas você usou.</li>
+<li><strong>Dois cortes temporais</strong> — pelo menos uma leitura <strong>mensal</strong> e uma <strong>semanal</strong> (séries, picos ou comparações), coerentes com as colunas de data ou <code>mes</code> / <code>week_label</code>.</li>
+<li><strong>Hipótese principal</strong> — uma hipótese que explique o padrão (ex.: aquisição vs. ativação vs. custo/marketing vs. incidente refletido em tickets).</li>
+<li><strong>Decisão de produto</strong> — <strong>duas iniciativas</strong> priorizadas, cada uma com <strong>métrica-alvo</strong> e <strong>prazo de verificação</strong> (ex.: 4 semanas).</li>
+<li><strong>Risco / lacuna</strong> — o que os dados <strong>não</strong> permitem concluir sem pesquisa qualitativa ou dados adicionais.</li>
+<li><strong>Dashboard</strong> — <strong>3 a 5 ângulos</strong> que merecem uma “tela” própria no <a href="#ex-07-dashboard-arenacash">Exercício 07</a> (ex.: executivo, plano Free vs. Pro, suporte, financeiro).</li>
+</ul>
 </div>
 <div class="step-block">
 <div class="step-block-head">
@@ -573,7 +596,15 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <h4 class="step-block-title">Anexar o case no chat</h4>
 </div>
 <div class="step-block-body">
-<p>No Cursor, referencie com <code>@</code> (ou arraste) pelo menos: <code>repos/cursor-para-pms/case arenacash/dados-quarter-q1.csv</code>, <code>repos/cursor-para-pms/case arenacash/atendimento-q1.csv</code> e <code>repos/cursor-para-pms/case arenacash/memo-estrategico-q2.md</code>.</p>
+<p>No Cursor, referencie com <code>@</code> (ou arraste) pelo menos:</p>
+<ul>
+<li><code>repos/cursor-para-pms/case arenacash/dados-quarter-q1.csv</code></li>
+<li><code>repos/cursor-para-pms/case arenacash/dados-semanais-arenacash.csv</code></li>
+<li><code>repos/cursor-para-pms/case arenacash/atendimento-q1.csv</code></li>
+<li><code>repos/cursor-para-pms/case arenacash/atendimento-resumo-semanal.csv</code></li>
+<li><code>repos/cursor-para-pms/case arenacash/financeiro-q1.xlsx</code></li>
+<li>e, para contexto qualitativo: <code>repos/cursor-para-pms/case arenacash/memo-estrategico-q2.md</code></li>
+</ul>
 </div>
 </div>
 <div class="step-block">
@@ -586,7 +617,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <p>Use <strong>Ask</strong> ou <strong>Agent</strong> (Agent se quiser que o arquivo <code>.md</code> já seja criado no disco).</p>
 <div class="prompt-box">
 <div class="prompt-box-head">Prompt</div>
-<p>Com base apenas nestes arquivos do case Arena Cash, produza uma análise em Markdown: (1) pergunta de negócio clara; (2) lista dos insumos usados; (3) achados principais com evidência dos dados; (4) limitações; (5) lista de 3 a 5 visualizações ou seções que um dashboard HTML deveria ter para contar essa história a um diretor de produto. Não invente colunas que não existem nos CSVs.</p>
+<p>Você é PM na Arena Cash. Com base apenas nestes arquivos do case (KPIs mensais e semanais, tickets e resumo semanal de suporte, planilha financeira nas abas indicadas), produza <code>analise-arenacash-q1.md</code> seguindo a estrutura do guia: resumo executivo (março vs. janeiro); evidência triangulada nas três fontes; pelo menos um gráfico mental ou tabela descrita com corte mensal e outro semanal; uma hipótese principal; duas iniciativas de produto com métrica-alvo e prazo; lacunas dos dados; lista de 3 a 5 seções para um dashboard HTML. Não invente colunas ou abas que não existam. Distinga correlação de causa onde couber.</p>
 </div>
 </div>
 </div>
@@ -597,12 +628,12 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <h4 class="step-block-title">Revisar e salvar</h4>
 </div>
 <div class="step-block-body">
-<p>Leia o texto: os números batem com uma abertura rápida dos CSVs? Ajuste o <code>.md</code> se algo estiver vago. O arquivo em <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> será a referência narrativa do <a href="#ex-07-dashboard-arenacash">Exercício 07</a>.</p>
+<p>Leia o texto: os números batem com uma abertura rápida dos CSVs e da planilha? Ajuste o <code>.md</code> se algo estiver vago. O arquivo em <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> será a referência narrativa do <a href="#ex-07-dashboard-arenacash">Exercício 07</a>.</p>
 </div>
 </div>
 <div class="ex-closing">
 <span class="pa-eyebrow pa-eyebrow--red">C R I T É R I O   D E   P R O N T O</span>
-<p>Você tem um <code>.md</code> com achados defensáveis e uma lista explícita de seções do dashboard; está alinhado aos dados reais dos CSVs.</p>
+<p>Você tem um <code>.md</code> que cobre os blocos do entregável (triangulação, dois cortes temporais, hipótese, duas iniciativas, lacunas, ângulos do dashboard); números alinhados aos arquivos reais.</p>
 </div>
 </div>
 </details>
@@ -648,7 +679,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <p>No <strong>Agent</strong>, anexe a análise, o design system e, se necessário, trechos dos CSVs. Peça para criar a pasta e os HTMLs de uma vez, com navegação entre páginas.</p>
 <div class="prompt-box">
 <div class="prompt-box-head">Prompt</div>
-<p>Com base em <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> e nos dados em <code>repos/cursor-para-pms/case arenacash/</code>, crie a pasta <code>repos/cursor-para-pms/dashboard-arenacash/</code> com <code>index.html</code> como índice navegável (links ou abas) e pelo menos 3 páginas HTML adicionais com visualizações (gráficos em SVG/Canvas, biblioteca leve via CDN, ou tabelas bem formatadas). Aplique cores, fontes e hierarquia visual de <code>repos/cursor-para-pms/case arenacash/design-system-arenacash.md</code>. Cada página deve refletir um ângulo da análise; inclua títulos curtos e uma nota de “fonte dos dados” no rodapé. Não use identidade visual de outras marcas.</p>
+<p>Com base em <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> e nos dados em <code>repos/cursor-para-pms/case arenacash/</code> (incluindo KPIs mensais e semanais, tickets, resumo semanal de suporte e <code>financeiro-q1.xlsx</code> quando a análise citar receita ou custos), crie a pasta <code>repos/cursor-para-pms/dashboard-arenacash/</code> com <code>index.html</code> como índice navegável (links ou abas) e pelo menos 3 páginas HTML adicionais com visualizações (gráficos em SVG/Canvas, biblioteca leve via CDN, ou tabelas bem formatadas). Inclua pelo menos uma visão com eixo temporal <strong>semanal</strong> ou <strong>mensal</strong>, coerente com os dados. Aplique cores, fontes e hierarquia visual de <code>repos/cursor-para-pms/case arenacash/design-system-arenacash.md</code>. Cada página deve refletir um ângulo da análise; inclua títulos curtos e uma nota de “fonte dos dados” no rodapé. Não use identidade visual de outras marcas.</p>
 </div>
 <p class="tip"><strong>Alternativa:</strong> se preferir iframes como no padrão “dashboard + vários HTMLs”, peça explicitamente: <code>index.html</code> embute cada visualização em um <code>iframe</code> alternado por abas.</p>
 </div>
@@ -783,7 +814,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <h4 class="step-block-title">Gerar o one-page e publicar via MCP</h4>
 </div>
 <div class="step-block-body">
-<p>No <strong>Agent</strong>, anexe <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> (e, se útil, o dashboard em <code>repos/cursor-para-pms/dashboard-arenacash/</code>). Peça para montar um <strong>único documento</strong> com estes blocos (nessa ordem), em linguagem executiva:</p>
+<p>No <strong>Agent</strong>, anexe <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> (e, se útil, o dashboard em <code>repos/cursor-para-pms/dashboard-arenacash/</code>). O Markdown da análise já deve refletir o <a href="#ex-06-analise-arenacash">Exercício 06</a> (triangulação produto / suporte / financeiro e cortes temporais). Peça para montar um <strong>único documento</strong> com estes blocos (nessa ordem), em linguagem executiva:</p>
 <ol>
 <li><strong>TLDR</strong> — uma frase: conclusão principal + recomendação ou decisão implícita.</li>
 <li><strong>Contexto</strong> — por que a análise existe, período ou recorte, fontes de dados.</li>
