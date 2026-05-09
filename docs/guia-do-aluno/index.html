@@ -47,7 +47,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </div>
 <div class="hero-stats-grid">
 <div class="hero-stat"><span class="num">9</span><span class="label">blocos</span></div>
-<div class="hero-stat"><span class="num">7</span><span class="label">exercícios guiados</span></div>
+<div class="hero-stat"><span class="num">13</span><span class="label">exercícios guiados</span></div>
 <div class="hero-stat"><span class="num">6h</span><span class="label">duração</span></div>
 </div>
 </div>
@@ -477,14 +477,16 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </header>
 
 <section class="concept">
-<h3>Parte expositiva — Arena Cash e subagent PM <span class="mins">10 min</span></h3>
+<h3>Parte expositiva — Arena Cash e agente dedicado <span class="mins">10 min</span></h3>
+<p class="tip"><strong>Premissa do curso:</strong> o repositório oficial está clonado em <code>repos/cursor-para-pms/</code> (ver <a href="#ex-01-clone-repo">Exercício 01</a>). O case Arena Cash fica em <code>repos/cursor-para-pms/case arenacash/</code> — todos os exercícios deste bloco assumem esses caminhos.</p>
 <p><strong>Arena Cash</strong> é a empresa fictícia do curso. O repositório traz memo, organograma, design system e demais documentos para você exercitar postura de PM sem depender de dados internos da empresa onde trabalha.</p>
-<p>Usando <code>/create-subagent</code>, você cria um Product Manager personalizado que conhece o contexto da Arena Cash e pode ajudar a explicar negócio, squads e prioridades.</p>
+<p>Você vai usar o <strong>fluxo nativo do Cursor para criar um agente</strong> (menu, Command Palette ou comando com <code>/</code>, conforme a versão instalada — o instrutor mostra ao vivo). O Cursor gera um <strong>arquivo Markdown</strong> com as instruções permanentes desse agente; esse arquivo é o que você passa a reutilizar nas próximas interações.</p>
 </section>
 
 <section class="concept">
 <h3>Análise de dados e visualização</h3>
-<p>Como PMs usam análise no dia a dia: conectar fontes de dados (banco, CSVs, APIs), fazer queries, gerar visualizações e comunicar resultados. No curso, você trabalhará com um dataset exemplo do repositório para criar visualizações em HTML alinhadas ao design system.</p>
+<p>Como PMs usam análise no dia a dia: partir de arquivos tabulares (CSVs), sintetizar achados e comunicar com um <strong>pacote navegável</strong> — no mesmo espírito de um projeto com <strong>várias páginas HTML</strong> de gráficos ou tabelas e um <strong>índice</strong> que permite alternar entre elas no navegador (sem depender de login ou servidor além de abrir arquivos localmente).</p>
+<p>No curso, os dados e o guia visual vêm do <strong>case Arena Cash</strong> em <code>repos/cursor-para-pms/case arenacash/</code>. Arquivos centrais: <code>dados-quarter-q1.csv</code>, <code>atendimento-q1.csv</code> e <code>design-system-arenacash.md</code> — este último é obrigatório para cores, tipografia e tom da interface do dashboard.</p>
 </section>
 
 <section class="concept">
@@ -493,8 +495,234 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </section>
 
 <section class="exercises">
-<p class="ex-zone-intro"><strong>Slides:</strong> explicam o porquê e mostram o "antes/depois". <strong>Guia:</strong> prompts e sequência para repetir.</p>
+<p class="ex-zone-intro"><strong>Ordem sugerida:</strong> agente (05) → análise (06) → dashboard (07) → <strong>PRD com <code>/create-prd</code></strong> (08) → slides (10 e 11).</p>
 <h3>Exercícios</h3>
+
+<details class="exercise" id="ex-05-agente-arena-cash">
+<summary>
+<span class="ex-num">05</span>
+<span class="ex-title">Criar um agente (fluxo nativo do Cursor)</span>
+<span class="ex-time">15 min</span>
+</summary>
+<div class="ex-body">
+<div class="ex-deliverable">
+<h4>Entregável</h4>
+<p><strong>Um arquivo <code>.md</code></strong> criado pelo Cursor ao finalizar a criação do agente. Em geral ele aparece em <code>.cursor/agents/</code> no workspace; o nome exato pode variar (o Cursor costuma sugerir um identificador curto). O que importa é que o arquivo exista e contenha as <strong>instruções fixas</strong> daquele agente (papel, tom, o que priorizar, quando acionar).</p>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Abrir o fluxo de criação de agente</h4>
+</div>
+<div class="step-block-body">
+<p>Use exatamente o caminho que o instrutor demonstrar na sua versão do Cursor (por exemplo: Command Palette, aba de Agentes, ou um comando que comece com <code>/</code>). Inicie a ação equivalente a <strong>criar novo agente</strong> — o rótulo na interface pode mudar entre atualizações.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">10 min</span>
+<h4 class="step-block-title">Descrever o papel em linguagem natural</h4>
+</div>
+<div class="step-block-body">
+<p>Quando o assistente pedir contexto, explique <strong>com suas palavras</strong> que o agente deve apoiar um <strong>PM</strong> trabalhando no caso <strong>Arena Cash</strong>, usando como base os documentos em <code>repos/cursor-para-pms/</code> (incluindo <code>case arenacash/</code>). Você pode citar objetivos como: entender negócio e squads, ajudar a priorizar, preparar artefatos de produto — <strong>não é obrigatório</strong> copiar texto de exemplo de outra pessoa; o conteúdo do <code>.md</code> deve refletir o que <em>você</em> pediu.</p>
+<div class="prompt-box">
+<div class="prompt-box-head">Orientação mínima (ajuste livremente)</div>
+<p>Preciso de um agente que atue como PM no contexto Arena Cash, priorizando o que está em <code>repos/cursor-para-pms/</code> (especialmente <code>case arenacash/</code>). Quero que isso vire o arquivo Markdown padrão de agente que o Cursor gera neste fluxo.</p>
+</div>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Validar o arquivo gerado</h4>
+</div>
+<div class="step-block-body">
+<p>No explorador, abra o <code>.md</code> novo. Confira que há instruções claras de <strong>papel</strong> e de <strong>como o agente deve ajudar</strong>, e que faz sentido no contexto Arena Cash / materiais do repo. Se algo estiver genérico demais, volte ao chat e peça um ajuste curto só naquele arquivo.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">C R I T É R I O   D E   P R O N T O</span>
+<p>Existe pelo menos um <code>.md</code> de agente criado pelo fluxo nativo; você consegue explicar em uma frase qual é o papel desse agente e abriu o arquivo para conferir o conteúdo.</p>
+</div>
+</div>
+</details>
+
+<details class="exercise" id="ex-06-analise-arenacash">
+<summary>
+<span class="ex-num">06</span>
+<span class="ex-title">Análise — síntese a partir dos dados do case Arena Cash</span>
+<span class="ex-time">20 min</span>
+</summary>
+<div class="ex-body">
+<div class="ex-context">
+<p>Este passo gera o <strong>conteúdo analítico</strong> que o dashboard do exercício seguinte vai ilustrar. Você não precisa de banco de dados externo: trabalhe com os CSVs e, se quiser, contexto do memo e transcrições em <code>repos/cursor-para-pms/case arenacash/</code>.</p>
+</div>
+<div class="ex-deliverable">
+<h4>Entregável</h4>
+<p>Um arquivo Markdown <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> (crie a pasta <code>docs/</code> na raiz do repositório se ainda não existir), com: pergunta de negócio em uma frase; quais arquivos você usou; principais achados em bullets (com números ou proporções quando fizer sentido); limitações dos dados; e <strong>3 a 5 ângulos</strong> que merecem uma “tela” própria no dashboard (ex.: visão geral de métricas, funil ou cohort, distribuição de tickets, correlações simples).</p>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Anexar o case no chat</h4>
+</div>
+<div class="step-block-body">
+<p>No Cursor, referencie com <code>@</code> (ou arraste) pelo menos: <code>repos/cursor-para-pms/case arenacash/dados-quarter-q1.csv</code>, <code>repos/cursor-para-pms/case arenacash/atendimento-q1.csv</code> e <code>repos/cursor-para-pms/case arenacash/memo-estrategico-q2.md</code>.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">12 min</span>
+<h4 class="step-block-title">Pedir a síntese ao agente</h4>
+</div>
+<div class="step-block-body">
+<p>Use <strong>Ask</strong> ou <strong>Agent</strong> (Agent se quiser que o arquivo <code>.md</code> já seja criado no disco).</p>
+<div class="prompt-box">
+<div class="prompt-box-head">Prompt</div>
+<p>Com base apenas nestes arquivos do case Arena Cash, produza uma análise em Markdown: (1) pergunta de negócio clara; (2) lista dos insumos usados; (3) achados principais com evidência dos dados; (4) limitações; (5) lista de 3 a 5 visualizações ou seções que um dashboard HTML deveria ter para contar essa história a um diretor de produto. Não invente colunas que não existem nos CSVs.</p>
+</div>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Revisar e salvar</h4>
+</div>
+<div class="step-block-body">
+<p>Leia o texto: os números batem com uma abertura rápida dos CSVs? Ajuste o <code>.md</code> se algo estiver vago. O arquivo em <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> será a referência narrativa do <a href="#ex-07-dashboard-arenacash">Exercício 07</a>.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">C R I T É R I O   D E   P R O N T O</span>
+<p>Você tem um <code>.md</code> com achados defensáveis e uma lista explícita de seções do dashboard; está alinhado aos dados reais dos CSVs.</p>
+</div>
+</div>
+</details>
+
+<details class="exercise" id="ex-07-dashboard-arenacash">
+<summary>
+<span class="ex-num">07</span>
+<span class="ex-title">Dashboard navegável em HTML (design system Arena Cash)</span>
+<span class="ex-time">35 min</span>
+</summary>
+<div class="ex-body">
+<div class="ex-context">
+<p>O resultado esperado é um <strong>pacote semelhante a um projeto de análise “multi-página”</strong>: um HTML principal que funciona como <strong>índice</strong> (abas ou links) e <strong>várias páginas HTML</strong> com gráficos ou tabelas embutidos — cada uma cobrindo um ângulo da sua análise. Tudo deve abrir no navegador localmente (duplo clique ou servidor estático simples).</p>
+<p><strong>Identidade visual:</strong> siga obrigatoriamente <code>repos/cursor-para-pms/case arenacash/design-system-arenacash.md</code> (cores, tipografia, espaçamento). Não reutilize paleta ou marca de exemplos de outras empresas; a referência de <em>estrutura</em> é “índice + várias visões”, não o conteúdo de negócio de terceiros.</p>
+</div>
+<div class="ex-deliverable">
+<h4>Entregável</h4>
+<p>A pasta <code>repos/cursor-para-pms/dashboard-arenacash/</code>, contendo:</p>
+<ul>
+<li><code>index.html</code> — página “shell” com navegação clara (links ou abas) para as demais visões;</li>
+<li><strong>pelo menos 3</strong> arquivos HTML adicionais (ex.: visão executiva, métricas de produto, atendimento/tickets), cada um com gráficos ou tabelas coerentes com o <a href="#ex-06-analise-arenacash">Exercício 06</a>;</li>
+<li>opcional: <code>README.md</code> com uma linha sobre como abrir (<code>index.html</code> no navegador).</li>
+</ul>
+<p>Os valores exibidos podem ser embutidos no HTML (arrays ou tabelas estáticas) ou gerados de forma simples em JavaScript a partir de CSV copiado — o importante é <strong>consistência com a análise</strong> e leitura clara para um PM.</p>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Revisar análise e design system</h4>
+</div>
+<div class="step-block-body">
+<p>Abra o Markdown do <a href="#ex-06-analise-arenacash">Exercício 06</a> e <code>repos/cursor-para-pms/case arenacash/design-system-arenacash.md</code>. Liste mentalmente quais gráficos ou tabelas cada seção do dashboard precisa.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">25 min</span>
+<h4 class="step-block-title">Gerar o pacote com o Agent</h4>
+</div>
+<div class="step-block-body">
+<p>No <strong>Agent</strong>, anexe a análise, o design system e, se necessário, trechos dos CSVs. Peça para criar a pasta e os HTMLs de uma vez, com navegação entre páginas.</p>
+<div class="prompt-box">
+<div class="prompt-box-head">Prompt</div>
+<p>Com base em <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> e nos dados em <code>repos/cursor-para-pms/case arenacash/</code>, crie a pasta <code>repos/cursor-para-pms/dashboard-arenacash/</code> com <code>index.html</code> como índice navegável (links ou abas) e pelo menos 3 páginas HTML adicionais com visualizações (gráficos em SVG/Canvas, biblioteca leve via CDN, ou tabelas bem formatadas). Aplique cores, fontes e hierarquia visual de <code>repos/cursor-para-pms/case arenacash/design-system-arenacash.md</code>. Cada página deve refletir um ângulo da análise; inclua títulos curtos e uma nota de “fonte dos dados” no rodapé. Não use identidade visual de outras marcas.</p>
+</div>
+<p class="tip"><strong>Alternativa:</strong> se preferir iframes como no padrão “dashboard + vários HTMLs”, peça explicitamente: <code>index.html</code> embute cada visualização em um <code>iframe</code> alternado por abas.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Abrir e validar</h4>
+</div>
+<div class="step-block-body">
+<p>Abra <code>repos/cursor-para-pms/dashboard-arenacash/index.html</code> no navegador. Navegue entre todas as visões; confira contraste, legibilidade e se as mensagens batem com o Markdown da análise. Ajuste com prompts curtos se algo estiver fora do design system.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">C R I T É R I O   D E   P R O N T O</span>
+<p>Índice + ≥3 páginas; navegação funcional; visual alinhado ao design system Arena Cash; conteúdo coerente com o exercício de análise anterior.</p>
+</div>
+</div>
+</details>
+
+<details class="exercise" id="ex-08-prd-onboarding">
+<summary>
+<span class="ex-num">08</span>
+<span class="ex-title">PRD do novo onboarding — comando <code>/create-prd</code></span>
+<span class="ex-time">20 min</span>
+</summary>
+<div class="ex-body">
+<div class="ex-context">
+<p>O seu <strong>workspace modelo</strong> já inclui o comando <code>/create-prd</code>, que monta um PRD a partir do template em <code>.cursor/templates/</code> e dos documentos que você referenciar. Use o <strong>Agent</strong> (ou o modo que o instrutor indicar) para disparar o comando.</p>
+</div>
+<div class="ex-deliverable">
+<h4>Entregável</h4>
+<p>Um arquivo Markdown de <strong>PRD estruturado</strong> gerado pelo fluxo do <code>/create-prd</code> (caminho exato depende do template do workspace — em geral algo como <code>documents/prd-*.md</code> na raiz do workspace). O conteúdo deve cobrir o <strong>novo fluxo de onboarding</strong> da Arena Cash, alinhado ao case e à <a href="#ex-06-analise-arenacash">análise em <code>docs/analise-arenacash-q1.md</code></a> quando fizer sentido.</p>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Anexar contexto (opcional mas recomendado)</h4>
+</div>
+<div class="step-block-body">
+<p>Com <code>@</code>, inclua <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> e arquivos do case que sustentem o onboarding (ex.: memo, organograma). Isso ajuda o comando a preencher o PRD com fatos do repositório.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">15 min</span>
+<h4 class="step-block-title">Rodar <code>/create-prd</code> com prompt de uma linha</h4>
+</div>
+<div class="step-block-body">
+<p>Digite <code>/create-prd</code> e complete com uma frase curta — poucas palavras bastam; o comando e o template fazem o restante.</p>
+<div class="prompt-box">
+<div class="prompt-box-head">Prompt (uma linha)</div>
+<p>/create-prd Novo onboarding Arena Cash.</p>
+</div>
+<p class="tip">Se o assistente pedir mais contexto, responda em uma segunda mensagem apontando para os arquivos já anexados com <code>@</code>.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Conferir o arquivo gerado</h4>
+</div>
+<div class="step-block-body">
+<p>Abra o Markdown do PRD, verifique seções principais (problema, escopo, requisitos) e se o texto reflete o onboarding priorizado na aula. Ajuste com uma mensagem curta ao agente se algo estiver genérico demais.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">C R I T É R I O   D E   P R O N T O</span>
+<p>Existe um PRD em Markdown criado via <code>/create-prd</code>, com foco no novo onboarding Arena Cash e coerente com o material do repo.</p>
+</div>
+</div>
+</details>
 
 <details class="exercise" id="ex-10-slides-rapidos">
 <summary>
@@ -580,7 +808,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 
 <section class="concept">
 <h3>Documentação e planejamento</h3>
-<p>Após a análise e comunicação, você transforma a iniciativa priorizada em PRD e quebra esse escopo em épicos e tarefas no Linear. Essas integrações usam o MCP (detalhado no <a href="#bloco-6">próximo bloco</a>).</p>
+<p>Após análise, dashboard e alinhamento em sala, você formaliza o escopo em um <strong>PRD</strong>. No workspace do curso, use o comando <code>/create-prd</code> (ver <a href="#ex-08-prd-onboarding">Exercício 08</a>) para gerar o documento estruturado a partir do template. Depois, esse escopo vira épicos e tarefas no Linear via MCP (detalhado no <a href="#bloco-6">próximo bloco</a>).</p>
 </section>
 </article>
 
@@ -600,18 +828,19 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 
 <section class="concept">
 <h3>Configurando Notion e Linear</h3>
-<p>No curso, você configurará dois MCPs principais:</p>
+<p>No curso, você configurará dois MCPs principais via <strong>Cursor Marketplace</strong>:</p>
 <div class="grid-2">
 <div>
 <h4>Notion MCP</h4>
 <p>Permite criar, ler e atualizar páginas diretamente do Cursor. Use para publicar análises e documentos em Markdown.</p>
+<p class="tip"><strong>Setup:</strong> Settings → <code>Cmd + Shift + J</code> (Mac) ou <code>Ctrl + Shift + J</code> (Windows) → <code>@cursor/marketplace</code> → buscar <strong>Notion</strong> → Enable/Install → conectar conta.</p>
 </div>
 <div>
 <h4>Linear MCP</h4>
 <p>Permite criar épicos, issues e sincronizar status. Use para quebrar a PRD em tarefas acionáveis.</p>
+<p class="tip"><strong>Setup:</strong> Settings → <code>Cmd + Shift + J</code> (Mac) ou <code>Ctrl + Shift + J</code> (Windows) → <code>@cursor/marketplace</code> → buscar <strong>Linear</strong> → Enable/Install → conectar conta.</p>
 </div>
 </div>
-<p>O instrutor mostra o passo a passo de autenticação e teste de cada integração na aula.</p>
 </section>
 </article>
 
@@ -645,7 +874,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </div>
 <div class="ex-deliverable">
 <h4>Entregável</h4>
-<p>Pasta <code>06-prototipo/</code> (ou pasta definida no seu projeto do curso) com <code>index.html</code>, <code>style.css</code> e <code>script.js</code>. Objetivo: <strong>3 telas principais do novo onboarding</strong> navegáveis e alinhadas ao design system da Arena Cash / documentos do workspace.</p>
+<p>Pasta <code>repos/cursor-para-pms/06-prototipo/</code> com <code>index.html</code>, <code>style.css</code> e <code>script.js</code>. Objetivo: <strong>3 telas principais do novo onboarding</strong> navegáveis e alinhadas ao design system Arena Cash e aos documentos do mesmo repositório.</p>
 </div>
 <div class="step-block">
 <div class="step-block-head">
@@ -654,10 +883,10 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <h4 class="step-block-title">HTML + CSS estático</h4>
 </div>
 <div class="step-block-body">
-<p>No workspace do projeto, abra o <strong>Agent</strong>. Referencie os arquivos de briefing e design system do repo (arraste para o chat ou <code>@</code>). Peça uma primeira versão só layout.</p>
+<p>No workspace, abra o <strong>Agent</strong>. Referencie o material em <code>repos/cursor-para-pms/</code> (arraste para o chat ou <code>@</code>). Peça uma primeira versão só layout.</p>
 <div class="prompt-box">
-<div class="prompt-box-head">Prompt-base (ajuste nomes de arquivo aos do seu repo)</div>
-<p>Lê <code>[caminho/do/briefing-onboarding]</code> e <code>[caminho/do/design-system]</code>. Identifique as <strong>3 telas principais do novo onboarding</strong> e gere HTML + CSS na pasta <code>06-prototipo/</code> — sem JS ainda. Use tipografia e cores do design system. Depois rode o servidor local indicado pelo projeto e diga qual URL abrir.</p>
+<div class="prompt-box-head">Prompt-base</div>
+<p>Lê <code>repos/cursor-para-pms/case arenacash/memo-estrategico-q2.md</code>, <code>repos/cursor-para-pms/case arenacash/design-system-arenacash.md</code> e qualquer PRD ou notas de onboarding do novo fluxo que estejam em <code>repos/cursor-para-pms/docs/</code>. Identifique as <strong>3 telas principais do novo onboarding</strong> e gere HTML + CSS em <code>repos/cursor-para-pms/06-prototipo/</code> — sem JS ainda. Use tipografia e cores do design system. Depois rode o servidor local indicado pelo projeto e diga qual URL abrir.</p>
 </div>
 </div>
 </div>
