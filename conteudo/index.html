@@ -2081,15 +2081,15 @@ Create the following structure:
                     <div class="slide-split-left">
                         <div class="principle-card">
                             <div class="principle-title">Extensões de comportamento</div>
-                            <div class="principle-desc">Tarefas, fluxos e templates. Instalados via marketplaces (skills.sh, skillsmp.com).</div>
+                            <div class="principle-desc">Tarefas, fluxos e templates. Explorados em <a href="https://skills.sh" target="_blank" rel="noopener">skills.sh</a>, no repo oficial <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a> e na lista <a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank" rel="noopener">awesome-agent-skills</a>.</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">Onde ver o que está instalado</div>
-                            <div class="principle-desc">Cursor → Settings para conferir os skills ativos.</div>
+                            <div class="principle-desc">Cursor → Settings para conferir os skills ativos; no curso também copiamos pastas com <code>SKILL.md</code> para <code>.cursor/skills/</code>.</div>
                         </div>
                         <div class="callout-protip" style="margin-top: 24px;">
                             <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Pro tip</strong> — Encontre skills gratuitos no diretório <a href="http://skills.sh" target="_blank">skills.sh</a>.</div>
+                            <div class="callout-protip-content"><strong>Onde buscar</strong> — <a href="https://skills.sh" target="_blank" rel="noopener">skills.sh</a> · <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">github.com/anthropics/skills</a> · <a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank" rel="noopener">awesome-agent-skills</a></div>
                         </div>
                     </div>
                     <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
@@ -2236,7 +2236,8 @@ Respond in the chat (do not create files) for:
                                     <li>Visualização em HTML seguindo o design system da marca</li>
                                     <li>Como lideranças gostam de receber análises (subagent Product Manager)</li>
                                     <li>Slides — primeira versão (PPTX, 6 slides)</li>
-                                    <li>Slides — segunda versão com Skill</li>
+                                    <li>Instalar Skill — clone de <code>anthropics/skills</code> → <code>.cursor/skills/</code></li>
+                                    <li>Slides — segunda versão com Skill + template Coral (HTML)</li>
                                     <li>Notion — documento da análise via MCP</li>
                                 </ul>
                             </div>
@@ -2246,6 +2247,8 @@ Respond in the chat (do not create files) for:
                                     <li>Análise de dados (arquivo de exemplo do repo)</li>
                                     <li>Visualização HTML + design system</li>
                                     <li>Apresentação PPTX — 6 slides</li>
+                                    <li>Instalar Skill (clone Anthropic) antes da versão com Skill</li>
+                                    <li>Slides HTML — Skill + template Coral</li>
                                     <li>Notion + MCP — publicar one-page da análise</li>
                                 </ul>
                             </div>
@@ -2410,27 +2413,32 @@ Respond in the chat (do not create files) for:
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 460px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            Com o dataset do repositório e o contexto da Arena Cash carregado, responda a uma pergunta de negócio real — e entregue um insight acionável.
+                            Use o CSV semanal e o memo estratégico Q2 no repo (mesmo texto-base do kit <code>memo-estrategico-q2.md</code>). Responda à pergunta de negócio do roteiro e entregue um insight acionável.
                         </div>
                         <div class="principle-card" style="margin-top: 12px;">
                             <div class="principle-title">1. Carregar contexto</div>
-                            <div class="principle-desc">Anexe os documentos da empresa (kit do repo). Peça ao subagent <code>product-manager</code> para resumir o negócio em 3 bullets antes de começar a análise.</div>
+                            <div class="principle-desc">Anexe <code>case arenacash/memo-estrategico-q2.md</code>. Peça ao subagent <code>product-manager</code> para resumir o negócio em 3 bullets (ativação, churn, prioridades do Q2) antes da análise.</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">2. Analisar o dataset</div>
-                            <div class="principle-desc">Abra o arquivo de dados do repo. Siga a pergunta de negócio do roteiro (<code>exercicios/analise-dados.md</code>) e documente os achados.</div>
+                            <div class="principle-desc">Abra <code>case arenacash/dados-semanais-arenacash.csv</code>. Siga a pergunta de negócio em <code>exercicio/analise-dados.md</code> e documente os achados.</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">3. Narrativa para liderança</div>
                             <div class="principle-desc">Peça ao subagent <code>product-manager</code> para formatar os achados como uma diretoria gosta de receber: decisão pedida, evidência, risco e próximo passo.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 12px;">
+                            <span class="callout-protip-icon">📖</span>
+                            <div class="callout-protip-content"><strong>Guia do aluno</strong> — Exercício 16 (<code>16-analise-metricas-arena.md</code>) · roteiro <code>exercicio/analise-dados.md</code>.</div>
                         </div>
                     </div>
                     <div class="prompt-container" style="flex: 1;">
                         <div class="prompt-label">Prompt sugerido</div>
                         <pre><span class="syntax-comment"># Análise de dados — Arena Cash</span>
 
-Atue como o subagent Product Manager da Arena Cash. Com base no arquivo
-[dataset do repo] e nos documentos de contexto:
+Atue como o subagent Product Manager da Arena Cash. Com base em
+<span class="syntax-string">case arenacash/dados-semanais-arenacash.csv</span>
+e no memo em <span class="syntax-string">case arenacash/memo-estrategico-q2.md</span>:
 
 1. Qual é a principal oportunidade ou problema
    que os dados revelam?
@@ -2535,6 +2543,31 @@ Salvar em <span class="syntax-string">documents/apresentacao-arena-cash.pptx</sp
                 </div>
             </div>
 
+            <!-- Exercício: instalar Skill (Anthropic) -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · Bloco 3</div>
+                <div class="slide-title">Instalar uma <span class="accent">Skill</span> (clone Anthropic)</div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 10 minutos · antes da segunda versão dos slides</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 460px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            Clone <code>https://github.com/anthropics/skills</code>, escolha uma pasta em <code>skills/</code> e copie para <code>.cursor/skills/&lt;nome&gt;/</code> no workspace (precisa existir <code>SKILL.md</code>).
+                        </div>
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">🔗</span>
+                            <div class="callout-protip-content"><strong>Referências:</strong> <a href="https://skills.sh" target="_blank" rel="noopener">skills.sh</a> · <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a> · <a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank" rel="noopener">awesome-agent-skills</a></div>
+                        </div>
+                    </div>
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Terminal (exemplo)</div>
+                        <pre style="font-size: 0.82rem; line-height: 1.45;"><span class="syntax-comment"># shallow clone</span>
+git clone --depth 1 https://github.com/anthropics/skills.git anthropic-skills-reference
+<span class="syntax-comment"># copiar uma skill (ajuste o nome da pasta)</span>
+<span class="syntax-comment"># ex.: cp -R anthropic-skills-reference/skills/theme-factory .cursor/skills/theme-factory</span></pre>
+                    </div>
+                </div>
+            </div>
+
             <!-- Exercício: slides com Skill -->
             <div class="slide slide-type-exercicio slide--safe-area">
                 <div class="slide-eyebrow">Exercício · Bloco 3</div>
@@ -2543,11 +2576,11 @@ Salvar em <span class="syntax-string">documents/apresentacao-arena-cash.pptx</sp
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 460px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            Refaça os slides usando a Skill de apresentação do workspace — padronização visual automática sem reescrever o conteúdo.
+                            Refaça os slides usando a Skill que você instalou no exercício anterior + template Coral — padronização visual sem reescrever o conteúdo de negócio.
                         </div>
                         <div class="principle-card" style="margin-top: 12px;">
                             <div class="principle-title">Como funciona</div>
-                            <div class="principle-desc">A Skill lê o PPTX existente e aplica tema, hierarquia visual, fontes e cores — entregando uma segunda versão mais polida.</div>
+                            <div class="principle-desc">A Skill em <code>.cursor/skills/…/SKILL.md</code> (instalada no exercício anterior, ex.: clone do Anthropic) orienta estilo e consistência; no fluxo PPTX ela pode refinar o arquivo já gerado — ou siga o guia do aluno para HTML + template Coral.</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">O que comparar</div>
@@ -2555,7 +2588,7 @@ Salvar em <span class="syntax-string">documents/apresentacao-arena-cash.pptx</sp
                         </div>
                         <div class="callout-protip" style="margin-top: 12px;">
                             <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content">Skill está em <code>.cursor/skills/pptx/SKILL.md</code> — o agente a lê automaticamente quando você pede para "melhorar os slides".</div>
+                            <div class="callout-protip-content">Skill ativa: o <code>SKILL.md</code> da pasta que você copiou para <code>.cursor/skills/</code> (Anthropic). Opcional no workspace modelo: <code>.cursor/skills/pptx/SKILL.md</code> para refinar PPTX.</div>
                         </div>
                     </div>
                     <div class="prompt-container" style="flex: 1;">
@@ -2598,86 +2631,81 @@ e aplique ao arquivo
                 </div>
             </div>
 
-            <!-- Setup: Conectar MCP do Notion -->
-            <div class="slide slide-type-parenteses slide--safe-area">
-                <div class="slide-eyebrow">Setup · MCP</div>
+            <!-- Exercício: Conectar MCP do Notion (Guia Ex. 11 — Passo 1) -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · MCP</div>
                 <div class="slide-title">Conectar o MCP do <span class="accent">Notion</span></div>
-                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 5 minutos</div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 5 minutos · <strong>Guia do Aluno — Exercício 11</strong>, Passo 1 (conexão antes do one-page)</div>
                 <div class="slide-split" style="align-items: flex-start; margin-top: 24px;">
                     <div class="slide-split-left" style="max-width: 480px;">
-                        <div class="principle-card">
-                            <div class="principle-title">1. Abrir Configurações do Cursor</div>
-                            <div class="principle-desc">No Cursor, abra <strong>Settings</strong>. Atalho: <code>Cmd + Shift + J</code> (Mac) ou <code>Ctrl + Shift + J</code> (Windows).</div>
+                        <div class="callout-protip" style="margin-bottom: 16px;">
+                            <span class="callout-protip-icon">📌</span>
+                            <div class="callout-protip-content">Mesmo fluxo do <strong>Bloco 6</strong> do guia: Marketplace → Notion → conta → <strong>Connections</strong> na página-alvo.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">2. Abrir Marketplace de MCPs</div>
-                            <div class="principle-desc">No final do menu lateral de Settings, clique em <code>@cursor/marketplace</code> e busque por <strong>Notion</strong>.</div>
+                            <div class="principle-title">1. Settings e Marketplace</div>
+                            <div class="principle-desc"><strong>Settings</strong> (<code>Cmd + Shift + J</code> / <code>Ctrl + Shift + J</code>) → <code>@cursor/marketplace</code> → buscar <strong>Notion</strong> → <strong>Enable/Install</strong> → conectar a conta.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">3. Ativar e conectar conta</div>
-                            <div class="principle-desc">Clique em <strong>Enable/Install</strong>, autorize o Notion e conecte sua conta. Depois, compartilhe uma página com a integração em <strong>Connections</strong>.</div>
+                            <div class="principle-title">2. Página no Notion</div>
+                            <div class="principle-desc">Abra a página (ou espaço) onde o MCP pode criar conteúdo; em <strong>⋯ → Connections</strong>, autorize a integração do Notion MCP.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Teste rápido no chat</div>
+                            <div class="principle-desc">Peça: <em>“Liste páginas ou databases que consigo acessar via Notion MCP.”</em> — igual ao guia.</div>
                         </div>
                     </div>
                     <div class="prompt-container" style="flex: 1; align-self: flex-start;">
-                        <div class="prompt-label">Checklist rápido</div>
-                        <pre><span class="syntax-comment"># Setup via Marketplace (recomendado)</span>
-1. Abrir Settings (Cmd/Ctrl + Shift + J)
-2. Ir em <span class="syntax-string">@cursor/marketplace</span>
-3. Buscar <span class="syntax-string">Notion</span>
-4. Clicar em <span class="syntax-string">Enable/Install</span>
-5. Conectar conta do Notion
-6. Compartilhar página no Notion (Connections)
+                        <div class="prompt-label">Checklist (guia — Passo 1)</div>
+                        <pre><span class="syntax-comment"># Marketplace (recomendado no curso)</span>
+Settings → <span class="syntax-string">@cursor/marketplace</span> → Notion
+→ Enable/Install → conectar conta
 
-<span class="syntax-comment"># Teste de conexão</span>
-"Liste as páginas do Notion que tenho acesso."</pre>
+<span class="syntax-comment"># Notion — permissão na página</span>
+⋯ → Connections → integração do MCP
+
+<span class="syntax-comment"># Teste</span>
+"Liste páginas ou databases que consigo acessar via Notion MCP."</pre>
                     </div>
                 </div>
             </div>
 
-            <!-- 31: MCP Notion — one-page (exercício) -->
+            <!-- MCP Notion — one-page (Guia Ex. 11 — Passos 2 e 3) -->
             <div class="slide slide-type-exercicio slide--safe-area">
                 <div class="slide-eyebrow">Exercício · MCP</div>
                 <div class="slide-title">Notion — <span class="accent">one-page</span> para lideranças</div>
-                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 15 minutos</div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ ~10 min na sala (Passos 2–3) · <strong>Guia do Aluno — Exercício 11</strong> (total 15 min)</div>
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 480px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            Objetivo: documentar conclusões de análise em uma página executiva — <strong>TLDR</strong>, contexto, insights, oportunidades e próximos passos — usando o MCP do Notion no Cursor.
+                            Com o MCP já conectado (slide anterior), anexe <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> e publique via MCP um one-page executivo no Notion.
                         </div>
                         <div class="principle-card" style="margin-top: 12px;">
-                            <div class="principle-title">1. Integração no Notion</div>
-                            <div class="principle-desc">Em <a href="https://www.notion.so/my-integrations" target="_blank" rel="noopener" style="color: var(--accent);">notion.so/my-integrations</a>, crie uma integração e copie o token.</div>
+                            <div class="principle-title">Passo 2 — Gerar e publicar (Agent)</div>
+                            <div class="principle-desc">Cinco blocos na ordem do guia: <strong>TLDR</strong>, <strong>Contexto</strong>, <strong>Insights e problemas</strong> (com números), <strong>Oportunidades</strong> (impacto × esforço), <strong>Próximos passos</strong>. Instruir o agente a usar as <strong>ferramentas do MCP do Notion</strong>, não só colar texto no chat.</div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">2. Conectar no Cursor</div>
-                            <div class="principle-desc">Faça a instalação via <strong>@cursor/marketplace</strong> (Settings → buscar Notion → Enable/Install → conectar conta).</div>
-                        </div>
-                        <div class="principle-card">
-                            <div class="principle-title">3. Página no Notion</div>
-                            <div class="principle-desc">Compartilhe uma página com a integração (<strong>Connections</strong>) e peça ao Agent para criar o conteúdo no formato one-page.</div>
+                            <div class="principle-title">Passo 3 — Validar</div>
+                            <div class="principle-desc">Abra o Notion no navegador; confira renderização e se os números batem com o <code>.md</code> da análise.</div>
                         </div>
                         <div class="callout-protip" style="margin-top: 16px;">
                             <span class="callout-protip-icon">📖</span>
-                            <div class="callout-protip-content"><strong>Passo a passo</strong> — <code>materiais/exercicios/17-mcp-notion-one-page.md</code></div>
+                            <div class="callout-protip-content"><strong>Referência oficial do curso:</strong> guia interativo, exercício <strong>11</strong> — <em>One-page no Notion — síntese para liderança (MCP)</em>.</div>
                         </div>
                     </div>
                     <div class="prompt-container" style="flex: 1;">
-                        <div class="prompt-label">Prompt (exemplo)</div>
-                        <pre># Notion (MCP) — One-page executivo
+                        <div class="prompt-label">Prompt-base (alinhado ao guia)</div>
+                        <pre># Notion (MCP) — One-page (Arena Cash)
 
 ## Contexto
-- MCP do Notion configurado no Cursor
-- Tenho uma página vinculada à integração
+A partir de <span class="syntax-string">repos/cursor-para-pms/docs/analise-arenacash-q1.md</span>:
 
 ## Tarefa
-Crie na página um one-page com:
-- TLDR (1 frase)
-- Contexto da análise
-- 3–5 insights principais (com números quando couber)
-- Oportunidades (tabela impacto × esforço)
-- Próximos passos em checklist
+One-page em Markdown com: TLDR (1 frase); Contexto;
+Insights e problemas (com números); Oportunidades (impacto/esforço);
+Próximos passos (checklist). Tom para diretoria.
 
-Use tom executivo, linguagem clara.</pre>
+Publique no Notion como página filha [defina o pai] usando o MCP do Notion.</pre>
                     </div>
                 </div>
             </div>

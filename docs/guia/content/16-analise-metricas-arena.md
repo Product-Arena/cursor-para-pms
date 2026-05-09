@@ -1,135 +1,70 @@
-# 📊 Análise de métricas — Funil de cursos Product Arena
+# Exercício 16: Análise de dados — Arena Cash
 
-Exercício prático de análise de dados usando o Cursor como copiloto.
-
----
-
-## 🎯 Objetivo
-
-Analisar o funil de engajamento dos cursos da Product Arena para identificar onde estão os maiores pontos de fricção e oportunidades de melhoria.
+**Objetivo:** Usar o Cursor com o subagent **Product Manager** para analisar dados semanais da Arena Cash **conectados** ao memo estratégico do Q2 — mesmo texto-base do kit **`curso-claude-pms/kit/memo-estrategico-q2.md`**, versionado no repositório do curso como **`case arenacash/memo-estrategico-q2.md`**.
 
 ---
 
-## 📈 O funil de cursos
+## Arquivos obrigatórios
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                                                         │
-│   👀 Visitou página do curso                            │
-│         │                                               │
-│         ▼                                               │
-│   📝 Fez inscrição                                      │
-│         │                                               │
-│         ▼                                               │
-│   💳 Assinou (tornou-se aluno)                          │
-│         │                                               │
-│         ▼                                               │
-│   🎬 Iniciou o curso                                    │
-│         │                                               │
-│         ▼                                               │
-│   📺 Assistiu aulas (≥50% do conteúdo)                  │
-│         │                                               │
-│         ▼                                               │
-│   ✏️ Fez exercícios                                     │
-│         │                                               │
-│         ▼                                               │
-│   🏆 Concluiu o curso                                   │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
-```
+| Artefato | Caminho no repositório do curso |
+|----------|----------------------------------|
+| Dataset semanal | `case arenacash/dados-semanais-arenacash.csv` |
+| Memo estratégico Q2 | `case arenacash/memo-estrategico-q2.md` |
+| Roteiro deste exercício | `exercicio/analise-dados.md` |
 
 ---
 
-## 📋 Dados disponíveis
+## Passo a passo
 
-Para este exercício, você vai usar dados simulados que representam o comportamento dos alunos:
+### 1. Carregar contexto (≈5 min)
 
-| Etapa | Quantidade | Taxa vs anterior |
-|-------|------------|------------------|
-| Visitou página | 10.000 | — |
-| Fez inscrição | 2.500 | 25% |
-| Assinou | 800 | 32% |
-| Iniciou curso | 640 | 80% |
-| Assistiu ≥50% | 384 | 60% |
-| Fez exercícios | 230 | 60% |
-| Concluiu | 161 | 70% |
+1. Abra ou arraste para o chat **`case arenacash/memo-estrategico-q2.md`**.
+2. Ative o subagent **`product-manager`** (criado com `/create-subagent`).
+3. Peça um **resumo do negócio em 3 bullets** alinhado ao memo (ativação, churn, prioridades do Q2).
 
-**Taxa de conversão geral:** 1,6% (visitantes → conclusão)
+### 2. Analisar o dataset (≈15 min)
+
+1. Abra **`case arenacash/dados-semanais-arenacash.csv`** no workspace ou anexe ao chat.
+2. Siga a **pergunta de negócio** e as entregas descritas em **`exercicio/analise-dados.md`**.
+3. Documente achados objetivos (tendência temporal, contraste Free vs Pro, últimas semanas).
+
+### 3. Narrativa para liderança (≈5 min)
+
+Peça ao subagent para formatar o output como uma diretoria costuma receber:
+
+- **Decisão pedida**
+- **Evidência** (números do CSV + consistência com o memo)
+- **Risco** se não agir
+- **Próximo passo** mensurável
+
+### 4. Salvar
+
+Crie (se preciso) a pasta **`analises/`** e salve em **`analises/insights-arena-cash.md`**.
 
 ---
 
-## 🛠️ Exercício
+## Prompt sugerido (colar no chat)
 
-### Parte 1 — Preparar o contexto (5 min)
+```text
+# Análise de dados — Arena Cash
 
-1. Arraste este arquivo para o chat do Cursor
-2. Use o modo **Plan** para estruturar sua análise
+Atue como o subagent Product Manager da Arena Cash. Com base em
+case arenacash/dados-semanais-arenacash.csv e no contexto estratégico em
+case arenacash/memo-estrategico-q2.md:
 
-### Parte 2 — Gerar visualização (15 min)
+1. Qual é a principal oportunidade ou problema que os dados revelam?
+2. Qual métrica está mais fora do esperado e por quê?
+3. Qual recomendação você daria à liderança com base nesses números?
 
-Peça ao Cursor para criar um dashboard HTML com:
-
-- 📊 Gráfico de funil mostrando cada etapa
-- 📉 Taxas de conversão entre etapas
-- 🔴 Destaque visual nos maiores drops
-- 💡 Área para insights
-
-**Prompt sugerido:**
-
-```markdown
-# Análise de funil de cursos Product Arena
-
-## Contexto
-Preciso analisar o funil de engajamento dos cursos da Product Arena.
-Os dados estão no arquivo que arrastei para o contexto.
-
-## Objetivo
-Criar um dashboard HTML responsivo para visualizar:
-1. Funil de conversão com cada etapa
-2. Taxas de conversão entre etapas (destacar drops > 50%)
-3. Identificar os principais gargalos
-4. Sugerir hipóteses de melhoria
-
-## Requisitos visuais
-- Seguir o design system da Arena (accent: #FF5757)
-- Layout limpo, fácil de apresentar para stakeholders
-- Responsivo para funcionar em diferentes telas
+Responda de forma objetiva. Salve os achados em analises/insights-arena-cash.md.
 ```
 
-### Parte 3 — Documentar conclusões (10 min)
-
-Documente suas conclusões em formato **one-page** para liderança:
-
-| Seção | Conteúdo |
-|-------|----------|
-| **TLDR** | Uma frase com a conclusão principal |
-| **Contexto** | Por que essa análise foi feita |
-| **Principais insights** | 3-5 descobertas mais relevantes |
-| **Oportunidades** | Ações sugeridas com impacto estimado |
-| **Próximos passos** | O que fazer agora |
-
 ---
 
-## 🎓 O que você pratica neste exercício
+## ❓ Erros comuns
 
-| Habilidade | Como pratica |
-|------------|--------------|
-| 🧠 Prompt em Markdown | Estruturar pedido com contexto, objetivo, requisitos |
-| 📊 Análise de dados | Interpretar funil, identificar gargalos |
-| 🎨 Design system | Aplicar cores e padrões visuais da Arena |
-| 📝 Comunicação executiva | Resumir análise em formato one-page |
+**O agente “inventa” números** — Force citação de linhas/períodos do CSV ou peça para listar os valores usados.
 
----
+**Só repete o memo sem cruzar com o CSV** — O exercício vale pela **ponte** entre narrativa (memo) e evidência (dados).
 
-## 💡 Dicas
-
-- **Itere:** A primeira versão raramente é a final. Peça ajustes.
-- **Questione:** Se algo não faz sentido, pergunte ao Cursor.
-- **Contextualize:** Quanto mais contexto você der, melhor o resultado.
-
----
-
-## 🔗 Referências
-
-- [getdesign.md](https://getdesign.md) — Coleção de design systems para AI coding
-- [Design system Arena](../apresentacao/design-system.md) — Cores, tipografia e padrões visuais
+**Arquivo errado** — Confirme que está usando **`dados-semanais-arenacash.csv`** e **`memo-estrategico-q2.md`** em **`case arenacash/`**.
