@@ -1,0 +1,245 @@
+ticket_id,data_abertura,canal,categoria,subcategoria,plano_usuario,prioridade,status,tempo_resolucao_horas,csat_nota,descricao_curta
+T1000,2026-01-01,email,Onboarding,Não recebo o SMS de confirmação,Free,alta,resolvido,3.7,4,"Usuário pediu reenvio 4x, operadora TIM, nunca chega."
+T1032,2026-01-02,chat_app,Bug técnico,Gráfico de rentabilidade sumiu,Free,media,resolvido,1.8,2,Dashboard principal sem o gráfico há 3 dias.
+T1034,2026-01-02,email,Bug técnico,Gráfico de rentabilidade sumiu,Free,media,resolvido,3.5,5,Dashboard principal sem o gráfico há 3 dias.
+T1038,2026-01-02,chat_app,Bug técnico,Tela branca ao abrir o app,Free,alta,em_atendimento,2.0,,"Android 12, usuária limpou cache e voltou."
+T1050,2026-01-02,chat_app,Saques / Depósitos,Não consigo sacar pelo app,Free,alta,escalado,10.8,,Botão de sacar desabilitado sem explicação.
+T1001,2026-01-03,email,Onboarding,"Tela de ""Depositar"" não avança após informar valor",Free,critica,resolvido,4.3,3,"Bug no Android 14, Samsung Galaxy. Reproduzível."
+T1006,2026-01-03,email,Onboarding,"Suitability me classificou como conservador, não concordo",Free,media,em_atendimento,0.8,,Usuário alega que respondeu arrojado e saiu conservador.
+T1008,2026-01-03,telefone,Onboarding,Não entendo o que fazer depois de me cadastrar,Free,media,resolvido,0.9,3,Usuário cadastrou mas não sabe qual investimento escolher. Largou o app.
+T1029,2026-01-03,chat_app,Dúvida de cobrança,Quero estornar cobrança do Pro,Free,media,resolvido,1.7,3,Usuário cancelou mas foi cobrado no ciclo seguinte.
+T1039,2026-01-03,telefone,Cancelamento / Churn,Como resgato tudo e cancelo?,Free,media,resolvido,3.5,2,Fluxo de resgate + fechamento de conta.
+T1044,2026-01-03,chat_app,KYC / Compliance,Minha conta foi bloqueada sem aviso,Free,critica,resolvido,10.3,5,Bloqueio automático por alerta de risco.
+T1014,2026-01-05,chat_app,Dúvida de produto,Vocês têm ações internacionais?,Free,baixa,resolvido,0.3,4,Usuário Pro perguntando sobre BDR.
+T1033,2026-01-05,chat_app,Bug técnico,Preço de cripto desatualizado,Free,media,resolvido,1.6,1,Preço do BTC congelado por 40 min em 18/mar.
+T1037,2026-01-05,chat_app,Bug técnico,Preço de cripto desatualizado,Free,media,resolvido,1.3,3,Preço do BTC congelado por 40 min em 18/mar.
+T1009,2026-01-06,chat_app,Onboarding,Demora mais de 3 dias para aprovar conta,Free,alta,resolvido,103.8,4,"Cadastro feito dia 10/fev, conta aprovada só dia 15."
+T1025,2026-01-06,chat_app,Dúvida de produto,Tem algum curso para iniciantes?,Free,baixa,resolvido,0.4,5,Usuário pediu por conteúdo educacional.
+T1035,2026-01-06,chat_app,Bug técnico,Extrato mostra aplicação duplicada,Free,alta,resolvido,8.4,2,"Registro duplicado no extrato, valor real aplicado uma vez."
+T1004,2026-01-07,whatsapp,Onboarding,Não consigo fazer a primeira aplicação,Free,critica,resolvido,6.3,3,"App mostra erro genérico ""Tente mais tarde"" ao clicar em Investir."
+T1013,2026-01-07,email,Onboarding,Demora mais de 3 dias para aprovar conta,Free,alta,escalado,248.4,,"Cadastro feito dia 10/fev, conta aprovada só dia 15."
+T1011,2026-01-08,email,Onboarding,"Tela de ""Depositar"" não avança após informar valor",Free,critica,resolvido,4.4,1,"Bug no Android 14, Samsung Galaxy. Reproduzível."
+T1023,2026-01-08,chat_app,Dúvida de produto,Vocês têm ações internacionais?,Free,baixa,resolvido,0.1,4,Usuário Pro perguntando sobre BDR.
+T1028,2026-01-08,chat_app,Dúvida de cobrança,Desconto pra clientes antigos no Pro?,Free,baixa,resolvido,0.3,5,Solicitação de retenção.
+T1042,2026-01-11,chat_app,Cancelamento / Churn,"App é muito difícil, desisti",Free,media,escalado,4.2,,Feedback qualitativo importante.
+T1043,2026-01-11,whatsapp,Cancelamento / Churn,"Encerrem minha conta, perdi dinheiro aqui",Pro,alta,resolvido,3.4,5,Usuário insatisfeito com rentabilidade.
+T1015,2026-01-12,chat_app,Dúvida de produto,Como declarar os investimentos no IR?,Pro,media,em_atendimento,1.8,,Pedido recorrente em mar/26 (mês do IR).
+T1031,2026-01-12,chat_app,Bug técnico,Valor investido diferente do extrato da B3,Free,critica,escalado,15.9,,Divergência de R$ 2.300 em ações. Escalado para Compliance.
+T1045,2026-01-12,chat_app,KYC / Compliance,Preciso atualizar meus documentos,Free,media,em_atendimento,34.7,,Renovação de KYC vencido.
+T1012,2026-01-13,chat_app,Onboarding,Demora mais de 3 dias para aprovar conta,Free,alta,em_atendimento,118.9,,"Cadastro feito dia 10/fev, conta aprovada só dia 15."
+T1017,2026-01-13,chat_app,Dúvida de produto,O que é Tesouro IPCA+?,Pro,baixa,em_atendimento,0.3,,Dúvida conceitual.
+T1036,2026-01-13,chat_app,Bug técnico,Saldo aparece negativo sem motivo,Free,critica,resolvido,3.8,4,"Bug visual, saldo real está correto mas tela mostra -R$ 150."
+T1041,2026-01-14,email,Cancelamento / Churn,Quero fechar minha conta,Free,media,resolvido,3.4,2,Usuário disse que achou app confuso.
+T1027,2026-01-15,chat_app,Dúvida de cobrança,Desconto pra clientes antigos no Pro?,Free,baixa,resolvido,0.2,4,Solicitação de retenção.
+T1020,2026-01-17,email,Dúvida de produto,Vocês têm ações internacionais?,Free,baixa,resolvido,0.3,3,Usuário Pro perguntando sobre BDR.
+T1049,2026-01-17,chat_app,Saques / Depósitos,Não consigo sacar pelo app,Free,alta,resolvido,1.4,4,Botão de sacar desabilitado sem explicação.
+T1002,2026-01-18,chat_app,Onboarding,Cadastro travando na verificação de documento,Free,alta,em_atendimento,4.4,,"Foto do RG rejeitada 3 vezes, usuária reenviou e continuou falhando."
+T1003,2026-01-19,chat_app,Onboarding,Dados do Receita Federal não batem com meus,Free,alta,resolvido,11.5,2,Nome de casada x solteira. Bloqueio automático no KYC.
+T1007,2026-01-19,chat_app,Onboarding,Demora mais de 3 dias para aprovar conta,Free,alta,escalado,188.7,,"Cadastro feito dia 10/fev, conta aprovada só dia 15."
+T1030,2026-01-19,chat_app,Dúvida de cobrança,Desconto pra clientes antigos no Pro?,Free,baixa,resolvido,0.2,2,Solicitação de retenção.
+T1053,2026-01-19,email,Performance / Rentabilidade,Ações caíram 15% e vocês não avisaram,Free,baixa,resolvido,0.8,5,Expectativa equivocada.
+T1005,2026-01-20,chat_app,Onboarding,Demora mais de 3 dias para aprovar conta,Free,alta,resolvido,89.5,5,"Cadastro feito dia 10/fev, conta aprovada só dia 15."
+T1010,2026-01-20,email,Onboarding,Não recebo o SMS de confirmação,Free,alta,resolvido,2.0,3,"Usuário pediu reenvio 4x, operadora TIM, nunca chega."
+T1021,2026-01-20,chat_app,Dúvida de produto,Tem algum curso para iniciantes?,Free,baixa,resolvido,0.2,5,Usuário pediu por conteúdo educacional.
+T1048,2026-01-20,chat_app,KYC / Compliance,Prova de vida rejeitada,Free,alta,escalado,12.3,,Reconhecimento facial falhando.
+T1026,2026-01-23,chat_app,Dúvida de cobrança,Como cancelo a assinatura Pro?,Pro,media,escalado,1.5,,"Busca por Settings, não achou. UX ruim."
+T1051,2026-01-24,chat_app,Saques / Depósitos,Depósito via TED demorou 2 dias,Free,media,em_atendimento,29.4,,Dentro do SLA mas usuário reclamou.
+T1019,2026-01-25,email,Dúvida de produto,Vocês têm ações internacionais?,Free,baixa,resolvido,0.2,1,Usuário Pro perguntando sobre BDR.
+T1024,2026-01-25,chat_app,Dúvida de produto,O que é Tesouro IPCA+?,Free,baixa,escalado,1.2,,Dúvida conceitual.
+T1046,2026-01-26,email,KYC / Compliance,Comprovante de renda recusado,Free,media,em_atendimento,4.8,,Holerite aceito normalmente em outros bancos.
+T1016,2026-01-28,chat_app,Dúvida de produto,Qual a diferença entre CDB e LCI?,Free,baixa,escalado,0.9,,"Dúvida de produto básica, canal chat."
+T1018,2026-01-28,whatsapp,Dúvida de produto,Tem algum curso para iniciantes?,Free,baixa,resolvido,0.3,4,Usuário pediu por conteúdo educacional.
+T1056,2026-01-28,chat_app,Atendimento,Quero falar com um humano,Free,media,resolvido,0.8,1,Usuário frustrado com o chatbot.
+T1054,2026-01-29,chat_app,Performance / Rentabilidade,Minha carteira rendeu menos que a poupança,Free,media,escalado,3.3,,Reclamação comum em mês ruim do mercado.
+T1055,2026-01-29,telefone,Performance / Rentabilidade,Por que o FII está desvalorizando?,Pro,baixa,escalado,1.2,,Educacional.
+T1022,2026-01-30,chat_app,Dúvida de produto,Tem algum curso para iniciantes?,Free,baixa,resolvido,0.1,4,Usuário pediu por conteúdo educacional.
+T1057,2026-01-30,chat_app,Atendimento,Bot não entendeu minha dúvida,Pro,baixa,escalado,0.9,,Feedback de UX.
+T1040,2026-01-31,whatsapp,Cancelamento / Churn,Quero fechar minha conta,Free,media,em_atendimento,1.3,,Usuário disse que achou app confuso.
+T1047,2026-01-31,telefone,KYC / Compliance,Minha conta foi bloqueada sem aviso,Free,critica,resolvido,8.9,3,Bloqueio automático por alerta de risco.
+T1052,2026-01-31,whatsapp,Saques / Depósitos,PIX de saque não caiu na minha conta,Free,critica,em_atendimento,1.9,,Saque processado mas não recebido.
+T1060,2026-02-01,email,Onboarding,App pede verificação facial mas câmera não abre,Free,alta,resolvido,5.7,5,iPhone 12 com iOS 17. Câmera funciona em outros apps.
+T1112,2026-02-01,email,Cancelamento / Churn,"Já tentei usar e não consigo, quero deletar",Free,alta,resolvido,1.8,3,Falha de ativação virando churn.
+T1121,2026-02-01,chat_app,KYC / Compliance,Preciso atualizar meus documentos,Free,media,resolvido,22.8,3,Renovação de KYC vencido.
+T1063,2026-02-02,chat_app,Onboarding,Não entendo o que fazer depois de me cadastrar,Free,media,escalado,4.5,,Usuário cadastrou mas não sabe qual investimento escolher. Largou o app.
+T1073,2026-02-02,chat_app,Onboarding,Cadastro travando na verificação de documento,Free,alta,resolvido,4.6,4,"Foto do RG rejeitada 3 vezes, usuária reenviou e continuou falhando."
+T1091,2026-02-02,whatsapp,Dúvida de produto,Tem algum curso para iniciantes?,Free,baixa,escalado,0.3,,Usuário pediu por conteúdo educacional.
+T1081,2026-02-03,chat_app,Dúvida de produto,Tem algum curso para iniciantes?,Free,baixa,escalado,0.6,,Usuário pediu por conteúdo educacional.
+T1082,2026-02-03,chat_app,Dúvida de produto,Como funciona o Fundo Imobiliário?,Free,baixa,resolvido,0.5,3,Iniciante querendo investir em FII.
+T1130,2026-02-03,chat_app,Performance / Rentabilidade,Ações caíram 15% e vocês não avisaram,Free,baixa,resolvido,1.1,5,Expectativa equivocada.
+T1132,2026-02-03,chat_app,Atendimento,Ninguém responde meu chat,Free,alta,resolvido,1.6,5,SLA estourado.
+T1062,2026-02-04,telefone,Onboarding,Cadastro travando na verificação de documento,Free,alta,em_atendimento,7.0,,"Foto do RG rejeitada 3 vezes, usuária reenviou e continuou falhando."
+T1095,2026-02-04,email,Dúvida de cobrança,Quero estornar cobrança do Pro,Pro,media,em_atendimento,2.8,,Usuário cancelou mas foi cobrado no ciclo seguinte.
+T1097,2026-02-04,email,Dúvida de cobrança,Como cancelo a assinatura Pro?,Free,media,escalado,2.1,,"Busca por Settings, não achou. UX ruim."
+T1113,2026-02-05,email,Cancelamento / Churn,"App é muito difícil, desisti",Free,media,resolvido,1.6,3,Feedback qualitativo importante.
+T1116,2026-02-05,chat_app,Cancelamento / Churn,Quero fechar minha conta,Free,media,resolvido,1.4,2,Usuário disse que achou app confuso.
+T1089,2026-02-06,chat_app,Dúvida de produto,É seguro investir em cripto na ArenaCash?,Free,baixa,resolvido,0.9,4,Dúvida sobre custódia de cripto.
+T1110,2026-02-06,chat_app,Cancelamento / Churn,"App é muito difícil, desisti",Free,media,resolvido,1.5,5,Feedback qualitativo importante.
+T1059,2026-02-07,telefone,Onboarding,App pede verificação facial mas câmera não abre,Free,alta,resolvido,5.5,4,iPhone 12 com iOS 17. Câmera funciona em outros apps.
+T1074,2026-02-07,email,Onboarding,Pediu PIX mas dinheiro não apareceu no app,Free,critica,resolvido,10.7,4,"PIX feito dia 05/mar R$ 500, app segue em R$ 0."
+T1104,2026-02-07,chat_app,Bug técnico,Preço de cripto desatualizado,Free,media,resolvido,1.7,4,Preço do BTC congelado por 40 min em 18/mar.
+T1086,2026-02-08,chat_app,Dúvida de produto,É seguro investir em cripto na ArenaCash?,Free,baixa,resolvido,0.8,4,Dúvida sobre custódia de cripto.
+T1109,2026-02-08,chat_app,Cancelamento / Churn,"Já tentei usar e não consigo, quero deletar",Free,alta,resolvido,1.5,5,Falha de ativação virando churn.
+T1058,2026-02-09,chat_app,Onboarding,App pede verificação facial mas câmera não abre,Free,alta,resolvido,5.8,4,iPhone 12 com iOS 17. Câmera funciona em outros apps.
+T1080,2026-02-09,chat_app,Dúvida de produto,Como funciona o Fundo Imobiliário?,Free,baixa,resolvido,0.5,3,Iniciante querendo investir em FII.
+T1090,2026-02-09,email,Dúvida de produto,Como declarar os investimentos no IR?,Free,media,resolvido,2.4,4,Pedido recorrente em mar/26 (mês do IR).
+T1102,2026-02-11,telefone,Bug técnico,"Notificação push dizendo que aplicação venceu, mas não venceu",Free,media,resolvido,0.7,3,Push bugado em fev/26.
+T1061,2026-02-12,email,Onboarding,Não entendo o que fazer depois de me cadastrar,Free,media,em_atendimento,1.0,,Usuário cadastrou mas não sabe qual investimento escolher. Largou o app.
+T1066,2026-02-12,chat_app,Onboarding,App pede verificação facial mas câmera não abre,Pro,alta,resolvido,4.7,4,iPhone 12 com iOS 17. Câmera funciona em outros apps.
+T1083,2026-02-13,whatsapp,Dúvida de produto,Como declarar os investimentos no IR?,Free,media,escalado,2.7,,Pedido recorrente em mar/26 (mês do IR).
+T1096,2026-02-13,whatsapp,Dúvida de cobrança,Qual o preço do Pro anual?,Free,baixa,em_atendimento,0.3,,Informação não está clara no app.
+T1107,2026-02-13,email,Bug técnico,Extrato mostra aplicação duplicada,Free,alta,em_atendimento,5.2,,"Registro duplicado no extrato, valor real aplicado uma vez."
+T1118,2026-02-13,chat_app,KYC / Compliance,Comprovante de renda recusado,Free,media,em_atendimento,8.9,,Holerite aceito normalmente em outros bancos.
+T1078,2026-02-14,telefone,Onboarding,"Tela de ""Depositar"" não avança após informar valor",Free,critica,resolvido,7.5,3,"Bug no Android 14, Samsung Galaxy. Reproduzível."
+T1108,2026-02-14,whatsapp,Bug técnico,Tela branca ao abrir o app,Free,alta,resolvido,3.6,2,"Android 12, usuária limpou cache e voltou."
+T1131,2026-02-14,email,Performance / Rentabilidade,Ações caíram 15% e vocês não avisaram,Free,baixa,resolvido,1.3,4,Expectativa equivocada.
+T1076,2026-02-15,chat_app,Onboarding,"Tela de ""Depositar"" não avança após informar valor",Free,critica,resolvido,5.7,4,"Bug no Android 14, Samsung Galaxy. Reproduzível."
+T1125,2026-02-15,chat_app,Saques / Depósitos,Não consigo sacar pelo app,Free,alta,escalado,6.6,,Botão de sacar desabilitado sem explicação.
+T1084,2026-02-16,chat_app,Dúvida de produto,Como declarar os investimentos no IR?,Free,media,resolvido,2.4,5,Pedido recorrente em mar/26 (mês do IR).
+T1114,2026-02-16,chat_app,Cancelamento / Churn,"Encerrem minha conta, perdi dinheiro aqui",Free,alta,resolvido,2.7,4,Usuário insatisfeito com rentabilidade.
+T1099,2026-02-17,email,Dúvida de cobrança,Fui cobrado R$29 mas não contratei Pro,Free,alta,resolvido,1.6,2,Ativação automática no trial expirado. Comum.
+T1126,2026-02-17,chat_app,Saques / Depósitos,Não consigo sacar pelo app,Free,alta,em_atendimento,1.3,,Botão de sacar desabilitado sem explicação.
+T1077,2026-02-18,email,Onboarding,"Tela de ""Depositar"" não avança após informar valor",Pro,critica,resolvido,6.7,4,"Bug no Android 14, Samsung Galaxy. Reproduzível."
+T1085,2026-02-18,email,Dúvida de produto,Como declarar os investimentos no IR?,Free,media,em_atendimento,2.5,,Pedido recorrente em mar/26 (mês do IR).
+T1105,2026-02-18,chat_app,Bug técnico,"Notificação push dizendo que aplicação venceu, mas não venceu",Pro,media,resolvido,0.7,3,Push bugado em fev/26.
+T1088,2026-02-19,email,Dúvida de produto,Como declarar os investimentos no IR?,Free,media,escalado,5.1,,Pedido recorrente em mar/26 (mês do IR).
+T1103,2026-02-19,email,Bug técnico,Preço de cripto desatualizado,Free,media,resolvido,1.2,2,Preço do BTC congelado por 40 min em 18/mar.
+T1119,2026-02-19,email,KYC / Compliance,Prova de vida rejeitada,Free,alta,escalado,6.6,,Reconhecimento facial falhando.
+T1064,2026-02-20,whatsapp,Onboarding,"Suitability me classificou como conservador, não concordo",Free,media,em_atendimento,0.4,,Usuário alega que respondeu arrojado e saiu conservador.
+T1069,2026-02-20,email,Onboarding,Não consigo fazer a primeira aplicação,Free,critica,resolvido,5.8,2,"App mostra erro genérico ""Tente mais tarde"" ao clicar em Investir."
+T1070,2026-02-20,email,Onboarding,Pediu PIX mas dinheiro não apareceu no app,Free,critica,resolvido,16.9,3,"PIX feito dia 05/mar R$ 500, app segue em R$ 0."
+T1094,2026-02-20,email,Dúvida de cobrança,Como cancelo a assinatura Pro?,Free,media,resolvido,0.8,3,"Busca por Settings, não achou. UX ruim."
+T1101,2026-02-20,telefone,Bug técnico,"Notificação push dizendo que aplicação venceu, mas não venceu",Free,media,resolvido,0.9,4,Push bugado em fev/26.
+T1111,2026-02-20,chat_app,Cancelamento / Churn,Como resgato tudo e cancelo?,Free,media,resolvido,2.4,3,Fluxo de resgate + fechamento de conta.
+T1100,2026-02-21,whatsapp,Bug técnico,Tela branca ao abrir o app,Free,alta,resolvido,2.8,4,"Android 12, usuária limpou cache e voltou."
+T1120,2026-02-21,chat_app,KYC / Compliance,Preciso atualizar meus documentos,Free,media,resolvido,21.3,4,Renovação de KYC vencido.
+T1129,2026-02-21,chat_app,Performance / Rentabilidade,Por que o FII está desvalorizando?,Free,baixa,em_atendimento,0.6,,Educacional.
+T1134,2026-02-21,chat_app,Atendimento,Ninguém responde meu chat,Free,alta,resolvido,1.3,5,SLA estourado.
+T1071,2026-02-22,chat_app,Onboarding,Não consigo fazer a primeira aplicação,Free,critica,escalado,24.3,,"App mostra erro genérico ""Tente mais tarde"" ao clicar em Investir."
+T1093,2026-02-22,chat_app,Dúvida de cobrança,Qual o preço do Pro anual?,Pro,baixa,resolvido,0.3,5,Informação não está clara no app.
+T1123,2026-02-22,telefone,KYC / Compliance,Comprovante de renda recusado,Free,media,resolvido,6.3,4,Holerite aceito normalmente em outros bancos.
+T1133,2026-02-22,telefone,Atendimento,Quero falar com um humano,Free,media,resolvido,0.4,4,Usuário frustrado com o chatbot.
+T1065,2026-02-23,chat_app,Onboarding,Cadastro travando na verificação de documento,Free,alta,em_atendimento,5.7,,"Foto do RG rejeitada 3 vezes, usuária reenviou e continuou falhando."
+T1068,2026-02-23,chat_app,Onboarding,"Suitability me classificou como conservador, não concordo",Free,media,resolvido,0.7,3,Usuário alega que respondeu arrojado e saiu conservador.
+T1106,2026-02-23,chat_app,Bug técnico,Extrato mostra aplicação duplicada,Free,alta,resolvido,7.8,1,"Registro duplicado no extrato, valor real aplicado uma vez."
+T1122,2026-02-23,telefone,KYC / Compliance,Prova de vida rejeitada,Free,alta,resolvido,5.1,5,Reconhecimento facial falhando.
+T1067,2026-02-24,whatsapp,Onboarding,Não recebo o SMS de confirmação,Free,alta,escalado,8.1,,"Usuário pediu reenvio 4x, operadora TIM, nunca chega."
+T1087,2026-02-24,chat_app,Dúvida de produto,Como declarar os investimentos no IR?,Free,media,resolvido,2.7,4,Pedido recorrente em mar/26 (mês do IR).
+T1127,2026-02-24,chat_app,Saques / Depósitos,Limite de depósito muito baixo,Free,baixa,resolvido,0.4,4,Usuário Free quer aumentar.
+T1075,2026-02-25,telefone,Onboarding,Cadastro travando na verificação de documento,Free,alta,resolvido,3.5,4,"Foto do RG rejeitada 3 vezes, usuária reenviou e continuou falhando."
+T1079,2026-02-25,chat_app,Onboarding,Não entendo o que fazer depois de me cadastrar,Free,media,em_atendimento,1.2,,Usuário cadastrou mas não sabe qual investimento escolher. Largou o app.
+T1092,2026-02-25,chat_app,Dúvida de produto,Qual a diferença entre CDB e LCI?,Free,baixa,resolvido,0.4,3,"Dúvida de produto básica, canal chat."
+T1117,2026-02-25,chat_app,Cancelamento / Churn,Como resgato tudo e cancelo?,Free,media,em_atendimento,2.2,,Fluxo de resgate + fechamento de conta.
+T1128,2026-02-25,email,Saques / Depósitos,PIX de saque não caiu na minha conta,Free,critica,resolvido,4.5,3,Saque processado mas não recebido.
+T1098,2026-02-26,whatsapp,Dúvida de cobrança,Fui cobrado R$29 mas não contratei Pro,Free,alta,resolvido,1.2,4,Ativação automática no trial expirado. Comum.
+T1072,2026-02-27,whatsapp,Onboarding,Não recebo o SMS de confirmação,Free,alta,resolvido,2.2,2,"Usuário pediu reenvio 4x, operadora TIM, nunca chega."
+T1115,2026-02-27,chat_app,Cancelamento / Churn,Quero fechar minha conta,Free,media,em_atendimento,2.7,,Usuário disse que achou app confuso.
+T1124,2026-02-27,chat_app,KYC / Compliance,Prova de vida rejeitada,Free,alta,resolvido,3.9,5,Reconhecimento facial falhando.
+T1208,2026-03-01,chat_app,Cancelamento / Churn,Quero fechar minha conta,Free,media,resolvido,2.1,4,Usuário disse que achou app confuso.
+T1210,2026-03-01,chat_app,Cancelamento / Churn,"Encerrem minha conta, perdi dinheiro aqui",Free,alta,resolvido,3.9,3,Usuário insatisfeito com rentabilidade.
+T1153,2026-03-02,chat_app,Onboarding,Cadastro travando na verificação de documento,Free,alta,resolvido,4.2,1,"Foto do RG rejeitada 3 vezes, usuária reenviou e continuou falhando."
+T1178,2026-03-02,chat_app,Dúvida de produto,Diferença entre conta ArenaCash Free e Pro?,Free,baixa,resolvido,0.7,5,Usuário comparando planos.
+T1225,2026-03-02,chat_app,KYC / Compliance,Preciso atualizar meus documentos,Free,media,resolvido,29.5,4,Renovação de KYC vencido.
+T1240,2026-03-02,email,Atendimento,Ninguém responde meu chat,Free,alta,em_atendimento,1.7,,SLA estourado.
+T1148,2026-03-03,chat_app,Onboarding,Não consigo fazer a primeira aplicação,Pro,critica,resolvido,8.1,3,"App mostra erro genérico ""Tente mais tarde"" ao clicar em Investir."
+T1193,2026-03-03,chat_app,Bug técnico,Preço de cripto desatualizado,Free,media,resolvido,0.7,4,Preço do BTC congelado por 40 min em 18/mar.
+T1227,2026-03-03,chat_app,KYC / Compliance,Prova de vida rejeitada,Free,alta,resolvido,2.8,5,Reconhecimento facial falhando.
+T1169,2026-03-04,chat_app,Dúvida de produto,Tem algum curso para iniciantes?,Free,baixa,escalado,0.6,,Usuário pediu por conteúdo educacional.
+T1183,2026-03-04,email,Dúvida de cobrança,Como cancelo a assinatura Pro?,Free,media,resolvido,0.5,5,"Busca por Settings, não achou. UX ruim."
+T1216,2026-03-04,chat_app,Cancelamento / Churn,"Vou migrar pra Nubank, como faço pra sair?",Free,media,em_atendimento,1.2,,Competitor migration.
+T1139,2026-03-05,chat_app,Onboarding,"Tela de ""Depositar"" não avança após informar valor",Pro,critica,em_atendimento,7.5,,"Bug no Android 14, Samsung Galaxy. Reproduzível."
+T1165,2026-03-05,email,Onboarding,App pede verificação facial mas câmera não abre,Free,alta,resolvido,4.3,5,iPhone 12 com iOS 17. Câmera funciona em outros apps.
+T1242,2026-03-05,telefone,Atendimento,Bot não entendeu minha dúvida,Free,baixa,resolvido,0.3,5,Feedback de UX.
+T1214,2026-03-06,chat_app,Cancelamento / Churn,"Não consegui falar com ninguém, vou cancelar",Free,alta,em_atendimento,4.8,,Churn por atendimento.
+T1205,2026-03-07,email,Cancelamento / Churn,"Já tentei usar e não consigo, quero deletar",Free,alta,resolvido,0.7,4,Falha de ativação virando churn.
+T1207,2026-03-07,chat_app,Cancelamento / Churn,Quero fechar minha conta,Free,media,resolvido,3.0,2,Usuário disse que achou app confuso.
+T1144,2026-03-08,telefone,Onboarding,"Suitability me classificou como conservador, não concordo",Free,media,resolvido,0.7,4,Usuário alega que respondeu arrojado e saiu conservador.
+T1151,2026-03-08,email,Onboarding,Não recebo o SMS de confirmação,Pro,alta,resolvido,3.7,3,"Usuário pediu reenvio 4x, operadora TIM, nunca chega."
+T1159,2026-03-08,chat_app,Onboarding,Não recebo o SMS de confirmação,Free,alta,resolvido,4.5,2,"Usuário pediu reenvio 4x, operadora TIM, nunca chega."
+T1162,2026-03-08,email,Onboarding,Demora mais de 3 dias para aprovar conta,Free,alta,escalado,325.5,,"Cadastro feito dia 10/fev, conta aprovada só dia 15."
+T1186,2026-03-08,whatsapp,Dúvida de cobrança,Desconto pra clientes antigos no Pro?,Free,baixa,escalado,1.2,,Solicitação de retenção.
+T1197,2026-03-08,telefone,Bug técnico,Preço de cripto desatualizado,Free,media,em_atendimento,1.0,,Preço do BTC congelado por 40 min em 18/mar.
+T1160,2026-03-09,chat_app,Onboarding,"Suitability me classificou como conservador, não concordo",Free,media,escalado,2.7,,Usuário alega que respondeu arrojado e saiu conservador.
+T1166,2026-03-09,whatsapp,Onboarding,Não consigo fazer a primeira aplicação,Pro,critica,resolvido,9.0,2,"App mostra erro genérico ""Tente mais tarde"" ao clicar em Investir."
+T1189,2026-03-09,email,Dúvida de cobrança,Como cancelo a assinatura Pro?,Free,media,escalado,1.5,,"Busca por Settings, não achou. UX ruim."
+T1204,2026-03-09,chat_app,Cancelamento / Churn,Quero fechar minha conta,Free,media,em_atendimento,2.3,,Usuário disse que achou app confuso.
+T1229,2026-03-10,whatsapp,Saques / Depósitos,Não consigo sacar pelo app,Free,alta,resolvido,1.5,5,Botão de sacar desabilitado sem explicação.
+T1230,2026-03-10,email,Saques / Depósitos,PIX de saque não caiu na minha conta,Free,critica,resolvido,4.7,4,Saque processado mas não recebido.
+T1184,2026-03-11,chat_app,Dúvida de cobrança,Desconto pra clientes antigos no Pro?,Free,baixa,resolvido,0.4,4,Solicitação de retenção.
+T1192,2026-03-11,chat_app,Bug técnico,Gráfico de rentabilidade sumiu,Free,media,resolvido,3.5,4,Dashboard principal sem o gráfico há 3 dias.
+T1219,2026-03-11,telefone,KYC / Compliance,Comprovante de renda recusado,Free,media,resolvido,5.6,4,Holerite aceito normalmente em outros bancos.
+T1232,2026-03-11,whatsapp,Saques / Depósitos,Depósito via TED demorou 2 dias,Free,media,resolvido,86.4,3,Dentro do SLA mas usuário reclamou.
+T1164,2026-03-12,email,Onboarding,Pediu PIX mas dinheiro não apareceu no app,Free,critica,resolvido,11.9,3,"PIX feito dia 05/mar R$ 500, app segue em R$ 0."
+T1215,2026-03-12,chat_app,Cancelamento / Churn,"Não consegui falar com ninguém, vou cancelar",Pro,alta,escalado,18.9,,Churn por atendimento.
+T1226,2026-03-12,whatsapp,KYC / Compliance,Prova de vida rejeitada,Free,alta,resolvido,4.2,2,Reconhecimento facial falhando.
+T1238,2026-03-12,email,Performance / Rentabilidade,Minha carteira rendeu menos que a poupança,Free,media,resolvido,1.7,3,Reclamação comum em mês ruim do mercado.
+T1145,2026-03-13,whatsapp,Onboarding,"Suitability me classificou como conservador, não concordo",Free,media,escalado,2.7,,Usuário alega que respondeu arrojado e saiu conservador.
+T1174,2026-03-13,chat_app,Dúvida de produto,Posso resgatar antes do vencimento?,Free,baixa,escalado,1.8,,Sobre liquidez de renda fixa.
+T1154,2026-03-14,email,Onboarding,"Tela de ""Depositar"" não avança após informar valor",Free,critica,resolvido,4.1,3,"Bug no Android 14, Samsung Galaxy. Reproduzível."
+T1175,2026-03-14,email,Dúvida de produto,Tem algum curso para iniciantes?,Free,baixa,resolvido,0.3,5,Usuário pediu por conteúdo educacional.
+T1191,2026-03-14,chat_app,Bug técnico,Extrato mostra aplicação duplicada,Free,alta,resolvido,8.0,3,"Registro duplicado no extrato, valor real aplicado uma vez."
+T1195,2026-03-14,chat_app,Bug técnico,Gráfico de rentabilidade sumiu,Free,media,resolvido,3.3,4,Dashboard principal sem o gráfico há 3 dias.
+T1202,2026-03-14,chat_app,Bug técnico,Valor investido diferente do extrato da B3,Free,critica,resolvido,11.7,4,Divergência de R$ 2.300 em ações. Escalado para Compliance.
+T1243,2026-03-14,chat_app,Atendimento,Quero falar com um humano,Free,media,resolvido,0.5,2,Usuário frustrado com o chatbot.
+T1143,2026-03-15,whatsapp,Onboarding,"Suitability me classificou como conservador, não concordo",Free,media,escalado,1.2,,Usuário alega que respondeu arrojado e saiu conservador.
+T1167,2026-03-15,whatsapp,Dúvida de produto,O que é Tesouro IPCA+?,Free,baixa,resolvido,0.5,5,Dúvida conceitual.
+T1190,2026-03-15,chat_app,Bug técnico,"Notificação push dizendo que aplicação venceu, mas não venceu",Free,media,escalado,1.8,,Push bugado em fev/26.
+T1212,2026-03-15,telefone,Cancelamento / Churn,Como resgato tudo e cancelo?,Free,media,resolvido,2.8,1,Fluxo de resgate + fechamento de conta.
+T1221,2026-03-15,chat_app,KYC / Compliance,"Não sou PEP, por que fui marcado como tal?",Free,alta,resolvido,8.3,5,Falso positivo no sistema de compliance.
+T1223,2026-03-15,whatsapp,KYC / Compliance,Minha conta foi bloqueada sem aviso,Free,critica,resolvido,5.9,4,Bloqueio automático por alerta de risco.
+T1185,2026-03-16,chat_app,Dúvida de cobrança,Fui cobrado R$29 mas não contratei Pro,Free,alta,em_atendimento,0.7,,Ativação automática no trial expirado. Comum.
+T1188,2026-03-16,email,Dúvida de cobrança,Fui cobrado R$29 mas não contratei Pro,Free,alta,resolvido,1.0,3,Ativação automática no trial expirado. Comum.
+T1206,2026-03-16,chat_app,Cancelamento / Churn,Como resgato tudo e cancelo?,Free,media,resolvido,2.7,3,Fluxo de resgate + fechamento de conta.
+T1138,2026-03-17,email,Onboarding,Não entendo o que fazer depois de me cadastrar,Free,media,resolvido,1.8,2,Usuário cadastrou mas não sabe qual investimento escolher. Largou o app.
+T1239,2026-03-17,chat_app,Atendimento,Ninguém responde meu chat,Pro,alta,resolvido,1.6,3,SLA estourado.
+T1194,2026-03-18,chat_app,Bug técnico,App fecha sozinho quando abro a aba Investimentos,Pro,alta,em_atendimento,3.0,,Crash em iOS 16. Várias ocorrências.
+T1209,2026-03-18,telefone,Cancelamento / Churn,Como resgato tudo e cancelo?,Free,media,resolvido,2.7,4,Fluxo de resgate + fechamento de conta.
+T1198,2026-03-19,chat_app,Bug técnico,"Notificação push dizendo que aplicação venceu, mas não venceu",Free,media,em_atendimento,1.4,,Push bugado em fev/26.
+T1213,2026-03-19,chat_app,Cancelamento / Churn,"Encerrem minha conta, perdi dinheiro aqui",Free,alta,resolvido,4.5,2,Usuário insatisfeito com rentabilidade.
+T1218,2026-03-19,email,Cancelamento / Churn,"Não consegui falar com ninguém, vou cancelar",Free,alta,em_atendimento,5.5,,Churn por atendimento.
+T1155,2026-03-20,email,Onboarding,"Suitability me classificou como conservador, não concordo",Free,media,em_atendimento,0.4,,Usuário alega que respondeu arrojado e saiu conservador.
+T1171,2026-03-20,whatsapp,Dúvida de produto,Qual a diferença entre CDB e LCI?,Free,baixa,em_atendimento,0.3,,"Dúvida de produto básica, canal chat."
+T1196,2026-03-20,chat_app,Bug técnico,"Notificação push dizendo que aplicação venceu, mas não venceu",Free,media,em_atendimento,0.7,,Push bugado em fev/26.
+T1199,2026-03-20,whatsapp,Bug técnico,Saldo aparece negativo sem motivo,Free,critica,resolvido,2.5,2,"Bug visual, saldo real está correto mas tela mostra -R$ 150."
+T1203,2026-03-20,chat_app,Cancelamento / Churn,Como resgato tudo e cancelo?,Free,media,resolvido,3.8,1,Fluxo de resgate + fechamento de conta.
+T1222,2026-03-20,email,KYC / Compliance,Minha conta foi bloqueada sem aviso,Free,critica,em_atendimento,7.6,,Bloqueio automático por alerta de risco.
+T1150,2026-03-21,email,Onboarding,Demora mais de 3 dias para aprovar conta,Free,alta,em_atendimento,46.3,,"Cadastro feito dia 10/fev, conta aprovada só dia 15."
+T1156,2026-03-21,chat_app,Onboarding,Dados do Receita Federal não batem com meus,Free,alta,resolvido,13.4,3,Nome de casada x solteira. Bloqueio automático no KYC.
+T1163,2026-03-21,chat_app,Onboarding,Não consigo fazer a primeira aplicação,Free,critica,resolvido,5.8,3,"App mostra erro genérico ""Tente mais tarde"" ao clicar em Investir."
+T1172,2026-03-21,telefone,Dúvida de produto,O que é Tesouro IPCA+?,Free,baixa,resolvido,0.4,2,Dúvida conceitual.
+T1187,2026-03-21,whatsapp,Dúvida de cobrança,Qual o preço do Pro anual?,Free,baixa,resolvido,0.3,4,Informação não está clara no app.
+T1211,2026-03-21,chat_app,Cancelamento / Churn,"App é muito difícil, desisti",Free,media,resolvido,1.8,2,Feedback qualitativo importante.
+T1217,2026-03-21,chat_app,Cancelamento / Churn,"Não consegui falar com ninguém, vou cancelar",Pro,alta,escalado,14.4,,Churn por atendimento.
+T1231,2026-03-21,email,Saques / Depósitos,PIX de saque não caiu na minha conta,Free,critica,resolvido,3.1,3,Saque processado mas não recebido.
+T1157,2026-03-22,chat_app,Onboarding,Não entendo o que fazer depois de me cadastrar,Free,media,resolvido,1.8,2,Usuário cadastrou mas não sabe qual investimento escolher. Largou o app.
+T1179,2026-03-22,chat_app,Dúvida de produto,O que é Tesouro IPCA+?,Free,baixa,resolvido,0.2,4,Dúvida conceitual.
+T1234,2026-03-22,chat_app,Saques / Depósitos,PIX de saque não caiu na minha conta,Free,critica,resolvido,4.0,3,Saque processado mas não recebido.
+T1236,2026-03-22,email,Performance / Rentabilidade,Ações caíram 15% e vocês não avisaram,Pro,baixa,em_atendimento,0.8,,Expectativa equivocada.
+T1136,2026-03-23,chat_app,Onboarding,App pede verificação facial mas câmera não abre,Free,alta,em_atendimento,3.8,,iPhone 12 com iOS 17. Câmera funciona em outros apps.
+T1158,2026-03-23,chat_app,Onboarding,"Suitability me classificou como conservador, não concordo",Free,media,resolvido,0.9,4,Usuário alega que respondeu arrojado e saiu conservador.
+T1161,2026-03-24,chat_app,Onboarding,Pediu PIX mas dinheiro não apareceu no app,Free,critica,resolvido,18.4,2,"PIX feito dia 05/mar R$ 500, app segue em R$ 0."
+T1201,2026-03-24,email,Bug técnico,App fecha sozinho quando abro a aba Investimentos,Free,alta,escalado,11.1,,Crash em iOS 16. Várias ocorrências.
+T1152,2026-03-25,email,Onboarding,Não recebo o SMS de confirmação,Free,alta,resolvido,2.0,2,"Usuário pediu reenvio 4x, operadora TIM, nunca chega."
+T1180,2026-03-26,email,Dúvida de produto,Posso resgatar antes do vencimento?,Free,baixa,em_atendimento,0.3,,Sobre liquidez de renda fixa.
+T1220,2026-03-26,chat_app,KYC / Compliance,Prova de vida rejeitada,Free,alta,em_atendimento,2.1,,Reconhecimento facial falhando.
+T1237,2026-03-26,chat_app,Performance / Rentabilidade,Por que o FII está desvalorizando?,Free,baixa,resolvido,0.9,5,Educacional.
+T1137,2026-03-27,whatsapp,Onboarding,App pede verificação facial mas câmera não abre,Free,alta,resolvido,4.8,2,iPhone 12 com iOS 17. Câmera funciona em outros apps.
+T1141,2026-03-27,chat_app,Onboarding,Não entendo o que fazer depois de me cadastrar,Free,media,em_atendimento,1.3,,Usuário cadastrou mas não sabe qual investimento escolher. Largou o app.
+T1170,2026-03-27,email,Dúvida de produto,Como declarar os investimentos no IR?,Free,media,escalado,3.9,,Pedido recorrente em mar/26 (mês do IR).
+T1181,2026-03-27,telefone,Dúvida de cobrança,Como cancelo a assinatura Pro?,Free,media,resolvido,0.8,4,"Busca por Settings, não achou. UX ruim."
+T1235,2026-03-27,email,Performance / Rentabilidade,Minha carteira rendeu menos que a poupança,Free,media,resolvido,2.2,1,Reclamação comum em mês ruim do mercado.
+T1140,2026-03-28,chat_app,Onboarding,Não consigo fazer a primeira aplicação,Free,critica,resolvido,6.0,4,"App mostra erro genérico ""Tente mais tarde"" ao clicar em Investir."
+T1142,2026-03-28,chat_app,Onboarding,Dados do Receita Federal não batem com meus,Free,alta,resolvido,8.0,4,Nome de casada x solteira. Bloqueio automático no KYC.
+T1147,2026-03-28,telefone,Onboarding,Não recebo o SMS de confirmação,Free,alta,resolvido,1.5,1,"Usuário pediu reenvio 4x, operadora TIM, nunca chega."
+T1149,2026-03-28,chat_app,Onboarding,Não recebo o SMS de confirmação,Free,alta,em_atendimento,2.6,,"Usuário pediu reenvio 4x, operadora TIM, nunca chega."
+T1177,2026-03-28,chat_app,Dúvida de produto,Como funciona o Fundo Imobiliário?,Pro,baixa,resolvido,0.6,5,Iniciante querendo investir em FII.
+T1182,2026-03-28,whatsapp,Dúvida de cobrança,Quero estornar cobrança do Pro,Pro,media,em_atendimento,1.8,,Usuário cancelou mas foi cobrado no ciclo seguinte.
+T1228,2026-03-28,chat_app,KYC / Compliance,Comprovante de renda recusado,Free,media,escalado,11.4,,Holerite aceito normalmente em outros bancos.
+T1233,2026-03-28,email,Saques / Depósitos,Não consigo sacar pelo app,Free,alta,em_atendimento,3.2,,Botão de sacar desabilitado sem explicação.
+T1241,2026-03-28,chat_app,Atendimento,Bot não entendeu minha dúvida,Free,baixa,resolvido,0.3,3,Feedback de UX.
+T1135,2026-03-29,email,Onboarding,Dados do Receita Federal não batem com meus,Free,alta,escalado,31.8,,Nome de casada x solteira. Bloqueio automático no KYC.
+T1200,2026-03-30,chat_app,Bug técnico,"Notificação push dizendo que aplicação venceu, mas não venceu",Free,media,resolvido,1.0,3,Push bugado em fev/26.
+T1146,2026-03-31,chat_app,Onboarding,Dados do Receita Federal não batem com meus,Free,alta,em_atendimento,8.0,,Nome de casada x solteira. Bloqueio automático no KYC.
+T1168,2026-03-31,telefone,Dúvida de produto,Como declarar os investimentos no IR?,Free,media,resolvido,2.3,1,Pedido recorrente em mar/26 (mês do IR).
+T1173,2026-03-31,chat_app,Dúvida de produto,Qual a diferença entre CDB e LCI?,Pro,baixa,resolvido,0.2,5,"Dúvida de produto básica, canal chat."
+T1176,2026-03-31,whatsapp,Dúvida de produto,Como declarar os investimentos no IR?,Free,media,resolvido,1.3,4,Pedido recorrente em mar/26 (mês do IR).
+T1224,2026-03-31,chat_app,KYC / Compliance,Preciso atualizar meus documentos,Free,media,resolvido,42.7,2,Renovação de KYC vencido.

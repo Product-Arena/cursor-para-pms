@@ -1,10 +1,13 @@
-.cursor/plans
+# Instructor-only planning (not for learners or public mirrors)
+instructor-internal/
 
-ementa/
+# Local tooling / publish scripts
+scripts/
 
-# Environment and secrets (do not commit)
+# Secrets (never commit)
 .env
 .env.local
 .env.*.local
 
-.DS_Store
+# Python envs / cache (subfolders may add .venv)
+**/.venv/

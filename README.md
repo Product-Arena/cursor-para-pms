@@ -1,26 +1,15 @@
-# Cursor para PMs
+# Cursor na prática — Product Arena
 
-Curso presencial de 8 horas para Product Managers na Product Arena.
+Curso presencial (imersivo) para **PMs, Builders e pessoas não desenvolvedoras** — uso do Cursor no **workflow real de produto** (também referido como *Cursor para PMs* em materiais legados).
 
-## Estrutura do Material
+## O que você vai aprender
 
-| Pasta | Conteúdo |
-|-------|----------|
-| **ementa/** | [Syllabus](ementa/syllabus.md), [cronograma](ementa/cronograma.md), [notas de instrutor](ementa/notas-instrutor.md) |
-| **materiais/** | [Pré-setup do curso](materiais/exercicios/00-pre-setup-curso.md), [Aprimorando as configurações](materiais/exercicios/00-setup-curso-ordem-recomendada.md), [Guia Git](materiais/referencia/git-guia-pms.md), [referências MCPs](materiais/mcps-referencias.md) |
+- **Fundamentos do Cursor**: Ask, Plan e Agent e como escolher o modo certo para cada tarefa.
+- **Segurança e controle**: allowlist, boas práticas para evitar ações destrutivas e como trabalhar com o agente com confiança.
+- **Contexto e qualidade**: regras, comandos e rotinas para gerar entregas consistentes sem “reexplicar” o projeto a cada prompt.
+- **Ciclo de produto ponta a ponta**: dados → narrativa → artefatos → PRD → backlog (com integrações via MCP quando fizer sentido).
+- **Prototipação e publicação**: sair de uma ideia para algo que roda localmente e pode ser publicado.
 
-## Início rápido
+## Materiais do curso
 
-1. **Participante:** Antes do curso, siga o [Pré-setup do curso](materiais/exercicios/00-pre-setup-curso.md). Durante o curso, as configurações (allowlist, File-Deletion Protection, avoid file deletion) estão em [Aprimorando as configurações](materiais/exercicios/00-setup-curso-ordem-recomendada.md).
-2. Leia a [ementa](ementa/syllabus.md)
-3. Revise o [cronograma](ementa/cronograma.md)
-4. Se for ministrar: [notas de instrutor](ementa/notas-instrutor.md)
-5. Ao clonar, você recebe um **`.cursor` mínimo** na raiz (exemplos de rules e commands). As stacks completas dos instrutores ficam em [stack/Lucas](stack/Lucas) e [stack/Arthur](stack/Arthur) — copie para sua `.cursor` o que quiser usar.
-
-## Licença
-
-O material é de propriedade intelectual de Lucas Mattos. Ver [LICENSE](LICENSE).
-
-## Fonte
-
-Baseado no [Google Doc (draft)](https://docs.google.com/document/d/1kmFTsjpdKNmJGdUY9gwY1QSvVZ1xvziulj016p-J9Ho).
+Os materiais de aula (slides e guias) estão organizados em pastas deste diretório para facilitar o uso durante o curso e a revisão depois.
