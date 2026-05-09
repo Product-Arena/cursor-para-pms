@@ -1551,7 +1551,7 @@
                     </div>
                     <div class="check-card">
                         <div class="check-icon">🎯</div>
-                        <div class="check-text"><strong>Construir seu protótipo</strong> — da feature priorizada ao localhost; fechar com <strong>Start My Day</strong> no Cursor.</div>
+                        <div class="check-text"><strong>Construir seu protótipo</strong> — do novo fluxo de onboarding ao localhost; fechar com <strong>Start My Day</strong> no Cursor.</div>
                     </div>
                 </div>
             </div>
@@ -2630,7 +2630,7 @@ Use tom executivo, linguagem clara.</pre>
                         <div class="check-text"><strong>Apresentações:</strong> HTML, fontes, gráficos — Cursor + Skills (pptx, tema) para exportar e iterar.</div>
                     </div>
                 </div>
-                <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Tudo que vamos usar na tarde — protótipo da feature e Start My Day</div>
+                <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Tudo que vamos usar na tarde — PRD, tarefas e protótipo do novo onboarding da Arena Cash</div>
             </div>
 
             <!-- 33a: Transição — Pausa para café -->
@@ -2655,9 +2655,9 @@ Use tom executivo, linguagem clara.</pre>
                                 <div class="agenda-block-expanded-section-title">Conteúdo</div>
                                 <ul class="agenda-block-expanded-list">
                                     <li>Repo pessoal (GitHub público) para exercícios</li>
-                                    <li>Criar PRD da feature (<code>/create-prd</code>) — output da análise</li>
-                                    <li>Protótipo funcional da feature — Plan + localhost</li>
-                                    <li>Quebrar histórias — modo Plan</li>
+                                    <li>Criar PRD do novo fluxo de onboarding (<code>/create-prd</code>)</li>
+                                    <li>Quebrar o PRD em épicos e tarefas (Linear)</li>
+                                    <li>Protótipo funcional do onboarding — Plan + localhost</li>
                                     <li>Subir projeto no GitHub pessoal</li>
                                     <li>Start My Day — transformar rotina matinal em fluxo no Cursor</li>
                                 </ul>
@@ -2666,9 +2666,9 @@ Use tom executivo, linguagem clara.</pre>
                                 <div class="agenda-block-expanded-section-title">Exercícios</div>
                                 <ul class="agenda-block-expanded-list">
                                     <li>Repo pessoal — criar GitHub público (⏱ 20 min)</li>
-                                    <li>Criar PRD da feature — <code>/create-prd</code> (⏱ 10 min)</li>
-                                    <li>Protótipo funcional — Plan + localhost (⏱ 25 min)</li>
-                                    <li>Quebrar histórias — modo Plan (⏱ 25 min)</li>
+                                    <li>Criar PRD do onboarding — <code>/create-prd</code> (⏱ 10 min)</li>
+                                    <li>Quebrar PRD em épicos/tarefas (Linear) (⏱ 25 min)</li>
+                                    <li>Protótipo funcional do onboarding — Plan + localhost (⏱ 25 min)</li>
                                     <li>Subir projeto no GitHub (⏱ 15 min)</li>
                                     <li>Start My Day — Plan + roteiro repetível (⏱ 20 min)</li>
                                 </ul>
@@ -2681,12 +2681,12 @@ Use tom executivo, linguagem clara.</pre>
             <!-- 34a3: Exercício — criar PRD (planejamento 3.6.1) -->
             <div class="slide slide-type-exercicio slide--safe-area">
                 <div class="slide-eyebrow">Exercício · Workflow</div>
-                <div class="slide-title">Criar <span class="accent">PRD</span> da nova feature</div>
+                <div class="slide-title">Criar <span class="accent">PRD</span> do novo onboarding</div>
                 <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 10 minutos</div>
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 480px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            <strong>3.6.1 —</strong> A feature é <strong>output da análise anterior</strong>. Exercício: produzir o <strong>PRD</strong> com o command <code>/create-prd</code>, usando o contexto gerado na jornada (dados, narrativa, Notion) e os templates do repositório.
+                            <strong>3.6.1 —</strong> O fluxo de onboarding é <strong>output da análise anterior</strong>. Exercício: produzir o <strong>PRD</strong> do novo onboarding com o command <code>/create-prd</code>, usando o contexto gerado na jornada (dados, narrativa, Notion) e os templates do repositório.
                         </div>
                         <div class="principle-card" style="margin-top: 12px;">
                             <div class="principle-title">1. Reúna o contexto</div>
@@ -2698,7 +2698,7 @@ Use tom executivo, linguagem clara.</pre>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">3. Revise o entregável</div>
-                            <div class="principle-desc">Confira o <code>prd-*.md</code> em <code>documents/</code> antes de seguir para épicos, tarefas e Linear.</div>
+                            <div class="principle-desc">Confira o <code>prd-*.md</code> em <code>documents/</code> antes de seguir para épicos, tarefas e Linear do fluxo de onboarding.</div>
                         </div>
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 16px; flex: 1; min-width: 0;">
@@ -2706,17 +2706,17 @@ Use tom executivo, linguagem clara.</pre>
                             <div class="prompt-label">Fluxo sugerido</div>
                             <pre><span class="syntax-comment"># Entrada típica</span>
 Análise + narrativa (slides / Notion)
-  → define a feature a priorizar
+  → define o novo fluxo onboarding a priorizar
 
 <span class="syntax-comment"># Command</span>
 /create-prd
 
 <span class="syntax-comment"># Saída esperada</span>
-documents/prd-&lt;feature&gt;.md</pre>
+documents/prd-onboarding-arena-cash.md</pre>
                         </div>
                         <div class="callout-protip" style="margin-top: 0;">
                             <span class="callout-protip-icon">💡</span>
-                            <div class="callout-protip-content"><strong>Dica</strong> — Se o comando pedir mais contexto, arraste para o chat os arquivos da análise ou o briefing da feature, conforme o material da edição.</div>
+                            <div class="callout-protip-content"><strong>Dica</strong> — Se o comando pedir mais contexto, arraste para o chat os arquivos da análise ou o briefing do onboarding, conforme o material da edição.</div>
                         </div>
                     </div>
                 </div>
@@ -2730,7 +2730,7 @@ documents/prd-&lt;feature&gt;.md</pre>
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 480px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            Com PRD e design prontos na pasta do seu projeto (ex.: <code>projects/meu-produto/</code>), use o modo <strong>Plan</strong> para criar um protótipo funcional rodando em localhost.
+                            Com PRD e design do onboarding prontos na pasta do seu projeto (ex.: <code>projects/meu-produto/</code>), use o modo <strong>Plan</strong> para criar um protótipo funcional rodando em localhost.
                         </div>
 
                         <div class="principle-card" style="margin-top: 12px;">
@@ -2739,7 +2739,7 @@ documents/prd-&lt;feature&gt;.md</pre>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">2. Envie o prompt</div>
-                            <div class="principle-desc">Peça para criar um protótipo funcional em localhost a partir do PRD e design existentes.</div>
+                            <div class="principle-desc">Peça para criar um protótipo funcional do novo onboarding em localhost a partir do PRD e design existentes.</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">3. Objetivo</div>
@@ -2756,7 +2756,7 @@ documents/prd-&lt;feature&gt;.md</pre>
                         <div class="prompt-label">Exemplo de prompt</div>
                         <pre><span class="syntax-comment"># No modo Plan</span>
 
-Agora que já temos o PRD e design na pasta do projeto, quero criar um protótipo funcional aqui em localhost para visualizar a interface. O objetivo é ter um visual para testar local.</pre>
+Agora que já temos o PRD e design do novo fluxo de onboarding na pasta do projeto, quero criar um protótipo funcional aqui em localhost para visualizar a interface. O objetivo é validar a jornada de ativação ponta a ponta.</pre>
                     </div>
                 </div>
             </div>
@@ -2769,7 +2769,7 @@ Agora que já temos o PRD e design na pasta do projeto, quero criar um protótip
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 480px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            Última etapa: publicar o projeto da sua feature no seu repositório pessoal do GitHub — versionar documentos e código.
+                            Última etapa: publicar o projeto do novo fluxo de onboarding no seu repositório pessoal do GitHub — versionar documentos e código.
                         </div>
 
                         <div class="principle-card" style="margin-top: 12px;">

@@ -14,7 +14,7 @@
 <header class="topbar">
 <div class="topbar-inner">
 <a class="brand" href="#top">
-<img alt="Product Arena" src="assets/logo-pa.svg"/>
+<img alt="Product Arena" src="assets/logo-pa.png"/>
 <span class="brand-sep">/</span>
 <span class="brand-word-long">guia do aluno</span>
 </a>
@@ -153,14 +153,22 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <summary>
 <span class="step-num">5</span>
 <div class="step-title">
-<strong>Material de acompanhamento</strong>
-<span>link enviado pela equipe</span>
+<strong>Workspace modelo “cursor-workspace”</strong>
+<span>estrutura ideal + rules/commands/templates</span>
 </div>
 <span class="step-status required">Obrigatório</span>
 </summary>
 <div class="step-body">
-<p>Garantir o <strong>link do material de acompanhamento</strong> do curso salvo e acessível.</p>
-<p>Se o material for o repositório no seu computador: na pasta <code>guia-do-aluno</code> rode <code>./serve-local.sh</code> e abra no navegador <a href="http://127.0.0.1:8844/">http://127.0.0.1:8844/</a> — porta padrão <strong>8844</strong>, IPv4 (<code>127.0.0.1</code>). Evite abrir o <code>index.html</code> direto pelo disco (<code>file://</code>).</p>
+<p>Agora que o Cursor está instalado, baixe e descompacte o <strong>workspace modelo</strong> do curso. Ele já vem com uma estrutura organizada e uma pasta <strong><code>.cursor</code></strong> com exemplos de <strong>rules</strong>, <strong>commands</strong> e <strong>templates</strong>.</p>
+<div class="reference-copy-actions">
+<a class="btn btn--primary btn--sm" href="assets/cursor-workspace.zip" download>Baixar cursor-workspace.zip</a>
+</div>
+<p><strong>Passos:</strong></p>
+<ol>
+<li>Baixe o zip e <strong>descompacte</strong> até virar uma pasta (ex.: <code>cursor-workspace</code>).</li>
+<li>Abra essa pasta no Cursor (<strong>File → Open Folder…</strong>). Este será o workspace do dia.</li>
+</ol>
+<p class="tip"><strong>Como validar que está certo:</strong> você enxerga a pasta <code>repos/</code> e uma pasta <code>.cursor/</code> na raiz do workspace.</p>
 </div>
 </details>
 </div>
@@ -310,7 +318,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <span class="ex-time">15–20 min</span>
 </summary>
 <div class="ex-body">
-<p class="ex-intro"><strong>Entregável:</strong> pasta do repo no seu disco e workspace aberto no Cursor em <strong>File → Open Folder</strong>.</p>
+<p class="ex-intro"><strong>Entregável:</strong> repositório do curso clonado dentro da pasta <code>repos/</code> do seu workspace (sem precisar “abrir outra pasta” agora).</p>
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 1</span>
@@ -318,34 +326,27 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <h4 class="step-block-title">Copiar o URL do repositório</h4>
 </div>
 <div class="step-block-body">
-<p>No GitHub, abra <code>Product-Arena/cursor-para-pms</code> e copie o URL <strong>HTTPS</strong> do clone (botão verde <strong>Code</strong>).</p>
+<p>No GitHub, abra o repo oficial do curso <a href="https://github.com/Product-Arena/cursor-para-pms" rel="noopener" target="_blank">Product-Arena/cursor-para-pms</a> e copie o URL <strong>HTTPS</strong> do clone (botão verde <strong>Code</strong>).</p>
 </div>
 </div>
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 2</span>
 <span class="step-block-time">10 min</span>
-<h4 class="step-block-title">Clonar na pasta onde você trabalha</h4>
+<h4 class="step-block-title">Clonar com Plan (padrão do curso)</h4>
 </div>
 <div class="step-block-body">
-<p>No terminal integrado do Cursor (ou no app Terminal), entre na pasta desejada (ex.: <code>Documents</code>) e rode:</p>
-<pre class="code-block">git clone https://github.com/Product-Arena/cursor-para-pms.git</pre>
-<p class="tip"><strong>Alternativa (modo Plan):</strong> pedir um plano para clonar o mesmo URL e executar os comandos gerados — como na demo dos slides.</p>
+<p>No chat do Cursor, mude para o modo <strong>Plan</strong> e peça um plano para clonar o repo <strong>dentro da pasta <code>repos/</code></strong> do seu workspace atual.</p>
+<div class="prompt-box">
+<div class="prompt-box-head">Prompt</div>
+<p>Quero clonar o repositório oficial do curso <code>https://github.com/Product-Arena/cursor-para-pms</code> dentro da pasta <code>repos/</code> do meu workspace atual. Monte um plano passo a passo e, quando fizer sentido, gere os comandos para eu executar.</p>
 </div>
-</div>
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 3</span>
-<span class="step-block-time">3 min</span>
-<h4 class="step-block-title">Abrir como workspace</h4>
-</div>
-<div class="step-block-body">
-<p>No Cursor: <strong>File → Open Folder…</strong> → selecione a pasta <code>cursor-para-pms</code> (a pasta clonada, não o <code>.zip</code>).</p>
+<p class="tip"><strong>Alternativa (terminal):</strong> se você já estiver confortável, no terminal integrado rode <code>git clone https://github.com/Product-Arena/cursor-para-pms.git</code> dentro de <code>repos/</code>.</p>
 </div>
 </div>
 <div class="ex-closing">
 <span class="pa-eyebrow pa-eyebrow--red">C R I T É R I O   D E   P R O N T O</span>
-<p>Você vê a árvore de arquivos do curso na sidebar e a raiz do projeto é essa pasta.</p>
+<p>Você vê a pasta <code>repos/cursor-para-pms</code> no explorador de arquivos e consegue navegar pelos materiais do curso sem sair do workspace atual.</p>
 </div>
 </div>
 </details>
@@ -504,8 +505,8 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <header class="block-head">
 <span class="block-pill">B L O C O   0 5</span>
 <h2>Cursor no ciclo de produto</h2>
-<p class="block-quote">Da análise à narrativa e ao planejamento: usar o repositório como “empresa fictícia”, gerar entregáveis e preparar a feature para protótipo.</p>
-<p class="block-obj"><strong>Objetivo:</strong> Contexto da <strong>Arena Cash</strong>, análise de dados, comunicação (slides), workflow <strong>PRD → épicos/tarefas</strong> no Linear. Integrações via <strong>MCP</strong> (Notion e Linear) são detalhadas no <a href="#bloco-6">bloco MCPs</a>.</p>
+<p class="block-quote">Da análise à narrativa e ao planejamento: usar o repositório como “empresa fictícia”, gerar entregáveis e preparar o novo fluxo de onboarding para protótipo.</p>
+<p class="block-obj"><strong>Objetivo:</strong> Contexto da <strong>Arena Cash</strong>, análise de dados, comunicação (slides), workflow <strong>PRD do onboarding → épicos/tarefas</strong> no Linear. Integrações via <strong>MCP</strong> (Notion e Linear) são detalhadas no <a href="#bloco-6">bloco MCPs</a>.</p>
 </header>
 
 <section class="concept">
@@ -559,21 +560,21 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </section>
 
 <section class="concept">
-<h3>5.6 Workflow encadeado — PRD e Linear</h3>
+<h3>5.6 Workflow encadeado — onboarding, PRD e Linear</h3>
 <ul>
 <li><strong>Teoria:</strong> o que é um <strong>fluxo encadeado</strong> / <strong>workflow</strong> no dia a dia de PM com agentes.</li>
 </ul>
-<h4>5.6.1 PRD da nova feature</h4>
-<p>A feature é <strong>output da análise anterior</strong>. Exercício: <strong>criar PRD</strong> para essa feature.</p>
-<h4>5.6.2 Épicos e tarefas a partir da PRD</h4>
-<p>Quebrar a PRD em <strong>épicos</strong> e <strong>tarefas</strong>.</p>
+<h4>5.6.1 PRD do novo fluxo de onboarding</h4>
+<p>O novo onboarding é <strong>output da análise anterior</strong>. Exercício: <strong>criar PRD</strong> para esse fluxo.</p>
+<h4>5.6.2 Épicos e tarefas a partir da PRD do onboarding</h4>
+<p>Quebrar a PRD do onboarding em <strong>épicos</strong> e <strong>tarefas</strong>.</p>
 <h4>5.6.3 Ferramenta de gestão — Linear (com alternativas)</h4>
 <ul>
 <li>Apresentar o <strong>Linear</strong>.</li>
 <li>Deixar claro que poderia ser <strong>Jira</strong> ou <strong>qualquer outro</strong> gestor de tarefas.</li>
 </ul>
 <h4>5.6.4 Criar épicos e tarefas no Linear</h4>
-<p>Criar <strong>épicos e tarefas diretamente no Linear</strong>, usando como contexto os <strong>templates de épico e de tarefas</strong> (do curso / repositório). O <strong>MCP do Linear</strong> é configurado no <a href="#bloco-6">bloco MCPs</a>.</p>
+<p>Criar <strong>épicos e tarefas diretamente no Linear</strong>, usando como contexto os <strong>templates de épico e de tarefas</strong> (do curso / repositório) para o novo fluxo de onboarding. O <strong>MCP do Linear</strong> é configurado no <a href="#bloco-6">bloco MCPs</a>.</p>
 </section>
 </article>
 
@@ -614,7 +615,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <span class="block-pill">B L O C O   0 7</span>
 <h2>Construindo protótipos</h2>
 <p class="block-quote">Da primeira versão funcional em localhost ao repositório público — Git, GitHub Pages e, opcionalmente, Vercel.</p>
-<p class="block-obj"><strong>Objetivo:</strong> Construir o protótipo da feature priorizada, versionar e publicar para demonstração.</p>
+<p class="block-obj"><strong>Objetivo:</strong> Construir o protótipo do novo fluxo de onboarding priorizado, versionar e publicar para demonstração.</p>
 </header>
 
 <section class="concept concept--compact">
@@ -634,12 +635,12 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </summary>
 <div class="ex-body">
 <div class="ex-context">
-<p>Você já tem iniciativa priorizada, narrativa nos slides e caminho no backlog. O problema prático: <strong>mostrar para design e engenharia o que construir</strong> antes de um discovery longo — usando um <strong>protótipo navegável</strong> no Cursor (Agent), em vez de só mock estático.</p>
+<p>Você já tem o onboarding priorizado, narrativa nos slides e caminho no backlog. O problema prático: <strong>mostrar para design e engenharia o que construir</strong> antes de um discovery longo — usando um <strong>protótipo navegável</strong> no Cursor (Agent), em vez de só mock estático.</p>
 <p>Método: estrutura visual (<strong>HTML + CSS</strong>) primeiro, refinando com feedback em português; <strong>JavaScript</strong> por último para interações. Ajustes finos podem ser no editor.</p>
 </div>
 <div class="ex-deliverable">
 <h4>Entregável</h4>
-<p>Pasta <code>06-prototipo/</code> (ou pasta definida no seu projeto do curso) com <code>index.html</code>, <code>style.css</code> e <code>script.js</code>. Objetivo: <strong>3 telas principais</strong> navegáveis alinhadas ao design system da Arena Cash / documentos do workspace.</p>
+<p>Pasta <code>06-prototipo/</code> (ou pasta definida no seu projeto do curso) com <code>index.html</code>, <code>style.css</code> e <code>script.js</code>. Objetivo: <strong>3 telas principais do novo onboarding</strong> navegáveis e alinhadas ao design system da Arena Cash / documentos do workspace.</p>
 </div>
 <div class="step-block">
 <div class="step-block-head">
@@ -651,7 +652,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <p>No workspace do projeto, abra o <strong>Agent</strong>. Referencie os arquivos de briefing e design system do repo (arraste para o chat ou <code>@</code>). Peça uma primeira versão só layout.</p>
 <div class="prompt-box">
 <div class="prompt-box-head">Prompt-base (ajuste nomes de arquivo aos do seu repo)</div>
-<p>Lê <code>[caminho/do/briefing]</code> e <code>[caminho/do/design-system]</code>. Identifique as <strong>3 telas principais</strong> da iniciativa e gere HTML + CSS na pasta <code>06-prototipo/</code> — sem JS ainda. Use tipografia e cores do design system. Depois rode o servidor local indicado pelo projeto e diga qual URL abrir.</p>
+<p>Lê <code>[caminho/do/briefing-onboarding]</code> e <code>[caminho/do/design-system]</code>. Identifique as <strong>3 telas principais do novo onboarding</strong> e gere HTML + CSS na pasta <code>06-prototipo/</code> — sem JS ainda. Use tipografia e cores do design system. Depois rode o servidor local indicado pelo projeto e diga qual URL abrir.</p>
 </div>
 </div>
 </div>
@@ -1118,7 +1119,7 @@ https://docs.databricks.com/aws/en/generative-ai/mcp/connect-external-services</
 <footer class="footer">
 <div class="footer-inner">
 <div class="footer-brand">
-<img alt="Product Arena" src="assets/logo-pa.svg"/>
+<img alt="Product Arena" src="assets/logo-pa.png"/>
 </div>
 <p class="footer-cta">na prática, a teoria é <span class="shout" style="color:var(--pa-red)">BEM</span> diferente.</p>
 <p>Product Arena · Guia do Aluno · Cursor para PMs · Edição 3</p>
