@@ -47,7 +47,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </div>
 <div class="hero-stats-grid">
 <div class="hero-stat"><span class="num">9</span><span class="label">blocos</span></div>
-<div class="hero-stat"><span class="num">13</span><span class="label">exercícios guiados</span></div>
+<div class="hero-stat"><span class="num">14</span><span class="label">exercícios guiados</span></div>
 <div class="hero-stat"><span class="num">6h</span><span class="label">duração</span></div>
 </div>
 </div>
@@ -66,7 +66,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <div class="instructor-content">
 <h3>Lucas Mattos</h3>
 <p class="instructor-role">AI Partner · Hopelabs · Instrutor Product Arena</p>
-<p class="instructor-bio">Mais de uma década em produto — trajetória que começa no empreendedorismo, passa por consultoria no Vale do Silício e inclui liderança de produtos de growth em <strong>Tembici</strong>, <strong>Loft</strong>, <strong>Serena</strong> e <strong>iFood</strong>. Entusiasta e prático em IA e automações.</p>
+<p class="instructor-bio">+10 anos em produto — trajetória que começa no empreendedorismo, passa por consultoria no Vale do Silício e inclui liderança de produtos de growth em <strong>Tembici</strong>, <strong>Loft</strong>, <strong>Serena</strong> e <strong>iFood</strong>. Entusiasta e prático em IA e automações.</p>
 <ul class="instructor-links">
 <li><a href="https://linkedin.com/in/luccmattos" rel="noopener" target="_blank">/in/luccmattos</a> · LinkedIn</li>
 <li><a href="mailto:luccmattos@gmail.com">luccmattos@gmail.com</a></li>
@@ -492,12 +492,12 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </section>
 
 <section class="concept">
-<h3>Comunicação: slides e apresentações</h3>
-<p>Transformar a análise em narrativa para stakeholders. Duas abordagens: (1) versão rápida sem templates, focada no conteúdo; (2) versão com design consistente usando Skill e template HTML (nesta edição, o template <strong>Coral</strong>).</p>
+<h3>Comunicação: slides, Notion e apresentações</h3>
+<p>Transformar a análise em narrativa para stakeholders. Em sequência: (1) <strong>slides v1</strong> — rápidos, foco no conteúdo; (2) <strong>slides v2</strong> — Skill + template HTML <strong>Coral</strong>; (3) <strong>one-page no Notion</strong> — mesmo recorte em formato executivo (TLDR, contexto, insights, oportunidades, próximos passos), publicado pelo <strong>MCP do Notion</strong>, como no roteiro da edição (Notion após slides, antes do PRD).</p>
 </section>
 
 <section class="exercises">
-<p class="ex-zone-intro"><strong>Ordem sugerida:</strong> agente (05) → análise (06) → dashboard (07) → <strong>PRD com <code>/create-prd</code></strong> (08) → slides (09 e 10) → protótipo e deploy (11 a 13).</p>
+<p class="ex-zone-intro"><strong>Ordem sugerida:</strong> agente (05) → análise (06) → dashboard (07) → slides (08 e 09) → <strong>one-page no Notion via MCP</strong> (10) → <strong>PRD com <code>/create-prd</code></strong> (11) → protótipo e deploy (12 a 14). Alinha ao roteiro instrutor: narrativa em slides, síntese executiva no Notion (seção 3.5), depois formalização em PRD (seção 3.6).</p>
 <h3>Exercícios</h3>
 
 <details class="exercise" id="ex-05-agente-arena-cash">
@@ -670,9 +670,154 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </div>
 </details>
 
-<details class="exercise" id="ex-08-prd-onboarding">
+<details class="exercise" id="ex-08-slides-rapidos">
 <summary>
 <span class="ex-num">08</span>
+<span class="ex-title">Slides v1 — narrativa rápida (sem skill/template)</span>
+<span class="ex-time">15 min</span>
+</summary>
+<div class="ex-body">
+<div class="ex-deliverable">
+<h4>Entregável</h4>
+<p>Uma primeira versão com <strong>6 slides</strong>: Capa, Agenda, Contexto, Resultado da análise, Próximos passos, Agradecimento.</p>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Pedir a estrutura e o texto</h4>
+</div>
+<div class="step-block-body">
+<p>No chat, use <strong>Ask</strong> (ou Agent se você quiser que ele gere arquivo). Dê contexto da análise (arquivo, pasta ou resumo).</p>
+<div class="prompt-box">
+<div class="prompt-box-head">Prompt</div>
+<p>Com base nesta análise e contexto, escreva o conteúdo de uma apresentação com 6 slides: Capa, Agenda, Contexto, Resultado da análise, Próximos passos e Agradecimento. Use linguagem simples, com bullets curtos e uma mensagem principal por slide.</p>
+</div>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">10 min</span>
+<h4 class="step-block-title">Gerar o arquivo de slides (simples)</h4>
+</div>
+<div class="step-block-body">
+<p>Peça ao agente para gerar o arquivo no formato usado na aula (ex.: PPTX). O foco aqui é a narrativa; visual "ok" é suficiente.</p>
+</div>
+</div>
+</div>
+</details>
+
+<details class="exercise" id="ex-09-slides-skill-template-coral">
+<summary>
+<span class="ex-num">09</span>
+<span class="ex-title">Slides v2 — com Skill + template Coral (HTML)</span>
+<span class="ex-time">20 min</span>
+</summary>
+<div class="ex-body">
+<div class="ex-context">
+<p>Agora o foco é <strong>coesão visual</strong> e um deck "apresentável" com menos esforço. Você vai usar uma <strong>Skill</strong> e partir de um template pronto.</p>
+</div>
+<div class="ex-deliverable">
+<h4>Entregável</h4>
+<p>Uma segunda versão dos slides com visual consistente, baseada no template <strong>Coral</strong> da biblioteca <a href="https://github.com/zarazhangrui/beautiful-html-templates" rel="noopener" target="_blank">beautiful-html-templates</a>.</p>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Escolher o template Coral</h4>
+</div>
+<div class="step-block-body">
+<p>Abra a biblioteca e selecione a opção <strong>Coral</strong> (o instrutor mostra na tela como localizar o template e copiar a estrutura).</p>
+<p class="tip"><strong>Referência:</strong> repositório em <code>github.com/zarazhangrui/beautiful-html-templates</code> (template Coral).</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">15 min</span>
+<h4 class="step-block-title">Refazer usando Skill + template</h4>
+</div>
+<div class="step-block-body">
+<p>No Cursor, peça ao agente para aplicar o template Coral e refazer o conteúdo dos 6 slides. Use a Skill definida na aula para orientar estilo, consistência e qualidade.</p>
+<div class="prompt-box">
+<div class="prompt-box-head">Prompt</div>
+<p>Recrie minha apresentação (6 slides) usando uma Skill de design e o template HTML <strong>Coral</strong> do repositório <code>beautiful-html-templates</code>. Mantenha a mesma narrativa, mas deixe o layout e tipografia mais consistentes. Gere os arquivos finais (HTML/CSS/JS se necessário) em uma pasta <code>slides/</code>.</p>
+</div>
+<p class="tip"><strong>Alternativa:</strong> se preferir, peça primeiro para o agente listar 2–3 templates e justificar por que o Coral foi escolhido; depois aplique o Coral.</p>
+</div>
+</div>
+</div>
+</details>
+
+<details class="exercise" id="ex-10-notion-one-page-analysis">
+<summary>
+<span class="ex-num">10</span>
+<span class="ex-title">One-page no Notion — síntese para liderança (MCP)</span>
+<span class="ex-time">15 min</span>
+</summary>
+<div class="ex-body">
+<div class="ex-context">
+<p>Assim como os <a href="#ex-08-slides-rapidos">slides</a> contam a história em apresentação, muitas lideranças também querem um <strong>documento único escaneável</strong> — no caso Arena Cash, no mesmo espírito do que C-level espera em síntese (TLDR, contexto, achados, riscos/oportunidades, próximos passos). Você extrai o que importa da <a href="#ex-06-analise-arenacash">análise</a>, estrutura em Markdown e <strong>publica no Notion pelo MCP</strong>, fechando teoria → prática do roteiro instrutor (Markdown + MCP, após os slides e antes do PRD).</p>
+</div>
+<div class="ex-deliverable">
+<h4>Entregável</h4>
+<p>Uma <strong>página no Notion</strong> (criada ou atualizada pelo agente via <strong>MCP do Notion</strong>) com o one-page da análise, em Markdown legível, sem depender de copiar/colar manual entre apps.</p>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Conectar o MCP e a página no Notion</h4>
+</div>
+<div class="step-block-body">
+<p>No Cursor: <strong>Settings</strong> → <code>@cursor/marketplace</code> → instalar/habilitar <strong>Notion</strong> e conectar a conta (o mesmo fluxo descrito no <a href="#bloco-6">Bloco 6</a>). No Notion, abra a página ou espaço onde a integração pode criar filhos; em <strong>⋯ → Connections</strong>, permita a integração do MCP.</p>
+<p class="tip">Teste rápido no chat: <em>“Liste páginas ou databases que consigo acessar via Notion MCP.”</em></p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">8 min</span>
+<h4 class="step-block-title">Gerar o one-page e publicar via MCP</h4>
+</div>
+<div class="step-block-body">
+<p>No <strong>Agent</strong>, anexe <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code> (e, se útil, o dashboard em <code>repos/cursor-para-pms/dashboard-arenacash/</code>). Peça para montar um <strong>único documento</strong> com estes blocos (nessa ordem), em linguagem executiva:</p>
+<ol>
+<li><strong>TLDR</strong> — uma frase: conclusão principal + recomendação ou decisão implícita.</li>
+<li><strong>Contexto</strong> — por que a análise existe, período ou recorte, fontes de dados.</li>
+<li><strong>Insights e problemas</strong> — 3 a 5 achados com evidência numérica; inclua lacunas, riscos ou limitações quando couber.</li>
+<li><strong>Oportunidades</strong> — tabela ou lista (oportunidade | impacto estimado | esforço).</li>
+<li><strong>Próximos passos</strong> — checklist curto e acionável.</li>
+</ol>
+<p>Instrua explicitamente: <strong>criar ou atualizar a página no Notion usando as ferramentas do MCP do Notion</strong> (não só devolver o texto no chat).</p>
+<div class="prompt-box">
+<div class="prompt-box-head">Prompt-base</div>
+<p>A partir de <code>repos/cursor-para-pms/docs/analise-arenacash-q1.md</code>, escreva um one-page em Markdown com: TLDR (1 frase), Contexto, Insights e problemas (com números), Oportunidades (impacto/esforço), Próximos passos (checklist). Linguagem para diretoria. Depois publique como página filha [indique o pai no Notion conforme sua workspace] usando o MCP do Notion.</p>
+</div>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Validar no Notion</h4>
+</div>
+<div class="step-block-body">
+<p>Abra o Notion no navegador: títulos e listas renderizam bem? Os números batem com o <code>.md</code> da análise? Ajuste com uma mensagem curta ao agente se algo estiver genérico ou desalinhado aos CSVs.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">C R I T É R I O   D E   P R O N T O</span>
+<p>Página visível no Notion com os cinco blocos; conteúdo sustentado pela análise; publicação feita via MCP (você consegue explicar qual ferramenta MCP usou).</p>
+</div>
+</div>
+</details>
+
+<details class="exercise" id="ex-11-prd-onboarding">
+<summary>
+<span class="ex-num">11</span>
 <span class="ex-title">PRD do novo onboarding — comando <code>/create-prd</code></span>
 <span class="ex-time">20 min</span>
 </summary>
@@ -682,7 +827,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </div>
 <div class="ex-deliverable">
 <h4>Entregável</h4>
-<p>Um arquivo Markdown de <strong>PRD estruturado</strong> gerado pelo fluxo do <code>/create-prd</code> (caminho exato depende do template do workspace — em geral algo como <code>documents/prd-*.md</code> na raiz do workspace). O conteúdo deve cobrir o <strong>novo fluxo de onboarding</strong> da Arena Cash, alinhado ao case e à <a href="#ex-06-analise-arenacash">análise em <code>docs/analise-arenacash-q1.md</code></a> quando fizer sentido.</p>
+<p>Um arquivo Markdown de <strong>PRD estruturado</strong> gerado pelo fluxo do <code>/create-prd</code> (caminho exato depende do template do workspace — em geral algo como <code>documents/prd-*.md</code> na raiz do workspace). O conteúdo deve cobrir o <strong>novo fluxo de onboarding</strong> da Arena Cash, alinhado ao case, à <a href="#ex-06-analise-arenacash">análise em <code>docs/analise-arenacash-q1.md</code></a> e, se você fez o <a href="#ex-10-notion-one-page-analysis">Exercício 10</a>, à mesma narrativa do one-page.</p>
 </div>
 <div class="step-block">
 <div class="step-block-head">
@@ -725,92 +870,11 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </div>
 </div>
 </details>
-
-<details class="exercise" id="ex-09-slides-rapidos">
-<summary>
-<span class="ex-num">09</span>
-<span class="ex-title">Slides v1 — narrativa rápida (sem skill/template)</span>
-<span class="ex-time">15 min</span>
-</summary>
-<div class="ex-body">
-<div class="ex-deliverable">
-<h4>Entregável</h4>
-<p>Uma primeira versão com <strong>6 slides</strong>: Capa, Agenda, Contexto, Resultado da análise, Próximos passos, Agradecimento.</p>
-</div>
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 1</span>
-<span class="step-block-time">5 min</span>
-<h4 class="step-block-title">Pedir a estrutura e o texto</h4>
-</div>
-<div class="step-block-body">
-<p>No chat, use <strong>Ask</strong> (ou Agent se você quiser que ele gere arquivo). Dê contexto da análise (arquivo, pasta ou resumo).</p>
-<div class="prompt-box">
-<div class="prompt-box-head">Prompt</div>
-<p>Com base nesta análise e contexto, escreva o conteúdo de uma apresentação com 6 slides: Capa, Agenda, Contexto, Resultado da análise, Próximos passos e Agradecimento. Use linguagem simples, com bullets curtos e uma mensagem principal por slide.</p>
-</div>
-</div>
-</div>
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 2</span>
-<span class="step-block-time">10 min</span>
-<h4 class="step-block-title">Gerar o arquivo de slides (simples)</h4>
-</div>
-<div class="step-block-body">
-<p>Peça ao agente para gerar o arquivo no formato usado na aula (ex.: PPTX). O foco aqui é a narrativa; visual "ok" é suficiente.</p>
-</div>
-</div>
-</div>
-</details>
-
-<details class="exercise" id="ex-10-slides-skill-template-coral">
-<summary>
-<span class="ex-num">10</span>
-<span class="ex-title">Slides v2 — com Skill + template Coral (HTML)</span>
-<span class="ex-time">20 min</span>
-</summary>
-<div class="ex-body">
-<div class="ex-context">
-<p>Agora o foco é <strong>coesão visual</strong> e um deck "apresentável" com menos esforço. Você vai usar uma <strong>Skill</strong> e partir de um template pronto.</p>
-</div>
-<div class="ex-deliverable">
-<h4>Entregável</h4>
-<p>Uma segunda versão dos slides com visual consistente, baseada no template <strong>Coral</strong> da biblioteca <a href="https://github.com/zarazhangrui/beautiful-html-templates" rel="noopener" target="_blank">beautiful-html-templates</a>.</p>
-</div>
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 1</span>
-<span class="step-block-time">5 min</span>
-<h4 class="step-block-title">Escolher o template Coral</h4>
-</div>
-<div class="step-block-body">
-<p>Abra a biblioteca e selecione a opção <strong>Coral</strong> (o instrutor mostra na tela como localizar o template e copiar a estrutura).</p>
-<p class="tip"><strong>Referência:</strong> repositório em <code>github.com/zarazhangrui/beautiful-html-templates</code> (template Coral).</p>
-</div>
-</div>
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 2</span>
-<span class="step-block-time">15 min</span>
-<h4 class="step-block-title">Refazer usando Skill + template</h4>
-</div>
-<div class="step-block-body">
-<p>No Cursor, peça ao agente para aplicar o template Coral e refazer o conteúdo dos 6 slides. Use a Skill definida na aula para orientar estilo, consistência e qualidade.</p>
-<div class="prompt-box">
-<div class="prompt-box-head">Prompt</div>
-<p>Recrie minha apresentação (6 slides) usando uma Skill de design e o template HTML <strong>Coral</strong> do repositório <code>beautiful-html-templates</code>. Mantenha a mesma narrativa, mas deixe o layout e tipografia mais consistentes. Gere os arquivos finais (HTML/CSS/JS se necessário) em uma pasta <code>slides/</code>.</p>
-</div>
-<p class="tip"><strong>Alternativa:</strong> se preferir, peça primeiro para o agente listar 2–3 templates e justificar por que o Coral foi escolhido; depois aplique o Coral.</p>
-</div>
-</div>
-</div>
-</details>
 </section>
 
 <section class="concept">
 <h3>Documentação e planejamento</h3>
-<p>Após análise, dashboard e alinhamento em sala, você formaliza o escopo em um <strong>PRD</strong>. No workspace do curso, use o comando <code>/create-prd</code> (ver <a href="#ex-08-prd-onboarding">Exercício 08</a>) para gerar o documento estruturado a partir do template. Depois, esse escopo vira épicos e tarefas no Linear via MCP (detalhado no <a href="#bloco-6">próximo bloco</a>).</p>
+<p>Depois de análise, dashboard, <a href="#ex-08-slides-rapidos">slides</a> e <a href="#ex-10-notion-one-page-analysis">one-page no Notion</a>, você formaliza o escopo em um <strong>PRD</strong>. No workspace do curso, use <code>/create-prd</code> (ver <a href="#ex-11-prd-onboarding">Exercício 11</a>). Em seguida, esse escopo vira épicos e tarefas no Linear via MCP (detalhado no <a href="#bloco-6">próximo bloco</a>).</p>
 </section>
 </article>
 
@@ -863,9 +927,9 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <p class="ex-zone-intro"><strong>Na aula:</strong> você acompanha o instrutor. <strong>Aqui:</strong> passos, pasta de entrega e prompts — sem duplicar a narrativa dos slides.</p>
 <h3>Exercícios</h3>
 
-<details class="exercise" id="ex-11-prototipo">
+<details class="exercise" id="ex-12-prototipo">
 <summary>
-<span class="ex-num">11</span>
+<span class="ex-num">12</span>
 <span class="ex-title">Gerar o protótipo: HTML/CSS primeiro, JS depois</span>
 <span class="ex-time">30 min</span>
 </summary>
@@ -920,9 +984,9 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </div>
 </details>
 
-<details class="exercise" id="ex-12-git-push">
+<details class="exercise" id="ex-13-git-push">
 <summary>
-<span class="ex-num">12</span>
+<span class="ex-num">13</span>
 <span class="ex-title">Commit e push (publicar mudanças)</span>
 <span class="ex-time">15 min</span>
 </summary>
@@ -952,9 +1016,9 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </div>
 </details>
 
-<details class="exercise" id="ex-13-github-pages">
+<details class="exercise" id="ex-14-github-pages">
 <summary>
-<span class="ex-num">13</span>
+<span class="ex-num">14</span>
 <span class="ex-title">GitHub Pages (e Vercel só como referência)</span>
 <span class="ex-time">10 min</span>
 </summary>
