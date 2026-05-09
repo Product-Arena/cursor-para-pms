@@ -160,6 +160,7 @@
         /* Slide de capa: conteúdo centralizado verticalmente (exceção ao flex-start padrão) */
         .slide-type-capa {
             justify-content: center;
+            background: #ffffff;
         }
 
         /* Slide de apresentação dos instrutores: mais espaço entre eyebrow e conteúdo */
@@ -2114,16 +2115,12 @@ Respond in the chat (do not create files) for:
                         <div class="check-text"><strong>Ask & Contexto:</strong> Conversar com arquivos e pastas</div>
                     </div>
                     <div class="check-card">
-                        <div class="check-icon">🧠</div>
-                        <div class="check-text"><strong>Plan Mode:</strong> Raciocínio antes da execução (Git)</div>
-                    </div>
-                    <div class="check-card">
                         <div class="check-icon">⚡</div>
                         <div class="check-text"><strong>Agent Mode:</strong> A IA agindo no seu ambiente</div>
                     </div>
                     <div class="check-card">
                         <div class="check-icon">🛡️</div>
-                        <div class="check-text"><strong>Segurança:</strong> Allowlist e controle do que roda</div>
+                        <div class="check-text"><strong>Segurança:</strong> Allowlist + desabilitar deleção de arquivos</div>
                     </div>
                     <div class="check-card">
                         <div class="check-icon">📋</div>
@@ -2133,15 +2130,19 @@ Respond in the chat (do not create files) for:
                         <div class="check-icon">⌨️</div>
                         <div class="check-text"><strong>Commands:</strong> Macros em linguagem natural (ex.: /create-prd)</div>
                     </div>
+                    <div class="check-card">
+                        <div class="check-icon">🧩</div>
+                        <div class="check-text"><strong>Skills:</strong> Pacotes de capacidade — output consistente de primeira (ex.: pptx, design)</div>
+                    </div>
                 </div>
 
-                <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Espaço para dúvidas antes de seguirmos para o ciclo de produto</div>
+                <div class="slide-subtitle" style="margin-top: 40px; font-size: 1.1rem; opacity: 0.8;">Alguma dúvida antes de colocar tudo isso em prática?</div>
             </div>
 
-            <!-- 25: Ciclo de produto (meio do dia) -->
+            <!-- 25: Bloco 3 (ciclo de produto) -->
             <div class="slide slide-block-overview">
                 <div class="slide-eyebrow">Meio do dia — 14:00–15:30</div>
-                <div class="slide-title">Cursor no <span class="accent">ciclo de produto</span></div>
+                <div class="slide-title">Bloco 3 — Cursor no <span class="accent">ciclo de produto</span></div>
                 <div class="agenda-blocks" style="margin-top: 24px; max-width: 720px;">
                     <div class="agenda-block agenda-block--expanded">
                         <div class="agenda-block-header-row">
@@ -2152,19 +2153,22 @@ Respond in the chat (do not create files) for:
                             <div class="agenda-block-expanded-section">
                                 <div class="agenda-block-expanded-section-title">Conteúdo</div>
                                 <ul class="agenda-block-expanded-list">
-                                    <li>Workspace organizado (modelo workspace-cursor)</li>
-                                    <li>Entendimento do problema / PRD (Markdown, templates, Rules)</li>
-                                    <li>Analisando dados — exercício funil de cursos (Arena)</li>
-                                    <li>Design system para UI gerada — Arena + <a href="https://getdesign.md" target="_blank" rel="noopener" style="color: var(--accent);">getdesign.md</a></li>
-                                    <li>MCPs — o que são; exemplo prático com <strong>Notion</strong> (one-page para lideranças)</li>
-                                    <li>Criando apresentações (HTML, design system, eat your own dog food)</li>
+                                    <li>Agente PM — Arena Cash</li>
+                                    <li>Análise de dados — demo (instrutor) + exercício com arquivo de exemplo</li>
+                                    <li>Visualização em HTML seguindo o design system da marca</li>
+                                    <li>Como lideranças gostam de receber análises (agente PM)</li>
+                                    <li>Slides — primeira versão (PPTX, 6 slides)</li>
+                                    <li>Slides — segunda versão com Skill</li>
+                                    <li>Notion — documento da análise via MCP</li>
                                 </ul>
                             </div>
                             <div class="agenda-block-expanded-section">
                                 <div class="agenda-block-expanded-section-title">Exercícios</div>
                                 <ul class="agenda-block-expanded-list">
-                                    <li>Análise de métricas — <code>16-analise-metricas-arena.md</code></li>
-                                    <li>MCP Notion — <code>17-mcp-notion-one-page.md</code></li>
+                                    <li>Análise de dados (arquivo de exemplo do repo)</li>
+                                    <li>Visualização HTML + design system</li>
+                                    <li>Apresentação PPTX — 6 slides</li>
+                                    <li>Notion + MCP — publicar one-page da análise</li>
                                 </ul>
                             </div>
                         </div>
@@ -2316,36 +2320,178 @@ Respond in the chat (do not create files) for:
                 </div>
             </div>
 
-            <!-- Placeholder: exercício análise de dados -->
+            <!-- Exercício: análise de dados -->
             <div class="slide slide-type-exercicio slide--safe-area">
-                <div class="slide-eyebrow">Exercício · Dados</div>
-                <div class="slide-title">Análise de dados <span class="accent">(placeholder)</span></div>
-                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ A definir</div>
-                <div class="slide-subtitle" style="margin-top: 24px; max-width: 640px;">Prompt, dataset e entregável — alinhar na edição (<code>16-analise-metricas-arena.md</code>).</div>
+                <div class="slide-eyebrow">Exercício · Bloco 3</div>
+                <div class="slide-title">Análise de dados — <span class="accent">Arena Cash</span></div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 25 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 460px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            Com o dataset do repositório e o contexto da Arena Cash carregado, responda a uma pergunta de negócio real — e entregue um insight acionável.
+                        </div>
+                        <div class="principle-card" style="margin-top: 12px;">
+                            <div class="principle-title">1. Carregar contexto</div>
+                            <div class="principle-desc">Anexe os documentos da empresa (kit do repo). Peça ao agente PM para resumir o negócio em 3 bullets antes de começar a análise.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Analisar o dataset</div>
+                            <div class="principle-desc">Abra o arquivo de dados do repo. Siga a pergunta de negócio do roteiro (<code>exercicios/analise-dados.md</code>) e documente os achados.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Narrativa para liderança</div>
+                            <div class="principle-desc">Peça ao agente PM para formatar os achados como uma diretoria gosta de receber: decisão pedida, evidência, risco e próximo passo.</div>
+                        </div>
+                    </div>
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Prompt sugerido</div>
+                        <pre><span class="syntax-comment"># Análise de dados — Arena Cash</span>
+
+Você é PM da Arena Cash. Com base no arquivo
+[dataset do repo] e nos documentos de contexto:
+
+1. Qual é a principal oportunidade ou problema
+   que os dados revelam?
+2. Qual métrica está mais fora do esperado
+   e por quê?
+3. Qual recomendação você daria à liderança
+   com base nesses números?
+
+Responda de forma objetiva. Salve os achados em
+<span class="syntax-string">analises/insights-arena-cash.md</span>.</pre>
+                    </div>
+                </div>
             </div>
 
-            <!-- Placeholder: exercício dashboard -->
+            <!-- Exercício: visualização HTML -->
             <div class="slide slide-type-exercicio slide--safe-area">
-                <div class="slide-eyebrow">Exercício · Visualização</div>
-                <div class="slide-title">Criação do dashboard <span class="accent">(placeholder)</span></div>
-                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ A definir</div>
-                <div class="slide-subtitle" style="margin-top: 24px; max-width: 640px;">HTML, gráficos e design system — roteiro a confirmar antes da aula.</div>
+                <div class="slide-eyebrow">Exercício · Bloco 3</div>
+                <div class="slide-title">Visualização em <span class="accent">HTML</span> + design system</div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 20 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 460px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            Transforme os insights da análise em uma página HTML com gráficos, seguindo o design system da Arena Cash — pronta para mostrar a um stakeholder.
+                        </div>
+                        <div class="principle-card" style="margin-top: 12px;">
+                            <div class="principle-title">1. Gerar a visualização</div>
+                            <div class="principle-desc">Peça ao agente para criar um arquivo <code>analises/dashboard.html</code> com os principais números em cards e gráficos simples.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Aplicar o design system</div>
+                            <div class="principle-desc">Referencie o arquivo <code>design-system.md</code> do repo. Peça que cores, fontes e estilo sigam o padrão da marca.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Abrir no navegador</div>
+                            <div class="principle-desc">Use "Open in browser" ou <code>python3 -m http.server</code> para visualizar e validar antes de avançar.</div>
+                        </div>
+                    </div>
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Prompt sugerido</div>
+                        <pre><span class="syntax-comment"># Dashboard HTML — insights da análise</span>
+
+Com base nos achados em <span class="syntax-string">analises/insights-arena-cash.md</span>
+e no design system em <span class="syntax-string">design-system.md</span>:
+
+Crie <span class="syntax-string">analises/dashboard.html</span> com:
+- Cards com as 3 métricas principais
+- Um gráfico de barras (dados do dataset)
+- Seção de recomendação com destaque visual
+
+Use as cores, fontes e estilo do design system.
+Sem frameworks externos — HTML + CSS inline.</pre>
+                    </div>
+                </div>
             </div>
 
-            <!-- Placeholder: exercício criar slides -->
+            <!-- Exercício: slides PPTX -->
             <div class="slide slide-type-exercicio slide--safe-area">
-                <div class="slide-eyebrow">Exercício · Apresentações</div>
-                <div class="slide-title">Criar slides <span class="accent">(placeholder)</span></div>
-                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ A definir</div>
-                <div class="slide-subtitle" style="margin-top: 24px; max-width: 640px;">Estrutura base e narrativa — detalhes no material da edição.</div>
+                <div class="slide-eyebrow">Exercício · Bloco 3</div>
+                <div class="slide-title">Criar apresentação <span class="accent">PPTX</span></div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 15 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 460px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            Monte uma apresentação de 6 slides a partir da análise — do contexto até o próximo passo — usando a skill de PPTX.
+                        </div>
+                        <div class="principle-card" style="margin-top: 12px;">
+                            <div class="principle-title">Estrutura dos 6 slides</div>
+                            <div class="principle-desc">
+                                <strong>1.</strong> Capa &nbsp;·&nbsp; <strong>2.</strong> Agenda<br>
+                                <strong>3.</strong> Contexto &nbsp;·&nbsp; <strong>4.</strong> Resultado da análise<br>
+                                <strong>5.</strong> Próximos passos &nbsp;·&nbsp; <strong>6.</strong> Agradecimento
+                            </div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">Como gerar</div>
+                            <div class="principle-desc">Use o prompt abaixo com os insights em mãos. O agente usa a skill de PPTX para estruturar e exportar o arquivo.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 12px;">
+                            <span class="callout-protip-icon">📌</span>
+                            <div class="callout-protip-content">Salvar em <code>documents/apresentacao-arena-cash.pptx</code></div>
+                        </div>
+                    </div>
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Prompt sugerido</div>
+                        <pre><span class="syntax-comment"># Apresentação PPTX — análise de produto</span>
+
+Com base nos insights em
+<span class="syntax-string">analises/insights-arena-cash.md</span>
+e no design system em <span class="syntax-string">design-system.md</span>:
+
+Crie uma apresentação PPTX com 6 slides:
+1. Capa (nome da análise + data)
+2. Agenda
+3. Contexto do negócio
+4. Resultado da análise (métricas + gráfico)
+5. Próximos passos recomendados
+6. Agradecimento
+
+Tom executivo. Uma mensagem por slide.
+Salvar em <span class="syntax-string">documents/apresentacao-arena-cash.pptx</span>.</pre>
+                    </div>
+                </div>
             </div>
 
-            <!-- Placeholder: exercício slides com skill -->
+            <!-- Exercício: slides com Skill -->
             <div class="slide slide-type-exercicio slide--safe-area">
-                <div class="slide-eyebrow">Exercício · Skills</div>
-                <div class="slide-title">Slides com skill <span class="accent">(placeholder)</span></div>
-                <div class="slide-subtitle" style="margin-top: 8px; margin-bottom: 0;">⏱ A definir</div>
-                <div class="slide-subtitle" style="margin-top: 24px; max-width: 640px;">Exportação / tema (pptx, Marp, etc.) — a definir com o kit de skills.</div>
+                <div class="slide-eyebrow">Exercício · Bloco 3</div>
+                <div class="slide-title">Slides com <span class="accent">Skill</span> — segunda versão</div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 10 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 460px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            Refaça os slides usando a Skill de apresentação do workspace — padronização visual automática sem reescrever o conteúdo.
+                        </div>
+                        <div class="principle-card" style="margin-top: 12px;">
+                            <div class="principle-title">Como funciona</div>
+                            <div class="principle-desc">A Skill lê o PPTX existente e aplica tema, hierarquia visual, fontes e cores — entregando uma segunda versão mais polida.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">O que comparar</div>
+                            <div class="principle-desc">Abra as duas versões lado a lado: consistência visual, hierarquia por slide, legibilidade. A diferença mostra o valor da Skill.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 12px;">
+                            <span class="callout-protip-icon">💡</span>
+                            <div class="callout-protip-content">Skill está em <code>.cursor/skills/pptx/SKILL.md</code> — o agente a lê automaticamente quando você pede para "melhorar os slides".</div>
+                        </div>
+                    </div>
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Prompt sugerido</div>
+                        <pre><span class="syntax-comment"># Slides — segunda versão com Skill</span>
+
+Leia a Skill de apresentação em
+<span class="syntax-string">.cursor/skills/pptx/SKILL.md</span>
+e aplique ao arquivo
+<span class="syntax-string">documents/apresentacao-arena-cash.pptx</span>:
+
+- Padronize cores e tipografia pelo design system
+- Garanta hierarquia clara em cada slide
+  (título → dado → conclusão)
+- Ajuste espaçamento e alinhamento
+- Salve como <span class="syntax-string">apresentacao-arena-cash-v2.pptx</span></pre>
+                    </div>
+                </div>
             </div>
 
             <!-- 27: O que é MCP -->
@@ -2366,6 +2512,46 @@ Respond in the chat (do not create files) for:
                     </div>
                     <div class="image-placeholder" style="background: transparent; border: none; box-shadow: none;">
                         <img src="assets/mcp-directory.png" alt="Diretório MCP no Cursor mostrando lista de servidores disponíveis" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Setup: Conectar MCP do Notion -->
+            <div class="slide slide-type-parenteses slide--safe-area">
+                <div class="slide-eyebrow">Setup · MCP</div>
+                <div class="slide-title">Conectar o MCP do <span class="accent">Notion</span></div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 5 minutos</div>
+                <div class="slide-split" style="align-items: flex-start; margin-top: 24px;">
+                    <div class="slide-split-left" style="max-width: 480px;">
+                        <div class="principle-card">
+                            <div class="principle-title">1. Criar integração no Notion</div>
+                            <div class="principle-desc">Acesse <a href="https://www.notion.so/my-integrations" target="_blank" rel="noopener" style="color: var(--accent);">notion.so/my-integrations</a> → <strong>New integration</strong> → dê um nome → copie o <strong>Internal Integration Secret</strong>.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Adicionar ao Cursor</div>
+                            <div class="principle-desc">Abra <code>Settings → MCP</code> no Cursor e clique em <strong>+ Add server</strong>. Cole o servidor abaixo e substitua <code>SEU_TOKEN</code> pelo secret copiado.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Testar a conexão</div>
+                            <div class="principle-desc">Compartilhe uma página do Notion com a integração (<strong>Connections → sua integração</strong>). No Agent, peça: <em>"Liste as páginas que tenho acesso via MCP do Notion."</em></div>
+                        </div>
+                    </div>
+                    <div class="prompt-container" style="flex: 1; align-self: flex-start;">
+                        <div class="prompt-label">mcp.json — servidor Notion</div>
+                        <pre><span class="syntax-comment">{</span>
+  <span class="syntax-string">"mcpServers"</span>: {
+    <span class="syntax-string">"notion"</span>: {
+      <span class="syntax-string">"command"</span>: <span class="syntax-string">"npx"</span>,
+      <span class="syntax-string">"args"</span>: [
+        <span class="syntax-string">"-y"</span>,
+        <span class="syntax-string">"@notionhq/notion-mcp-server"</span>
+      ],
+      <span class="syntax-string">"env"</span>: {
+        <span class="syntax-string">"OPENAPI_MCP_HEADERS"</span>: <span class="syntax-string">"{\"Authorization\": \"Bearer SEU_TOKEN\", \"Notion-Version\": \"2022-06-28\"}"</span>
+      }
+    }
+  }
+<span class="syntax-comment">}</span></pre>
                     </div>
                 </div>
             </div>
@@ -2712,21 +2898,14 @@ acionável para hoje — sem texto genérico, adaptado ao meu cenário.</pre>
 
             <!-- 36: Obrigado -->
             <div class="slide slide-type-capa">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 64px; flex-wrap: wrap; max-width: 900px; margin: 0 auto;">
-                    <div style="text-align: center;">
-                        <img src="assets/logo-product-arena.png" alt="Product Arena" style="max-width: 280px; margin-bottom: 32px; height: auto;">
-                        <div class="slide-title"><span class="accent">Obrigado</span></div>
-                        <div class="slide-subtitle" style="margin-top: 24px;">
-                            <a href="https://linkedin.com/in/luccmattos/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">linkedin.com/in/luccmattos</a>
-                        </div>
-                        <div class="slide-subtitle" style="margin-top: 8px;">
-                            <a href="https://linkedin.com/in/arthurcastroaraujo/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">linkedin.com/in/arthurcastroaraujo</a>
-                        </div>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; text-align: center;">
+                    <img src="assets/logo-product-arena.png" alt="Product Arena" style="max-width: 260px; height: auto;">
+                    <div class="slide-title"><span class="accent">Obrigado</span></div>
+                    <div class="slide-subtitle" style="margin-top: 8px;">
+                        <a href="https://linkedin.com/in/luccmattos/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">linkedin.com/in/luccmattos</a>
                     </div>
-                    <div style="text-align: center; padding: 24px; background: rgba(255,255,255,0.6); border-radius: 16px; border: 1px solid var(--border-medium);">
-                        <p style="font-size: 1rem; font-weight: 600; margin-bottom: 16px; color: var(--text-primary);">Avaliação do curso</p>
-                        <img src="assets/qr-avaliacao-curso.png" alt="QR Code — Avaliação do curso" style="max-width: 140px; height: auto; border-radius: 8px; display: block; margin: 0 auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span style="display: none; font-size: 0.85rem; color: var(--text-muted); padding: 24px; border: 1px dashed var(--border-medium); border-radius: 8px;">(QR code: assets/qr-avaliacao-curso.png)</span>
+                    <div class="slide-subtitle" style="margin-top: 0;">
+                        <a href="https://linkedin.com/in/arthurcastroaraujo/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">linkedin.com/in/arthurcastroaraujo</a>
                     </div>
                 </div>
             </div>
