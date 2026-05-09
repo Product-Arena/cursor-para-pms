@@ -2734,7 +2734,7 @@ Use tom executivo, linguagem clara.</pre>
                                 <ul class="agenda-block-expanded-list">
                                     <li>Repo pessoal (GitHub público) para exercícios</li>
                                     <li>Criar PRD do novo fluxo de onboarding (<code>/create-prd</code>)</li>
-                                    <li>Quebrar o PRD em épicos e tarefas (Linear)</li>
+                                    <li>Backlog em Markdown; MCP do Linear; épicos e issues no board</li>
                                     <li>Protótipo funcional do onboarding — Plan + localhost</li>
                                     <li>Subir projeto no GitHub pessoal</li>
                                     <li>Start My Day — transformar rotina matinal em fluxo no Cursor</li>
@@ -2745,7 +2745,9 @@ Use tom executivo, linguagem clara.</pre>
                                 <ul class="agenda-block-expanded-list">
                                     <li>Repo pessoal — criar GitHub público (⏱ 20 min)</li>
                                     <li>Criar PRD do onboarding — <code>/create-prd</code> (⏱ 10 min)</li>
-                                    <li>Quebrar PRD em épicos/tarefas (Linear) (⏱ 25 min)</li>
+                                    <li>Backlog MD — épicos/tarefas (⏱ 15 min)</li>
+                                    <li>MCP Linear — setup Marketplace (⏱ ~5 min)</li>
+                                    <li>Linear — criar épicos/issues no board (⏱ 15 min)</li>
                                     <li>Protótipo funcional do onboarding — Plan + localhost (⏱ 25 min)</li>
                                     <li>Subir projeto no GitHub (⏱ 15 min)</li>
                                     <li>Start My Day — Plan + roteiro repetível (⏱ 20 min)</li>
@@ -2800,15 +2802,15 @@ documents/prd-onboarding-arena-cash.md</pre>
                 </div>
             </div>
 
-            <!-- 34a3c: Exercício — Épicos e tarefas do onboarding -->
+            <!-- 34a3c: Exercício — Épicos e tarefas do onboarding (backlog Markdown) -->
             <div class="slide slide-type-exercicio slide--safe-area">
                 <div class="slide-eyebrow">Exercício · Breakdown</div>
                 <div class="slide-title">Quebrar PRD em <span class="accent">épicos e tarefas</span></div>
-                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 25 minutos</div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 15 minutos</div>
                 <div class="slide-split" style="align-items: flex-start;">
                     <div class="slide-split-left" style="max-width: 480px;">
                         <div class="slide-subtitle" style="margin-top: 0;">
-                            <strong>3.6.2 —</strong> Com o PRD do onboarding pronto, quebre o escopo em <strong>épicos e tarefas executáveis</strong>. Use o template <code>.cursor/templates/Tasks Templates.md</code> do workspace e o subagent PM para estruturar.
+                            <strong>3.6.2 —</strong> Com o PRD do onboarding pronto, gere o <strong>backlog em Markdown</strong> (<code>documents/backlog-onboarding.md</code>): épicos e tarefas executáveis. Use <code>.cursor/templates/Tasks Templates.md</code> e o subagent PM. Em seguida: <strong>MCP do Linear</strong> e criação dos <strong>cards no board</strong>.
                         </div>
                         <div class="principle-card" style="margin-top: 12px;">
                             <div class="principle-title">1. Abra o PRD e o template</div>
@@ -2841,8 +2843,88 @@ e salve em <span class="syntax-string">documents/backlog-onboarding.md</span></p
                         </div>
                         <div class="callout-protip" style="margin-top: 0;">
                             <span class="callout-protip-icon">📖</span>
-                            <div class="callout-protip-content"><strong>Passo a passo</strong> — Consulte o exercício <strong>12-projeto-final-parte4-historias.md</strong> na pasta de exercícios.</div>
+                            <div class="callout-protip-content"><strong>Guia do aluno</strong> — Exercício 12, <strong>Parte A</strong> (<code>12-projeto-final-parte4-historias.md</code>).</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 34a3c-mcp: Setup — MCP Linear -->
+            <div class="slide slide-type-parenteses slide--safe-area">
+                <div class="slide-eyebrow">Setup · MCP</div>
+                <div class="slide-title">Conectar o MCP do <span class="accent">Linear</span></div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ ~5 minutos</div>
+                <div class="slide-split" style="align-items: flex-start; margin-top: 24px;">
+                    <div class="slide-split-left" style="max-width: 480px;">
+                        <div class="principle-card">
+                            <div class="principle-title">1. Abrir Configurações do Cursor</div>
+                            <div class="principle-desc">No Cursor, abra <strong>Settings</strong>. Atalho: <code>Cmd + Shift + J</code> (Mac) ou <code>Ctrl + Shift + J</code> (Windows).</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Abrir Marketplace de MCPs</div>
+                            <div class="principle-desc">No final do menu lateral de Settings, clique em <code>@cursor/marketplace</code> e busque por <strong>Linear</strong>.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Ativar e conectar conta</div>
+                            <div class="principle-desc">Clique em <strong>Enable/Install</strong> e conecte sua conta do Linear ao Cursor.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">📖</span>
+                            <div class="callout-protip-content"><strong>Guia do aluno</strong> — Exercício 12, <strong>Parte B</strong> (<code>12-projeto-final-parte4-historias.md</code>).</div>
+                        </div>
+                    </div>
+                    <div class="prompt-container" style="flex: 1; align-self: flex-start;">
+                        <div class="prompt-label">Checklist rápido</div>
+                        <pre><span class="syntax-comment"># Setup via Marketplace</span>
+1. Settings (Cmd/Ctrl + Shift + J)
+2. <span class="syntax-string">@cursor/marketplace</span>
+3. Buscar <span class="syntax-string">Linear</span>
+4. <span class="syntax-string">Enable/Install</span> + login Linear
+
+<span class="syntax-comment"># Teste de conexão</span>
+"Liste os projetos do Linear que tenho acesso."</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 34a3c2: Exercício — Linear (épicos e issues no board) -->
+            <div class="slide slide-type-exercicio slide--safe-area">
+                <div class="slide-eyebrow">Exercício · MCP</div>
+                <div class="slide-title">Linear — <span class="accent">épicos e issues</span></div>
+                <div class="slide-subtitle" style="margin-top: 6px; margin-bottom: 0;">⏱ 15 minutos</div>
+                <div class="slide-split" style="align-items: flex-start;">
+                    <div class="slide-split-left" style="max-width: 480px;">
+                        <div class="slide-subtitle" style="margin-top: 0;">
+                            <strong>3.6.3 —</strong> Com <code>documents/backlog-onboarding.md</code> pronto e o <strong>MCP do Linear</strong> ativo, crie no Linear os <strong>épicos e issues</strong> (cards no board) espelhando o backlog — pelo Cursor.
+                        </div>
+                        <div class="principle-card" style="margin-top: 12px;">
+                            <div class="principle-title">1. Contexto no chat</div>
+                            <div class="principle-desc">Abra o Chat no modo <strong>Agent</strong> (ou use o subagent <code>product-manager</code>). Confirme que o teste da Parte B listou seus projetos.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">2. Pedido ao agente</div>
+                            <div class="principle-desc">Peça para criar ou alinhar épicos e issues no <strong>projeto/time</strong> da turma, a partir do backlog e do PRD.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Conferir no Linear</div>
+                            <div class="principle-desc">Abra o app Linear e valide títulos, descrições e critérios de aceite antes do protótipo.</div>
+                        </div>
+                        <div class="callout-protip" style="margin-top: 16px;">
+                            <span class="callout-protip-icon">📖</span>
+                            <div class="callout-protip-content"><strong>Guia do aluno</strong> — Exercício 12, <strong>Parte C</strong> (<code>12-projeto-final-parte4-historias.md</code>).</div>
+                        </div>
+                    </div>
+                    <div class="prompt-container" style="flex: 1;">
+                        <div class="prompt-label">Prompt (exemplo)</div>
+                        <pre><span class="syntax-comment"># Linear (MCP) — Do backlog aos cards</span>
+
+Com base em <span class="syntax-string">documents/backlog-onboarding.md</span>
+e <span class="syntax-string">documents/prd-onboarding-arena-cash.md</span>:
+
+- Crie ou alinhe <span class="syntax-keyword">épicos</span> no Linear aos do backlog
+- Para cada épico, crie as <span class="syntax-keyword">issues</span> com título,
+  descrição e critérios de aceite
+- Use o projeto/time <span class="syntax-string">[seu projeto na turma]</span></pre>
                     </div>
                 </div>
             </div>
