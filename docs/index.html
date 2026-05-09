@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação — Cursor para PMs (edição 3) | Product Arena</title>
+    <title>Apresentação — Cursor na prática (edição 3) | Product Arena</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -161,6 +161,42 @@
         .slide-type-capa {
             justify-content: center;
             background: #ffffff;
+        }
+
+        .slide-capa-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 960px;
+            margin-top: 8px;
+        }
+
+        .slide-capa-logo {
+            width: 96px;
+            height: auto;
+            display: block;
+            margin-bottom: 8px;
+            flex-shrink: 0;
+        }
+
+        .slide-type-capa .slide-title {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .slide-subtitle--capa-audience {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            max-width: 680px;
+            margin-bottom: 0;
+        }
+
+        .slide-subtitle--capa-hosts {
+            margin-top: 36px;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
         }
 
         /* Slide de apresentação dos instrutores: mais espaço entre eyebrow e conteúdo */
@@ -1419,8 +1455,12 @@
             <!-- 1: Título (capa) -->
             <div class="slide slide-type-capa active">
                 <div class="slide-eyebrow">Product Arena</div>
-                <div class="slide-title">Cursor para <span class="accent">PMs</span></div>
-                <div class="slide-subtitle">Arthur Castro · Lucas Mattos</div>
+                <div class="slide-capa-stack">
+                    <img src="assets/cursor-logo.png" alt="Cursor" class="slide-capa-logo" width="96" height="96"/>
+                    <div class="slide-title">Cursor <span class="accent">na prática</span></div>
+                    <div class="slide-subtitle slide-subtitle--capa-audience">Para PMs, Builders e pessoas não desenvolvedoras</div>
+                    <div class="slide-subtitle slide-subtitle--capa-hosts">Arthur Castro · Lucas Mattos</div>
+                </div>
             </div>
 
             <!-- 2: Lucas Mattos -->
