@@ -510,10 +510,13 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 </header>
 
 <section class="concept">
-<h3>5.1 Agente “PM” e contexto — Arena Cash</h3>
+<h3>5.1 Criar subagent Product Manager — Arena Cash</h3>
 <p><strong>Arena Cash</strong> é a <strong>empresa fictícia</strong> do curso: o repositório traz memo, organograma, design system e demais documentos para você exercitar postura de PM com um cenário único e repetível — sem depender de dados internos da empresa onde você trabalha.</p>
 <ul>
-<li>Usar o Cursor como agente <strong>PM</strong> para explicar negócio, squads e prioridades com base nesses arquivos.</li>
+<li>No Cursor, rode <code>/create-subagent</code> com um prompt em português para criar um Product Manager da Arena Cash.</li>
+<li>Exemplo de prompt: <strong>“Me ajude a criar um subagent para atuar como Product Manager da Arena Cash.”</strong></li>
+<li>Resultado esperado: pasta <code>AGENTS/</code> na raiz com o arquivo <code>product-manager.md</code> contendo instruções de atuação.</li>
+<li>Depois de criar, use esse subagent para explicar negócio, squads e prioridades com base nos arquivos do caso.</li>
 </ul>
 </section>
 
@@ -528,27 +531,103 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <h4>5.2.2 Visualização em HTML</h4>
 <p>Com base na análise, exercício: criar <strong>visualização com gráficos em HTML</strong>, seguindo o <strong>design system da marca</strong>.</p>
 <h4>5.2.3 Como lideranças recebem análises</h4>
-<p>Exercício com o agente PM: explicar como as <strong>lideranças costumam gostar de receber análises</strong> (formato, narrativa, ênfases).</p>
+<p>Exercício com o subagent <strong>Product Manager</strong>: explicar como as <strong>lideranças costumam gostar de receber análises</strong> (formato, narrativa, ênfases).</p>
 </section>
 
 <section class="concept">
 <h3>5.3 Slides (primeira versão — PPTX)</h3>
-<p>Pedir ao Cursor para montar uma <strong>apresentação em PPT</strong> com <strong>6 slides:</strong></p>
-<ol>
-<li>Capa</li>
-<li>Agenda</li>
-<li>Contexto</li>
-<li>Resultado da análise</li>
-<li>Próximos passos</li>
-<li>Agradecimento</li>
-</ol>
+<p>Primeira versão: criar uma apresentação <strong>rápida</strong>, sem se apoiar em Skill nem em template pronto. Objetivo: transformar a análise em narrativa “boa o suficiente”.</p>
 </section>
 
 <section class="concept">
-<h3>5.4 Slides (segunda versão — com Skill)</h3>
-<ul>
-<li><strong>Refazer os slides</strong>, desta vez usando um <strong>Skill</strong> para deixá-los <strong>mais bonitos</strong> (padronização visual / tema).</li>
-</ul>
+<h3>5.4 Slides (segunda versão — com Skill + template)</h3>
+<p>Segunda versão: melhorar design e consistência usando uma <strong>Skill</strong> e um <strong>template em HTML</strong>. Nesta edição, o template escolhido pela turma é o <strong>Coral</strong>.</p>
+</section>
+
+<section class="exercises">
+<p class="ex-zone-intro"><strong>Slides:</strong> explicam o porquê e mostram o “antes/depois”. <strong>Guia:</strong> prompts e sequência para repetir.</p>
+<h3>Exercícios</h3>
+
+<details class="exercise" id="ex-10-slides-rapidos">
+<summary>
+<span class="ex-num">10</span>
+<span class="ex-title">Slides v1 — narrativa rápida (sem skill/template)</span>
+<span class="ex-time">15 min</span>
+</summary>
+<div class="ex-body">
+<div class="ex-deliverable">
+<h4>Entregável</h4>
+<p>Uma primeira versão com <strong>6 slides</strong>: Capa, Agenda, Contexto, Resultado da análise, Próximos passos, Agradecimento.</p>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Pedir a estrutura e o texto</h4>
+</div>
+<div class="step-block-body">
+<p>No chat, use <strong>Ask</strong> (ou Agent se você quiser que ele gere arquivo). Dê contexto da análise (arquivo, pasta ou resumo).</p>
+<div class="prompt-box">
+<div class="prompt-box-head">Prompt</div>
+<p>Com base nesta análise e contexto, escreva o conteúdo de uma apresentação com 6 slides: Capa, Agenda, Contexto, Resultado da análise, Próximos passos e Agradecimento. Use linguagem simples, com bullets curtos e uma mensagem principal por slide.</p>
+</div>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">10 min</span>
+<h4 class="step-block-title">Gerar o arquivo de slides (simples)</h4>
+</div>
+<div class="step-block-body">
+<p>Peça ao agente para gerar o arquivo no formato usado na aula (ex.: PPTX). O foco aqui é a narrativa; visual “ok” é suficiente.</p>
+</div>
+</div>
+</div>
+</details>
+
+<details class="exercise" id="ex-11-slides-skill-template-coral">
+<summary>
+<span class="ex-num">11</span>
+<span class="ex-title">Slides v2 — com Skill + template Coral (HTML)</span>
+<span class="ex-time">20 min</span>
+</summary>
+<div class="ex-body">
+<div class="ex-context">
+<p>Agora o foco é <strong>coesão visual</strong> e um deck “apresentável” com menos esforço. Você vai usar uma <strong>Skill</strong> e partir de um template pronto.</p>
+</div>
+<div class="ex-deliverable">
+<h4>Entregável</h4>
+<p>Uma segunda versão dos slides com visual consistente, baseada no template <strong>Coral</strong> da biblioteca <a href="https://github.com/zarazhangrui/beautiful-html-templates" rel="noopener" target="_blank">beautiful-html-templates</a>.</p>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Escolher o template Coral</h4>
+</div>
+<div class="step-block-body">
+<p>Abra a biblioteca e selecione a opção <strong>Coral</strong> (o instrutor mostra na tela como localizar o template e copiar a estrutura).</p>
+<p class="tip"><strong>Referência:</strong> repositório em <code>github.com/zarazhangrui/beautiful-html-templates</code> (template Coral).</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">15 min</span>
+<h4 class="step-block-title">Refazer usando Skill + template</h4>
+</div>
+<div class="step-block-body">
+<p>No Cursor, peça ao agente para aplicar o template Coral e refazer o conteúdo dos 6 slides. Use a Skill definida na aula para orientar estilo, consistência e qualidade.</p>
+<div class="prompt-box">
+<div class="prompt-box-head">Prompt</div>
+<p>Recrie minha apresentação (6 slides) usando uma Skill de design e o template HTML <strong>Coral</strong> do repositório <code>beautiful-html-templates</code>. Mantenha a mesma narrativa, mas deixe o layout e tipografia mais consistentes. Gere os arquivos finais (HTML/CSS/JS se necessário) em uma pasta <code>slides/</code>.</p>
+</div>
+<p class="tip"><strong>Alternativa:</strong> se preferir, peça primeiro para o agente listar 2–3 templates e justificar por que o Coral foi escolhido; depois aplique o Coral.</p>
+</div>
+</div>
+</div>
+</details>
 </section>
 
 <section class="concept">
@@ -596,7 +675,7 @@ Nove blocos temáticos — do workspace aos MCPs, passando por modos (Ask, Plan,
 <ul>
 <li><strong>Pré-requisito:</strong> instalar/configurar o <strong>MCP do Notion</strong>.</li>
 <li>Passo a passo de <strong>conexão/configuração</strong>.</li>
-<li>Pedir ao <strong>agente PM</strong> para <strong>escrever o texto em Markdown</strong> (a partir do contexto da análise).</li>
+<li>Pedir ao subagent <strong>Product Manager</strong> para <strong>escrever o texto em Markdown</strong> (a partir do contexto da análise).</li>
 <li><strong>Publicar a página no Notion</strong> usando o MCP.</li>
 </ul>
 </section>

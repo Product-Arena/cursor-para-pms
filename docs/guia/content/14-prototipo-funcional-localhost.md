@@ -6,7 +6,7 @@
 
 ## Contexto
 
-Durante o Bloco 3 (Arena Voting System) você vai criar um produto do planejamento ao código. O resultado inicial será um app que **roda em localhost** — ou seja, só você (e quem estiver na sua rede/computador) consegue acessar.
+Durante o bloco de prototipação você vai criar o novo fluxo de onboarding da Arena Cash do planejamento ao código. O resultado inicial será um app que **roda em localhost** — ou seja, só você (e quem estiver na sua rede/computador) consegue acessar.
 
 - **Localhost** = servidor rodando na sua máquina (`python3 -m http.server`, `npm run dev`, etc.). Simples, sem deploy.
 - **Link público** = qualquer pessoa acessa pela internet. Exige servidor, domínio, configurações de rede/deploy (Vercel, Railway, etc.).

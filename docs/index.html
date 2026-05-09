@@ -2156,7 +2156,7 @@ Respond in the chat (do not create files) for:
                                     <li>Agente PM — Arena Cash</li>
                                     <li>Análise de dados — demo (instrutor) + exercício com arquivo de exemplo</li>
                                     <li>Visualização em HTML seguindo o design system da marca</li>
-                                    <li>Como lideranças gostam de receber análises (agente PM)</li>
+                                    <li>Como lideranças gostam de receber análises (subagent Product Manager)</li>
                                     <li>Slides — primeira versão (PPTX, 6 slides)</li>
                                     <li>Slides — segunda versão com Skill</li>
                                     <li>Notion — documento da análise via MCP</li>
@@ -2297,25 +2297,29 @@ Respond in the chat (do not create files) for:
                 </div>
             </div>
 
-            <!-- 26d: Arena Cash — pergunte ao agente PM -->
+            <!-- 26d: Arena Cash — criar subagent Product Manager -->
             <div class="slide">
                 <div class="slide-eyebrow">Ciclo de produto · Contexto</div>
-                <div class="slide-title">Pergunte ao agente <span class="accent">PM</span> sobre a Arena Cash</div>
-                <div class="slide-subtitle" style="margin-top: 16px; max-width: 760px;">Carregue o contexto da Arena Cash no agente PM antes das análises e dos exercícios — memo, organograma e design system vêm no kit.</div>
+                <div class="slide-title">Crie um subagent <span class="accent">Product Manager</span></div>
+                <div class="slide-subtitle" style="margin-top: 16px; max-width: 760px;">Antes dos exercícios, use o comando nativo <code>/create-subagent</code> para criar um Product Manager focado na Arena Cash.</div>
                 <div class="slide-split" style="max-width: 1100px; margin-top: 28px; align-items: flex-start;">
                     <div class="slide-split-left">
                         <div class="principle-card">
-                            <div class="principle-title">Como fazer</div>
-                            <div class="principle-desc">Abra os arquivos do kit no workspace (memo, organograma, design system). No chat, peça ao agente para atuar como <strong>PM da Arena Cash</strong> e responder com base nesses documentos.</div>
+                            <div class="principle-title">1. Criar com comando nativo</div>
+                            <div class="principle-desc">No chat do Cursor, rode: <code>/create-subagent</code> e envie o prompt: <strong>"Me ajude a criar um subagent para atuar como Product Manager da Arena Cash."</strong></div>
                         </div>
                         <div class="principle-card">
-                            <div class="principle-title">Sugestões de pergunta</div>
-                            <div class="principle-desc">“Resume o negócio da Arena Cash em 3 bullets.” · “Quais squads existem e o que cada um cuida?” · “Quais metas o memo estratégico prioriza neste quarter?”</div>
+                            <div class="principle-title">2. Validar estrutura gerada</div>
+                            <div class="principle-desc">O esperado é criar a pasta <code>AGENTS/</code> na raiz do projeto com o arquivo <code>product-manager.md</code> contendo instruções de atuação.</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-title">3. Testar em português</div>
+                            <div class="principle-desc">Exemplo: “Atue como Product Manager da Arena Cash e resuma o negócio em 3 bullets, com foco em ativação, churn e prioridades do Q2.”</div>
                         </div>
                     </div>
                     <div class="callout-protip" style="max-width: 400px; align-self: flex-start;">
                         <span class="callout-protip-icon">📌</span>
-                        <div class="callout-protip-content"><strong>Objetivo</strong> — Contexto da empresa no agente antes de dados, dashboards e entregáveis.</div>
+                        <div class="callout-protip-content"><strong>Objetivo</strong> — Ter um PM especializado no contexto da Arena Cash para apoiar análise, PRD, tarefas e protótipo.</div>
                     </div>
                 </div>
             </div>
@@ -2332,7 +2336,7 @@ Respond in the chat (do not create files) for:
                         </div>
                         <div class="principle-card" style="margin-top: 12px;">
                             <div class="principle-title">1. Carregar contexto</div>
-                            <div class="principle-desc">Anexe os documentos da empresa (kit do repo). Peça ao agente PM para resumir o negócio em 3 bullets antes de começar a análise.</div>
+                            <div class="principle-desc">Anexe os documentos da empresa (kit do repo). Peça ao subagent <code>product-manager</code> para resumir o negócio em 3 bullets antes de começar a análise.</div>
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">2. Analisar o dataset</div>
@@ -2340,14 +2344,14 @@ Respond in the chat (do not create files) for:
                         </div>
                         <div class="principle-card">
                             <div class="principle-title">3. Narrativa para liderança</div>
-                            <div class="principle-desc">Peça ao agente PM para formatar os achados como uma diretoria gosta de receber: decisão pedida, evidência, risco e próximo passo.</div>
+                            <div class="principle-desc">Peça ao subagent <code>product-manager</code> para formatar os achados como uma diretoria gosta de receber: decisão pedida, evidência, risco e próximo passo.</div>
                         </div>
                     </div>
                     <div class="prompt-container" style="flex: 1;">
                         <div class="prompt-label">Prompt sugerido</div>
                         <pre><span class="syntax-comment"># Análise de dados — Arena Cash</span>
 
-Você é PM da Arena Cash. Com base no arquivo
+Atue como o subagent Product Manager da Arena Cash. Com base no arquivo
 [dataset do repo] e nos documentos de contexto:
 
 1. Qual é a principal oportunidade ou problema

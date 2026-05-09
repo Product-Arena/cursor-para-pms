@@ -1,22 +1,26 @@
-# Exercício 12: Projeto Final - Parte 4 (Histórias)
+# Exercício 12: Épicos e tarefas do onboarding
 
-**Objetivo:** Praticar a quebra de tarefas técnicas para o time (simulado).
+**Objetivo:** Quebrar a PRD do novo onboarding em épicos e tarefas executáveis.
 
 ---
 
 ## 📝 Passo a Passo
 
 1.  Abra o Chat (`Cmd + L`).
-2.  Mude para o modo **Plan** (ou instrua "Crie um plano").
+2.  Use o subagent `product-manager` (criado com `/create-subagent`).
 3.  Prompt:
     ```text
-    "Com base no código atual e no PRD, quais são as próximas 3 histórias de usuário técnicas para implementar a funcionalidade de 'Voto'? Quebre em tarefas menores."
+    Com base em documents/prd-onboarding-arena-cash.md, proponha:
+    - 3 épicos para o novo onboarding da Arena Cash
+    - 3 a 5 tarefas por épico
+    - critérios de aceite por tarefa
+    - prioridade (alto/médio/baixo) e esforço estimado
     ```
-4.  O Cursor deve listar o que falta (ex: conectar banco de dados, criar função de clique, persistir estado).
+4.  Revise se as tarefas estão orientadas a ativação (ex.: reduzir drop no KYC, onboarding guiado, lifecycle/nudges).
 
 ---
 
 ## ❓ Dúvidas e Erros Comuns
 
-**Ele sugeriu coisas que já existem**
-Dê o contexto correto. Arraste a pasta `src` para o chat para ele saber o que já foi feito.
+**As tarefas ficaram genéricas demais**  
+Peça para reescrever com foco explícito na jornada de onboarding (primeira aplicação em até 48h, redução de drop no cadastro e clareza de próximo passo).
