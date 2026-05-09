@@ -187,11 +187,24 @@
             margin-top: 8px;
         }
 
+        /* Chip escuro: o PNG costuma ter elementos claros — sem contraste some no fundo branco da capa */
+        .slide-capa-logo-frame {
+            width: 112px;
+            height: 112px;
+            border-radius: 28px;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            flex-shrink: 0;
+            box-shadow: 0 10px 28px rgba(10, 10, 10, 0.14);
+        }
+
         .slide-capa-logo {
-            width: 96px;
+            width: 72px;
             height: auto;
             display: block;
-            margin-bottom: 8px;
             flex-shrink: 0;
         }
 
@@ -1471,7 +1484,9 @@
             <div class="slide slide-type-capa active">
                 <div class="slide-eyebrow">Product Arena</div>
                 <div class="slide-capa-stack">
-                    <img src="assets/cursor-logo.png" alt="Cursor" class="slide-capa-logo" width="96" height="96"/>
+                    <div class="slide-capa-logo-frame" aria-hidden="true">
+                        <img src="assets/cursor-logo.png" alt="" class="slide-capa-logo" width="72" height="72"/>
+                    </div>
                     <div class="slide-title">Cursor <span class="accent">na prática</span></div>
                     <div class="slide-subtitle slide-subtitle--capa-audience">Para PMs, Builders e pessoas não desenvolvedoras</div>
                     <div class="slide-subtitle slide-subtitle--capa-hosts">Arthur Castro · Lucas Mattos</div>
