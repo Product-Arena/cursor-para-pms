@@ -172,10 +172,15 @@
             margin-bottom: 0;
         }
 
-        /* Slide de capa: conteúdo centralizado verticalmente (exceção ao flex-start padrão) */
-        .slide-type-capa {
+        /* Slide de capa: fundo branco puro (sem gradiente nem grain do .slide) */
+        .slide.slide-type-capa {
             justify-content: center;
             background: #ffffff;
+            background-image: none;
+        }
+
+        .slide.slide-type-capa::before {
+            display: none;
         }
 
         .slide-capa-stack {
@@ -187,7 +192,17 @@
             margin-top: 8px;
         }
 
-        /* Chip escuro: o PNG costuma ter elementos claros — sem contraste some no fundo branco da capa */
+        .slide-capa-logos {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* Chip escuro: Cursor — contraste no branco */
         .slide-capa-logo-frame {
             width: 112px;
             height: 112px;
@@ -196,9 +211,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 12px;
             flex-shrink: 0;
             box-shadow: 0 10px 28px rgba(10, 10, 10, 0.14);
+        }
+
+        /* Product Arena — marca em chip claro ao lado do Cursor */
+        .slide-capa-logo-frame--pa {
+            background: #ffffff;
+            border: 1px solid rgba(10, 10, 10, 0.08);
+            box-shadow: 0 10px 28px rgba(10, 10, 10, 0.1);
         }
 
         .slide-capa-logo {
@@ -206,6 +227,14 @@
             height: auto;
             display: block;
             flex-shrink: 0;
+        }
+
+        .slide-capa-logo--pa {
+            max-width: 88px;
+            max-height: 72px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
         }
 
         .slide-type-capa .slide-title {
@@ -1484,8 +1513,13 @@
             <div class="slide slide-type-capa active">
                 <div class="slide-eyebrow">Product Arena</div>
                 <div class="slide-capa-stack">
-                    <div class="slide-capa-logo-frame" aria-hidden="true">
-                        <img src="assets/cursor-logo.png" alt="" class="slide-capa-logo" width="72" height="72"/>
+                    <div class="slide-capa-logos" aria-hidden="true">
+                        <div class="slide-capa-logo-frame">
+                            <img src="assets/cursor-logo.png" alt="" class="slide-capa-logo" width="72" height="72"/>
+                        </div>
+                        <div class="slide-capa-logo-frame slide-capa-logo-frame--pa">
+                            <img src="assets/logo-product-arena.png" alt="" class="slide-capa-logo slide-capa-logo--pa" width="88" height="72"/>
+                        </div>
                     </div>
                     <div class="slide-title">Cursor <span class="accent">na prática</span></div>
                     <div class="slide-subtitle slide-subtitle--capa-audience">Para PMs, Builders e pessoas não desenvolvedoras</div>
