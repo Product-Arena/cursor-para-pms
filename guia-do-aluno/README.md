@@ -6,7 +6,7 @@ Sempre sirva os arquivos por **HTTP**. Abrir `index.html` direto com `file://` p
 
 ## GitHub Pages (configuração inicial)
 
-O guia fica nesta pasta (`guia-do-aluno/` na raiz de [cursor-para-pms](https://github.com/Product-Arena/cursor-para-pms)). Os **slides** ficam só em `docs/`. O workflow na raiz do repo (`.github/workflows/deploy-github-pages.yml`) monta o site publicado — **sem copiar o guia para dentro de `docs/` no Git**.
+O guia fica nesta pasta (`guia-do-aluno/` na raiz de [cursor-para-pms](https://github.com/Product-Arena/cursor-para-pms)). Os **slides** do instrutor (`docs/`) não entram no Git — ficam só na máquina local. O workflow `.github/workflows/deploy-github-pages.yml` publica apenas esta pasta em `/guia-do-aluno/` no GitHub Pages.
 
 1. Abra **Settings** → **Pages** no repositório **cursor-para-pms**.
 2. Em **Build and deployment**, defina **Source** como **GitHub Actions**.
