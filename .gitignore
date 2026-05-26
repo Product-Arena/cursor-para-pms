@@ -1,6 +1,19 @@
 # Instructor-only planning (not for learners or public mirrors)
 instructor-internal/
 
+# Instructor slides (not used by `npm run build:guia` / Vercel guia deploy)
+docs/
+
+# Workshop exercise scaffolding (not shipped in guia-do-aluno build)
+exercicio/
+exercicios/
+
+# Large course sources / Replit bundles (local or separate distribution)
+conteudo/
+
+# Local Cursor workspace config
+.cursor/
+
 # Local tooling / publish scripts
 scripts/
 
