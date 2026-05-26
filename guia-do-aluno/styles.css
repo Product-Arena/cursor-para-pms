@@ -2882,6 +2882,11 @@ details.nested pre {
   box-shadow: var(--shadow-sm);
   background: var(--pa-black);
 }
+.media-gif-slot video,
+.media-gif-slot__video {
+  pointer-events: none;
+  object-fit: contain;
+}
 .media-gif-slot__caption {
   margin: var(--s-3) 0 0;
   font-size: var(--text-sm);

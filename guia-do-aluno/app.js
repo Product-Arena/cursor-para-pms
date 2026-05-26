@@ -27,6 +27,7 @@ async function initGuideApp() {
   initGuideAnalytics();
   initCopyReferences();
   initCopyPrompts();
+  initAutoplayVideos();
 }
 
 if (document.readyState === 'loading') {
@@ -800,5 +801,33 @@ function initCopyPrompts() {
 
     actions.appendChild(btn);
     pre.insertAdjacentElement('afterend', actions);
+  });
+}
+
+function initAutoplayVideos() {
+  const videos = document.querySelectorAll('.media-gif-slot video, .media-gif-slot__video');
+  videos.forEach((video) => {
+    video.controls = false;
+    video.muted = true;
+
+    const tryPlay = () => {
+      const playPromise = video.play();
+      if (playPromise?.catch) {
+        playPromise.catch(() => {});
+      }
+    };
+
+    tryPlay();
+    video.addEventListener('loadeddata', tryPlay, { once: true });
+
+    let parent = video.parentElement;
+    while (parent) {
+      if (parent.tagName === 'DETAILS') {
+        parent.addEventListener('toggle', () => {
+          if (parent.open) tryPlay();
+        });
+      }
+      parent = parent.parentElement;
+    }
   });
 }
