@@ -1,4 +1,40 @@
-(() => {
+async function loadPartials() {
+  const slots = Array.from(document.querySelectorAll('[data-include]'));
+  await Promise.all(slots.map(async (slot) => {
+    const src = slot.getAttribute('data-include');
+    if (!src) return;
+    const response = await fetch(src);
+    if (!response.ok) {
+      throw new Error(`Falha ao carregar ${src}: ${response.status}`);
+    }
+    slot.outerHTML = await response.text();
+  }));
+}
+
+async function initGuideApp() {
+  try {
+    await loadPartials();
+  } catch (error) {
+    console.error(error);
+    document.body.insertAdjacentHTML(
+      'afterbegin',
+      '<div class="partial-load-error">Não foi possível carregar o guia. Abra pelo servidor local do projeto, não diretamente pelo arquivo.</div>'
+    );
+    return;
+  }
+
+  initGuideInteractions();
+  initGuideAnalytics();
+  initCopyReferences();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initGuideApp);
+} else {
+  initGuideApp();
+}
+
+function initGuideInteractions() {
   // =========================================================
   // Navegação / Scroll / Atalhos
   // =========================================================
@@ -19,48 +55,209 @@
     return target;
   }
 
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const href = a.getAttribute('href');
-      if (href.length <= 1) return;
-      const id = href.slice(1);
-      const target = openDetailsIfTarget(id);
-      if (target) {
-        e.preventDefault();
-        setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
-      }
+  /** Altura do topbar fixo + folga para o título da seção ficar visível. */
+  function getScrollOffset() {
+    const topbar = document.querySelector('.topbar');
+    return (topbar ? topbar.offsetHeight : 80) + 16;
+  }
+
+  /** Rola até o elemento respeitando topbar (scrollIntoView ignora scroll-margin em alguns casos). */
+  function scrollToEl(target) {
+    const y =
+      window.scrollY + target.getBoundingClientRect().top - getScrollOffset();
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  }
+
+  const DAY_GROUPS = [
+    {
+      scope: 'conteudo',
+      id: 'side-nav-dia-1',
+      targets: ['bloco-intro'],
+      prefixes: ['intro-', 'bloco-1', 'bloco-3', 'bloco-4'],
+    },
+    {
+      scope: 'conteudo',
+      id: 'side-nav-dia-2',
+      targets: [],
+      prefixes: ['bloco-5'],
+    },
+    {
+      scope: 'conteudo',
+      id: 'side-nav-dia-3',
+      targets: [],
+      prefixes: ['bloco-6', 'bloco-7', 'bloco-8'],
+    },
+  ];
+
+  const NAV_GROUPS = [
+    {
+      scope: 'conteudo',
+      id: 'side-nav-intro-subs',
+      targets: ['bloco-intro'],
+      prefixes: ['intro-'],
+    },
+    {
+      scope: 'conteudo',
+      id: 'side-nav-bloco-1-subs',
+      targets: ['bloco-1'],
+      prefixes: ['bloco-1-'],
+    },
+    {
+      scope: 'conteudo',
+      id: 'side-nav-bloco-3-subs',
+      targets: ['bloco-3'],
+      prefixes: ['bloco-3-'],
+    },
+    {
+      scope: 'conteudo',
+      id: 'side-nav-bloco-4-subs',
+      targets: ['bloco-4'],
+      prefixes: ['bloco-4-'],
+    },
+    {
+      scope: 'apendice',
+      id: 'side-nav-apendice-config-subs',
+      targets: ['apendice-configuracoes-extras', 'apendice-github-ssh'],
+      prefixes: [],
+    },
+  ];
+
+  function targetMatchesGroup(targetId, group) {
+    return (
+      group.targets.includes(targetId) ||
+      group.prefixes.some(prefix => targetId.startsWith(prefix))
+    );
+  }
+
+  /** Fecha exercícios abertos; recolhe subtópicos na lateral fora do bloco correspondente. */
+  function collapseDetailsForSideNav(targetId, scope = 'conteudo') {
+    document.querySelectorAll('details.exercise[open]').forEach((d) => {
+      d.open = false;
     });
+
+    DAY_GROUPS.forEach(group => {
+      const el = document.getElementById(group.id);
+      if (!el) return;
+      el.open = group.scope === scope && targetMatchesGroup(targetId, group);
+    });
+
+    NAV_GROUPS.forEach(group => {
+      const el = document.getElementById(group.id);
+      if (!el) return;
+      el.open = group.scope === scope && targetMatchesGroup(targetId, group);
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    if (href.length <= 1) return;
+    const id = href.slice(1);
+    if (
+      a.closest('#conteudo .side-nav') ||
+      a.closest('#conteudo .side-nav-sub-list')
+    ) {
+      collapseDetailsForSideNav(id, 'conteudo');
+    }
+    if (
+      a.closest('#apendice .side-nav') ||
+      a.closest('#apendice .side-nav-sub-list')
+    ) {
+      collapseDetailsForSideNav(id, 'apendice');
+    }
+    if (a.classList.contains('exercise-guide-link')) {
+      collapseDetailsForSideNav(id, 'conteudo');
+    }
+    const target = openDetailsIfTarget(id);
+    if (target) {
+      if (target.tagName === 'DETAILS' && target.classList.contains('exercise')) {
+        target.open = true;
+      }
+      e.preventDefault();
+      const afterLayout = () => {
+        scrollToEl(target);
+        history.replaceState(null, '', `#${id}`);
+      };
+      // Dois frames após abrir <details> para o layout estabilizar antes de rolar
+      requestAnimationFrame(() => requestAnimationFrame(afterLayout));
+    }
   });
 
   // Também verificar anchor no load inicial (ex: abrir link com #bloco-3)
   if (location.hash.length > 1) {
-    setTimeout(() => openDetailsIfTarget(location.hash.slice(1)), 0);
+    const hashId = location.hash.slice(1);
+    requestAnimationFrame(() => {
+      const target = openDetailsIfTarget(hashId);
+      const hashScope = document.getElementById(hashId)?.closest('#apendice')
+        ? 'apendice'
+        : 'conteudo';
+      collapseDetailsForSideNav(hashId, hashScope);
+      if (target) {
+        requestAnimationFrame(() => scrollToEl(target));
+      }
+    });
   }
 
   // Agenda items: pular para o bloco correspondente
   document.querySelectorAll('.agenda-item[data-target]').forEach(item => {
     item.addEventListener('click', () => {
       const target = openDetailsIfTarget(item.dataset.target);
-      if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+      if (target) {
+        const scope = target.closest('#apendice') || target.id === 'apendice'
+          ? 'apendice'
+          : 'conteudo';
+        collapseDetailsForSideNav(target.id, scope);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          scrollToEl(target);
+          history.replaceState(null, '', `#${target.id}`);
+        }));
+      }
     });
   });
 
   // Sidebar: highlight do bloco visível
-  const sideLinks = document.querySelectorAll('.side-list a');
-  const blocks = Array.from(document.querySelectorAll('.block, .sub-block'));
+  const sideLinks = document.querySelectorAll('.side-list a, .side-nav-sub-list a');
+  // Não observar blocos-pai quando há subseções — senão o spy “ganha” do subtópico
+  const blocks = Array.from(
+    document.querySelectorAll(
+      '.block, .sub-block, .intro-section, .bloco-subsection, .appendix-section, .apendice-block'
+    )
+  ).filter(
+    (b) =>
+      b.id !== 'bloco-intro' &&
+      b.id !== 'bloco-1' &&
+      b.id !== 'bloco-3' &&
+      b.id !== 'bloco-4'
+  );
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        sideLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-        });
-      }
-    });
-  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (!visible.length) return;
 
-  blocks.forEach(b => b.id && observer.observe(b));
+      const id = visible[0].target.id;
+      sideLinks.forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+      const scope = visible[0].target.closest('#apendice') ? 'apendice' : 'conteudo';
+      DAY_GROUPS.forEach(group => {
+        const el = document.getElementById(group.id);
+        if (!el) return;
+        el.open = group.scope === scope && targetMatchesGroup(id, group);
+      });
+      NAV_GROUPS.forEach(group => {
+        const el = document.getElementById(group.id);
+        if (!el) return;
+        el.open = group.scope === scope && targetMatchesGroup(id, group);
+      });
+    },
+    { rootMargin: `-${getScrollOffset()}px 0px -55% 0px`, threshold: 0 }
+  );
+
+  blocks.forEach((b) => b.id && observer.observe(b));
 
   // Scroll to top
   const topBtn = document.getElementById('scroll-top');
@@ -102,18 +299,42 @@
     localStorage.setItem(STATE_KEY, JSON.stringify(state));
   }
 
-  const exercises = document.querySelectorAll('.exercise');
-  exercises.forEach(ex => {
-    const numEl = ex.querySelector('.ex-num');
-    if (!numEl) return;
-    const exNum = numEl.textContent.trim();
+  function createProgressMeter(total, className = '') {
+    const progress = document.createElement('span');
+    progress.className = className;
+    progress.setAttribute('role', 'progressbar');
+    progress.setAttribute('aria-valuemin', '0');
+    progress.setAttribute('aria-valuemax', String(total));
+    progress.setAttribute('aria-valuenow', '0');
+    progress.setAttribute('aria-label', 'Progresso');
+    progress.innerHTML = `
+      <span class="progress-bar"><span class="progress-fill"></span></span>
+      <span class="progress-text">0/${total}</span>
+    `;
+    return progress;
+  }
 
-    // Injetar checkbox em cada step-block
-    const steps = ex.querySelectorAll('.step-block');
+  function updateProgressMeter(host, done, total, label = 'Progresso') {
+    if (!host || !total) return;
+    const pct = Math.round((done / total) * 100);
+    const fill = host.querySelector('.progress-fill');
+    const text = host.querySelector('.progress-text');
+    if (fill) fill.style.width = pct + '%';
+    if (text) text.textContent = `${done}/${total}`;
+    host.setAttribute('role', 'progressbar');
+    host.setAttribute('aria-label', label);
+    host.setAttribute('aria-valuemin', '0');
+    host.setAttribute('aria-valuemax', String(total));
+    host.setAttribute('aria-valuenow', String(done));
+    host.setAttribute('aria-valuetext', `${done} de ${total} passos`);
+  }
+
+  function attachStepCheckboxes(container, idPrefix, onStepChange) {
+    const steps = container.querySelectorAll('.step-block');
     steps.forEach((step, i) => {
       const head = step.querySelector('.step-block-head');
-      if (!head) return;
-      const stepId = `ex-${exNum}/step-${i + 1}`;
+      if (!head || head.querySelector('.step-check')) return;
+      const stepId = `${idPrefix}/step-${i + 1}`;
       const label = document.createElement('label');
       label.className = 'step-check';
       label.setAttribute('title', 'Marcar passo como concluído');
@@ -126,10 +347,8 @@
       tick.setAttribute('aria-hidden', 'true');
       label.appendChild(input);
       label.appendChild(tick);
-      // Inserir como primeiro filho do head
       head.insertBefore(label, head.firstChild);
 
-      // Stop propagation pra não abrir/fechar o accordion ao clicar
       label.addEventListener('click', e => e.stopPropagation());
 
       input.addEventListener('change', () => {
@@ -137,46 +356,177 @@
         else delete state[stepId];
         saveState();
         step.classList.toggle('step-done', input.checked);
-        updateExerciseProgress(ex);
+        if (onStepChange) onStepChange();
+        updateDayProgress();
       });
 
-      // Estado inicial visual
       step.classList.toggle('step-done', input.checked);
     });
+    return steps;
+  }
 
-    // Se o exercício tem steps, injetar barra de progresso na summary
-    if (steps.length > 0) {
-      const summary = ex.querySelector('summary');
+  const exercises = document.querySelectorAll('.exercise, .exercise-flat');
+  exercises.forEach(ex => {
+    const numEl = ex.querySelector('.ex-num');
+    if (!numEl) return;
+    const exNum = numEl.textContent.trim();
+
+    const steps = attachStepCheckboxes(ex, `ex-${exNum}`, () => updateExerciseProgress(ex));
+
+    if (!steps.length) return;
+
+    const progress = createProgressMeter(steps.length, 'ex-progress');
+
+    const summary = ex.querySelector('summary');
+    if (summary) {
       const time = summary.querySelector('.ex-time');
-      const progress = document.createElement('span');
-      progress.className = 'ex-progress';
-      progress.innerHTML = `
-        <span class="progress-bar"><span class="progress-fill"></span></span>
-        <span class="progress-text">0/${steps.length}</span>
-      `;
-      // Inserir antes do ex-time
       summary.insertBefore(progress, time);
-      updateExerciseProgress(ex);
+    } else {
+      const meta = ex.querySelector('.exercise-flat__meta');
+      if (meta) meta.appendChild(progress);
     }
+    updateExerciseProgress(ex);
   });
+
+  buildExerciseGuide();
+
+  document.querySelectorAll('.setup-track').forEach(track => {
+    const trackId = track.dataset.trackId || 'setup';
+    const progressHost =
+      track.parentElement?.querySelector('.setup-track-progress') || null;
+    const steps = attachStepCheckboxes(track, trackId, () =>
+      updateSetupTrackProgress(track, progressHost)
+    );
+    if (steps.length) updateSetupTrackProgress(track, progressHost);
+  });
+
+  function updateSetupTrackProgress(track, progressHost) {
+    const checks = track.querySelectorAll('.step-check input[type="checkbox"]');
+    if (!checks.length) return;
+    const done = Array.from(checks).filter(c => c.checked).length;
+    const total = checks.length;
+    if (progressHost) {
+      updateProgressMeter(progressHost, done, total, 'Progresso do roteiro workspace');
+    }
+    track.classList.toggle('setup-track--complete', done === total && total > 0);
+  }
 
   function updateExerciseProgress(ex) {
     const checks = ex.querySelectorAll('.step-check input[type="checkbox"]');
     if (!checks.length) return;
     const done = Array.from(checks).filter(c => c.checked).length;
     const total = checks.length;
-    const pct = Math.round((done / total) * 100);
-    const fill = ex.querySelector('.progress-fill');
-    const text = ex.querySelector('.progress-text');
-    if (fill) fill.style.width = pct + '%';
-    if (text) text.textContent = `${done}/${total}`;
+    updateProgressMeter(
+      ex.querySelector('.ex-progress'),
+      done,
+      total,
+      `Progresso do exercício ${getExerciseLabel(ex)}`
+    );
     ex.classList.toggle('ex-complete', done === total && total > 0);
     updateDayProgress();
+    updateExerciseGuide();
+  }
+
+  function getExerciseLabel(ex) {
+    const title = ex.querySelector('.ex-title');
+    if (title) return title.textContent.replace(/\s+/g, ' ').trim();
+    const h3 = ex.closest('.bloco-subsection')?.querySelector('h3');
+    if (h3) return h3.textContent.replace(/^\d+\.\s*/, '').trim();
+    return ex.id;
+  }
+
+  function getExerciseStepCounts(ex) {
+    const checks = ex.querySelectorAll('.step-check input[type="checkbox"]');
+    if (!checks.length) return { done: 0, total: 0 };
+    const done = Array.from(checks).filter(c => c.checked).length;
+    return { done, total: checks.length };
+  }
+
+  function exerciseGuideStatusClass(done, total) {
+    if (!total || done === 0) return 'pending';
+    if (done === total) return 'done';
+    return 'partial';
+  }
+
+  function exerciseGuideStatusSymbol(status) {
+    if (status === 'done') return '✓';
+    if (status === 'partial') return '◐';
+    return '○';
+  }
+
+  function buildExerciseGuide() {
+    const list = document.getElementById('exercise-guide-list');
+    if (!list) return;
+
+    const items = Array.from(
+      document.querySelectorAll('.exercise, .exercise-flat')
+    )
+      .filter((ex) => ex.id && ex.querySelector('.ex-num'))
+      .sort((a, b) => {
+        const na = parseInt(a.querySelector('.ex-num').textContent, 10);
+        const nb = parseInt(b.querySelector('.ex-num').textContent, 10);
+        return na - nb;
+      });
+
+    list.innerHTML = '';
+    items.forEach((ex) => {
+      const num = ex.querySelector('.ex-num').textContent.trim();
+      const label = getExerciseLabel(ex);
+      const li = document.createElement('li');
+      li.className = 'exercise-guide-item';
+      li.dataset.exerciseId = ex.id;
+      li.innerHTML = `
+        <span class="exercise-guide-status exercise-guide-status--pending" aria-hidden="true">○</span>
+        <span class="exercise-guide-num">${num}</span>
+        <a class="exercise-guide-link" href="#${ex.id}">${label}</a>
+        <span class="exercise-guide-progress">0/0</span>
+      `;
+      list.appendChild(li);
+    });
+
+    updateExerciseGuide();
+  }
+
+  function updateExerciseGuide() {
+    const list = document.getElementById('exercise-guide-list');
+    if (!list) return;
+
+    list.querySelectorAll('.exercise-guide-item').forEach((li) => {
+      const ex = document.getElementById(li.dataset.exerciseId);
+      if (!ex) return;
+
+      const { done, total } = getExerciseStepCounts(ex);
+      const status = exerciseGuideStatusClass(done, total);
+      const statusEl = li.querySelector('.exercise-guide-status');
+      const progressEl = li.querySelector('.exercise-guide-progress');
+
+      if (statusEl) {
+        statusEl.className = `exercise-guide-status exercise-guide-status--${status}`;
+        statusEl.textContent = exerciseGuideStatusSymbol(status);
+        statusEl.setAttribute(
+          'aria-label',
+          status === 'done'
+            ? 'Concluído'
+            : status === 'partial'
+              ? 'Em andamento'
+              : 'Não iniciado'
+        );
+        statusEl.removeAttribute('aria-hidden');
+      }
+
+      if (progressEl) {
+        progressEl.textContent = total ? `${done}/${total}` : '—';
+      }
+
+      li.classList.toggle('exercise-guide-item--complete', status === 'done');
+    });
   }
 
   // Progresso global do dia — exibido no topbar
   function updateDayProgress() {
-    const allChecks = document.querySelectorAll('.exercise .step-check input[type="checkbox"]');
+    const allChecks = document.querySelectorAll(
+      '.exercise .step-check input[type="checkbox"], .exercise-flat .step-check input[type="checkbox"], .setup-track .step-check input[type="checkbox"]'
+    );
     if (!allChecks.length) return;
     const done = Array.from(allChecks).filter(c => c.checked).length;
     const total = allChecks.length;
@@ -185,6 +535,12 @@
     if (dayBar) {
       dayBar.querySelector('.day-fill').style.width = pct + '%';
       dayBar.querySelector('.day-text').textContent = `${done}/${total} passos · ${pct}%`;
+      dayBar.setAttribute('role', 'progressbar');
+      dayBar.setAttribute('aria-label', 'Progresso do dia');
+      dayBar.setAttribute('aria-valuemin', '0');
+      dayBar.setAttribute('aria-valuemax', String(total));
+      dayBar.setAttribute('aria-valuenow', String(done));
+      dayBar.setAttribute('aria-valuetext', `${done} de ${total} passos, ${pct}%`);
     }
   }
 
@@ -211,16 +567,17 @@
         saveState();
         document.querySelectorAll('.step-check input[type="checkbox"]').forEach(c => c.checked = false);
         document.querySelectorAll('.step-block').forEach(s => s.classList.remove('step-done'));
-        document.querySelectorAll('.exercise').forEach(ex => {
+        document.querySelectorAll('.exercise, .exercise-flat').forEach(ex => {
           ex.classList.remove('ex-complete');
           updateExerciseProgress(ex);
         });
+        updateExerciseGuide();
       }
     });
   }
 
   updateDayProgress();
-})();
+}
 
 
 // =========================================================
@@ -233,7 +590,7 @@
 // você vai ver os eventos disparando ao vivo, igualzinho ao que os
 // alunos vão ver no protótipo deles.
 // =========================================================
-(() => {
+function initGuideAnalytics() {
   const PRODUTO = 'curso_cursor_pms';
 
   const norm = s => (s || '')
@@ -358,9 +715,9 @@
       });
     }
   }, { capture: true });
-})();
+}
 
-(() => {
+function initCopyReferences() {
   document.querySelectorAll('.js-copy-reference').forEach(btn => {
     btn.addEventListener('click', async () => {
       const id = btn.getAttribute('data-copy-target');
@@ -384,4 +741,4 @@
       }, 2000);
     });
   });
-})();
+}

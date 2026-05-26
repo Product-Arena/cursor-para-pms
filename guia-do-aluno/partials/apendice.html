@@ -1,0 +1,348 @@
+<details class="section section-collapse" id="apendice">
+<summary class="section-summary"><div class="container"><div class="section-head">
+<span class="pa-eyebrow pa-eyebrow--red">MATERIAL DE APOIO</span>
+<h2>Apêndice</h2>
+<p>Sugestões para continuar aprendendo, referências para copiar no Cursor e configurações extras.<br>Use a lateral para navegar.</p>
+<span aria-hidden="true" class="section-chevron"></span></div></div></summary>
+<div class="section-body"><div class="container">
+
+<div class="section-split">
+<aside aria-label="Navegação do apêndice" class="side-nav" id="side-nav-apendice">
+<p class="side-label">A P Ê N D I C E</p>
+<ol class="side-list">
+<li><a href="#apendice-sugestoes-conteudos"><span class="num">01</span>Sugestões de conteúdos</a></li>
+<li><a href="#referencias-complementares"><span class="num">02</span>Referências complementares</a></li>
+<li><a href="#apendice-configuracoes-extras"><span class="num">03</span>Configurações extras</a></li>
+</ol>
+<details class="side-nav-block-subs" id="side-nav-apendice-config-subs">
+<summary class="sr-only">Configurações extras — subtópicos</summary>
+<ul class="side-nav-sub-list">
+<li><a href="#apendice-github-ssh"><span class="num">·</span>SSH no GitHub</a></li>
+</ul>
+</details>
+</aside>
+<div class="blocks">
+<article class="block apendice-block" id="apendice-sugestoes-conteudos">
+<header class="block-head">
+<span class="block-pill">A P Ê N D I C E</span>
+<h2>Sugestões de conteúdos</h2>
+<p class="block-quote">Material para <strong>continuar depois do curso</strong> — documentação, diretórios, templates, skills e links citados nos exercícios.</p>
+</header>
+<section class="concept">
+<h3>Documentação e comunidade</h3>
+<ul>
+<li><a href="https://cursor.com/docs" rel="noopener noreferrer" target="_blank">Documentação do Cursor</a> — modos, agentes, rules e MCPs.</li>
+</ul>
+<p class="tip">Diretórios de MCPs, setup e conectores para PMs: <a href="#referencia-mcps">MCPs — referências e setup</a>.</p>
+</section>
+<section class="concept">
+<h3>Skills e templates</h3>
+<ul>
+<li>Catálogos de Agent Skills: <a href="#referencia-mcps">MCPs — referências e setup</a> (seção Skills).</li>
+<li><a href="https://github.com/zarazhangrui/beautiful-html-templates" rel="noopener noreferrer" target="_blank">beautiful-html-templates</a> — template Coral (slides v2).</li>
+</ul>
+</section>
+<p class="tip">Volte ao <a href="#guia-exercicios">guia de exercícios</a> para ver o que você já concluiu e o que ainda falta no dia.</p>
+</article>
+<article class="block apendice-block" id="referencias-complementares">
+<header class="block-head">
+<span class="block-pill">A P Ê N D I C E</span>
+<h2>Referências complementares</h2>
+<p>Textos de apoio para colar no Cursor, no terminal e nas configurações. Use os botões <strong>Copiar</strong> ou selecione o conteúdo das caixas.</p>
+</header>
+<section class="concept" id="referencia-allowlist">
+<h3>Command allowlist (segurança no Cursor)</h3>
+<p class="reference-copy-hint">Caminho: <strong>Settings → General → Command Allowlist</strong>. Adicione manualmente ou cole a lista abaixo. Fonte: materiais do curso.</p>
+<p>Comandos comuns que podem entrar na allowlist sem abrir mão de segurança em excesso — são operações padrão de desenvolvimento.</p>
+
+<h4>Navegação e arquivos (essenciais)</h4>
+<table class="matrix">
+<thead><tr><th>Comando</th><th>O que faz</th><th>Por que costuma ser aceitável</th></tr></thead>
+<tbody>
+<tr><td><code>ls</code></td><td>Lista arquivos na pasta.</td><td>Leitura; o agente "vê" o projeto.</td></tr>
+<tr><td><code>cd</code></td><td>Muda de pasta.</td><td>Navegação básica.</td></tr>
+<tr><td><code>pwd</code></td><td>Mostra a pasta atual.</td><td>Leitura.</td></tr>
+<tr><td><code>mkdir</code></td><td>Cria pastas.</td><td>Estrutura do projeto.</td></tr>
+<tr><td><code>cp</code></td><td>Copia arquivos.</td><td>Duplicação local.</td></tr>
+<tr><td><code>mv</code></td><td>Move ou renomeia arquivos.</td><td>Organização.</td></tr>
+<tr><td><code>rmdir</code></td><td>Remove pastas vazias.</td><td>Limpeza básica.</td></tr>
+<tr><td><code>cat</code></td><td>Lê conteúdo de um arquivo.</td><td>Leitura.</td></tr>
+<tr><td><code>echo</code></td><td>Imprime texto.</td><td>Testes ou arquivos simples.</td></tr>
+<tr><td><code>touch</code></td><td>Cria arquivo vazio.</td><td>Operação leve.</td></tr>
+<tr><td><code>find</code></td><td>Busca arquivos.</td><td>Busca/leitura.</td></tr>
+<tr><td><code>tree</code></td><td>Árvore de diretórios.</td><td>Leitura.</td></tr>
+<tr><td><code>open</code></td><td>Abre arquivo ou pasta (Mac).</td><td>Ação de interface.</td></tr>
+</tbody>
+</table>
+
+<h4>Git (controle de versão)</h4>
+<table class="matrix">
+<thead><tr><th>Comando</th><th>O que faz</th><th>Nota</th></tr></thead>
+<tbody>
+<tr><td><code>git status</code></td><td>Arquivos alterados.</td><td>Leitura.</td></tr>
+<tr><td><code>git log</code></td><td>Histórico de commits.</td><td>Leitura.</td></tr>
+<tr><td><code>git diff</code></td><td>Diferenças no código.</td><td>Leitura.</td></tr>
+<tr><td><code>git fetch</code></td><td>Baixa atualizações sem aplicar.</td><td>Só baixa dados.</td></tr>
+<tr><td><code>git pull</code></td><td>Baixa e aplica atualizações.</td><td>Sincronização comum.</td></tr>
+<tr><td><code>git clone</code></td><td>Baixa um repositório novo.</td><td>Cópia local.</td></tr>
+<tr><td><code>git add</code></td><td>Prepara arquivos para commit.</td><td>Fluxo de versionamento.</td></tr>
+<tr><td><code>git branch</code></td><td>Lista ou cria branches.</td><td>Gestão de versões.</td></tr>
+<tr><td><code>git show</code></td><td>Detalhes de um commit.</td><td>Leitura.</td></tr>
+<tr><td><code>git stash</code></td><td>Guarda mudanças temporariamente.</td><td>Trabalho local.</td></tr>
+<tr><td><code>git ls-files</code></td><td>Lista arquivos versionados.</td><td>Leitura.</td></tr>
+</tbody>
+</table>
+
+<h4>Python e Node</h4>
+<table class="matrix">
+<thead><tr><th>Comando</th><th>O que faz</th></tr></thead>
+<tbody>
+<tr><td><code>python</code> / <code>python3</code></td><td>Executa scripts Python.</td></tr>
+<tr><td><code>pip3</code></td><td>Instala pacotes Python.</td></tr>
+<tr><td><code>node</code></td><td>Executa JavaScript.</td></tr>
+<tr><td><code>npm install</code></td><td>Instala dependências do <code>package.json</code>.</td></tr>
+<tr><td><code>npm run</code></td><td>Roda scripts definidos no projeto.</td></tr>
+</tbody>
+</table>
+
+<h4>Utilitários de sistema</h4>
+<table class="matrix">
+<thead><tr><th>Comando</th><th>O que faz</th></tr></thead>
+<tbody>
+<tr><td><code>curl</code></td><td>Baixa dados / testa APIs.</td></tr>
+<tr><td><code>grep</code></td><td>Busca texto em arquivos.</td></tr>
+<tr><td><code>date</code></td><td>Data e hora.</td></tr>
+<tr><td><code>head</code> / <code>tail</code></td><td>Início ou fim de arquivo.</td></tr>
+<tr><td><code>sort</code></td><td>Ordena linhas.</td></tr>
+<tr><td><code>wc</code></td><td>Conta linhas/palavras.</td></tr>
+<tr><td><code>diff</code></td><td>Compara arquivos.</td></tr>
+<tr><td><code>which</code></td><td>Onde um programa está instalado.</td></tr>
+<tr><td><code>ps</code></td><td>Lista processos.</td></tr>
+<tr><td><code>kill</code> / <code>pkill</code></td><td>Encerra processos (ex.: servidor em <code>localhost</code>).</td></tr>
+</tbody>
+</table>
+
+<h4>Lista completa (allowlist) — uma linha por comando</h4>
+<div class="reference-copy-actions">
+<button type="button" class="btn btn--primary btn--sm js-copy-reference" data-copy-target="allowlist-all">Copiar tudo</button>
+</div>
+<label class="sr-only" for="allowlist-all">Lista única com todos os comandos sugeridos</label>
+<textarea id="allowlist-all" class="reference-copy-textarea" readonly rows="22" spellcheck="false">ls
+cd
+pwd
+mkdir
+cp
+mv
+rmdir
+cat
+echo
+touch
+find
+tree
+open
+git status
+git log
+git diff
+git fetch
+git pull
+git clone
+git add
+git branch
+git show
+git stash
+git ls-files
+python3
+pip3
+node
+npm install
+npm run
+curl
+grep
+date
+head
+tail
+sort
+wc
+diff
+which
+ps
+kill
+pkill</textarea>
+
+<div class="callout" style="margin-top: var(--s-6);">
+<h4>Como adicionar no Cursor</h4>
+<ol>
+<li>Abra <strong>Settings</strong> (engrenagem ou <kbd>Cmd</kbd> + <kbd>,</kbd>).</li>
+<li>Vá em <strong>General</strong> → <strong>Command Allowlist</strong>.</li>
+<li>Cole os comandos manualmente ou peça ao próprio agente orientação para preencher em massa (a interface pode exigir confirmação manual por segurança).</li>
+</ol>
+</div>
+</section>
+
+<section class="concept" id="referencia-git">
+<h3>Git — guia essencial para PMs</h3>
+<p>Comandos para acompanhar status, registrar mudanças e sincronizar com o remoto.</p>
+
+<h4>1. Status atual</h4>
+<table class="matrix">
+<thead><tr><th>Comando</th><th>Função</th><th>Quando usar</th></tr></thead>
+<tbody>
+<tr><td><code>git status</code></td><td>Arquivos modificados, adicionados ou não rastreados.</td><td>Antes de commitar.</td></tr>
+<tr><td><code>git log</code></td><td>Histórico de commits.</td><td>Revisar o que foi feito.</td></tr>
+<tr><td><code>git diff</code></td><td>Diferenças linha a linha.</td><td>Ver o que mudou em um arquivo.</td></tr>
+</tbody>
+</table>
+
+<h4>2. Preparar e registrar alterações</h4>
+<table class="matrix">
+<thead><tr><th>Comando</th><th>Função</th><th>Uso</th></tr></thead>
+<tbody>
+<tr><td><code>git add &lt;arquivo&gt;</code></td><td>Adiciona à staging.</td><td>Primeiro passo antes do commit.</td></tr>
+<tr><td><code>git commit -m "msg"</code></td><td>Salva com mensagem curta.</td><td>Checkpoint do trabalho.</td></tr>
+<tr><td><code>git commit</code></td><td>Abre editor para mensagem longa.</td><td>Mensagens detalhadas.</td></tr>
+</tbody>
+</table>
+
+<h4>3. Sincronizar com o remoto</h4>
+<table class="matrix">
+<thead><tr><th>Comando</th><th>Função</th><th>Objetivo</th></tr></thead>
+<tbody>
+<tr><td><code>git pull</code></td><td>Baixa e mescla do remoto.</td><td>Manter cópia atualizada.</td></tr>
+<tr><td><code>git push</code></td><td>Envia commits locais.</td><td>Compartilhar mudanças.</td></tr>
+<tr><td><code>git fetch</code></td><td>Baixa sem mesclar.</td><td>Inspecionar antes de integrar.</td></tr>
+</tbody>
+</table>
+
+<h4>4. Branches</h4>
+<table class="matrix">
+<thead><tr><th>Comando</th><th>Função</th><th>Uso</th></tr></thead>
+<tbody>
+<tr><td><code>git branch</code></td><td>Lista branches.</td><td>Ver linhas de trabalho.</td></tr>
+<tr><td><code>git checkout -b &lt;branch&gt;</code></td><td>Cria e troca para novo branch.</td><td>Feature ou correção.</td></tr>
+<tr><td><code>git checkout &lt;branch&gt;</code></td><td>Troca para branch existente.</td><td>Navegar entre branches.</td></tr>
+<tr><td><code>git merge &lt;branch&gt;</code></td><td>Mescla outro branch no atual.</td><td>Unir trabalho.</td></tr>
+</tbody>
+</table>
+
+<p><strong>Consultas rápidas:</strong></p>
+<ul>
+<li>Histórico conciso: <code>git log --oneline -10</code></li>
+<li>Desfazer mudança não commitada: <code>git checkout -- arquivo.md</code></li>
+<li>Diferenças totais: <code>git diff</code></li>
+<li>Por arquivo: <code>git diff arquivo.md</code></li>
+</ul>
+</section>
+
+<section class="concept" id="referencia-mcps">
+<h3>MCPs — referências e setup</h3>
+<p>O <strong>Model Context Protocol (MCP)</strong> conecta o Cursor a sistemas e dados externos.</p>
+
+<h4>Diretórios de MCPs</h4>
+<ul>
+<li><a href="https://cursor.com/docs/context/mcp/directory" rel="noopener noreferrer" target="_blank">cursor.com/docs/context/mcp/directory</a></li>
+<li><a href="https://cursor.directory" rel="noopener noreferrer" target="_blank">Cursor Directory</a> — diretório de MCPs para Cursor</li>
+<li><a href="https://mcpservers.org/" rel="noopener noreferrer" target="_blank">mcpservers.org</a></li>
+<li><a href="https://mcpserver.space/" rel="noopener noreferrer" target="_blank">MCP Server Space</a> — diretório e guias (mcpserver.space)</li>
+</ul>
+
+<h4>Skills — workspace e catálogos</h4>
+<ul>
+<li><code>.cursor/skills/</code> no workspace padrão do curso — skills já disponíveis para slides, design, etc.</li>
+<li><a href="https://skills.sh/" rel="noopener noreferrer" target="_blank">skills.sh</a> — diretório aberto de Agent Skills (CLI <code>npx skills add …</code> quando disponível para o pacote).</li>
+<li><a href="https://github.com/anthropics/skills" rel="noopener noreferrer" target="_blank">github.com/anthropics/skills</a> — catálogo oficial de referência.</li>
+<li><a href="https://github.com/VoltAgent/awesome-agent-skills" rel="noopener noreferrer" target="_blank">awesome-agent-skills</a> — lista curada para descoberta.</li>
+</ul>
+
+<h4>Skills para análise de dados (skills.sh)</h4>
+<ul>
+<li><a href="https://skills.sh/wshobson/agents/sql-optimization-patterns" rel="noopener noreferrer" target="_blank">sql-optimization-patterns</a> (wshobson/agents) — otimização SQL, índices, <code>EXPLAIN</code>, padrões PostgreSQL/MySQL.</li>
+<li><a href="https://skills.sh/jeffallan/claude-skills/pandas-pro" rel="noopener noreferrer" target="_blank">pandas-pro</a> (jeffallan/claude-skills) — pandas: limpeza, agregações, merge, performance.</li>
+</ul>
+
+<h4>MCPs relevantes para PMs</h4>
+<p><strong>Google Workspace MCP</strong></p>
+<ul>
+<li><a href="https://mcpservers.org/servers/taylorwilsdon/google_workspace_mcp" rel="noopener noreferrer" target="_blank">Taylor Wilsdon — Google Workspace MCP</a></li>
+<li>Drive, Docs, Sheets, Calendar, Gmail.</li>
+<li><strong>Configuração:</strong> rule com <code>user_google_email</code> (por exemplo em <code>.cursor/rules/</code>).</li>
+</ul>
+<p><strong>Databricks MCP</strong></p>
+<ul>
+<li>Queries SQL e análise de dados.</li>
+<li><a href="https://docs.databricks.com/aws/en/generative-ai/mcp/connect-external-services" rel="noopener noreferrer" target="_blank">Documentação Databricks MCP</a></li>
+</ul>
+<p><strong>Browser MCP</strong></p>
+<ul>
+<li>Testar app, layout, acessibilidade, converter design em código.</li>
+<li>Exemplos de prompt: "Open the app in the browser and check for console errors"; "Navigate to the login page and test the form submission"; "Take a screenshot of the current page".</li>
+</ul>
+
+<h4>Permissões (Google Drive)</h4>
+<ul>
+<li>Liberação costuma ser ampla (tiers), não serviço a serviço.</li>
+<li>Rule com <code>user_google_email</code> ajuda a padronizar o uso.</li>
+</ul>
+
+<div class="reference-copy-actions">
+<button type="button" class="btn btn--ghost btn--sm js-copy-reference" data-copy-target="mcp-links-plain">Copiar URLs (texto)</button>
+</div>
+<label class="sr-only" for="mcp-links-plain">Lista de URLs MCP</label>
+<textarea id="mcp-links-plain" class="reference-copy-textarea" readonly rows="10" spellcheck="false">https://cursor.com/docs/context/mcp/directory
+https://cursor.directory
+https://mcpservers.org/
+https://mcpserver.space/
+https://skills.sh/
+https://github.com/anthropics/skills
+https://github.com/VoltAgent/awesome-agent-skills
+https://skills.sh/wshobson/agents/sql-optimization-patterns
+https://skills.sh/jeffallan/claude-skills/pandas-pro
+https://mcpservers.org/servers/taylorwilsdon/google_workspace_mcp
+https://docs.databricks.com/aws/en/generative-ai/mcp/connect-external-services</textarea>
+</section>
+</article>
+<article class="block apendice-block" id="apendice-configuracoes-extras">
+<header class="block-head">
+<span class="block-pill">A P Ê N D I C E</span>
+<h2>Configurações extras</h2>
+<p>Passo a passo opcional para destravar pré-requisitos ou integrações. Volte aqui quando o guia principal apontar para este bloco.</p>
+</header>
+<article class="concept appendix-section" id="apendice-github-ssh">
+<h3>SSH no GitHub</h3>
+<p>A chave SSH identifica seu computador no GitHub. Depois de configurada, comandos como <code>git clone</code> e <code>git push</code> funcionam sem pedir senha toda vez.</p>
+
+<h4>1. Gerar a chave (terminal)</h4>
+<p>No terminal integrado do Cursor (ou Terminal do macOS), rode:</p>
+<pre><code>ssh-keygen -t ed25519 -C "seu-email@exemplo.com"</code></pre>
+<p>Pressione <strong>Enter</strong> para aceitar o caminho padrão (<code>~/.ssh/id_ed25519</code>). Defina uma senha (passphrase) ou deixe em branco — em branco é mais simples para o curso.</p>
+
+<h4>2. Iniciar o agente e registrar a chave</h4>
+<pre><code>eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519</code></pre>
+
+<h4>3. Copiar a chave pública</h4>
+<p><strong>macOS:</strong></p>
+<pre><code>pbcopy &lt; ~/.ssh/id_ed25519.pub</code></pre>
+<p><strong>Windows (PowerShell):</strong></p>
+<pre><code>Get-Content $env:USERPROFILE\.ssh\id_ed25519.pub | Set-Clipboard</code></pre>
+<p>O conteúdo copiado começa com <code>ssh-ed25519</code> e termina com seu e-mail.</p>
+
+<h4>4. Cadastrar no GitHub</h4>
+<ol>
+<li>Abra <a href="https://github.com/settings/keys" rel="noopener noreferrer" target="_blank">github.com/settings/keys</a>.</li>
+<li>Clique em <strong>New SSH key</strong>.</li>
+<li>Título sugerido: <code>Cursor — notebook pessoal</code> (ou o nome da máquina).</li>
+<li>Cole a chave pública e salve.</li>
+</ol>
+
+<h4>5. Testar a conexão</h4>
+<pre><code>ssh -T git@github.com</code></pre>
+<p>Na primeira vez, digite <code>yes</code> se perguntar sobre fingerprint. Mensagem de sucesso típica: <em>Hi username! You've successfully authenticated…</em></p>
+
+<p class="tip"><strong>Dica:</strong> para clonar o repositório do curso com SSH, use o URL no formato <code>git@github.com:Product-Arena/cursor-para-pms.git</code> (botão <strong>Code → SSH</strong> no GitHub).</p>
+</article>
+</article>
+</div>
+</div>
+
+</div></div>
+</details>
