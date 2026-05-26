@@ -1,0 +1,8 @@
+{
+  "name": "cursor-para-pms",
+  "private": true,
+  "description": "Product Arena — Cursor na prática (slides, guia do aluno, case Arena Cash)",
+  "scripts": {
+    "build:guia": "rm -rf dist && mkdir -p dist && rsync -a guia-do-aluno/ dist/ --exclude .replit --exclude REPLIT.md --exclude serve-local.sh --exclude .DS_Store --exclude start-my-day-arenacash-reference.md"
+  }
+}

@@ -17,6 +17,14 @@ URL pública do guia:
 
 `https://product-arena.github.io/cursor-para-pms/guia-do-aluno/`
 
+## Vercel
+
+O repositório inclui `vercel.json` na raiz: o build copia esta pasta para `dist/` e publica o guia na **raiz do domínio** do projeto Vercel (ideal para compartilhar um link curto).
+
+1. No [dashboard Vercel](https://vercel.com), conecte o repositório **Product-Arena/cursor-para-pms** (branch `main`).
+2. **Root Directory:** deixe em branco (raiz do repo) — o `vercel.json` define o build.
+3. Após o deploy, use a URL de produção (ex.: `https://cursor-para-….vercel.app/`).
+
 ### Permissões na organização
 
 Se os workflows falharem por permissão, um administrador da org pode precisar habilitar **GitHub Actions** e **Pages** para este repositório.

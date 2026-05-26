@@ -11,3 +11,7 @@ scripts/
 
 # Python envs / cache (subfolders may add .venv)
 **/.venv/
+
+# Vercel local link / build output
+.vercel/
+dist/
