@@ -2860,7 +2860,9 @@ details.nested pre {
 .media-gif-slot {
   margin: 0;
 }
-.media-gif-slot img {
+.media-gif-slot img,
+.media-gif-slot video,
+.media-gif-slot__video {
   display: block;
   width: 100%;
   max-width: 720px;
@@ -2869,6 +2871,7 @@ details.nested pre {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
+  background: var(--pa-black);
 }
 .media-gif-slot__caption {
   margin: var(--s-3) 0 0;

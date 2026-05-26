@@ -56,8 +56,8 @@
 <details class="side-nav-block-subs" id="side-nav-bloco-4-subs" open="">
 <summary class="sr-only">Subtópicos do bloco 03 — recursos dos agentes</summary>
 <ul class="side-nav-sub-list">
-<li><a href="#bloco-4-browser"><span class="num">·</span>Browser</a></li>
 <li><a href="#bloco-4-rules"><span class="num">·</span>Rules</a></li>
+<li><a href="#bloco-4-browser"><span class="num">·</span>Browser</a></li>
 <li><a href="#bloco-4-commands"><span class="num">·</span>Commands</a></li>
 <li><a href="#bloco-4-skills"><span class="num">·</span>Skills</a></li>
 <li><a href="#bloco-4-mcps"><span class="num">·</span>MCPs</a></li>
@@ -578,15 +578,19 @@ O que é o GitHub?</code></pre>
 </ol>
 <p>Se algum modelo não aparecer na conta, use o substituto mais próximo que o instrutor indicar — o aprendizado é o fluxo de <strong>reexecutar a mesma pergunta</strong>, não o nome exato.</p>
 
-<figure class="media-gif-slot" id="ask-modelos-rerun-gif">
-<div class="media-gif-slot__placeholder" data-media-src="assets/ask-modelos-rerun.gif">
-<span class="media-gif-slot__badge">GIF</span>
-<p><strong>Em breve:</strong> gravação mostrando voltar na mensagem enviada, trocar Auto → Opus → Gemini → GPT 5.5 e clicar em reexecutar (sem nova pergunta).</p>
-<p class="media-gif-slot__hint">Salve em <code>guia-do-aluno/assets/ask-modelos-rerun.gif</code> e substitua este placeholder pelo <code>&lt;img&gt;</code>.</p>
-</div>
-<!-- GIF: substituir o placeholder acima por:
-<img src="assets/ask-modelos-rerun.gif" alt="Cursor Ask: mesma pergunta, trocar modelo e reexecutar resposta" width="720" loading="lazy" />
--->
+<figure class="media-gif-slot" id="ask-modelos-rerun-video">
+<video
+  class="media-gif-slot__video"
+  src="assets/ask-modelos-rerun.mp4"
+  controls
+  playsinline
+  preload="metadata"
+  width="720"
+  aria-label="Cursor Ask: mesma pergunta, trocar modelo e reexecutar resposta"
+>
+  Your browser does not support HTML5 video.
+</video>
+<figcaption class="media-gif-slot__caption">Mesma pergunta no Ask: voltar na mensagem, trocar Auto → Opus → Gemini → GPT 5.5 e clicar em reexecutar (sem nova pergunta).</figcaption>
 </figure>
 </div>
 </div>
@@ -742,80 +746,12 @@ Plano claro + comandos quando fizer sentido.</code></pre>
 <header class="block-head">
 <span class="block-pill">B L O C O   0 3</span>
 <h2>Recursos dos agentes</h2>
-<p class="block-quote">Além dos modos Ask/Plan/Agent, o Cursor oferece <strong>browser</strong>, <strong>rules</strong>, <strong>commands</strong>, <strong>skills</strong> e <strong>MCPs</strong> no workspace — contexto fixo, fluxos com <code>/</code>, extensões de comportamento e integração com ferramentas externas.</p>
-<p class="block-obj"><strong>Objetivo:</strong> Usar o browser nativo da IDE; dominar <strong>Always Apply</strong> vs <strong>Apply Intelligently</strong> em rules; disparar commands como <code>/create-prd</code>; conhecer Skills no workspace; conectar <strong>Linear</strong> via MCP.</p>
+<p class="block-quote">Além dos modos Ask/Plan/Agent, o Cursor oferece <strong>rules</strong>, <strong>browser</strong>, <strong>commands</strong>, <strong>skills</strong> e <strong>MCPs</strong> no workspace — contexto fixo, fluxos com <code>/</code>, extensões de comportamento e integração com ferramentas externas.</p>
+<p class="block-obj"><strong>Objetivo:</strong> Dominar <strong>Always Apply</strong> vs <strong>Apply Intelligently</strong> em rules; usar o browser nativo da IDE; disparar commands como <code>/create-prd</code>; conhecer Skills no workspace; conectar <strong>Linear</strong> via MCP.</p>
 </header>
 
-<section class="concept bloco-subsection" id="bloco-4-browser">
-<h3>1. Browser <span class="mins">15 min</span></h3>
-<p>No modo <strong>Agent</strong>, o Cursor pode usar um <strong>navegador integrado</strong> como ferramenta: abrir páginas, navegar, tirar screenshots e inspecionar o que está na tela — útil para validar protótipos HTML, fluxos de login ou erros no console sem alternar para outro app o tempo todo.</p>
-<p><strong>Quando usar:</strong></p>
-<ul>
-<li>Conferir um <code>dashboard.html</code> ou landing depois que o agente gerou os arquivos</li>
-<li>Testar se um botão, formulário ou layout renderiza como esperado</li>
-<li>Pedir evidência visual (“tire um screenshot da página inicial”)</li>
-</ul>
-
-<div class="exercise-flat" id="ex-06-browser-linkedin" data-exercise-num="06">
-<div class="exercise-flat__meta">
-<span class="ex-num">06</span>
-<span class="ex-time">10 min</span>
-</div>
-<p class="ex-obj"><strong>Objetivo:</strong> no modo <strong>Agent</strong>, abrir o <strong>LinkedIn</strong> no browser integrado do Cursor e fazer login na sua conta.</p>
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 1</span>
-<span class="step-block-time">3 min</span>
-<h4 class="step-block-title">Abrir o LinkedIn no browser</h4>
-</div>
-<div class="step-block-body">
-<p>Em um chat novo no modo <strong>Agent</strong>, peça para abrir <code>https://www.linkedin.com</code> no browser integrado e aguardar a página carregar.</p>
-<div class="prompt-stack">
-<p class="prompt-label"><span class="pa-eyebrow pa-eyebrow--red">Prompt</span></p>
-<pre class="code-block code-block--prompt"><code>Abra https://www.linkedin.com no browser integrado.
-
-Aguarde a página carregar e me diga o que aparece na tela.</code></pre>
-</div>
-</div>
-</div>
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 2</span>
-<span class="step-block-time">5 min</span>
-<h4 class="step-block-title">Fazer login na sua conta</h4>
-</div>
-<div class="step-block-body">
-<p>Se ainda não estiver logado, conclua o login <strong>você mesmo</strong> no browser (e-mail/senha ou SSO). <strong>Não cole senha no chat</strong> — o agente só navega e observa; credenciais são suas.</p>
-</div>
-</div>
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 3</span>
-<span class="step-block-time">2 min</span>
-<h4 class="step-block-title">Confirmar que entrou</h4>
-</div>
-<div class="step-block-body">
-<p>Peça um screenshot do feed ou do menu do perfil para validar que a sessão está ativa.</p>
-</div>
-</div>
-<div class="ex-closing">
-<span class="pa-eyebrow pa-eyebrow--red">CRITÉRIO DE PRONTO</span>
-<p>LinkedIn aberto no browser do Cursor e você logado na sua conta (feed ou perfil visível).</p>
-</div>
-</div>
-
-<h4>HTML estático em localhost</h4>
-<p>Com o arquivo já no workspace, peça ao <strong>Agent</strong> para servir a pasta e abrir no browser integrado — você valida sem sair do Cursor:</p>
-<div class="prompt-stack">
-<p class="prompt-label"><span class="pa-eyebrow pa-eyebrow--red">Como pedir</span></p>
-<pre class="code-block code-block--prompt"><code>Na pasta onde está meu HTML estático, suba um servidor local (ex.: porta 8000).
-
-Abra `http://127.0.0.1:8000/&lt;meu-arquivo&gt;.html` no browser integrado e descreva o que aparece na tela.</code></pre>
-</div>
-</section>
-
 <section class="concept bloco-subsection" id="bloco-4-rules">
-<h3>2. Rules <span class="mins">10 min</span></h3>
+<h3>1. Rules <span class="mins">10 min</span></h3>
 <p><strong>Rules</strong> são instruções persistentes — o “manual de estilo” do workspace. Ficam em <code>.cursor/rules/</code> (arquivos <code>.mdc</code>). O agente consulta antes de agir, para você não repetir convenções em todo prompt.</p>
 <p>No workspace modelo e no repositório clonado do curso você já tem exemplos (PRD, guidelines gerais, etc.). Abra pelo explorador: <code>.cursor/rules/</code>.</p>
 
@@ -913,9 +849,68 @@ alwaysApply: true
 </div>
 </section>
 
+<section class="concept bloco-subsection" id="bloco-4-browser">
+<h3>2. Browser <span class="mins">15 min</span></h3>
+<p>No modo <strong>Agent</strong>, o Cursor pode usar um <strong>navegador integrado</strong> como ferramenta: abrir páginas, navegar, tirar screenshots e inspecionar o que está na tela — útil para validar protótipos HTML, fluxos de login ou erros no console sem alternar para outro app o tempo todo.</p>
+<p><strong>Quando usar:</strong></p>
+<ul>
+<li>Conferir um <code>dashboard.html</code> ou landing depois que o agente gerou os arquivos</li>
+<li>Testar se um botão, formulário ou layout renderiza como esperado</li>
+<li>Pedir evidência visual (“tire um screenshot da página inicial”)</li>
+</ul>
+
+<div class="exercise-flat" id="ex-06-browser-linkedin" data-exercise-num="06">
+<div class="exercise-flat__meta">
+<span class="ex-num">06</span>
+<span class="ex-time">10 min</span>
+</div>
+<p class="ex-obj"><strong>Objetivo:</strong> no modo <strong>Agent</strong>, abrir o <strong>LinkedIn</strong> no browser integrado do Cursor e fazer login na sua conta.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Abrir o LinkedIn no browser</h4>
+</div>
+<div class="step-block-body">
+<p>Em um chat novo no modo <strong>Agent</strong>, peça para abrir <code>https://www.linkedin.com</code> no browser integrado e aguardar a página carregar.</p>
+<div class="prompt-stack">
+<p class="prompt-label"><span class="pa-eyebrow pa-eyebrow--red">Prompt</span></p>
+<pre class="code-block code-block--prompt"><code>Abra https://www.linkedin.com no browser integrado.
+
+Aguarde a página carregar e me diga o que aparece na tela.</code></pre>
+</div>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Fazer login na sua conta</h4>
+</div>
+<div class="step-block-body">
+<p>Se ainda não estiver logado, conclua o login <strong>você mesmo</strong> no browser (e-mail/senha ou SSO). <strong>Não cole senha no chat</strong> — o agente só navega e observa; credenciais são suas.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Confirmar que entrou</h4>
+</div>
+<div class="step-block-body">
+<p>Peça um screenshot do feed ou do menu do perfil para validar que a sessão está ativa.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">CRITÉRIO DE PRONTO</span>
+<p>LinkedIn aberto no browser do Cursor e você logado na sua conta (feed ou perfil visível).</p>
+</div>
+</div>
+</section>
+
 <section class="concept bloco-subsection" id="bloco-4-commands">
-<h3>3. Commands <span class="mins">5 min</span></h3>
-<p><strong>Commands</strong> são atalhos com <code>/</code> no chat — um arquivo Markdown em <code>.cursor/commands/</code> com um roteiro que o agente segue, como uma macro em linguagem natural. No repo do curso: <code>/create-prd</code>, <code>/start-a-business</code>, entre outros (liste com <code>/</code> no chat).</p>
+<h3>3. Commands <span class="mins">20 min</span></h3>
+<p><strong>Commands</strong> são atalhos com <code>/</code> no chat — um arquivo Markdown em <code>.cursor/commands/</code> com um roteiro que o agente segue, como uma macro em linguagem natural. No repo do curso: <code>/note</code>, <code>/create-prd</code>, <code>/start-a-business</code>, entre outros (liste com <code>/</code> no chat).</p>
 
 <h4>Anatomia de um command</h4>
 <div class="concept-command-anatomy" role="group" aria-label="Anatomia visual de um command">
@@ -941,6 +936,98 @@ alwaysApply: true
 </div>
 </div>
 <p><strong>Na prática:</strong> digite <code>/create-prd</code> (ou outro) → o agente segue o roteiro do arquivo → você valida cada entrega antes de seguir.</p>
+
+<div class="exercise-flat" id="ex-08-linkedin-tom-de-voz" data-exercise-num="08">
+<div class="exercise-flat__meta">
+<span class="ex-num">08</span>
+<span class="ex-time">9 min</span>
+</div>
+<p class="ex-obj"><strong>Objetivo:</strong> no modo <strong>Agent</strong>, usar o browser (LinkedIn logado no <a href="#ex-06-browser-linkedin">exercício 06</a>) para analisar seus <strong>últimos 3 posts</strong> e registrar o tom de voz em <code>.cursor/rules/writing-style.mdc</code> do seu workspace.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">7 min</span>
+<h4 class="step-block-title">Pedir a análise no Agent</h4>
+</div>
+<div class="step-block-body">
+<p>Chat novo em <strong>Agent</strong>. Inclua a rule no contexto com <code>@.cursor/rules/writing-style.mdc</code> (ou o caminho equivalente na raiz do seu workspace). Confirme que o browser segue logado no LinkedIn.</p>
+<div class="prompt-stack">
+<p class="prompt-label"><span class="pa-eyebrow pa-eyebrow--red">Prompt</span></p>
+<pre class="code-block code-block--prompt"><code>@.cursor/rules/writing-style.mdc
+
+No browser integrado, estou logado no meu LinkedIn.
+
+Analise meus **últimos 3 posts** publicados por mim.
+
+Atualize `.cursor/rules/writing-style.mdc` **mantendo** o conteúdo que já existe e adicionando a seção **## Tone of voice** com:
+- resumo do meu tom (tom, vocabulário, estrutura de frase);
+- padrões que se repetem nos 3 posts;
+- 3 a 5 bullets de “escreva assim” / “evite assim” para o agente imitar meu estilo em Markdown.</code></pre>
+</div>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Revisar a rule</h4>
+</div>
+<div class="step-block-body">
+<p>Leia a seção <strong>Tone of voice</strong> em <code>.cursor/rules/writing-style.mdc</code>. Ajuste o que não soar como você — o agente inferiu a partir do que viu na tela.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">CRITÉRIO DE PRONTO</span>
+<p><code>.cursor/rules/writing-style.mdc</code> com seção <strong>Tone of voice</strong> preenchida a partir dos 3 posts, sem apagar as guidelines gerais do arquivo.</p>
+</div>
+</div>
+
+<div class="exercise-flat" id="ex-09-note" data-exercise-num="09">
+<div class="exercise-flat__meta">
+<span class="ex-num">09</span>
+<span class="ex-time">5 min</span>
+</div>
+<p class="ex-obj"><strong>Objetivo:</strong> usar o command <code>/note</code> para registrar um <strong>insight</strong>, <strong>aprendizado</strong>, <strong>dúvida</strong> ou <strong>referência</strong> em <code>documents/notas-da-aula.md</code> (criado no <a href="#ex-04-agent">exercício 04</a>).</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">1 min</span>
+<h4 class="step-block-title">Conferir o arquivo de notas</h4>
+</div>
+<div class="step-block-body">
+<p>Confirme que <code>documents/notas-da-aula.md</code> existe no seu workspace e tem as seções <strong>Dúvidas</strong>, <strong>Insights</strong> e <strong>Referências compartilhadas</strong>.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Disparar <code>/note</code></h4>
+</div>
+<div class="step-block-body">
+<p>No chat (Agent ou Ask), digite <code>/note</code> e inclua tipo + texto na mesma mensagem, por exemplo:</p>
+<div class="prompt-stack">
+<p class="prompt-label"><span class="pa-eyebrow pa-eyebrow--red">Exemplos</span></p>
+<pre class="code-block code-block--prompt"><code>/note learning: Commands padronizam fluxos que eu repetiria no prompt.</code></pre>
+</div>
+<p>O agente segue o roteiro em <code>.cursor/commands/note.md</code> e acrescenta a linha na seção certa, com data.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">1 min</span>
+<h4 class="step-block-title">Validar no arquivo</h4>
+</div>
+<div class="step-block-body">
+<p>Abra <code>documents/notas-da-aula.md</code> e confira se a nova entrada apareceu na seção correta, sem apagar anotações anteriores.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">CRITÉRIO DE PRONTO</span>
+<p>Pelo menos <strong>uma</strong> entrada nova em <code>documents/notas-da-aula.md</code> via <code>/note</code> (insight, aprendizado, dúvida ou referência).</p>
+</div>
+</div>
 </section>
 
 <section class="concept bloco-subsection" id="bloco-4-skills">
@@ -1006,12 +1093,12 @@ alwaysApply: true
 </section>
 
 <section class="exercises">
-<p><strong>Ordem sugerida:</strong> <a href="#ex-06-browser-linkedin">browser LinkedIn (06)</a> → <a href="#ex-07-rules-always-apply">Always Apply em rules (07)</a> → agente (08) → análise (09) → dashboard (10) → slides v1 (11) → slides v2 com Skill + Coral (12) → <strong>PRD com <code>/create-prd</code></strong> (13) → protótipo e deploy (14 a 16). A análise (09) usa o <a href="#case-arenacash-dados">pacote de dados Arena Cash</a> completo e pede cortes <strong>mensais + semanais</strong>.</p>
+<p><strong>Ordem sugerida:</strong> <a href="#ex-06-browser-linkedin">browser LinkedIn (06)</a> → <a href="#ex-07-rules-always-apply">Always Apply em rules (07)</a> → <a href="#ex-08-linkedin-tom-de-voz">tom de voz no LinkedIn (08)</a> → <a href="#ex-09-note"><code>/note</code> (09)</a> → agente (10) → análise (11) → dashboard (12) → slides v1 (13) → slides v2 com Skill + Coral (14) → <strong>PRD com <code>/create-prd</code></strong> (15) → protótipo e deploy (16 a 18). A análise (11) usa o <a href="#case-arenacash-dados">pacote de dados Arena Cash</a> completo e pede cortes <strong>mensais + semanais</strong>.</p>
 <h3>Exercícios</h3>
 
 <details class="exercise" id="ex-06-agente-arena-cash">
 <summary>
-<span class="ex-num">08</span>
+<span class="ex-num">10</span>
 <span class="ex-title">Criar um agente (fluxo nativo do Cursor)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1082,7 +1169,7 @@ Arquivo Markdown padrão de agente que o Cursor gera neste fluxo.</code></pre>
 
 <details class="exercise" id="ex-07-analise-arenacash">
 <summary>
-<span class="ex-num">09</span>
+<span class="ex-num">11</span>
 <span class="ex-title">Análise — síntese a partir dos dados do case Arena Cash</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1169,7 +1256,7 @@ Identificar oportunidades para melhorar o **fluxo de onboarding**.
 
 <details class="exercise" id="ex-08-dashboard-arenacash">
 <summary>
-<span class="ex-num">10</span>
+<span class="ex-num">12</span>
 <span class="ex-title">Dashboard navegável em HTML (design system Arena Cash)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1275,7 +1362,7 @@ Aplicar `repos/cursor-para-pms/case arenacash/design-system-arenacash.md`:
 
 <details class="exercise" id="ex-09-slides-rapidos">
 <summary>
-<span class="ex-num">11</span>
+<span class="ex-num">13</span>
 <span class="ex-title">Slides v1 — narrativa rápida (sem skill/template)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1334,7 +1421,7 @@ Escrever o conteúdo de uma apresentação com **6 slides**:
 
 <details class="exercise" id="ex-11-slides-skill-template-coral">
 <summary>
-<span class="ex-num">12</span>
+<span class="ex-num">14</span>
 <span class="ex-title">Slides v2 — com Skill + template Coral (HTML)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1394,7 +1481,7 @@ Arquivos finais (HTML/CSS/JS se necessário) em pasta `slides/`.</code></pre>
 
 <details class="exercise" id="ex-12-prd-onboarding">
 <summary>
-<span class="ex-num">13</span>
+<span class="ex-num">15</span>
 <span class="ex-title">PRD do novo onboarding — comando <code>/create-prd</code></span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1462,7 +1549,7 @@ Crie um PRD com base na **análise feita** e nos **direcionais da companhia**.
 
 <section class="concept">
 <h3>Documentação e planejamento</h3>
-<p>Depois de análise, dashboard, <a href="#ex-09-slides-rapidos">slides v1</a> e <a href="#ex-11-slides-skill-template-coral">slides v2 com Skill</a>, você formaliza o escopo em um <strong>PRD</strong>. No workspace do curso, use <code>/create-prd</code> (ver <a href="#ex-12-prd-onboarding">Exercício 13</a>). Em seguida, esse escopo vira épicos e tarefas no Linear via MCP — <strong>primeiro criando o projeto no Linear e depois as tasks</strong> (setup em <a href="#bloco-4-mcps">MCPs</a>, bloco 03).</p>
+<p>Depois de análise, dashboard, <a href="#ex-09-slides-rapidos">slides v1</a> e <a href="#ex-11-slides-skill-template-coral">slides v2 com Skill</a>, você formaliza o escopo em um <strong>PRD</strong>. No workspace do curso, use <code>/create-prd</code> (ver <a href="#ex-12-prd-onboarding">Exercício 15</a>). Em seguida, esse escopo vira épicos e tarefas no Linear via MCP — <strong>primeiro criando o projeto no Linear e depois as tasks</strong> (setup em <a href="#bloco-4-mcps">MCPs</a>, bloco 03).</p>
 </section>
 </article>
 
@@ -1484,7 +1571,7 @@ Crie um PRD com base na **análise feita** e nos **direcionais da companhia**.
 
 <details class="exercise" id="ex-13-prototipo">
 <summary>
-<span class="ex-num">14</span>
+<span class="ex-num">16</span>
 <span class="ex-title">Gerar o protótipo: ASCII → MVP simples → atualização no Linear</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1562,7 +1649,7 @@ Atualizar no **Linear** as tasks relacionadas ao MVP de onboarding.
 
 <details class="exercise" id="ex-14-git-push">
 <summary>
-<span class="ex-num">15</span>
+<span class="ex-num">17</span>
 <span class="ex-title">Commit e push (publicar mudanças)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1597,7 +1684,7 @@ Atualizar no **Linear** as tasks relacionadas ao MVP de onboarding.
 
 <details class="exercise" id="ex-15-github-pages">
 <summary>
-<span class="ex-num">16</span>
+<span class="ex-num">18</span>
 <span class="ex-title">GitHub Pages (e Vercel só como referência)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
