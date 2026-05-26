@@ -1417,6 +1417,15 @@ pre.flow {
 /* =========================================================
    Exercises
    ========================================================= */
+.exercises-section-title {
+  margin-top: var(--s-8);
+  margin-bottom: var(--s-6);
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+.exercises.bloco-subsection:first-of-type .exercises-section-title {
+  margin-top: 0;
+}
 .exercises h3 {
   font-size: var(--text-xl);
   margin-bottom: var(--s-5);
@@ -2936,6 +2945,76 @@ details.nested pre {
 .media-gif-slot__hint {
   font-size: var(--text-xs) !important;
   color: var(--fg-subtle) !important;
+}
+.media-gif-slot--hero {
+  margin: var(--s-6) 0 var(--s-8);
+}
+.media-gif-slot--hero .media-gif-slot__placeholder {
+  min-height: 220px;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+}
+.media-gif-slot--hero img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* Arena Cash — onboarding brief (internal message) */
+.onboarding-brief {
+  margin: 0;
+  padding: var(--s-8);
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--pa-red);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--fg-muted);
+}
+.onboarding-brief p {
+  margin: 0 0 var(--s-4);
+}
+.onboarding-brief p:last-child {
+  margin-bottom: 0;
+}
+.onboarding-brief__meta {
+  font-size: var(--text-sm);
+  color: var(--fg-subtle);
+  margin-bottom: var(--s-2) !important;
+}
+.onboarding-brief__meta span {
+  font-weight: 700;
+  color: var(--fg);
+  min-width: 4.5rem;
+  display: inline-block;
+}
+.onboarding-brief__lead {
+  margin-top: var(--s-6) !important;
+  font-weight: 600;
+  color: var(--fg);
+}
+.onboarding-brief ul {
+  margin: var(--s-2) 0 var(--s-4);
+  padding-left: 1.25rem;
+}
+.onboarding-brief li {
+  margin-bottom: var(--s-2);
+}
+.onboarding-brief li strong {
+  color: var(--fg);
+}
+.onboarding-brief p strong {
+  color: var(--fg);
+}
+.onboarding-brief__signoff {
+  margin-top: var(--s-6) !important;
+  font-style: italic;
+  color: var(--fg-subtle);
+}
+.onboarding-brief code {
+  font-size: 0.9em;
 }
 .concept-figure--compact {
   margin: 0;

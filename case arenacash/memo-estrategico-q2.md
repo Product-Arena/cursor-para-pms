@@ -1,5 +1,5 @@
 # Memo estratégico — Q2 2026
-**De:** Rafael Monteiro, CEO
+**De:** Ivy Leitão, CEO & Co-fundadora
 **Para:** Todo o time da ArenaCash
 **Data:** 30 de março de 2026
 **Assunto:** Onde estamos, onde precisamos chegar e por que o Q2 é o quarter mais importante da nossa história
@@ -71,4 +71,4 @@ Eu sei de que lado a gente vai ficar. Vamos trabalhar.
 Qualquer dúvida, me chamem no Slack. Sério, qualquer uma.
 
 Abraço,
-Rafael
+Ivy

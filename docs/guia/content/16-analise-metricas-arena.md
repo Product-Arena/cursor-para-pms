@@ -1,6 +1,6 @@
 # Exercício 16: Análise de dados — Arena Cash
 
-**Objetivo:** Usar o Cursor com o subagent **Product Manager** para analisar dados semanais da Arena Cash **conectados** ao memo estratégico do Q2 — mesmo texto-base do kit **`curso-claude-pms/kit/memo-estrategico-q2.md`**, versionado no repositório do curso como **`case arenacash/memo-estrategico-q2.md`**.
+**Objetivo:** Usar o Cursor com o subagent **Product Manager** para analisar dados semanais da Arena Cash **conectados** ao memo estratégico do Q2 da CEO **Ivy Leitão** — versionado no repositório do curso como **`case arenacash/memo-estrategico-q2.md`**.
 
 ---
 
@@ -9,7 +9,7 @@
 | Artefato | Caminho no repositório do curso |
 |----------|----------------------------------|
 | Dataset semanal | `case arenacash/dados-semanais-arenacash.csv` |
-| Memo estratégico Q2 | `case arenacash/memo-estrategico-q2.md` |
+| Memo estratégico Q2 (CEO Ivy Leitão) | `case arenacash/memo-estrategico-q2.md` |
 | Roteiro deste exercício | `exercicio/analise-dados.md` |
 
 ---

@@ -116,6 +116,12 @@ function initGuideInteractions() {
       prefixes: ['bloco-4-'],
     },
     {
+      scope: 'conteudo',
+      id: 'side-nav-bloco-5-subs',
+      targets: ['bloco-5'],
+      prefixes: ['bloco-5-'],
+    },
+    {
       scope: 'apendice',
       id: 'side-nav-apendice-config-subs',
       targets: ['apendice-configuracoes-extras', 'apendice-github-ssh'],

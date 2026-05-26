@@ -72,6 +72,17 @@
 <ol class="side-list">
 <li><a href="#bloco-5"><span class="num">04</span>Cursor no ciclo de produto</a></li>
 </ol>
+<details class="side-nav-block-subs" id="side-nav-bloco-5-subs" open="">
+<summary class="sr-only">Subtópicos do bloco 04 — ciclo de produto</summary>
+<ul class="side-nav-sub-list">
+<li><a href="#bloco-5-apresentacao"><span class="num">·</span>Apresentação do case</a></li>
+<li><a href="#bloco-5-conhecendo-empresa"><span class="num">·</span>Conhecendo a empresa</a></li>
+<li><a href="#bloco-5-analisando-dados"><span class="num">·</span>Analisando dados</a></li>
+<li><a href="#bloco-5-comunicando-resultados"><span class="num">·</span>Comunicando resultados</a></li>
+<li><a href="#bloco-5-hipoteses-experimentos"><span class="num">·</span>Hipóteses e experimentos</a></li>
+<li><a href="#bloco-5-gerenciando-tarefas"><span class="num">·</span>Gerenciando tarefas</a></li>
+</ul>
+</details>
 </div>
 </details>
 
@@ -1047,8 +1058,42 @@ Atualize `.cursor/rules/writing-style.mdc` **mantendo** o conteúdo que já exis
 
 <h4>Linear MCP</h4>
 <p>Permite criar projetos, épicos, issues e sincronizar status. Use para transformar escopo em backlog acionável.</p>
-<p class="tip"><strong>Setup:</strong> Settings → <code>Cmd + Shift + J</code> (Mac) ou <code>Ctrl + Shift + J</code> (Windows) → <code>@cursor/marketplace</code> → buscar <strong>Linear</strong> → Enable/Install → conectar conta.</p>
-<p class="tip"><strong>Ordem recomendada:</strong> depois de conectar o MCP, <strong>crie um projeto no Linear</strong> e só então peça ao agente para criar épicos/issues/tasks dentro desse projeto.</p>
+
+<div class="exercise-flat" id="ex-linear-mcp-marketplace">
+<div class="exercise-flat__meta">
+<span class="ex-num">MCP</span>
+<span class="ex-time">5 min</span>
+</div>
+<p class="ex-obj"><strong>Objetivo:</strong> instalar o <strong>Linear MCP</strong> pelo <a href="https://cursor.com/marketplace" rel="noopener noreferrer" target="_blank">Cursor Marketplace</a> e autenticar com a sua conta Linear.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Buscar e instalar no Marketplace</h4>
+</div>
+<div class="step-block-body">
+<p>Abra as configurações de MCP: <strong>Settings</strong> → <code>Cmd + Shift + J</code> (Mac) ou <code>Ctrl + Shift + J</code> (Windows).</p>
+<p>No campo de busca, digite <code>@cursor/marketplace</code>, procure <strong>Linear</strong> e clique em <strong>Enable</strong> ou <strong>Install</strong>.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Autenticar com a sua conta</h4>
+</div>
+<div class="step-block-body">
+<p>Siga o fluxo de login que o Cursor abrir (OAuth do Linear). Use a <strong>mesma conta</strong> em que você criará o projeto do case no bloco seguinte.</p>
+<p>Confira em Settings → MCP se o Linear aparece como <strong>conectado</strong> (sem erro de autenticação).</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">CRITÉRIO DE PRONTO</span>
+<p>Linear MCP instalado pelo Marketplace e conta Linear autenticada no Cursor.</p>
+</div>
+</div>
+
+<p class="tip"><strong>Ordem recomendada:</strong> depois de conectar o MCP, <strong>crie um projeto no Linear</strong> e só então peça ao agente para criar épicos/issues/tasks dentro desse projeto (bloco 04).</p>
 </section>
 </article>
 
@@ -1057,18 +1102,54 @@ Atualize `.cursor/rules/writing-style.mdc` **mantendo** o conteúdo que já exis
 <span class="block-pill">B L O C O   0 4</span>
 <h2>Cursor no ciclo de produto</h2>
 <p class="block-quote">Da análise à narrativa e ao planejamento: usar o repositório como "empresa fictícia", gerar entregáveis e preparar o novo fluxo de onboarding para protótipo.</p>
-<p class="block-obj"><strong>Objetivo:</strong> Contexto da <strong>Arena Cash</strong>, análise de dados (triangulando produto, suporte e financeiro com cortes <a href="#case-arenacash-dados">mensais e semanais</a>), comunicação (slides), workflow <strong>PRD do onboarding → épicos/tarefas</strong> no Linear (MCP configurado em <a href="#bloco-4-mcps">MCPs</a>, bloco 03).</p>
+<p class="block-obj"><strong>Objetivo:</strong> Contexto da <strong>Arena Cash</strong>, análise de dados (triangulando produto, suporte e financeiro com cortes <a href="#bloco-5-analisando-dados">mensais e semanais</a>), comunicação (slides), workflow <strong>PRD do onboarding → épicos/tarefas</strong> no Linear (MCP configurado em <a href="#bloco-4-mcps">MCPs</a>, bloco 03).</p>
 </header>
 
-<section class="concept">
-<h3>Parte expositiva — Arena Cash e agente dedicado <span class="mins">10 min</span></h3>
-<p class="tip"><strong>Premissa do curso:</strong> o repositório oficial está em <code>repos/cursor-para-pms/</code>. O case Arena Cash fica em <code>repos/cursor-para-pms/case arenacash/</code> — todos os exercícios deste bloco assumem esses caminhos.</p>
-<p><strong>Arena Cash</strong> é a empresa fictícia do curso. O repositório traz memo, organograma, design system e demais documentos para você exercitar postura de PM sem depender de dados internos da empresa onde trabalha.</p>
-<p>Você vai usar o <strong>fluxo nativo do Cursor para criar um agente</strong> (menu, Command Palette ou comando com <code>/</code>, conforme a versão instalada — o instrutor mostra ao vivo). O Cursor gera um <strong>arquivo Markdown</strong> com as instruções permanentes desse agente; esse arquivo é o que você passa a reutilizar nas próximas interações.</p>
+<section class="concept bloco-subsection" id="bloco-5-apresentacao">
+<h3>Apresentação do case Arena Cash <span class="mins">5 min</span></h3>
+<p>Neste bloco você atua como PM do squad de <strong>Onboarding &amp; Ativação</strong> da Arena Cash. O repositório do curso vira sua “empresa”: documentos em <code>case arenacash/</code>, entregáveis em <code>documents/</code> e o Cursor como copiloto em cada etapa do ciclo.</p>
+<p><strong>Jornada do bloco:</strong> conhecer o contexto e o time → analisar dados (produto, suporte, financeiro) → comunicar achados → formalizar hipóteses no PRD → organizar o backlog no Linear.</p>
+<p><strong>Ordem sugerida dos exercícios:</strong> análise (10) → planilha + extensões (11) → dashboard (12) → slides v1 (13) → slides v2 com Skill + Coral (14) → <strong>PRD com <code>/create-prd</code></strong> (15) → backlog no Linear (após o PRD). A análise usa o <a href="#bloco-5-analisando-dados">pacote de dados</a> com cortes <strong>mensais + semanais</strong>.</p>
 </section>
 
-<section class="concept" id="case-arenacash-dados">
-<h3>Análise de dados e visualização</h3>
+<section class="concept bloco-subsection" id="bloco-5-conhecendo-empresa">
+<h3>Conhecendo a empresa <span class="mins">10 min</span></h3>
+<p><strong>Arena Cash</strong> é uma fintech brasileira de investimentos — app para quem está começando, planos Free e Pro, time enxuto de <strong>52 pessoas</strong> e rodada <strong>Série A</strong> de R$&nbsp;60&nbsp;milhões (runway de 18 meses). Em pouco mais de três anos chegou a <strong>51 mil pagantes</strong> e cerca de <strong>R$&nbsp;15&nbsp;milhões de ARR</strong>, com <strong>Ivy Leitão</strong> (CEO, ex-XP) e <strong>Diego Almeida</strong> (CTO, ex-Stone) como co-fundadores e a promessa de tornar investir menos intimidador. <em>No curso, a empresa é fictícia</em> (case da Product Arena), mas memo, organograma, tickets de suporte e planilhas do Q1 foram montados para parecer um dia real de produto: Growth estourou signup no trimestre, enquanto ativação caiu, churn subiu e o NPS despencou — o buraco está <strong>depois que a pessoa entra</strong>, não na aquisição.</p>
+<p>A partir daqui, leia como onboarding interno: você acaba de assumir como PM do squad que precisa consertar essa primeira experiência.</p>
+
+<figure class="media-gif-slot media-gif-slot--hero" id="arenacash-site-cover">
+<div class="media-gif-slot__placeholder" data-media-src="assets/arenacash-site-cover.png">
+<span class="media-gif-slot__badge">Capa</span>
+<p><strong>Home da Arena Cash</strong> — hero do site ou tela inicial do app (investimentos, tom fintech, coral <code>#FF494C</code>).</p>
+<p class="media-gif-slot__hint">Salve em <code>guia-do-aluno/assets/arenacash-site-cover.png</code> e substitua este placeholder por <code>&lt;img&gt;</code>.</p>
+</div>
+<!-- Capa: substituir o placeholder acima por:
+<img src="assets/arenacash-site-cover.png" alt="Arena Cash — capa do site ou app" width="720" loading="lazy" />
+-->
+</figure>
+
+<article class="onboarding-brief" aria-label="Mensagem de onboarding interna">
+<p class="onboarding-brief__meta"><span>De:</span> Paulo Tavares, CPO</p>
+<p class="onboarding-brief__meta"><span>Para:</span> você — PM, Squad Onboarding &amp; Ativação</p>
+<p class="onboarding-brief__meta"><span>Assunto:</span> Bem-vinda(o) à Arena Cash — contexto do Q2</p>
+<p class="onboarding-brief__lead">Olá,</p>
+<p>A partir de hoje você assume como <strong>PM do squad de Onboarding &amp; Ativação</strong>. A Arena Cash é uma fintech de investimentos em Série A; no Q2, este squad é <strong>prioritário</strong>: o memo da CEO <strong>Ivy Leitão</strong> (30/03, <code>memo-estrategico-q2.md</code>) mostra ativação em queda (38% → 24%) e churn em alta (4,2% → 6,8%) — o problema está no meio do funil, depois que a pessoa se cadastra.</p>
+<p><strong>Suas apostas no quarter:</strong></p>
+<ul>
+<li>Levar <strong>ativação</strong> de volta para <strong>40%</strong> (primeira aplicação em até 30 dias)</li>
+<li>Reduzir <strong>churn mensal</strong> para <strong>4%</strong></li>
+<li>Priorizar research, experimentação de onboarding e a primeira experiência no app — em par com Growth, sem escalar CAC à toa</li>
+</ul>
+<p><strong>Seu time:</strong> Ricardo Sato (tech lead), André e Fernanda (eng), Thiago (mobile), Gabriela Ferreira (design, 70%), Pedro Souza (dados). Reporte ao CPO; na semana 1, alinhe prioridades 1:1 e traga análise do funil + 1–2 iniciativas RICE.</p>
+<p><strong>Onde está o material do case:</strong> memo, organograma, design system e dados Q1 em <code>repos/cursor-para-pms/case arenacash/</code>. Nos exercícios deste bloco, trate esse repositório como seu workspace na empresa.</p>
+<p class="onboarding-brief__signoff">Bom trabalho —<br>Paulo</p>
+</article>
+
+<p class="tip"><strong>Premissa do curso:</strong> empresa fictícia da Product Arena para treino. Repositório oficial: <code>repos/cursor-para-pms/</code>; case em <code>case arenacash/</code>. Todos os exercícios deste bloco usam esses caminhos.</p>
+</section>
+
+<section class="concept bloco-subsection" id="bloco-5-analisando-dados">
+<h3>Analisando dados <span class="mins">10 min</span></h3>
 <p>Como PMs usam análise no dia a dia: partir de arquivos tabulares (CSVs), sintetizar achados e comunicar com um <strong>pacote navegável</strong> — no mesmo espírito de um projeto com <strong>várias páginas HTML</strong> de gráficos ou tabelas e um <strong>índice</strong> que permite alternar entre elas no navegador (sem depender de login ou servidor além de abrir arquivos localmente).</p>
 <p>No curso, os dados e o guia visual vêm do <strong>case Arena Cash</strong> em <code>repos/cursor-para-pms/case arenacash/</code>. O <strong>design system</strong> (<code>design-system-arenacash.md</code>) é obrigatório para cores, tipografia e tom da interface do dashboard.</p>
 
@@ -1084,92 +1165,15 @@ Atualize `.cursor/rules/writing-style.mdc` **mantendo** o conteúdo que já exis
 <tr><td><code>financeiro-q1.xlsx</code></td><td>Receitas, custos e EBITDA; receita semanal no Q1.</td><td>Abas <code>monthly_financials</code> (out–mar) e <code>weekly_revenue_q1</code> (semanas de jan–mar). Valores em <strong>mil R$</strong>; ver aba <code>notes</code>.</td></tr>
 </tbody>
 </table>
-<p class="tip"><strong>Contexto de negócio:</strong> memo, organograma e transcrições C-level continuam em <code>case arenacash/</code> para enriquecer hipóteses — não substituem números dos arquivos tabulares.</p>
+<p class="tip"><strong>Contexto de negócio:</strong> memo da CEO Ivy Leitão, organograma e transcrições com Beatriz (CMO), Juliana (CFO) e Diego (CTO) continuam em <code>case arenacash/</code> para enriquecer hipóteses — não substituem números dos arquivos tabulares.</p>
 </section>
 
-<section class="concept">
-<h3>Comunicação: slides e apresentações</h3>
-<p>Transformar a análise em narrativa para stakeholders. Em sequência: (1) <strong>slides v1</strong> — rápidos, foco no conteúdo; (2) <strong>slides v2</strong> — usar uma Skill do workspace padrão (<code>.cursor/skills/</code>) + template HTML <strong>Coral</strong>.</p>
-</section>
-
-<section class="exercises">
-<p><strong>Ordem sugerida:</strong> <a href="#ex-06-browser-linkedin">browser LinkedIn (06)</a> → <a href="#ex-07-rules-always-apply">Always Apply em rules (07)</a> → <a href="#ex-08-linkedin-tom-de-voz">tom de voz no LinkedIn (08)</a> → <a href="#ex-09-note"><code>/note</code> (09)</a> → agente (10) → análise (11) → dashboard (12) → slides v1 (13) → slides v2 com Skill + Coral (14) → <strong>PRD com <code>/create-prd</code></strong> (15) → protótipo e deploy (16 a 18). A análise (11) usa o <a href="#case-arenacash-dados">pacote de dados Arena Cash</a> completo e pede cortes <strong>mensais + semanais</strong>.</p>
-<h3>Exercícios</h3>
-
-<details class="exercise" id="ex-06-agente-arena-cash">
-<summary>
-<span class="ex-num">10</span>
-<span class="ex-title">Criar um agente (fluxo nativo do Cursor)</span>
-<span class="ex-progress">
-        <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
-        <span class="progress-text">0/3</span>
-      </span><span class="ex-time">15 min</span>
-</summary>
-<div class="ex-body">
-<div class="ex-obj">
-<p><strong>Objetivo:</strong> <strong>Um arquivo <code>.md</code></strong> criado pelo Cursor ao finalizar a criação do agente. Em geral ele aparece em <code>.cursor/agents/</code> no workspace; o nome exato pode variar (o Cursor costuma sugerir um identificador curto). O que importa é que o arquivo exista e contenha as <strong>instruções fixas</strong> daquele agente (papel, tom, o que priorizar, quando acionar).</p>
-</div>
-<div class="step-block">
-<div class="step-block-head"><label class="step-check" title="Marcar passo como concluído"><input type="checkbox" data-step-id="ex-06/step-1"><span class="step-check-tick" aria-hidden="true"></span></label>
-<span class="step-block-num">Passo 1</span>
-<span class="step-block-time">3 min</span>
-<h4 class="step-block-title">Abrir o fluxo de criação de agente</h4>
-</div>
-<div class="step-block-body">
-<p>Use exatamente o caminho que o instrutor demonstrar na sua versão do Cursor (por exemplo: Command Palette, aba de Agentes, ou um comando que comece com <code>/</code>). Inicie a ação equivalente a <strong>criar novo agente</strong> — o rótulo na interface pode mudar entre atualizações.</p>
-</div>
-</div>
-<div class="step-block">
-<div class="step-block-head"><label class="step-check" title="Marcar passo como concluído"><input type="checkbox" data-step-id="ex-06/step-2"><span class="step-check-tick" aria-hidden="true"></span></label>
-<span class="step-block-num">Passo 2</span>
-<span class="step-block-time">10 min</span>
-<h4 class="step-block-title">Descrever o papel em linguagem natural</h4>
-</div>
-<div class="step-block-body">
-<p>Quando o assistente pedir contexto, explique <strong>com suas palavras</strong> que o agente deve apoiar um <strong>PM</strong> trabalhando no caso <strong>Arena Cash</strong>, usando como base os documentos em <code>repos/cursor-para-pms/</code> (incluindo <code>case arenacash/</code>). Você pode citar objetivos como: entender negócio e squads, ajudar a priorizar, preparar artefatos de produto — <strong>não é obrigatório</strong> copiar texto de exemplo de outra pessoa; o conteúdo do <code>.md</code> deve refletir o que <em>você</em> pediu.</p>
-<div class="prompt-stack">
-<p class="prompt-label"><span class="pa-eyebrow pa-eyebrow--red">Orientação mínima (ajuste livremente)</span></p>
-<pre class="code-block code-block--prompt"><code>## Papel do agente
-
-PM no contexto **Arena Cash**.
-
-## Contexto prioritário
-
-- `repos/cursor-para-pms/`
-- `case arenacash/` (especialmente)
-
-## Objetivos de apoio
-
-- Entender negócio e squads
-- Ajudar a priorizar
-- Preparar artefatos de produto
-
-## Entregável
-
-Arquivo Markdown padrão de agente que o Cursor gera neste fluxo.</code></pre>
-</div>
-</div>
-</div>
-<div class="step-block">
-<div class="step-block-head"><label class="step-check" title="Marcar passo como concluído"><input type="checkbox" data-step-id="ex-06/step-3"><span class="step-check-tick" aria-hidden="true"></span></label>
-<span class="step-block-num">Passo 3</span>
-<span class="step-block-time">2 min</span>
-<h4 class="step-block-title">Validar o arquivo gerado</h4>
-</div>
-<div class="step-block-body">
-<p>No explorador, abra o <code>.md</code> novo. Confira que há instruções claras de <strong>papel</strong> e de <strong>como o agente deve ajudar</strong>, e que faz sentido no contexto Arena Cash / materiais do repo. Se algo estiver genérico demais, volte ao chat e peça um ajuste curto só naquele arquivo.</p>
-</div>
-</div>
-<div class="ex-closing">
-<span class="pa-eyebrow pa-eyebrow--red">CRITÉRIO DE PRONTO</span>
-<p>Existe pelo menos um <code>.md</code> de agente criado pelo fluxo nativo; você consegue explicar em uma frase qual é o papel desse agente e abriu o arquivo para conferir o conteúdo.</p>
-</div>
-</div>
-</details>
+<section class="exercises bloco-subsection" id="bloco-5-analisando-dados-exercicios">
+<h3 class="exercises-section-title">Exercícios — analisando dados</h3>
 
 <details class="exercise" id="ex-07-analise-arenacash">
 <summary>
-<span class="ex-num">11</span>
+<span class="ex-num">10</span>
 <span class="ex-title">Análise — síntese a partir dos dados do case Arena Cash</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1192,14 +1196,15 @@ Arquivo Markdown padrão de agente que o Cursor gera neste fluxo.</code></pre>
 <div class="step-block-head"><label class="step-check" title="Marcar passo como concluído"><input type="checkbox" data-step-id="ex-07/step-1"><span class="step-check-tick" aria-hidden="true"></span></label>
 <span class="step-block-num">Passo 1</span>
 <span class="step-block-time">5 min</span>
-<h4 class="step-block-title">Anexar o agent + dataset</h4>
+<h4 class="step-block-title">Anexar contexto do case e dataset</h4>
 </div>
 <div class="step-block-body">
-<p>No Cursor, referencie com <code>@</code>:</p>
+<p>No Cursor, referencie com <code>@</code> (caminhos do repositório do curso):</p>
 <ul>
-<li><code>.cursor/agents/product-manager.md</code></li>
-<li><code>learning/Cursor para PMs por Product Arena/case arenacash/dados-semanais-arenacash.csv</code></li>
+<li><code>repos/cursor-para-pms/case arenacash/memo-estrategico-q2.md</code> — memo da CEO <strong>Ivy Leitão</strong> (direcionais do Q2)</li>
+<li><code>repos/cursor-para-pms/case arenacash/dados-semanais-arenacash.csv</code> — métricas semanais</li>
 </ul>
+<p>Opcional: <code>repos/cursor-para-pms/case arenacash/organograma-arenacash.md</code> se quiser reforçar time e prioridades.</p>
 </div>
 </div>
 <div class="step-block">
@@ -1209,16 +1214,15 @@ Arquivo Markdown padrão de agente que o Cursor gera neste fluxo.</code></pre>
 <h4 class="step-block-title">Rodar o prompt de análise</h4>
 </div>
 <div class="step-block-body">
-<p>Use <strong>Ask</strong> ou <strong>Agent</strong> (Agent se quiser que o arquivo seja criado direto no disco).</p>
+<p>Use o modo <strong>Agent</strong> — é ele que cria o arquivo <code>.md</code> em <code>documents/</code> no workspace. O Ask só responde no chat; aqui o entregável precisa ficar salvo em disco.</p>
 <div class="prompt-stack">
 <p class="prompt-label"><span class="pa-eyebrow pa-eyebrow--red">Prompt</span></p>
 <pre class="code-block code-block--prompt"><code>## Contexto
 
-Assuma o papel do PM:
-@.cursor/agents/product-manager.md
+Você é PM do squad **Onboarding &amp; Ativação** da Arena Cash (case do curso).
 
-Dataset:
-@learning/Cursor para PMs por Product Arena/case arenacash/dados-semanais-arenacash.csv
+@repos/cursor-para-pms/case arenacash/memo-estrategico-q2.md
+@repos/cursor-para-pms/case arenacash/dados-semanais-arenacash.csv
 
 ## Objetivo
 
@@ -1241,15 +1245,81 @@ Identificar oportunidades para melhorar o **fluxo de onboarding**.
 <div class="step-block-head"><label class="step-check" title="Marcar passo como concluído"><input type="checkbox" data-step-id="ex-07/step-3"><span class="step-check-tick" aria-hidden="true"></span></label>
 <span class="step-block-num">Passo 3</span>
 <span class="step-block-time">3 min</span>
-<h4 class="step-block-title">Revisar e salvar</h4>
+<h4 class="step-block-title">Revisar o arquivo gerado</h4>
 </div>
 <div class="step-block-body">
-<p>Verifique se as respostas citam números reais do CSV semanal e se há recomendação acionável para onboarding. Garanta que o arquivo final ficou em <code>documents/</code> (ex.: <code>documents/analise-onboarding-arenacash.md</code>) para reutilizar no <a href="#ex-08-dashboard-arenacash">Exercício 08</a>.</p>
+<p>Abra <code>documents/analise-onboarding-arenacash.md</code> (ou o nome que o Agent criou). Confira se as respostas citam números reais do CSV semanal e se há recomendação acionável para onboarding. Ajuste com um prompt curto no Agent se precisar — o arquivo deve estar pronto para o <a href="#ex-08-planilha-extensoes">exercício 11</a> (planilha + extensões).</p>
 </div>
 </div>
 <div class="ex-closing">
 <span class="pa-eyebrow pa-eyebrow--red">CRITÉRIO DE PRONTO</span>
 <p>Existe um <code>.md</code> em <code>documents/</code> respondendo às 3 perguntas com objetividade, números do dataset semanal e uma recomendação clara para liderança sobre onboarding.</p>
+</div>
+</div>
+</details>
+
+<details class="exercise" id="ex-08-planilha-extensoes">
+<summary>
+<span class="ex-num">11</span>
+<span class="ex-title">Abrir planilha no Cursor e instalar extensões (CSV / Office)</span>
+<span class="ex-progress">
+        <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
+        <span class="progress-text">0/3</span>
+      </span><span class="ex-time">10 min</span>
+</summary>
+<div class="ex-body">
+<div class="ex-context">
+<p>O case Arena Cash inclui arquivos <strong>.csv</strong> e um <strong>.xlsx</strong> financeiro. No editor, nem todo formato abre “bonito” de primeira — e isso é esperado neste exercício.</p>
+</div>
+<div class="ex-obj">
+<p><strong>Objetivo:</strong> Sentir o limite do editor sem extensão, instalar <strong>Rainbow CSV</strong> e <strong>Office Viewer</strong>, e conseguir visualizar o pacote de dados do case (incluindo a planilha financeira).</p>
+</div>
+<div class="step-block">
+<div class="step-block-head"><label class="step-check" title="Marcar passo como concluído"><input type="checkbox" data-step-id="ex-08-planilha/step-1"><span class="step-check-tick" aria-hidden="true"></span></label>
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Tentar abrir a planilha (vai falhar)</h4>
+</div>
+<div class="step-block-body">
+<p>No explorador de arquivos do Cursor, abra:</p>
+<p><code>case arenacash/financeiro-q1.xlsx</code></p>
+<p class="tip"><strong>Caminho no seu workspace:</strong> use a pasta <code>case arenacash/</code> dentro do repositório que você clonou (no workspace modelo do curso costuma ser <code>repos/cursor-para-pms/case arenacash/</code>). O importante é o arquivo <code>financeiro-q1.xlsx</code> no case Arena Cash — não o prefixo exato da sua máquina.</p>
+<p>É <strong>esperado</strong> que o conteúdo não apareça como tabela legível (binário, aviso de formato ou preview vazio). Anote o que você viu — no passo 3 isso deve mudar.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head"><label class="step-check" title="Marcar passo como concluído"><input type="checkbox" data-step-id="ex-08-planilha/step-2"><span class="step-check-tick" aria-hidden="true"></span></label>
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Instalar extensões no Cursor</h4>
+</div>
+<div class="step-block-body">
+<p>Na <strong>barra lateral esquerda</strong>, clique no ícone <strong>Extensions</strong> (quadradinhos). Se não aparecer, use <strong>View</strong> → <strong>Extensions</strong> ou o atalho <code>⇧⌘X</code> (Mac) / <code>Ctrl+Shift+X</code> (Windows).</p>
+<figure class="media-gif-slot media-gif-slot--compact">
+<img src="assets/extensions-sidebar.png" alt="Menu lateral do Cursor: item Extensions na activity bar" width="300" loading="lazy">
+<figcaption class="media-gif-slot__caption">Activity bar — item <strong>Extensions</strong> (atalho <code>⇧⌘X</code>).</figcaption>
+</figure>
+<p>Na busca do Marketplace, instale:</p>
+<ul>
+<li><strong>Rainbow CSV</strong> — realça colunas em <code>.csv</code> (<a href="https://marketplace.cursorapi.com/items/?itemName=mechatroner.rainbow-csv" rel="noopener noreferrer" target="_blank">mechatroner.rainbow-csv</a>)</li>
+<li><strong>Office Viewer</strong> — pré-visualiza <code>.xlsx</code> e outros Office (<a href="https://marketplace.cursorapi.com/items/?itemName=cweijan.vscode-office" rel="noopener noreferrer" target="_blank">cweijan.vscode-office</a>)</li>
+</ul>
+<p>Se preferir, abra os links acima e clique em <strong>Install</strong> no navegador (o Cursor pode pedir para abrir no app).</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head"><label class="step-check" title="Marcar passo como concluído"><input type="checkbox" data-step-id="ex-08-planilha/step-3"><span class="step-check-tick" aria-hidden="true"></span></label>
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Validar leitura dos arquivos</h4>
+</div>
+<div class="step-block-body">
+<p>Reabra <code>case arenacash/financeiro-q1.xlsx</code> e confira se o Office Viewer mostra abas/planilha. Abra também um CSV do case (ex.: <code>dados-semanais-arenacash.csv</code>) e veja se o Rainbow CSV destaca colunas.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">CRITÉRIO DE PRONTO</span>
+<p>Extensões <strong>Rainbow CSV</strong> e <strong>Office Viewer</strong> instaladas; <code>financeiro-q1.xlsx</code> e pelo menos um <code>.csv</code> do case abrem com preview legível no Cursor.</p>
 </div>
 </div>
 </details>
@@ -1272,7 +1342,7 @@ Identificar oportunidades para melhorar o **fluxo de onboarding**.
 <p><strong>Objetivo:</strong> A pasta <code>repos/cursor-para-pms/dashboard-arenacash/</code>, contendo:</p>
 <ul>
 <li><code>index.html</code> — página “shell” com navegação clara (links ou abas) para as demais visões;</li>
-<li><strong>pelo menos 3</strong> arquivos HTML adicionais (ex.: visão executiva, métricas de produto, atendimento/tickets), cada um com gráficos ou tabelas coerentes com o <a href="#ex-07-analise-arenacash">Exercício 07</a>;</li>
+<li><strong>pelo menos 3</strong> arquivos HTML adicionais (ex.: visão executiva, métricas de produto, atendimento/tickets), cada um com gráficos ou tabelas coerentes com o <a href="#ex-07-analise-arenacash">exercício 10</a>;</li>
 <li>opcional: <code>README.md</code> com uma linha sobre como abrir (<code>index.html</code> no navegador).</li>
 </ul>
 <p>Os valores exibidos podem ser embutidos no HTML (arrays ou tabelas estáticas) ou gerados de forma simples em JavaScript a partir de CSV copiado — o importante é <strong>consistência com a análise</strong> e leitura clara para um PM.</p>
@@ -1284,7 +1354,7 @@ Identificar oportunidades para melhorar o **fluxo de onboarding**.
 <h4 class="step-block-title">Revisar análise e design system</h4>
 </div>
 <div class="step-block-body">
-<p>Abra o Markdown do <a href="#ex-07-analise-arenacash">Exercício 07</a> e <code>repos/cursor-para-pms/case arenacash/design-system-arenacash.md</code>. Liste mentalmente quais gráficos ou tabelas cada seção do dashboard precisa.</p>
+<p>Abra o Markdown do <a href="#ex-07-analise-arenacash">exercício 10</a> e <code>repos/cursor-para-pms/case arenacash/design-system-arenacash.md</code>. Liste mentalmente quais gráficos ou tabelas cada seção do dashboard precisa.</p>
 </div>
 </div>
 <div class="step-block">
@@ -1359,6 +1429,15 @@ Aplicar `repos/cursor-para-pms/case arenacash/design-system-arenacash.md`:
 </div>
 </div>
 </details>
+</section>
+
+<section class="concept bloco-subsection" id="bloco-5-comunicando-resultados">
+<h3>Comunicando resultados <span class="mins">10 min</span></h3>
+<p>Transformar a análise em narrativa para stakeholders. Em sequência: (1) <strong>slides v1</strong> — rápidos, foco no conteúdo; (2) <strong>slides v2</strong> — usar uma Skill do workspace padrão (<code>.cursor/skills/</code>) + template HTML <strong>Coral</strong>.</p>
+</section>
+
+<section class="exercises bloco-subsection" id="bloco-5-comunicando-resultados-exercicios">
+<h3 class="exercises-section-title">Exercícios — comunicando resultados</h3>
 
 <details class="exercise" id="ex-09-slides-rapidos">
 <summary>
@@ -1478,6 +1557,15 @@ Arquivos finais (HTML/CSS/JS se necessário) em pasta `slides/`.</code></pre>
 </div>
 </div>
 </details>
+</section>
+
+<section class="concept bloco-subsection" id="bloco-5-hipoteses-experimentos">
+<h3>Elaborando hipóteses para novos experimentos <span class="mins">10 min</span></h3>
+<p>Com análise e narrativa prontas, o próximo passo é <strong>formalizar o que testar</strong>: transformar achados em hipóteses falsificáveis e escopo de produto. No curso, isso vira um <strong>PRD enxuto</strong> via <code>/create-prd</code>, alinhado ao memo da CEO <strong>Ivy Leitão</strong> e à sua análise em <code>documents/</code>.</p>
+</section>
+
+<section class="exercises bloco-subsection" id="bloco-5-hipoteses-experimentos-exercicios">
+<h3 class="exercises-section-title">Exercícios — hipóteses e experimentos</h3>
 
 <details class="exercise" id="ex-12-prd-onboarding">
 <summary>
@@ -1502,7 +1590,7 @@ Arquivos finais (HTML/CSS/JS se necessário) em pasta `slides/`.</code></pre>
 <h4 class="step-block-title">Anexar contexto (recomendado)</h4>
 </div>
 <div class="step-block-body">
-<p>Com <code>@</code>, inclua <code>documents/analise-onboarding-arenacash.md</code> e os arquivos do case que traduzem direcionais da companhia (ex.: <code>memo-estrategico-q2.md</code>, organograma). Isso ajuda o comando a preencher o PRD com fatos do repositório.</p>
+<p>Com <code>@</code>, inclua <code>documents/analise-onboarding-arenacash.md</code> e os arquivos do case que traduzem direcionais da companhia (ex.: <code>memo-estrategico-q2.md</code> da CEO Ivy Leitão, organograma). Isso ajuda o comando a preencher o PRD com fatos do repositório.</p>
 </div>
 </div>
 <div class="step-block">
@@ -1524,7 +1612,7 @@ Crie um PRD com base na **análise feita** e nos **direcionais da companhia**.
 ## Contexto recomendado (@)
 
 - `documents/analise-onboarding-arenacash.md`
-- memo e organograma do case Arena Cash</code></pre>
+- memo da CEO Ivy Leitão (`memo-estrategico-q2.md`) e organograma do case Arena Cash</code></pre>
 </div>
 <p class="tip">Se o assistente pedir mais contexto, responda em uma segunda mensagem apontando para os arquivos já anexados com <code>@</code>.</p>
 </div>
@@ -1547,9 +1635,11 @@ Crie um PRD com base na **análise feita** e nos **direcionais da companhia**.
 </details>
 </section>
 
-<section class="concept">
-<h3>Documentação e planejamento</h3>
-<p>Depois de análise, dashboard, <a href="#ex-09-slides-rapidos">slides v1</a> e <a href="#ex-11-slides-skill-template-coral">slides v2 com Skill</a>, você formaliza o escopo em um <strong>PRD</strong>. No workspace do curso, use <code>/create-prd</code> (ver <a href="#ex-12-prd-onboarding">Exercício 15</a>). Em seguida, esse escopo vira épicos e tarefas no Linear via MCP — <strong>primeiro criando o projeto no Linear e depois as tasks</strong> (setup em <a href="#bloco-4-mcps">MCPs</a>, bloco 03).</p>
+<section class="concept bloco-subsection" id="bloco-5-gerenciando-tarefas">
+<h3>Gerenciando tarefas <span class="mins">10 min</span></h3>
+<p>Com o PRD em mãos, o escopo vira <strong>backlog executável</strong> no Linear: projeto → épicos → issues, usando o MCP configurado no <a href="#bloco-4-mcps">bloco 03</a> e no <a href="#ex-linear-mcp-marketplace">exercício do Marketplace</a>.</p>
+<p><strong>Ordem recomendada:</strong> crie um <strong>projeto</strong> no Linear para o onboarding Arena Cash; só então peça ao agente (modo <strong>Agent</strong>) para quebrar o PRD em épicos e tarefas <strong>dentro desse projeto</strong>. Revise título, descrição e critérios de aceite antes de marcar qualquer item como concluído.</p>
+<p class="tip">No <strong>Dia 3</strong>, o protótipo e a atualização de status no Linear continuam esse fluxo (<a href="#bloco-7">bloco 05 — protótipos</a>).</p>
 </section>
 </article>
 
@@ -1571,7 +1661,7 @@ Crie um PRD com base na **análise feita** e nos **direcionais da companhia**.
 
 <details class="exercise" id="ex-13-prototipo">
 <summary>
-<span class="ex-num">16</span>
+<span class="ex-num">15</span>
 <span class="ex-title">Gerar o protótipo: ASCII → MVP simples → atualização no Linear</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1649,7 +1739,7 @@ Atualizar no **Linear** as tasks relacionadas ao MVP de onboarding.
 
 <details class="exercise" id="ex-14-git-push">
 <summary>
-<span class="ex-num">17</span>
+<span class="ex-num">16</span>
 <span class="ex-title">Commit e push (publicar mudanças)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1684,7 +1774,7 @@ Atualizar no **Linear** as tasks relacionadas ao MVP de onboarding.
 
 <details class="exercise" id="ex-15-github-pages">
 <summary>
-<span class="ex-num">18</span>
+<span class="ex-num">17</span>
 <span class="ex-title">GitHub Pages (e Vercel só como referência)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>

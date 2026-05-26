@@ -22,8 +22,8 @@ A ArenaCash é uma fintech de investimentos em estágio Série A. A estrutura é
 
 ### Preferências de comunicação (C-level)
 
-- **Ivy Leitão (CEO):** prefere síntese em **one-page no Notion** (TLDR, contexto, insights, riscos e próximos passos).
-- **Paulo Tavares (CPO):** também favorece **one-page no Notion** para alinhamento rápido e decisões de priorização.
+- **Ivy Leitão (CEO):** prefere síntese em **one-page** (TLDR, contexto, insights, riscos e próximos passos).
+- **Paulo Tavares (CPO):** também favorece **one-page** para alinhamento rápido e decisões de priorização.
 - **Beatriz Lopes (CMO):** prefere **apresentação (slides)** para narrativa de impacto, mensagens por público e defesa de iniciativas.
 
 ---
@@ -159,4 +159,4 @@ Operações de investimento exige time forte em compliance e risco. É onde est�
 4. **Ricardo Sato (Tech Lead)** é quem vai bater o martelo em estimativas técnicas. Ex-Nubank, trabalha com o Diego (CTO) desde a Stone. Se Ricardo disser "dá pra fazer em 2 sprints", acredite.
 5. **Rituais do squad:** daily 9h30, planning quinzenal nas quartas, demo mensal (última sexta do mês, aberta pra toda a empresa).
 6. Se precisar de algo cross-squad, fale direto com o PM — a cultura é horizontal. Só envolva o Paulo (CPO) se bloquear.
-7. **Formato de entrega importa:** para decisões executivas no Q2, prepare duas saídas quando possível — **one-page no Notion** (mais alinhado a CEO/CPO) e **apresentação em slides** (mais alinhada à CMO).
+7. **Formato de entrega importa:** para decisões executivas no Q2, prepare duas saídas quando possível — **one-page** (mais alinhado a CEO/CPO) e **apresentação em slides** (mais alinhada à CMO).

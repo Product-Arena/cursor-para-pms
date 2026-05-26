@@ -3,13 +3,13 @@
 Use este arquivo junto com:
 
 - **Dados semanais:** `case arenacash/dados-semanais-arenacash.csv`
-- **Contexto de negócio:** `case arenacash/memo-estrategico-q2.md` (memo estratégico Q2 — alinhado ao kit `curso-claude-pms/kit/memo-estrategico-q2.md`)
+- **Contexto de negócio:** `case arenacash/memo-estrategico-q2.md` (memo estratégico Q2 da CEO **Ivy Leitão**)
 
 ---
 
 ## Pergunta de negócio principal
 
-O memo do CEO descreve **queda estrutural de ativação**, **churn alto**, **NPS em queda** e **CAC/LTV sob pressão**. Os dados semanais agregam **signups**, **ativação em 30 dias**, **churn**, **NPS**, **MAU/DAU**, **tickets de suporte**, entre outros — por **semana**, **plano** (Free vs Pro) e **mês**.
+O memo da CEO **Ivy Leitão** descreve **queda estrutural de ativação**, **churn alto**, **NPS em queda** e **CAC/LTV sob pressão**. Os dados semanais agregam **signups**, **ativação em 30 dias**, **churn**, **NPS**, **MAU/DAU**, **tickets de suporte**, entre outros — por **semana**, **plano** (Free vs Pro) e **mês**.
 
 **Sua pergunta orientadora:**
 
