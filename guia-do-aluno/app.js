@@ -26,6 +26,7 @@ async function initGuideApp() {
   initGuideInteractions();
   initGuideAnalytics();
   initCopyReferences();
+  initCopyPrompts();
 }
 
 if (document.readyState === 'loading') {
@@ -740,5 +741,58 @@ function initCopyReferences() {
         btn.textContent = original;
       }, 2000);
     });
+  });
+}
+
+function getPromptBlockText(pre) {
+  const code = pre.querySelector('code');
+  return (code ? code.textContent : pre.textContent).trim();
+}
+
+function initCopyPrompts() {
+  document.querySelectorAll('.prompt-stack pre.code-block--prompt').forEach((pre) => {
+    if (pre.nextElementSibling?.classList.contains('prompt-copy-actions')) return;
+
+    const actions = document.createElement('div');
+    actions.className = 'prompt-copy-actions';
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'prompt-copy-btn';
+    btn.setAttribute('aria-label', 'Copiar prompt');
+    btn.innerHTML =
+      '<span class="prompt-copy-btn__icon" aria-hidden="true">📋</span>' +
+      '<span class="prompt-copy-btn__label">Copiar</span>';
+
+    const label = btn.querySelector('.prompt-copy-btn__label');
+    const defaultLabel = label.textContent;
+
+    btn.addEventListener('click', async () => {
+      const text = getPromptBlockText(pre);
+      btn.classList.remove('prompt-copy-btn--copied', 'prompt-copy-btn--error');
+      void btn.offsetWidth;
+      btn.classList.add('prompt-copy-btn--animating');
+
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.classList.add('prompt-copy-btn--copied');
+        label.textContent = 'Copiado!';
+      } catch {
+        btn.classList.add('prompt-copy-btn--error');
+        label.textContent = 'Não copiou';
+      }
+
+      window.setTimeout(() => {
+        btn.classList.remove(
+          'prompt-copy-btn--animating',
+          'prompt-copy-btn--copied',
+          'prompt-copy-btn--error'
+        );
+        label.textContent = defaultLabel;
+      }, 2000);
+    });
+
+    actions.appendChild(btn);
+    pre.insertAdjacentElement('afterend', actions);
   });
 }
