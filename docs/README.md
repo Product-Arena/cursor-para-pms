@@ -1,6 +1,10 @@
 # Cursor na prática — site (GitHub Pages)
 
-Site estático do curso **Cursor na prática** (Product Arena). Esta pasta corresponde a **`docs/`** em [Product-Arena/cursor-para-pms](https://github.com/Product-Arena/cursor-para-pms) quando o GitHub Pages usa **Deploy from branch → `main` → `/docs`**.
+Site estático do curso **Cursor na prática** (Product Arena). Esta pasta **`docs/`** contém apenas os **slides** no repositório [Product-Arena/cursor-para-pms](https://github.com/Product-Arena/cursor-para-pms).
+
+O **guia do aluno** fica em `guia-do-aluno/` na raiz do repo (fonte única). O workflow `.github/workflows/deploy-github-pages.yml` monta `docs/` + `guia-do-aluno/` no deploy — sem duplicar o guia dentro de `docs/`.
+
+Configure **Settings → Pages → Source: GitHub Actions**.
 
 ## URLs (após o deploy)
 

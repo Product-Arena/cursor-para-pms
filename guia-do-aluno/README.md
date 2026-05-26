@@ -6,18 +6,16 @@ Sempre sirva os arquivos por **HTTP**. Abrir `index.html` direto com `file://` p
 
 ## GitHub Pages (configuração inicial)
 
-Este repositório publica com **GitHub Actions** (não “Deploy from branch”). O fluxo copia apenas os arquivos públicos (`index.html`, `ementa.html`, `styles.css`, `app.js`, `assets/`) para a raiz do site.
+O guia fica nesta pasta (`guia-do-aluno/` na raiz de [cursor-para-pms](https://github.com/Product-Arena/cursor-para-pms)). Os **slides** ficam só em `docs/`. O workflow na raiz do repo (`.github/workflows/deploy-github-pages.yml`) monta o site publicado — **sem copiar o guia para dentro de `docs/` no Git**.
 
-1. Abra **Settings** → **Pages** neste repositório.
-2. Em **Build and deployment**, defina **Source** como **GitHub Actions** (não “Deploy from a branch”).
-3. Faça push na branch `main` (ou rode o workflow manualmente: **Actions** → **Deploy GitHub Pages** → **Run workflow**).
-4. Quando o workflow terminar, abra a URL do ambiente **github-pages** indicada no resumo da execução.
+1. Abra **Settings** → **Pages** no repositório **cursor-para-pms**.
+2. Em **Build and deployment**, defina **Source** como **GitHub Actions**.
+3. Faça push na branch `main` (ou rode **Actions** → **Deploy GitHub Pages** → **Run workflow**).
+4. Abra a URL do ambiente **github-pages** no resumo da execução.
 
-URL pública típica:
+URL pública do guia:
 
-`https://product-arena.github.io/cursor-guia-do-aluno/`
-
-Se em Pages aparecer “Get started”, escolha **GitHub Actions** como origem; o arquivo de workflow já está em `.github/workflows/deploy-github-pages.yml`.
+`https://product-arena.github.io/cursor-para-pms/guia-do-aluno/`
 
 ### Permissões na organização
 

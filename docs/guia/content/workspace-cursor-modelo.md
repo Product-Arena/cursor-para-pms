@@ -107,7 +107,7 @@ analises/202605_funil_cursos/
 │   └── code-review.md       ← /code-review
 ├── rules/
 │   ├── code-style.mdc       ← Padrões de código
-│   ├── writing.mdc          ← Tom de escrita
+│   ├── writing-style.mdc    ← Tom de escrita
 │   └── project-structure.mdc ← Estrutura de projetos
 └── templates/
     ├── PRD Template.md
