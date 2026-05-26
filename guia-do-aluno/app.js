@@ -86,7 +86,7 @@ function initGuideInteractions() {
       scope: 'conteudo',
       id: 'side-nav-dia-3',
       targets: [],
-      prefixes: ['bloco-6', 'bloco-7', 'bloco-8'],
+      prefixes: ['bloco-7', 'bloco-8'],
     },
   ];
 

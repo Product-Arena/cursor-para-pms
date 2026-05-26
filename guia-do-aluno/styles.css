@@ -1292,6 +1292,119 @@ pre.flow {
   margin: var(--s-4) 0 0;
 }
 
+/* Command anatomy — split layout + slide-style syntax (bloco 4) */
+.concept-command-anatomy {
+  display: grid;
+  grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
+  gap: var(--s-5);
+  margin-top: var(--s-4);
+  align-items: start;
+}
+.concept-command-anatomy__why {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--fg-muted);
+}
+.concept-command-anatomy__why strong {
+  color: var(--fg);
+}
+.concept-command-anatomy__why code {
+  background: var(--pa-red-tint);
+  color: var(--pa-red);
+  border-color: var(--pa-red-soft);
+}
+.command-parts {
+  list-style: none;
+  padding: 0;
+  margin: var(--s-4) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.command-parts li {
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--fg-muted);
+}
+.command-parts__n {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--pa-white);
+  background: var(--pa-red);
+  border-radius: 50%;
+  line-height: 1;
+}
+.command-parts strong {
+  color: var(--fg);
+}
+.command-code-panel {
+  background: #0f0f0f;
+  border: 2px solid #404040;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+}
+.command-code-panel__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: var(--s-2) var(--s-4);
+  background: rgba(255, 255, 255, 0.08);
+  color: #9cdcfe;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.command-code-panel__pre {
+  margin: 0;
+  padding: var(--s-4) var(--s-5);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: #e0e0e0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.command-code-panel__pre code {
+  color: inherit;
+}
+.command-code-panel .syntax-key {
+  color: #9cdcfe;
+  font-weight: 600;
+}
+.command-code-panel .syntax-string {
+  color: #ce9178;
+}
+.command-code-panel .syntax-comment {
+  color: #6a9955;
+  font-style: italic;
+}
+.command-code-panel .syntax-heading {
+  color: #4ec9b0;
+  font-weight: 700;
+}
+.command-code-panel .syntax-muted {
+  color: #a8a8a8;
+  font-weight: 400;
+}
+@media (max-width: 720px) {
+  .concept-command-anatomy {
+    grid-template-columns: 1fr;
+  }
+}
+
 .two-col { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-4); margin-top: var(--s-5); }
 .pill-card { padding: var(--s-4); border-radius: var(--radius-md); border: 1px solid var(--border); }
 .pill-card h4 { font-size: var(--text-sm); margin-bottom: 6px; text-transform: uppercase; letter-spacing: var(--tracking-caps); }

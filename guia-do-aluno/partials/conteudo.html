@@ -60,6 +60,7 @@
 <li><a href="#bloco-4-rules"><span class="num">·</span>Rules</a></li>
 <li><a href="#bloco-4-commands"><span class="num">·</span>Commands</a></li>
 <li><a href="#bloco-4-skills"><span class="num">·</span>Skills</a></li>
+<li><a href="#bloco-4-mcps"><span class="num">·</span>MCPs</a></li>
 </ul>
 </details>
 </div>
@@ -78,9 +79,8 @@
 <summary class="side-nav-day__summary"><span class="side-nav-day__title">Dia 3</span><span class="side-nav-day__meta">2h · Entrega</span></summary>
 <div class="side-nav-day__body">
 <ol class="side-list">
-<li><a href="#bloco-6"><span class="num">05</span>MCPs</a></li>
-<li><a href="#bloco-7"><span class="num">06</span>Construindo protótipos</a></li>
-<li><a href="#bloco-8"><span class="num">07</span>Start My Day</a></li>
+<li><a href="#bloco-7"><span class="num">05</span>Construindo protótipos</a></li>
+<li><a href="#bloco-8"><span class="num">06</span>Start My Day</a></li>
 </ol>
 </div>
 </details>
@@ -221,13 +221,13 @@
 <p>No curso, isso serve para material da aula, versionar entregas e publicar protótipos (ex.: GitHub Pages).</p>
 
 <h4>MCPs</h4>
-<p><strong>MCP</strong> = <em>Model Context Protocol</em>: um <strong>protocolo</strong> (padrão de comunicação) que liga o Cursor a ferramentas externas — Notion, Linear, Drive, APIs — sem copiar e colar entre abas. O agente chama o conector; você autoriza o que pode ser lido ou escrito. No curso, instalamos MCPs pelo <a href="https://cursor.com/marketplace" rel="noopener noreferrer" target="_blank">Cursor Marketplace</a> (detalhes no <a href="#bloco-6">bloco MCPs</a>).</p>
+<p><strong>MCP</strong> = <em>Model Context Protocol</em>: um <strong>protocolo</strong> (padrão de comunicação) que liga o Cursor a ferramentas externas — Linear, Drive, APIs — sem copiar e colar entre abas. O agente chama o conector; você autoriza o que pode ser lido ou escrito. No curso, instalamos MCPs pelo <a href="https://cursor.com/marketplace" rel="noopener noreferrer" target="_blank">Cursor Marketplace</a> (detalhes em <a href="#bloco-4-mcps">MCPs</a>, bloco 03).</p>
 
 <h4>Agents</h4>
 <p>Um <strong>agente</strong> é uma IA configurada para <strong>executar tarefas em etapas</strong>, não só responder uma mensagem. Em vez de um único texto na tela, ele planeja, usa ferramentas e itera até chegar num resultado. Três peças costumam aparecer em qualquer plataforma:</p>
 <ul>
 <li><strong>System prompt</strong> — instruções fixas de “quem você é” e como deve trabalhar (papel, tom, regras, o que nunca fazer).</li>
-<li><strong>Tools</strong> — capacidades que o agente pode acionar: ler arquivo, buscar na web, criar página no Notion, abrir issue no Linear, rodar comando, etc. (muitas tools passam por <strong>MCPs</strong>).</li>
+<li><strong>Tools</strong> — capacidades que o agente pode acionar: ler arquivo, buscar na web, abrir issue no Linear, rodar comando, etc. (muitas tools passam por <strong>MCPs</strong>).</li>
 <li><strong>Memória</strong> — o que o agente guarda entre mensagens ou sessões: preferências suas, decisões do projeto, notas em <code>memory.md</code> ou histórico da conversa, para não recomeçar do zero.</li>
 </ul>
 <p>No Cursor, o modo <strong>Agent</strong> é uma implementação disso no seu workspace; nos blocos práticos você vê isso na prática.</p>
@@ -742,12 +742,12 @@ Plano claro + comandos quando fizer sentido.</code></pre>
 <header class="block-head">
 <span class="block-pill">B L O C O   0 3</span>
 <h2>Recursos dos agentes</h2>
-<p class="block-quote">Além dos modos Ask/Plan/Agent, o Cursor oferece <strong>browser</strong>, <strong>rules</strong> e <strong>commands</strong> no workspace — contexto fixo, fluxos com <code>/</code> e validação visual sem sair da IDE.</p>
-<p class="block-obj"><strong>Objetivo:</strong> Usar o browser nativo da IDE; dominar <strong>Always Apply</strong> vs <strong>Apply Intelligently</strong> em rules; disparar commands como <code>/create-prd</code>; conhecer Skills já presentes no workspace padrão.</p>
+<p class="block-quote">Além dos modos Ask/Plan/Agent, o Cursor oferece <strong>browser</strong>, <strong>rules</strong>, <strong>commands</strong>, <strong>skills</strong> e <strong>MCPs</strong> no workspace — contexto fixo, fluxos com <code>/</code>, extensões de comportamento e integração com ferramentas externas.</p>
+<p class="block-obj"><strong>Objetivo:</strong> Usar o browser nativo da IDE; dominar <strong>Always Apply</strong> vs <strong>Apply Intelligently</strong> em rules; disparar commands como <code>/create-prd</code>; conhecer Skills no workspace; conectar <strong>Linear</strong> via MCP.</p>
 </header>
 
 <section class="concept bloco-subsection" id="bloco-4-browser">
-<h3>1. Browser <span class="mins">5 min</span></h3>
+<h3>1. Browser <span class="mins">15 min</span></h3>
 <p>No modo <strong>Agent</strong>, o Cursor pode usar um <strong>navegador integrado</strong> como ferramenta: abrir páginas, navegar, tirar screenshots e inspecionar o que está na tela — útil para validar protótipos HTML, fluxos de login ou erros no console sem alternar para outro app o tempo todo.</p>
 <p><strong>Quando usar:</strong></p>
 <ul>
@@ -755,30 +755,63 @@ Plano claro + comandos quando fizer sentido.</code></pre>
 <li>Testar se um botão, formulário ou layout renderiza como esperado</li>
 <li>Pedir evidência visual (“tire um screenshot da página inicial”)</li>
 </ul>
-<p><strong>Como pedir no chat (Agent):</strong> descreva a URL ou o arquivo local e o que validar. Exemplos de intenção (ajuste ao seu caso):</p>
-<div class="prompt-stack">
-<p class="prompt-label"><span class="pa-eyebrow pa-eyebrow--red">Exemplos de prompt</span></p>
-<pre class="code-block code-block--prompt"><code>## Exemplo 1 — Dashboard local
 
-Abra `analises/dashboard.html` no browser.
-
-Valide se os **três cards principais** aparecem.
-
-## Exemplo 2 — Fluxo de login
-
-Navegue até a página de login do protótipo.
-
-Verifique se o formulário envia **sem erro no console**.</code></pre>
+<div class="exercise-flat" id="ex-06-browser-linkedin" data-exercise-num="06">
+<div class="exercise-flat__meta">
+<span class="ex-num">06</span>
+<span class="ex-time">10 min</span>
 </div>
-<h4>Protótipo local: servidor + navegador</h4>
-<p>Para HTML estático, o fluxo do curso costuma ser: gerar o arquivo → subir um servidor simples → abrir no navegador para validar.</p>
-<ol>
-<li>O agente cria ou atualiza o HTML no workspace.</li>
-<li>Rode algo como <code>python3 -m http.server</code> na pasta do projeto (ou use o atalho <strong>Open in Browser</strong> que o instrutor mostrar).</li>
-<li>Peça ao agente para abrir <code>http://127.0.0.1:&lt;porta&gt;/...</code> no browser integrado e reportar o que vê.</li>
-</ol>
-<p class="tip"><strong>Simple Browser do Cursor:</strong> em algumas versões, o navegador embutido da IDE bloqueia certas portas (erro <code>ERR_UNSAFE_PORT</code>). Se isso acontecer, abra a mesma URL no <strong>Chrome ou Safari</strong> — o servidor local continua válido; só muda onde você visualiza.</p>
-<p>Conectores <strong>Browser MCP</strong> de terceiros (testes mais avançados) aparecem nas <a href="#referencia-mcps">referências de MCPs</a> e no <a href="#bloco-6">bloco MCPs</a>.</p>
+<p class="ex-obj"><strong>Objetivo:</strong> no modo <strong>Agent</strong>, abrir o <strong>LinkedIn</strong> no browser integrado do Cursor e fazer login na sua conta.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Abrir o LinkedIn no browser</h4>
+</div>
+<div class="step-block-body">
+<p>Em um chat novo no modo <strong>Agent</strong>, peça para abrir <code>https://www.linkedin.com</code> no browser integrado e aguardar a página carregar.</p>
+<div class="prompt-stack">
+<p class="prompt-label"><span class="pa-eyebrow pa-eyebrow--red">Prompt</span></p>
+<pre class="code-block code-block--prompt"><code>Abra https://www.linkedin.com no browser integrado.
+
+Aguarde a página carregar e me diga o que aparece na tela.</code></pre>
+</div>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Fazer login na sua conta</h4>
+</div>
+<div class="step-block-body">
+<p>Se ainda não estiver logado, conclua o login <strong>você mesmo</strong> no browser (e-mail/senha ou SSO). <strong>Não cole senha no chat</strong> — o agente só navega e observa; credenciais são suas.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Confirmar que entrou</h4>
+</div>
+<div class="step-block-body">
+<p>Peça um screenshot do feed ou do menu do perfil para validar que a sessão está ativa.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">CRITÉRIO DE PRONTO</span>
+<p>LinkedIn aberto no browser do Cursor e você logado na sua conta (feed ou perfil visível).</p>
+</div>
+</div>
+
+<h4>HTML estático em localhost</h4>
+<p>Com o arquivo já no workspace, peça ao <strong>Agent</strong> para servir a pasta e abrir no browser integrado — você valida sem sair do Cursor:</p>
+<div class="prompt-stack">
+<p class="prompt-label"><span class="pa-eyebrow pa-eyebrow--red">Como pedir</span></p>
+<pre class="code-block code-block--prompt"><code>Na pasta onde está meu HTML estático, suba um servidor local (ex.: porta 8000).
+
+Abra `http://127.0.0.1:8000/&lt;meu-arquivo&gt;.html` no browser integrado e descreva o que aparece na tela.</code></pre>
+</div>
 </section>
 
 <section class="concept bloco-subsection" id="bloco-4-rules">
@@ -825,9 +858,9 @@ alwaysApply: false
 
 <p>Combine rules com o que você já configurou no <a href="#bloco-1-file-deletion">Bloco 01</a> (<strong>File deletion protection</strong>) — poucas rules em Always Apply, as essenciais.</p>
 
-<div class="exercise-flat" id="ex-b04-rules-always-apply" data-exercise-num="b04-02">
+<div class="exercise-flat" id="ex-07-rules-always-apply" data-exercise-num="07">
 <div class="exercise-flat__meta">
-<span class="ex-num">Prática</span>
+<span class="ex-num">07</span>
 <span class="ex-time">8 min</span>
 </div>
 <p class="ex-obj"><strong>Objetivo:</strong> ler <code>.cursor/rules/general-guidelines.mdc</code> e alterar o tipo da rule para <strong>Always Apply</strong> (<code>alwaysApply: true</code>).</p>
@@ -860,7 +893,6 @@ alwaysApply: false
 <pre class="code-block" aria-label="Frontmatter Always Apply"><code>---
 alwaysApply: true
 ---</code></pre>
-<p class="tip">Se já estiver em Always Apply, confira o YAML e siga para o Passo 3 — o importante é saber <em>onde</em> mudar o tipo.</p>
 </div>
 </div>
 <div class="step-block">
@@ -883,43 +915,53 @@ alwaysApply: true
 
 <section class="concept bloco-subsection" id="bloco-4-commands">
 <h3>3. Commands <span class="mins">5 min</span></h3>
-<p><strong>Commands</strong> são atalhos com <code>/</code> no chat. Cada comando é um arquivo Markdown em <code>.cursor/commands/</code> com um roteiro que o agente segue — como uma macro em linguagem natural.</p>
-<p>No repositório do curso você encontra exemplos como <code>/create-prd</code> e <code>/start-a-business</code>. Ao digitar <code>/</code> no campo de mensagem, o Cursor lista os commands disponíveis no workspace aberto.</p>
+<p><strong>Commands</strong> são atalhos com <code>/</code> no chat — um arquivo Markdown em <code>.cursor/commands/</code> com um roteiro que o agente segue, como uma macro em linguagem natural. No repo do curso: <code>/create-prd</code>, <code>/start-a-business</code>, entre outros (liste com <code>/</code> no chat).</p>
 
 <h4>Anatomia de um command</h4>
-<pre class="code-block" aria-label="Trecho de command start-a-business"><code>---
-description: "Start a new business venture: create project structure..."
----
+<div class="concept-command-anatomy" role="group" aria-label="Anatomia visual de um command">
+<div class="concept-command-anatomy__context">
+<p class="concept-command-anatomy__why"><strong>Por que importa:</strong> um comando como <code>/start-a-business</code> padroniza o fluxo sem você reescrever o prompt inteiro. <strong>Você</strong> dispara, responde e revisa — o command não substitui seu julgamento.</p>
+<ul class="command-parts" aria-label="Três partes de um command">
+<li><span class="command-parts__n" aria-hidden="true">1</span><span><strong>description</strong> — aparece no menu ao digitar <code>/</code></span></li>
+<li><span class="command-parts__n" aria-hidden="true">2</span><span><strong>Gatilho</strong> — <code>When user runs `/nome`</code></span></li>
+<li><span class="command-parts__n" aria-hidden="true">3</span><span><strong>Roteiro</strong> — passos e entregáveis em Markdown</span></li>
+</ul>
+</div>
+<div class="command-code-panel">
+<div class="command-code-panel__label">.cursor/commands/start-a-business.md</div>
+<pre class="command-code-panel__pre" aria-label="Trecho resumido de command start-a-business"><code><span class="syntax-comment">---</span>
+<span class="syntax-key">description:</span> <span class="syntax-string">"Start a new business venture..."</span>
+<span class="syntax-comment">---</span>
 
-**When user runs `/start-a-business`:**
+<span class="syntax-heading">**When user runs `/start-a-business`:**</span>
 
-## Step 1: Capture Initial Information
-Ask the user these questions in sequence:
-
-1. **"What's the name of your business/idea?"**
-   - Capture: business name
-   - Use this to create the project folder name (kebab-case)
-
-## Step 2: Create Project Structure Automatically
-Create the following structure:
-
-projects/[business-name]/
-├── documents/
-│   └── README.md
-└── README.md</code></pre>
-<p><strong>Na prática:</strong> você dispara <code>/create-prd</code> (ou outro) → o agente executa os passos do arquivo → você responde e revisa cada entrega. O command não substitui seu julgamento; padroniza o <em>como</em> fazer.</p>
-<p class="tip">Commands do curso vivem na <code>.cursor/</code> do repo clonado em <code>repos/cursor-para-pms/</code>. Se você abriu só o workspace modelo, copie o que o instrutor indicar de <code>stack/Lucas</code> ou <code>stack/Arthur</code> para a sua <code>.cursor/</code> na raiz.</p>
+<span class="syntax-heading">## Step 1:</span> <span class="syntax-muted">Capture Initial Information</span>
+<span class="syntax-heading">## Step 2:</span> <span class="syntax-muted">Create Project Structure</span>
+<span class="syntax-comment">…</span></code></pre>
+</div>
+</div>
+<p><strong>Na prática:</strong> digite <code>/create-prd</code> (ou outro) → o agente segue o roteiro do arquivo → você valida cada entrega antes de seguir.</p>
 </section>
 
 <section class="concept bloco-subsection" id="bloco-4-skills">
 <h3>4. Skills <span class="mins">5 min</span></h3>
 <p><strong>Skills</strong> são pacotes de comportamento instaláveis (pastas com <code>SKILL.md</code> em <code>.cursor/skills/</code>). Estendem o que o agente sabe fazer — design de slides, planilhas, PDF, etc. — além das rules e commands do seu projeto.</p>
-<p>O <strong>workspace padrão do curso</strong> já traz skills em <code>.cursor/skills/</code> (ex.: design, apresentações, planilhas). No explorador, abra essa pasta e confira os <code>SKILL.md</code> disponíveis.</p>
 <p>No Cursor: <strong>Settings</strong> → área de <strong>Skills</strong> para ver o que está ativo no seu ambiente. Para descobrir outras skills além do pacote do curso: <a href="https://skills.sh" rel="noopener noreferrer" target="_blank">skills.sh</a>, <a href="https://github.com/VoltAgent/awesome-agent-skills" rel="noopener noreferrer" target="_blank">awesome-agent-skills</a>.</p>
 <figure class="concept-figure concept-figure--compact">
 <img src="assets/skills-settings.png" alt="Tela de configurações de Skills no Cursor" width="640" loading="lazy">
 <figcaption>Onde conferir skills instalados na sua versão do Cursor.</figcaption>
 </figure>
+</section>
+
+<section class="concept bloco-subsection" id="bloco-4-mcps">
+<h3>5. MCPs <span class="mins">10 min</span></h3>
+<p><strong>MCP</strong> (<em>Model Context Protocol</em>) é um padrão que liga o Cursor a sistemas externos — Linear, APIs, Google Drive, bancos de dados — sem copiar e colar entre abas. Para PMs, isso significa, por exemplo, quebrar uma PRD em épicos e tarefas no Linear direto do agente.</p>
+<p class="tip">Diretórios e links extras: <a href="#referencia-mcps">referências complementares</a>.</p>
+
+<h4>Linear MCP</h4>
+<p>Permite criar projetos, épicos, issues e sincronizar status. Use para transformar escopo em backlog acionável.</p>
+<p class="tip"><strong>Setup:</strong> Settings → <code>Cmd + Shift + J</code> (Mac) ou <code>Ctrl + Shift + J</code> (Windows) → <code>@cursor/marketplace</code> → buscar <strong>Linear</strong> → Enable/Install → conectar conta.</p>
+<p class="tip"><strong>Ordem recomendada:</strong> depois de conectar o MCP, <strong>crie um projeto no Linear</strong> e só então peça ao agente para criar épicos/issues/tasks dentro desse projeto.</p>
 </section>
 </article>
 
@@ -928,7 +970,7 @@ projects/[business-name]/
 <span class="block-pill">B L O C O   0 4</span>
 <h2>Cursor no ciclo de produto</h2>
 <p class="block-quote">Da análise à narrativa e ao planejamento: usar o repositório como "empresa fictícia", gerar entregáveis e preparar o novo fluxo de onboarding para protótipo.</p>
-<p class="block-obj"><strong>Objetivo:</strong> Contexto da <strong>Arena Cash</strong>, análise de dados (triangulando produto, suporte e financeiro com cortes <a href="#case-arenacash-dados">mensais e semanais</a>), comunicação (slides), workflow <strong>PRD do onboarding → épicos/tarefas</strong> no Linear. Integrações via <strong>MCP</strong> (Linear e demais conectores) são detalhadas no <a href="#bloco-6">bloco MCPs</a>.</p>
+<p class="block-obj"><strong>Objetivo:</strong> Contexto da <strong>Arena Cash</strong>, análise de dados (triangulando produto, suporte e financeiro com cortes <a href="#case-arenacash-dados">mensais e semanais</a>), comunicação (slides), workflow <strong>PRD do onboarding → épicos/tarefas</strong> no Linear (MCP configurado em <a href="#bloco-4-mcps">MCPs</a>, bloco 03).</p>
 </header>
 
 <section class="concept">
@@ -964,12 +1006,12 @@ projects/[business-name]/
 </section>
 
 <section class="exercises">
-<p><strong>Ordem sugerida:</strong> agente (06) → análise (07) → dashboard (08) → slides v1 (09) → slides v2 com Skill + Coral (11) → <strong>PRD com <code>/create-prd</code></strong> (12) → protótipo e deploy (13 a 15). A análise (07) usa o <a href="#case-arenacash-dados">pacote de dados Arena Cash</a> completo e pede cortes <strong>mensais + semanais</strong>.</p>
+<p><strong>Ordem sugerida:</strong> <a href="#ex-06-browser-linkedin">browser LinkedIn (06)</a> → <a href="#ex-07-rules-always-apply">Always Apply em rules (07)</a> → agente (08) → análise (09) → dashboard (10) → slides v1 (11) → slides v2 com Skill + Coral (12) → <strong>PRD com <code>/create-prd</code></strong> (13) → protótipo e deploy (14 a 16). A análise (09) usa o <a href="#case-arenacash-dados">pacote de dados Arena Cash</a> completo e pede cortes <strong>mensais + semanais</strong>.</p>
 <h3>Exercícios</h3>
 
 <details class="exercise" id="ex-06-agente-arena-cash">
 <summary>
-<span class="ex-num">06</span>
+<span class="ex-num">08</span>
 <span class="ex-title">Criar um agente (fluxo nativo do Cursor)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1040,7 +1082,7 @@ Arquivo Markdown padrão de agente que o Cursor gera neste fluxo.</code></pre>
 
 <details class="exercise" id="ex-07-analise-arenacash">
 <summary>
-<span class="ex-num">07</span>
+<span class="ex-num">09</span>
 <span class="ex-title">Análise — síntese a partir dos dados do case Arena Cash</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1127,7 +1169,7 @@ Identificar oportunidades para melhorar o **fluxo de onboarding**.
 
 <details class="exercise" id="ex-08-dashboard-arenacash">
 <summary>
-<span class="ex-num">08</span>
+<span class="ex-num">10</span>
 <span class="ex-title">Dashboard navegável em HTML (design system Arena Cash)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1233,7 +1275,7 @@ Aplicar `repos/cursor-para-pms/case arenacash/design-system-arenacash.md`:
 
 <details class="exercise" id="ex-09-slides-rapidos">
 <summary>
-<span class="ex-num">09</span>
+<span class="ex-num">11</span>
 <span class="ex-title">Slides v1 — narrativa rápida (sem skill/template)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1292,7 +1334,7 @@ Escrever o conteúdo de uma apresentação com **6 slides**:
 
 <details class="exercise" id="ex-11-slides-skill-template-coral">
 <summary>
-<span class="ex-num">11</span>
+<span class="ex-num">12</span>
 <span class="ex-title">Slides v2 — com Skill + template Coral (HTML)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1352,7 +1394,7 @@ Arquivos finais (HTML/CSS/JS se necessário) em pasta `slides/`.</code></pre>
 
 <details class="exercise" id="ex-12-prd-onboarding">
 <summary>
-<span class="ex-num">12</span>
+<span class="ex-num">13</span>
 <span class="ex-title">PRD do novo onboarding — comando <code>/create-prd</code></span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1420,46 +1462,13 @@ Crie um PRD com base na **análise feita** e nos **direcionais da companhia**.
 
 <section class="concept">
 <h3>Documentação e planejamento</h3>
-<p>Depois de análise, dashboard, <a href="#ex-09-slides-rapidos">slides v1</a> e <a href="#ex-11-slides-skill-template-coral">slides v2 com Skill</a>, você formaliza o escopo em um <strong>PRD</strong>. No workspace do curso, use <code>/create-prd</code> (ver <a href="#ex-12-prd-onboarding">Exercício 12</a>). Em seguida, esse escopo vira épicos e tarefas no Linear via MCP — <strong>primeiro criando o projeto no Linear e depois as tasks</strong> (detalhado no <a href="#bloco-6">próximo bloco</a>).</p>
-</section>
-</article>
-
-<article class="block" id="bloco-6">
-<header class="block-head">
-<span class="block-pill">B L O C O   0 5</span>
-<h2>MCPs</h2>
-<p class="block-quote">O Model Context Protocol conecta o Cursor a sistemas externos (Notion, Linear, dados, workspace Google, etc.). Este bloco concentra a didática e o setup das integrações usadas no curso.</p>
-<p class="block-obj"><strong>Objetivo:</strong> Entender o que é MCP; conectar <strong>Notion</strong> e <strong>Linear</strong>; publicar e gerir tarefas a partir do agente.</p>
-</header>
-
-<section class="concept">
-<h3>Parte expositiva — O que é MCP <span class="mins">10 min</span></h3>
-<p>MCP (Model Context Protocol) é um padrão que permite ao Cursor acessar ferramentas externas — banco de dados, APIs, Notion, Linear, Google Drive — sem você precisar copiar/colar manualmente entre plataformas. Para PMs, isso significa gerar PRD, publicar no Notion e criar tarefas no Linear em um fluxo contínuo.</p>
-<p class="tip">Links úteis e diretórios de MCPs disponíveis estão nas <a href="#referencia-mcps">referências complementares</a>.</p>
-</section>
-
-<section class="concept">
-<h3>Configurando Notion e Linear</h3>
-<p>No curso, você configurará dois MCPs principais via <strong>Cursor Marketplace</strong>:</p>
-<div class="grid-2">
-<div>
-<h4>Notion MCP</h4>
-<p>Permite criar, ler e atualizar páginas diretamente do Cursor. Use para publicar análises e documentos em Markdown.</p>
-<p class="tip"><strong>Setup:</strong> Settings → <code>Cmd + Shift + J</code> (Mac) ou <code>Ctrl + Shift + J</code> (Windows) → <code>@cursor/marketplace</code> → buscar <strong>Notion</strong> → Enable/Install → conectar conta.</p>
-</div>
-<div>
-<h4>Linear MCP</h4>
-<p>Permite criar projetos, épicos, issues e sincronizar status. Use para quebrar a PRD em tarefas acionáveis.</p>
-<p class="tip"><strong>Setup:</strong> Settings → <code>Cmd + Shift + J</code> (Mac) ou <code>Ctrl + Shift + J</code> (Windows) → <code>@cursor/marketplace</code> → buscar <strong>Linear</strong> → Enable/Install → conectar conta.</p>
-<p class="tip"><strong>Ordem recomendada:</strong> depois de conectar o MCP, <strong>crie um projeto no Linear</strong> e só então peça ao agente para criar épicos/issues/tasks dentro desse projeto.</p>
-</div>
-</div>
+<p>Depois de análise, dashboard, <a href="#ex-09-slides-rapidos">slides v1</a> e <a href="#ex-11-slides-skill-template-coral">slides v2 com Skill</a>, você formaliza o escopo em um <strong>PRD</strong>. No workspace do curso, use <code>/create-prd</code> (ver <a href="#ex-12-prd-onboarding">Exercício 13</a>). Em seguida, esse escopo vira épicos e tarefas no Linear via MCP — <strong>primeiro criando o projeto no Linear e depois as tasks</strong> (setup em <a href="#bloco-4-mcps">MCPs</a>, bloco 03).</p>
 </section>
 </article>
 
 <article class="block" id="bloco-7">
 <header class="block-head">
-<span class="block-pill">B L O C O   0 6</span>
+<span class="block-pill">B L O C O   0 5</span>
 <h2>Construindo protótipos</h2>
 <p class="block-quote">Da primeira versão funcional em localhost ao repositório público — Git, GitHub Pages e, opcionalmente, Vercel.</p>
 <p class="block-obj"><strong>Objetivo:</strong> Construir o protótipo do novo fluxo de onboarding priorizado, versionar e publicar para demonstração.</p>
@@ -1475,7 +1484,7 @@ Crie um PRD com base na **análise feita** e nos **direcionais da companhia**.
 
 <details class="exercise" id="ex-13-prototipo">
 <summary>
-<span class="ex-num">13</span>
+<span class="ex-num">14</span>
 <span class="ex-title">Gerar o protótipo: ASCII → MVP simples → atualização no Linear</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1553,7 +1562,7 @@ Atualizar no **Linear** as tasks relacionadas ao MVP de onboarding.
 
 <details class="exercise" id="ex-14-git-push">
 <summary>
-<span class="ex-num">14</span>
+<span class="ex-num">15</span>
 <span class="ex-title">Commit e push (publicar mudanças)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1588,7 +1597,7 @@ Atualizar no **Linear** as tasks relacionadas ao MVP de onboarding.
 
 <details class="exercise" id="ex-15-github-pages">
 <summary>
-<span class="ex-num">15</span>
+<span class="ex-num">16</span>
 <span class="ex-title">GitHub Pages (e Vercel só como referência)</span>
 <span class="ex-progress">
         <span class="progress-bar"><span class="progress-fill" style="width: 0%;"></span></span>
@@ -1624,7 +1633,7 @@ Atualizar no **Linear** as tasks relacionadas ao MVP de onboarding.
 
 <article class="block" id="bloco-8">
 <header class="block-head">
-<span class="block-pill">B L O C O   0 7</span>
+<span class="block-pill">B L O C O   0 6</span>
 <h2>Construindo o seu "Start My Day"</h2>
 <p class="block-quote">Fechar o dia com uma visão sistêmica: uma rotina repetível que combina métricas, gestão de tarefas e o que você já usou no curso.</p>
 <p class="block-obj"><strong>Objetivo:</strong> Estruturar em modo Plan (ou Agent) um fluxo matinal que faça sentido para PM — inspirado em referências da comunidade Cursor.</p>
