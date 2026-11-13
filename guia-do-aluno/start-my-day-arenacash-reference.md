@@ -9,7 +9,7 @@ view, and open it in localhost.
 
 - A simple dashboard for daily PM review
 - Local-only execution (no Databricks required)
-- Data source: ArenaCash reference files in `learning/Cursor para PMs por Product Arena/case arenacash/`
+- Data source: ArenaCash reference files in `case arenacash/`
 
 Minimum expected output:
 - `index.html` with an executive summary
@@ -20,13 +20,13 @@ Minimum expected output:
 
 Use these files as the source of truth:
 
-- `learning/Cursor para PMs por Product Arena/case arenacash/dados-semanais-arenacash.csv`
-- `learning/Cursor para PMs por Product Arena/case arenacash/dados-quarter-q1.csv`
-- `learning/Cursor para PMs por Product Arena/case arenacash/atendimento-q1.csv`
-- `learning/Cursor para PMs por Product Arena/case arenacash/atendimento-resumo-semanal.csv`
+- `case arenacash/dados-semanais-arenacash.csv`
+- `case arenacash/dados-quarter-q1.csv`
+- `case arenacash/atendimento-q1.csv`
+- `case arenacash/atendimento-resumo-semanal.csv`
 
 Optional (for finance cuts):
-- `learning/Cursor para PMs por Product Arena/case arenacash/financeiro-q1.xlsx`
+- `case arenacash/financeiro-q1.xlsx`
 
 ## 3) Suggested delivery structure
 
